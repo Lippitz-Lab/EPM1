@@ -1,7 +1,7 @@
 \renewcommand{\lastmod}{10. September 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
-\chapter{Grenzen der klassischen Physik}
+\chapter{Aufbau und Eigenschaften von Atomen}
 
 
 
@@ -54,5 +54,104 @@ PLUS UV Katastrophe
 % Schrodinger model.
 
 
+\section{Was bislang geschah}
+
+Die Vorstellung, dass Materie aus nicht weiter teilbaren Teilchen, den Atomen, besteht, geht auf die griechischen Philosophen XXX im 5. Jahrhundert vor Christus. XXX ist griechisch und bedeutet 'unteilbar'. Das war aber nur eine Vorstellung, die durch keine Beobachtung gestützt wurde.
+
+In der Chemie konnte John Dalton um XXX zeigen, dass chemische Reaktionen gut verstanden werden können, wenn man von ganzzahligen Verhältnissen der beteiligten Elemente ausgeht. Abweichungen vom idealen Gasgesetz lassen Rückschlüsse auf die Größe der Atome zu.
+
+Licht wurde seit dem Doppelspaltexperiment von Thomas Young als Welle verstanden und schließlich von Maxwell als elektromagnetische Welle beschrieben.
+
+Als Max Planck sich um 1874 für ein Physikstudium interessierte, sagte ihm der Münchner Physikprofessor Philipp von Jolly, dass eigentlich schon alles erforscht sei und es keine wesentlichen Fragen mehr gäbe (Zitat aus Wikipedia XXX).
+
+Eine Reihe von Experimenten zeigte Ende des 19. Jahrhunderts Widersprüche zu den bis dahin gültigen Modellen auf. Diese Experimente zum Aufbau der Atome und zur Natur des Lichts begründeten die 'Moderne Physik'. Auch wenn wir Atome nicht direkt sehen können, so können wir doch aus verschiedenen Experimenten Rückschlüsse auf ihren Aufbau ziehen.
+
+\section{Schwarzkörperstrahlung}
+
+Wichtige Erkenntnisse über die Natur des Lichts stammen aus einer einfachen Beobachtung: Viele leuchtende Objekte ändern ihre Farbe in Abhängigkeit von der Temperatur. Der Glühfaden einer Glühbirne ändert seine Farbe von grau zu gelb, wenn er durch den fließenden Strom nur heiß genug wird. Stahl ändert seine Farbe im Kohlefeuer der Schmiede. Lava ist im kalten Zustand schwarz, am Vulkan aber rot bis gelb.
+
+In der Wärmelehre haben Sie gesehen, dass die Wärmestrahlung eines Körpers mit der vierten Potenz seiner Temperatur $T$ zunimmt
+\begin{equation}
+    \dot{Q} = e \, \sigma \, A \, T^4
+\end{equation}
+mit der Emissivität $e$, der Stefan-Boltzmann-Konstanten $\sigma$ und der Objektoberfläche $A$. Die Emissivität $e$, auch Emissionsgrad genannt, ist eins für einen idealen Wärmestrahler. Dieser wird als Schwarzkörper und das von ihm abgestrahlte Licht als Schwarzkörperstrahlung bezeichnet.
+
+Ende des 19. Jahrhunderts versuchte man, möglichst ideale Schwarzkörper zu konstruieren und deren Emissionsspektren möglichst genau zu messen. Abbildung XXX zeigt Schwarzkörperspektren für verschiedene Temperaturen. Mit steigender Temperatur nimmt die spektrale Intensität bei jeder Wellenlänge zu. Gleichzeitig verschiebt sich das Maximum zu kurzen Wellenlängen, entsprechend dem \emph{Wien'schen Verschiebungsgesetz}
+\begin{equation}
+    \lambda_{peak} = \frac{b}{T}
+\end{equation}
+mit der Wien'schen Verschiebungskonstanten $b \approx $ \si{2898}{um K}.
+
+Damals erwartete man, dass die Form des Schwarzkörperspektrums aus einer gut verstandenen Thermodynamik und der Maxwellschen Theorie der elektromagnetischen Strahlung abgeleitet werden könnte. Man fand zwei Modelle\sidenote{Wir diskutieren im nächsten Kapitel die heute akzeptierte Form und finden dann diese beiden alten Modelle als Genzfälle}, die aber jeweils nur einen Teil des Spektrums richtig beschrieben: Das Wiensche Gesetz den langwelligen Teil, das von Rayleigh und Jeans den kurzwelligen. Schlimmer noch: Das Rayleigh-Jeans-Gesetz liefert ein divergierendes Spektrum, so dass auch die abgestrahlte Leistung divergiert. Das ist die \emph{UV-Katastrophe}.
+
+Trotz des einfachen Experiments 'Spektrum eines schwarzen Körpers' und eigentlich gut verstandener Theorien zur Elektrodynamik und Thermodynamik funktioniert hier also etwas nicht.
+
+
+\paragraph*{Spektren über der Wellenlänge und über der Frequenz} Ich zeige hier nur Spektren über der Wellenlänge $\lambda$. Mit $\nu = c / \lambda$ kann man auch zur Frequenz $\nu$ übergehen. Dabei ändert sich aber nicht nur die x-Achse, sondern auch der y-Wert des Spektrums, da eigentlich $I(\lambda) d\lambda$ bzw. $I(\nu) d\nu$ aufgetragen wird und somit auch $d\lambda$ in $d\nu$ umgerechnet werden muss. Dies wird besonders deutlich, wenn man bedenkt, dass das Integral über das Spektrum unabhängig von der Skalierung der x-Achse immer die gleiche Leistung ergeben muss. Bei dieser Umrechnung ändert sich die Form des Spektrums und damit die Lage des Maximums, also 
+\begin{equation}
+    \nu_{peak} \neq \frac{c}{\lambda_{peak}}
+\end{equation}
+
+\section{Spektren von atomaren Gasen}
+
+In einer Gasentladungsröhre fließt ein elektrischer Strom durch ein Gas, das in einer Glasröhre eingeschlossen ist. Die bunten Lichter der Leuchtreklame oder 'Neonröhren' basieren auf diesem Prinzip, haben aber manchmal noch einen leuchtenden Phosphor als Beschichtung auf der Röhre selbst. Das Emissionsspektrum unterscheidet sich deutlich von dem eines schwarzen Strahlers. Es besteht aus diskreten, sehr scharfen Linien, die sich für jedes Element wie ein Fingerabdruck unterscheiden. Neon zum Beispiel hat viele Linien im roten Spektralbereich. Sie erzeugen das rote Licht der Leuchtreklame.
+
+Man kann auch das Absorptionsspektrum der Atome eines Gases messen, indem man z. B. ein kontinuierliches Schwarzkörperspektrum durch ein Gas schickt und dann spektroskopiert. Man findet diskrete, schmale, dunkle Linien, die das Gas aus dem breiten Spektrum des Schwarzkörpers herausschneidet. Diese Absorptionslinien sind jedoch nur eine Teilmenge der Emissionslinien. Für jede Absorptionslinie gibt es eine Emissionslinie bei der gleichen Wellenlänge, aber nicht umgekehrt.
+
+Mit der klassischen Physik war das alles nicht zu erklären. Warum diskrete Linien, warum für jedes Element anders, warum mehr in der Emission als in der Absorption?
+
+Der einzige Lichtblick war die Entdeckung des Schweizer Lehrers Johann Balmer, dass die Wellenlänge der Emissionslinien des einfachsten Atoms, des Wasserstoffs, durch eine einfache Formel beschrieben werden kann:
+\begin{equation}
+    \lambda = \frac{\SI{91.18}{nm}}{ 
+       \frac{1}{m^2} - \frac{1}{n^2} 
+    }
+    \quad \text{mit} \quad m = 1,2, 3, \dots \quad \text{und} \quad n = m+1, m+2, \dots
+\end{equation}
+Diese \emph{Balmer-Formel} beschreibt für $m=2$ die zuerst beobachtete \emph{Balmer-Serie}, eine Abfolge von Linien im sichtbaren Spektralbereich, die immer enger zusammenrücken und gegen 365~nm konvergieren.  
+
+Die Balmerformel ist rein empirisch. Die zufällig gefundene Kombination ganzer Zahlen liefert die Position der Linien. Worauf sie beruht, ist zu diesem Zeitpunkt noch völlig unklar. Eine so einfache Beziehung sollte eigentlich eine einfache Begründung haben.
+
+
+\section{Kathodenstrahlen}
+
+Mit zunehmender Verbesserung der Vakuumtechnik ist aufgefallen, dass in Gasentladungsröhren nicht nur das Gas in einer für das Gas charakteristischen Farbe leuchtet, sondern auch Teile der Glasröhre grünlich leuchten.  Von der Kathode scheinen Strahlen auszugehen, die sich geradlinig ausbreiten. Gegenstände im Strahlengang werfen einen Schatten. Diese Strahlen nannte man Kathodenstrahlen.
+
+William Crookes und andere entdeckten Ende des 19. Jahrhunderts, dass Kathodenstrahlen mit einem elektrischen Strom in der Gasentladungsröhre zusammenhängen. Die Strahlen werden durch ein Magnetfeld abgelenkt, als wären sie negativ geladen. Und die Strahlen sind unabhängig vom Material der Kathode.
+
+Geladene Gasteilchen könnten eine Erklärung sein. Ihre mittlere freie Weglänge ist aber viel kleiner als die Länge der Röhre. Sie müssten sehr oft zusammenstoßen und könnten sich nicht geradlinig ausbreiten.
+
+Maxwells Theorie der elektromagnetischen Strahlung war damals noch sehr jung. Man wusste, dass sich Licht nicht von Magnetfeldern ablenken lässt. Man konnte aber nicht ganz ausschließen, dass Strahlung mit einer ganz anderen Wellenlänge abgelenkt werden könnte.
+
+Wilhelm Röntgen untersuchte diese Kathodenstrahlen. Er entdeckte 1895, dass eine andere Art von Strahlung entsteht, wenn die Kathodenstrahlen auf eine Metallanode treffen. Diese später als Röntgenstrahlung bezeichnete Strahlung verlässt die Entladungsröhre, durchdringt praktisch alle Materialien und belichtet Filme. Erst später wurden Röntgenstrahlen als sehr kurzwellige elektromagnetische Wellen erkannt, die ebenfalls den Maxwell-Gleichungen unterliegen.
+
+J.J. Thomson schließlich hatte die Idee, die Kathodenstrahlen in einem Magnetfeld so abzulenken, dass sie auf eine Anode treffen. Nur in diesem Fall fließt ein Strom durch die Anode, nicht aber, wenn der Kathodenstrahl auf die daneben liegende Glaswand trifft. Damit war bewiesen, dass der Strahl aus negativ geladenen Teilchen besteht.
+
+\section{Gekreuzte E- und B-Felder}
+
+Die Ablenkung einer Ladung $q$ mit der Geschwindigkeit $v$ in einem Magnetfeld $B$ aufgrund der Lorenzkraft
+\begin{equation}
+    F_B = q \, v \, B
+\end{equation}
+führt zu einer Kreisbahn mit dem Radius $r$
+\begin{equation}
+    r = \frac{m v}{q B}
+\end{equation}
+mit der Masse $m$ des Teilchens. Die Ablenkung im Magnetfeld hängt also von zu vielen Unbekannten ab, um eine Aussage über das Teilchen machen zu können.
+
+Thomsons Idee war, gleichzeitig ein elektrisches Feld $E$ senkrecht zum B-Feld anzulegen. Die Coulombkraft wirkt dann der Lorenzkraft entgegen und kann die Ablenkung kompensieren. Für den Fall der geradlinigen Ausbreitung gilt daher
+\begin{equation}
+    F_B = q v B = q E = F_E  \quad \text{bzw.} \quad v = \frac{E}{B} 
+\end{equation}
+Damit kann die Geschwindigkeit $v$ bestimmt werden. Bleibt dann alles unverändert, wird nur das E-Feld abgeschaltet, so kann mit der nun bekannten Geschwindigkeit $v$ aus der Kreisbahn das Ladungs-Masse-Verhältnis bestimmt werden
+\begin{equation}
+    \frac{q}{m} = \frac{v}{r B}
+\end{equation}
+
+\section{Das Elektron}
+
+Thomson fand\sidenote{heutiger Wert des Elektrons $q/m \approx 1.76 \cdot 10^{11}$C/kg} $q/m \approx 1 \cdot 10^{11}$C/kg etwa 1000 mal größer als der aus der Elektrolyse bekannte Wert des Wasserstoffions.
+
 %--------------------
+
+
 \printbibliography[segment=\therefsegment,heading=subbibliography]
