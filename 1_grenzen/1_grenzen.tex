@@ -15,15 +15,7 @@ Ich kann erklären, wie experimentell zwischen den Atom-Modellen von Thomson und
 s.a. Demtröder 3, Kap. 2
 
 
-37.1 Matter and Light 1116
 
-37.2 The Emission and Absorption of Light 1116
-
-37.3 Cathode Rays and X Rays 1119
-
-37.4 The Discovery of the Electron 1121
-
-37.5 The Fundamental Unit of Charge 1124
 
 37.6 The Discovery of the Nucleus 1125
 
@@ -32,18 +24,6 @@ s.a. Demtröder 3, Kap. 2
 37.8 Classical Physics at the Limit 1131
 
 \phet{Radio_Waves_and_Electromagnetic_Fields}
-
-PLUS UV Katastrophe
-
-2.1 Schwarzkörper und Hohlräume [2]1	
-
-
-
-2.4 Wien’sches Verschiebegesetz 4	
-
-2.5 Treibhaus
-
-6.2 Franck-Hertz-Versuch2	hier ??
 
 
 
@@ -149,7 +129,73 @@ Damit kann die Geschwindigkeit $v$ bestimmt werden. Bleibt dann alles unverände
 
 \section{Das Elektron}
 
-Thomson fand\sidenote{heutiger Wert des Elektrons $q/m \approx 1.76 \cdot 10^{11}$C/kg} $q/m \approx 1 \cdot 10^{11}$C/kg etwa 1000 mal größer als der aus der Elektrolyse bekannte Wert des Wasserstoffions.
+Thomson fand\sidenote{heutiger Wert des Elektrons $q/m \approx 1.76 \cdot 10^{11}$C/kg} für die Teilchen im Kathodenstrahl $q/m \approx 1 \cdot 10^{11}$C/kg, etwa 1000 mal größer als der aus der Elektrolyse bekannte Wert des Wasserstoffions. Aber ob die Masse kleiner oder die Ladung größer war als beim Wasserstoffion oder beides, konnte nicht gesagt werden. Man vermutete aus der Elektrolyse, dass die Ladung quantisiert ist, aber der Zusammenhang zwischen Kathodenstrahl und Elektrolyse war nicht offensichtlich. Thomson argumentierte, dass Kathodenstrahlen dünne Metallfilme durchdringen können, Atome jedoch nicht. Daher müssten die Kathodenstrahlen aus viel kleineren Teilchen bestehen, die wiederum Bestandteil des Atoms sind. Diese Teilchen wurden später als Elektronen bezeichnet.
+
+\section{Millikans Öltröpfchen-Experiment: die Elementarladung}
+
+Thomson hatte das Verhältnis $q/m$ bestimmt, aber nicht die Bestandteile aufgelöst. Dies gelang 1906 Robert Millikan. Er ließ sehr kleine Öltröpfchen in einem Plattenkondensator schweben. Aus dem Gleichgewicht von Gewichtskraft und Coulombkraft ergibt sich 
+\begin{equation}
+    F_g = M \, g = Q \, E = F_C \quad \text{und} \quad Q = \frac{M g}{E}
+\end{equation}
+mit der Masse $M$ und der Ladung $Q$ des Tropfens. Millikan bestimmte die Masse des Tropfens, indem er das elektrische Feld abschaltete und den Tropfen fallen ließ. Da der Tropfen sehr klein ist, erreicht er schnell die Geschwindigkeit, bei der die Schwerkraft durch die Auftriebskraft des Tropfens in der Luft, vermindert um die Reibungskraft der Bewegung in der Luft, kompensiert wird, so dass eine konstante Geschwindigkeit $v$ erreicht wird
+\begin{equation}
+    \rho_{oel} \frac{4}{3} \pi R^3 \, g  =  \rho_{luft} \frac{4}{3} \pi R^3 \, g
+     \; - \; 6 
+     \pi \eta R \, v 
+ \end{equation}
+mit dem Radius $R$ des Tropfens und der Viskosität $\eta$ von Luft und den Dichten $\rho_{luft, oel}$. Aus gemessener Geschwindigkeit $v$ ergibt sich  der Radius  $R$ des Tropfens und so seine Masse $M$, und daraus schließlich die Ladung $Q$.
+
+Millikan untersuchte eine große Anzahl von Tropfen. Er fand heraus, dass sowohl positiv als auch negativ geladene Tropfen immer eine Ladung $Q$ haben, die als ganzzahliges Vielfaches einer Elementarladung $e$ dargestellt werden kann. Für diese Elementarladung fand er
+\begin{equation}
+    e = 1.60 \cdot 10^{-10} C \text{heute XXXX, Viskosität fehlerhaft}
+\end{equation}
+Zusammen mit dem von Thomson ermittelten Wert für $q/m$ ergibt sich daraus die Masse des Elektrons zu
+\begin{equation}
+    m_{elec} = 9.11 \cdot 10^{-31} kg \text{heute XXXX}
+\end{equation}
+
+
+\section{Der Atomkern}
+
+Ein Atom ist also nicht unteilbar, wie die Griechen vermuteten, sondern zumindest Elektronen können aus dem Atom entfernt werden. Woraus besteht der Rest? Er muss positiv geladen sein, um die negative Ladung der Elektronen auszugleichen. Und er muss fast die gesamte Masse des Atoms ausmachen, denn die Elektronen sind ja viel leichter als die Atome.
+
+Thomson schlug ein Modell vor, das 'Rosinenkuchenmodell': Masse und positive Ladung sind wie der Teig eines Kuchens über das ganze Atom verteilt, das eine Kugel von etwa \si{10^{-10}}{m} = 1\AA\ Durchmesser bildet. In diesem Teig sind die viel kleineren Elektronen als Rosinen eingebettet.\sidenote{Achtung: Nach heutigem Verständnis würde man den Atomkern als eine einzige Rosine in einer Elektronenwolke als Teig sehen. Das ist genau das Gegenteil des Thomson-Modells!}
+
+Ernest Rutherford wollte dieses Modell überprüfen, indem er mit seinen Mitarbeitern Marsden und Geiger die kurz zuvor beim radioaktiven Zerfall entdeckten Alphateilchen auf eine dünne Goldfolie schoss. Alphateilchen bestehen aus zwei Protonen und zwei Neutronen, sind also doppelt positiv geladene Heliumkerne. Ihr Verhältnis $q/m$ war schon damals bekannt.
+
+Nach dem Thomson-Modell würde man erwarten, dass die Alphateilchen nur wenig abgelenkt werden. Die Ladungen im Atom kompensieren sich und keine kann einen großen Effekt haben. Das sieht man auch, wenn man den transmittierten Alphastrahl auf einem Schirm beobachtet.
+
+Die Überraschung war jedoch, dass einige Alphateilchen auch in sehr hohen Winkeln abgelenkt wurden, manche fast reflektiert. Das lässt sich mit dem Thomson-Modell nicht erklären. Dazu muss die Masse (und genügend positive Ladung) in einem viel kleineren Volumen als dem des Atoms konzentriert sein. Rutherford hatte den Atomkern entdeckt. Die positive Ladung und fast die gesamte Masse sind in dem sehr kleinen Atomkern mit einem Durchmesser von etwa \si{10^{-14}}{m} = \si{10}{fm} konzentriert. Der Rest des Atoms ist leer. Die Elektronen spielen für dieses Streuexperiment keine Rolle, da ihre Masse viel kleiner ist als die der Alphateilchen.
+
+\section{Rutherfordsche Streuformel}
+
+Im Rutherford-Experiment wird die Anzahl $N(\theta)$ der um den Winkel $\theta$ abgelenkten Alphateilchen gemessen. Dabei ist die Größe des Detektors zu berücksichtigen, die durch den Raumwinkel $d\Omega$ beschrieben wird. Die Streueffizienz wird durch den integralen Streuquerschnitt $\sigma$ bzw. durch den differentiellen Streuquerschnitt  
+\begin{equation}
+    \frac{d \sigma(\theta)}{d\Omega} = \frac{N(\theta)}{N_0}
+\end{equation}
+beschrieben, mit der Gesamtzahl $N_0$ aller Alphateilchen.
+
+Das Rutherford-Modell kann rein klassisch modelliert werden. Man beschreibt die Bahn eines geladenen Teilchens im Coulombpotential einer punktförmigen geladenen Masse unter Berücksichtigung der Energie- und Impulserhaltung. Da das Problem rotationssymmetrisch um die Achse Alpha-Quelle-Atomkern ist, wird nur der sogenannte Stoßparameter $b$ berücksichtigt, der den Abstand der nicht abgelenkten Bahn des Alpha-Teilchens von dieser Symmetrieachse angibt. Man findet\sidenote{dies ist eine Übungsaufgabe}  eine charakteristische $\sin^{-4} (\theta/2)$-Abhängigkeit:
+\begin{equation}
+    \frac{d \sigma(\theta)}{d\Omega} =
+    \frac{1}{4} \left(
+\frac{qQ}{4 \pi \epsilon_0 \; 2 E_{kin}}
+    \right)^2 \, \frac{1}{\sin^4 (\theta/2)}
+\end{equation}
+wobei $Q$ und $q$ die Ladungen des Kerns und des Alphateilchens und $E_{kin}$ die kinetische Energie des weit vom Kern entfernten Alphateilchens sind.
+
+
+\section{Elektronenvolt}
+
+Nun ist es an der Zeit, die sehr praktische Einheit 'Elektronenvolt' einzuführen. Die Angabe einer Energie in Joule ist für makroskopische Fragestellungen sinnvoll. Deshalb wurde diese Einheit eingeführt. Für Objekte wie Atome und Kerne ist sie nicht mehr geeignet. 
+
+Wir verwenden hier die Einheit 'Elektronenvolt', abgekürzt 'eV'. Sie beschreibt die Energie $\Delta E$, die ein Elektron aufgenommen hat, wenn es eine Potentialdifferenz von $\Delta U =1$~V durchlaufen hat, also 
+\begin{equation}
+    \Delta E = e \Delta U \quad \text{und somit} \quad \si{1}{eV} = \si{1.60 10^{-19}}{J}
+\end{equation}
+
+Hier ist in mehrfacher Hinsicht Vorsicht geboten: Die Einheit besteht aus zwei Zeichen (wie Pa), was insbesondere in Kombination mit Kilo-, Mega-, etc. zunächst ungewohnt sein kann: \si{1}{keV} = \si{1000}{eV}. Und das 'V' von Volt taucht auf, ohne dass eine Spannung beschrieben wird. Da \si{1}{J} = \si{1}{VAs} ist \si{1}{eV} = \si{1.60 10^{-19}}{VAs}, aber die beiden V haben eine unterschiedliche Bedeutung.
+
 
 %--------------------
 
