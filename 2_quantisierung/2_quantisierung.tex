@@ -25,6 +25,14 @@ s.a. Demtröder 3, Kap. 3
 
 38.3 Photons 1144
 
+
+Einschub: Planck-sches Strahlungsgesetz
+
+Eisnchub: Compton-Effelt \& Strahlungsdruck und Impuls des Photons  
+
+
+
+
 38.4 Matter Waves and Energy Quantization 1148
 
 38.5 Bohr's Model of Atomic Quantization 1151
@@ -32,6 +40,9 @@ s.a. Demtröder 3, Kap. 3
 38.6 The Bohr Hydrogen Atom 1155
 
 38.7 The Hydrogen Spectrum 1160
+
+Einschub: Franck-Hertz-Versuch
+
 
 PLUS Planck’sches Strahlungsgesetz
 
@@ -45,17 +56,7 @@ PLUS Planck’sches Strahlungsgesetz
 
 \url{https://www.spektrum.de/magazin/bedroht-diequantenverschraenkung-einsteins-theorie/1002937}
 
-2.2 Moden eines Hohlraums 2	
-
-2.3 Planck’sches Strahlungsgesetz [2]3	
-
-3.3 Compton-Effekt [2] 3	
-
-3.4 Strahlungsdruck und Impuls des Photons [2]4	
-
-6.2 Franck-Hertz-Versuch2	hier ??
-
-2.5 Treibhaus
+ 
 
 
 % 2. Photoelectric Effect
@@ -111,5 +112,190 @@ PLUS Planck’sches Strahlungsgesetz
 % that -13.6eV is the potential energy. This confusion is confounded by the way the total
 % energy lines are drawn on top of the potential energy curves.
 
-%--------------------
+
+\section{Überblick}
+
+Verschiedene Experimente haben Hinweise darauf geliefert, dass die Energie in einem Atom oder in einem Lichtstrahl \emph{quantisiert} ist, d.h. nur diskrete, wohldefinierte Werte annehmen kann. Die meisten Energien sind nicht möglich. In diesem Kapitel werden wir diese Experimente diskutieren und ihre Ergebnisse interpretieren.
+
+\section{Der Photoelektrische Effekt}
+
+Das zentrale und wichtige Experiment, das zur Quantenhypothese der Photonen führte, war der photoelektrische Effekt\sidenote{Auch Photoeffekt bzw. genauer äußerer Photoeffekt gennannt}. Bereits 1887 war bekannt, dass ultraviolettes Licht eine negativ geladene Platte eines Elektrometers entlädt, wobei Elektronen aus der Platte austreten.\sidenote{Diese austretenden Elektronen werden manchmal Photoelektronen genannt, sind aber völlig identisch mit allen anderen Elektronen.} Phillip Lenard hat dieses Experiment verfeinert. Die ehemals negativ geladene Platte bildet als Kathode zusammen mit einer Anode und einer Spannungsquelle einen Stromkreis. Die beiden Elektroden sind in einem Vakuumkolben eingeschlossen. Ein Gas spielt also keine Rolle. Wenn Licht auf die Kathode fällt, fließt ein Strom durch den Stromkreis, der gemessen werden kann. Dieser Strom muss also von den Elektronen getragen werden, die sich im Glaskolben von links nach rechts und damit im Uhrzeigersinn durch den Aufbau in Abbildung XXX bewegen (technische Stromrichtung entgegen dem Uhrzeigersinn). Ohne Licht gibt es keine austretenden Elektronen und damit keinen Strom.
+
+Lenard untersuchte 1902 den Zusammenhang zwischen der Potentialdifferenz $\Delta V$ der Spannungsquelle und der Stromstärke $I$ im Stromkreis und der Lichtintensität und -frequenz $f = c / \lambda$. Er fand
+\begin{enumerate}
+    \item Der Strom $I$ ist proportional zur Lichtintensität.
+    \item Es gibt keine Verzögerung zwischen dem Einschalten des Lichtes und dem Beginn des Stromflusses.
+    \item Es gibt eine minimale Frequenz $f_0$ des Lichts, bzw. eine maximale Wellenlänge. Nur wenn das Licht diese Frequenz überschreitet (also blauer ist) fließt Strom. Dies kann nicht durch eine höhere Intensität kompensiert werden.
+    \item Die minimale Frequenz $f_0$ hängt von der Art des Metalls in der Kathode ab.
+    \item Die Stromstärke $I$ nimmt bei kleinen positiven Spannungen etwas zu. Bei großen Spannungen nimmt sie nicht mehr zu. Bei negativer Spannung wird die Stromstärke kleiner, bis bei einer Spannung $V = -V_{stop}$ kein Strom mehr fließt ($V_{stop}$ ist hier also als positiv definiert). 
+    \item Diese Grenzspannung $V_{stop}$ ist unabhängig von der Lichtintensität. 
+\end{enumerate}
+
+Aus Sicht der klassischen Physik liefert die elektromagnetische Welle Energie, die im Metall in Form von Wärme gespeichert wird. Dies führt dazu, dass einige Elektronen die Austrittsarbeit überwinden und das Metall verlassen können. Dies wird als Glühemission bezeichnet und wurde beispielsweise in Röhrenfernsehgeräten genutzt.
+
+Die Austrittsarbeit $W$ ist für jedes Metall unterschiedlich. Die meisten Metalle schmelzen, bevor eine nennenswerte Anzahl von Elektronen die Austrittsarbeit überwinden kann. Wolfram (XXX) besitzt eine geeignete Kombination aus niedriger Austrittsarbeit und hohem Schmelzpunkt und wird daher häufig als Glühwendel verwendet.
+
+Einfache Berechnungen (Übung XXX) zeigen, dass die Energie eines Lichtstrahls auf zu viele Elektronen verteilt wird, so dass jedes Elektron sehr lange Energie sammeln müsste, um die Austrittsarbeit zu überwinden. Oder die Lichteinstrahlung konzentriert sich auf wenige Atome, die dann zu heiß werden. Es muss sich also beim Photoeffekt um etwas anderes als eine Glühemission handeln.
+
+\section{Stop-Spannung  $V_{stop}$ }
+
+Welche Information kann aus der Stoppspannung $V_{stop}$ gewonnen werden? Die Austrittsarbeit $W$ ist die Energie, die mindestens aufgewendet werden muss, um ein Elektron aus dem Metall zu entfernen. Wird einem Elektron die Energie $E_{elec}$ zugeführt, so hat es außen maximal die Energie 
+\begin{equation}
+    E_{kin}^{max} = E_{elec} - W
+\end{equation}
+die allein in der Bewegung des Elektrons steckt. Die freigesetzten Elektronen haben also eine Geschwindigkeitsverteilung, deren obere Grenze durch die Austrittsarbeit $W$ bestimmt wird.
+
+Je nach Potentialunterschied zwischen Kathode und Anode bewegen sich die austretenden Elektronen auf unterschiedlichen Bahnen. Eine positive Anode zieht Elektronen an. Mit zunehmender Anziehungskraft wandern auch Elektronen zur Anode, die sich ursprünglich in eine andere Richtung bewegt haben. Ab einer bestimmten Potentialdifferenz werden jedoch alle Elektronen gesammelt und der Strom erreicht einen Maximalwert.
+
+Eine negative Anode stößt die Elektronen ab. Die Elektronen müssen gegen den Potentialberg laufen. Je negativer die Potentialdifferenz, d.h. je positiver $V_{stop}$, desto weniger Elektronen gelangen zur Anode. Die letzten Elektronen, die es noch zur Anode schaffen, sind die mit der maximalen kinetischen Energie, eben die mit $ E_{kin}^{max}$. Die Stoppspannung $V_{stop}$ bestimmt also die Austrittsarbeit $W$:
+\begin{equation}
+    V_{stop} = \frac{E_{kin}^{max}}{e} = \frac{E_{elec} - W}{e}  
+\end{equation}
+Dies nennt man darum Gegenfeldmethode.
+
+
+\section{Klassische Deutung des Photoeffekts}
+
+Aus Sicht der klassischen Physik ist Beobachtung 1, d.h. die Intensitätsabhängigkeit, gut erklärbar. Beobachtung 5 kann ebenfalls mit der Austrittsarbeit erklärt werden. Für die Grenzfrequenz $f_0$ des Lichts und die Tatsache, dass diese auch durch hohe Lichtintensitäten nicht verschoben werden kann, gibt es kein klassisches Modell. Auch die Stoppspannung sollte klassischerweise von der Lichtintensität und damit von der Temperatur der Elektronen abhängen. Schließlich kann, wie oben diskutiert, das sofortige Einsetzen des Stromflusses nicht klassisch erklärt werden.
+
+
+\section{Einsteins Quantenhypothese}
+
+Im Jahr 1905, dem 'annus mirabilis',  veröffentlichte Albert Einstein 4 wichtige Artikel:
+\begin{enumerate}
+    \item Die Erklärung des photoelektrischen Effekts, die wir hier besprechen werden und für die er 1921 den Nobelpreis erhielt.
+    \item Die Erklärung der Brownschen Bewegung mit der Diffusionskonstante $D = \mu k_b T$.
+    \item Die spezielle Relativitätstheorie.
+    \item Die Masse-Energie-Äquivalenz mit $E = m c^2$.
+\end{enumerate}
+
+Der entscheidende Punkt bei der Erklärung des Photoeffektes war die Annahme, dass die Energie einer Lichtwelle \emph{quantisiert} ist. Es gibt eine kleinste mögliche Energiemenge und alles andere sind ganzzahlige Vielfache davon. Dieses Lichtquantum nennt man heute \emph{Photon}. Es bewegt sich mit Lichtgeschwindigkeit.  Die Energie $E$ eines Photons hängt von der Frequenz $\nu$ der Lichtwelle ab
+\begin{equation}
+    E = h \, \nu \quad \text{mit} \quad h = 6,63 \cdot 10^{-34} \, J \, s = 4.14 \cdot 10^{-15}\, eV \, s
+\end{equation}
+mit der Planckschen Konstanten $h$. 
+
+Neben dieser Annahme der Quantelung der Energie sind noch zwei weitere nötig: Die Absorption und Emission von Licht erfolgt immer in ganzen Quanten. Und die Energie wird immer auf genau ein Elektron übertragen, nicht auf mehrere.
+
+Für diese Quantenhypothese gibt es keine klassische Entsprechung. Wie wir sehen werden, reicht sie aber aus, um den Photoeffekt zu erklären.
+
+Auf das Metall trifft Licht der Frequenz $\nu$. Jedes Photon hat dabei die Energie $E = h \nu$. Bei der Absorption wird diese Energie auf genau ein Elektron übertragen. Wenn sie ausreicht, um die Austrittsarbeit zu leisten ($h \nu > W$), kann das Elektron das Metall verlassen. Für die Grenzfrequenz des Lichtes gilt dann
+ \begin{equation}
+     \nu > \nu_0 = \frac{W}{h}
+ \end{equation}
+ Dies ist eine scharfe Grenze, wie im Experiment beobachtet.
+
+ Höhere Lichtintensität bedeutet mehr Photonen, nicht Photonen mit höherer Energie. Es können also mehr Elektronen austreten, es kann mehr Strom fließen, aber nur, wenn die Grenzfrequenz überschritten wird, der Prozess also für ein einzelnes Photon ablaufen kann.
+
+ Die Stoppspannung $V_{stop}$ ergibt sich aus der Energiedifferenz des Photons und der Austrittsarbeit, d.h. 
+ \begin{equation}
+     V_{stop} = \frac{h \nu - W}{e}
+ \end{equation}
+ Sie ist also insbesondere nicht von der Lichtintensität abhängig.
+
+ Schließlich ist die Absorption instantan. Das Elektron nimmt die Energie des Photons sofort auf, es kann sofort austreten und es gibt keine Zeitverzögerung zwischen dem Einfangen des Lichtes und dem Beginn des Stromflusses.
+
+ Die Quantenhypothese von Albert Einstein kann also den Photoeffekt vollständig erklären. Sie gilt als Startschuss für die moderne Physik.
+
+ \paragraph*{Nebenbemerkung} Auch nach unserer heutigen Überzeugung ist die Energie in einem Lichtstrahl in Photonen quantisiert, und auch alle anderen Annahmen finden heute noch Zustimmung. Wenn man aber genau ist, braucht man die Annahme der Quantisierung des Lichtfeldes nicht. Es genügt, dass das Elektron der Quantenmechanik unterliegt. In den üblichen Vorlesungen und Büchern über Quantenmechanik wird das Elektron als quantenmechanisches Objekt mit Operatoren beschrieben, aber das Lichtfeld bleibt klassisch. Dies wird als '1. Quantisierung' bezeichnet und führt z.B. zu Fermis Goldener Regel, die auch den Photoeffekt beschreibt.
+ Erst in der '2. Quantisierung' wird auch das Lichtfeld quantisiert und es werden Effekte beschrieben, die nur durch Photonen erklärt werden können, z.B. 'Anti-Bunching'.
+
+
+ \section{Plancks Erklärung der Schwarzkörperstrahlung}
+
+Hier reiche ich Max Plancks Erklärung der Schwarzkörperstrahlung nach. Er hat sie 1900 veröffentlicht und sie war die Grundlage für Einsteins Quantenhypothese. Max Planck nahm auch an, dass die Energie einer Lichtwelle gequantelt ist, ohne jedoch wirklich von Quanten zu sprechen.
+
+\subsection{Modendichte eines Resonators}
+
+Zunächst müssen wir die Modendichte einführen und berechnen. Diese Art der Berechnung wird später in der Festkörperphysik an verschiedenen Stellen immer wieder vorkommen.
+
+Wir betrachten einen verspiegelten quaderförmigen Hohlraum der Kantenlänge $L$. In ihm bilden sich wie in einem Resonator stehende Lichtwellen aus. Für die Wellenlänge $\lambda$ muss gelten
+\begin{equation}
+     L = n_x \frac{\lambda}{2} \quad \text{bzw} \quad k_x = \frac{2 \pi}{\lambda} = \frac{n_x \pi }{L}
+\end{equation}
+mit $n_x > 0$. Der Wellenvektor $\bk$ hat drei Komponenten
+\begin{equation}
+    k = | \bk | = \sqrt{k_x^2 + k_y^2 + k_z^2 } = \frac{\pi}{L} \sqrt{n_x^2 + n_y^2 + n_z^2}
+\end{equation}
+Im dreidimensionalen k-Raum sind die möglichen Werte von $\bk$ also die Punkte auf einem kubischen Gitter mit dem Abstand der Gitterpunkte $\pi / L$, wobei nur der positive Oktand erlaubt ist, also $n_{x,y,z} > 0$. Diese Punkte sind die \emph{Moden} des Resonators bzw. der Kavität. Um jeden Punkt gibt es einen würfelförmigen Raum im Volumen $(\pi/L)^3$, bzw. die Dichte der Punkte im k-Raum ist $(L/\pi)^3$.
+
+Die Frequenz $\nu$ der Lichtwelle ist proportional zu $k$:
+\begin{equation}
+    \nu = \frac{c}{\lambda} = \frac{c \, k}{2 \pi }
+\end{equation}
+Alle Moden  im  Frequenzintervall $(\nu, \nu+d\nu)$ liegen also in einer  achtel 'Orangenschale' mit Radius $k = 2 \pi \nu / c$  und Dicke $dk = 2 \pi d\nu / c$. Die Anzahl der Moden ist damit Volumen durch Dichte, also  
+\begin{equation}
+    N d\nu = \frac{4 \pi k^2 dk}{8 (L/\pi)^3} 
+\end{equation}
+und die \emph{Modendichte} im Frequenzraum, normiert auf das Volumen,
+\begin{equation}
+    n(\nu) d\nu = \frac{N d\nu}{V} = \frac{8 \pi \nu^2}{c^3} d\nu
+\end{equation}
+wobei ein zusätzlicher Faktor 2 wegen den beiden Polarisationsrichtungen des Lichts hinzugekommen ist.
+
+
+\subsection{Rayleigh-Jeans-Modell}
+
+Ein verspiegleter Hohlraum ist ein Schwarzkörper, wenn das Loch im Hohlraum nur klein genug ist. Dann steht das Lichtfeld im Innneren im thermischen Gleochhewicht mit den Wänden der Temperatur $T$. Das vom Hohlraum emittierte Spektrum entspricht der Modendichte mal der mittleren Energie pro Mode.
+
+In der klassischen Physik beträgt die mittlere Energie $k_b T$ pro Mode\sidenote{weil 2 Freiheitsgrade}, das Spektrum also 
+\begin{equation}
+    w(\nu) d\nu = \frac{8 \pi \nu^2}{c^3} \, k_b T \, d\nu
+\end{equation}
+Das ist das Rayleigh-Jeans-Gesetz und beschreibt dem langwelleigen Teil des  Schwarzkörper-Spewktrum gut. Problemamtisch ist die $\nu^2$-Abhängigkeit, die zur Difergenz des emittierte Leistung führt, der UV-Katastrophe.
+
+
+\subsection{Planck: Quantisierung !}
+
+Max Planck machte die Annahme, dass die Energie pro Mode ein Vielfaches von $h \nu$ sein muss, also 
+\begin{equation}
+    E = n \, h \, \nu
+\end{equation}
+mit der von ihm eingefürhrten Konstante $h$. Das ist also eine Leiter von qäqzidtsiatncen Zuständen. Die Besetzungswharscheinlihckiet $p(E)$ ist wie in der Thermodynamik durch die Bioltzman-Verteilung gegeben
+\begin{equation}
+    p(E) = \frac{e^{- \frac{E}{k_b T}}}{Z}
+\end{equation}
+mit der Zustandssumme $Z$, die so ist, dass das Integral über $p$ Eins ergibt. Damit ist das Spektrum 
+ \begin{equation}
+     w(\nu) d\nu = \frac{8 \pi \nu^2}{c^3} \,  d\nu \, \sum_n n h \nu \, p(n h \nu)
+    =  \frac{8 \pi h \nu^3}{c^3} \,  \frac{1}{e^{\frac{h \nu}{k_b T}} -1} \, d\nu 
+ \end{equation}
+
+ Dieses \emph{Plancksche Strahlungsgesetz} beschreibt die Schwarzkörperstrahlung vollständig.
+
+ \paragraph*{Nebenbemerkung} Heute bezeichnet man Photonen als Bosonen, also als Quantenteilchen mit ganzzahligem Spin, die der Bose-Einstein-Statistik unterliegen. Für solche Teilchen gilt anstelle der Boltzman-Statistik die Besetzungswahrscheinlichkeit.
+
+ \begin{equation}
+    p_{BE}(E) = \frac{1}{Z} \, \frac{1}{e^{\frac{E}{k_b T}} -1}  \
+\end{equation}
+Damit kann das Spektrum als Zustandsdichte mal Besetzungswahrscheinlichkeit mal Energie pro Photon geschrieben werden, d.h. 
+\begin{equation}
+    w(\nu) d\nu = \frac{8 \pi \nu^2}{c^3} \, h \nu \, p_{BE}(h\nu) \, d\nu \, 
+\end{equation}
+
+
+\subsection{Wiensches Strahlungsgesetz}
+Das Wiensche Strahlungsgesetz ergibt sich historisch rückblickend aus dem Planckschen Strahlungsgesetz für Photonenenergien viel größer als thermische Energien, also $h \nu \gg k_b T$ und damit 
+\begin{equation}
+    w(\nu) d\nu    =  \frac{8 \pi h \nu^3}{c^3} \,  e^{- \frac{h \nu}{k_b T}} \, d\nu 
+\end{equation}
+Wien hat dies natürlich ohne die Planck'sche Konstante, sondern mit der Wien'schen Verschiebungskonstante $b$ geschrieben:
+\begin{equation}
+    b = \frac{h c}{x k_b} 
+\end{equation}
+und $x \approx 4.965$ der Nullstelle eine Gleichung\sidenote{siehe engl. Wikipedia}.
+
+
+ \section{Photonen}
+
+
+ \section{Compton Streuung}
+
+ \section{Materiewellen}
+
+ \section{Teilchen im Kasten}
+
+ \section{Bohrsches Atommodell}
+
+ %--------------------
 \printbibliography[segment=\therefsegment,heading=subbibliography]
