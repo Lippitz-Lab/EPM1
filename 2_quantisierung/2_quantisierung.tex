@@ -121,6 +121,11 @@ Verschiedene Experimente haben Hinweise darauf geliefert, dass die Energie in ei
 
 Das zentrale und wichtige Experiment, das zur Quantenhypothese der Photonen führte, war der photoelektrische Effekt\sidenote{Auch Photoeffekt bzw. genauer äußerer Photoeffekt gennannt}. Bereits 1887 war bekannt, dass ultraviolettes Licht eine negativ geladene Platte eines Elektrometers entlädt, wobei Elektronen aus der Platte austreten.\sidenote{Diese austretenden Elektronen werden manchmal Photoelektronen genannt, sind aber völlig identisch mit allen anderen Elektronen.} Phillip Lenard hat dieses Experiment verfeinert. Die ehemals negativ geladene Platte bildet als Kathode zusammen mit einer Anode und einer Spannungsquelle einen Stromkreis. Die beiden Elektroden sind in einem Vakuumkolben eingeschlossen. Ein Gas spielt also keine Rolle. Wenn Licht auf die Kathode fällt, fließt ein Strom durch den Stromkreis, der gemessen werden kann. Dieser Strom muss also von den Elektronen getragen werden, die sich im Glaskolben von links nach rechts und damit im Uhrzeigersinn durch den Aufbau in Abbildung XXX bewegen (technische Stromrichtung entgegen dem Uhrzeigersinn). Ohne Licht gibt es keine austretenden Elektronen und damit keinen Strom.
 
+\begin{marginfigure}
+ \caption{XXX Skizze des Versuchsaufbaus zum Photoeffekt}
+\end{marginfigure}
+
+
 Lenard untersuchte 1902 den Zusammenhang zwischen der Potentialdifferenz $\Delta V$ der Spannungsquelle und der Stromstärke $I$ im Stromkreis und der Lichtintensität und -frequenz $f = c / \lambda$. Er fand
 \begin{enumerate}
     \item Der Strom $I$ ist proportional zur Lichtintensität.
@@ -130,6 +135,15 @@ Lenard untersuchte 1902 den Zusammenhang zwischen der Potentialdifferenz $\Delta
     \item Die Stromstärke $I$ nimmt bei kleinen positiven Spannungen etwas zu. Bei großen Spannungen nimmt sie nicht mehr zu. Bei negativer Spannung wird die Stromstärke kleiner, bis bei einer Spannung $V = -V_{stop}$ kein Strom mehr fließt ($V_{stop}$ ist hier also als positiv definiert). 
     \item Diese Grenzspannung $V_{stop}$ ist unabhängig von der Lichtintensität. 
 \end{enumerate}
+
+\begin{marginfigure}
+    \caption{XXX Skizze Grenzfrequenz}
+   \end{marginfigure}
+
+   \begin{marginfigure}
+    \caption{XXX Skizze Stopp-Spannung}
+   \end{marginfigure}
+
 
 Aus Sicht der klassischen Physik liefert die elektromagnetische Welle Energie, die im Metall in Form von Wärme gespeichert wird. Dies führt dazu, dass einige Elektronen die Austrittsarbeit überwinden und das Metall verlassen können. Dies wird als Glühemission bezeichnet und wurde beispielsweise in Röhrenfernsehgeräten genutzt.
 
@@ -169,13 +183,18 @@ Im Jahr 1905, dem 'annus mirabilis',  veröffentlichte Albert Einstein 4 wichtig
     \item Die Masse-Energie-Äquivalenz mit $E = m c^2$.
 \end{enumerate}
 
+\begin{marginfigure}
+    \caption{XXX Skizze Photon Vernuchtung und Elektrin Austritt }
+   \end{marginfigure}
+
+
 Der entscheidende Punkt bei der Erklärung des Photoeffektes war die Annahme, dass die Energie einer Lichtwelle \emph{quantisiert} ist. Es gibt eine kleinste mögliche Energiemenge und alles andere sind ganzzahlige Vielfache davon. Dieses Lichtquantum nennt man heute \emph{Photon}. Es bewegt sich mit Lichtgeschwindigkeit.  Die Energie $E$ eines Photons hängt von der Frequenz $\nu$ der Lichtwelle ab
 \begin{equation}
     E = h \, \nu \quad \text{mit} \quad h = 6,63 \cdot 10^{-34} \, J \, s = 4.14 \cdot 10^{-15}\, eV \, s
 \end{equation}
 mit der Planckschen Konstanten $h$. 
 
-Neben dieser Annahme der Quantelung der Energie sind noch zwei weitere nötig: Die Absorption und Emission von Licht erfolgt immer in ganzen Quanten. Und die Energie wird immer auf genau ein Elektron übertragen, nicht auf mehrere.
+Neben dieser Annahme der Quantelung der Energie sind noch zwei weitere nötig: Die Absorption und Emission von Licht erfolgt immer in ganzen Quanten, die bei der Absorption vernichtet und bei der Emission erzeugt werden. Und die Energie wird immer auf genau ein Elektron übertragen, nicht auf mehrere.
 
 Für diese Quantenhypothese gibt es keine klassische Entsprechung. Wie wir sehen werden, reicht sie aber aus, um den Photoeffekt zu erklären.
 
@@ -193,6 +212,11 @@ Auf das Metall trifft Licht der Frequenz $\nu$. Jedes Photon hat dabei die Energ
  \end{equation}
  Sie ist also insbesondere nicht von der Lichtintensität abhängig.
 
+ \begin{marginfigure}
+    \caption{XXX Skizze mit Daten Stop-Spannung als Fkn Frequenz}
+   \end{marginfigure}
+
+
  Schließlich ist die Absorption instantan. Das Elektron nimmt die Energie des Photons sofort auf, es kann sofort austreten und es gibt keine Zeitverzögerung zwischen dem Einfangen des Lichtes und dem Beginn des Stromflusses.
 
  Die Quantenhypothese von Albert Einstein kann also den Photoeffekt vollständig erklären. Sie gilt als Startschuss für die moderne Physik.
@@ -208,6 +232,13 @@ Hier reiche ich Max Plancks Erklärung der Schwarzkörperstrahlung nach. Er hat 
 \subsection{Modendichte eines Resonators}
 
 Zunächst müssen wir die Modendichte einführen und berechnen. Diese Art der Berechnung wird später in der Festkörperphysik an verschiedenen Stellen immer wieder vorkommen.
+
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir dos_sketch}
+    \caption{XXX Skizze Moden zählen}
+   \end{marginfigure}
+
 
 Wir betrachten einen verspiegelten quaderförmigen Hohlraum der Kantenlänge $L$. In ihm bilden sich wie in einem Resonator stehende Lichtwellen aus. Für die Wellenlänge $\lambda$ muss gelten
 \begin{equation}
@@ -274,8 +305,13 @@ Damit kann das Spektrum als Zustandsdichte mal Besetzungswahrscheinlichkeit mal 
 \end{equation}
 
 
+\begin{marginfigure}
+    \inputtikz{\currfiledir Planck_model}
+    \caption{XXX Skizze Modelle }
+   \end{marginfigure}
+
 \subsection{Wiensches Strahlungsgesetz}
-Das Wiensche Strahlungsgesetz ergibt sich historisch rückblickend aus dem Planckschen Strahlungsgesetz für Photonenenergien viel größer als thermische Energien, also $h \nu \gg k_b T$ und damit 
+Das Wiensche Strahlungsgesetz ergibt sich historisch rückblickend aus dem Planckschen Strahlungsgesetz für Photonenenergien viel größer als die thermische Energie, also $h \nu \gg k_b T$ und damit 
 \begin{equation}
     w(\nu) d\nu    =  \frac{8 \pi h \nu^3}{c^3} \,  e^{- \frac{h \nu}{k_b T}} \, d\nu 
 \end{equation}
@@ -283,7 +319,7 @@ Wien hat dies natürlich ohne die Planck'sche Konstante, sondern mit der Wien'sc
 \begin{equation}
     b = \frac{h c}{x k_b} 
 \end{equation}
-und $x \approx 4.965$ der Nullstelle eine Gleichung\sidenote{siehe engl. Wikipedia}.
+und $x \approx 4.965$ der Nullstelle eine Gleichung, die das Maximum des Spektrums bestimmt.\sidenote{siehe engl. Wikipedia}.
 
 
  \section{Photonen}

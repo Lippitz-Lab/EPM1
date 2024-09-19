@@ -1,4 +1,6 @@
 \usepackage{tikz,tikz-3dplot}
+\usepackage{pgf-spectra}
+\usepgfspectralibrary{data,pgfplots}
 
 \DeclareUnicodeCharacter{0393}{$\Gamma$} 
 \DeclareUnicodeCharacter{03C3}{$\sigma$} 
@@ -124,3 +126,38 @@
 
 \makeatother % https://tex.stackexchange.com/a/438695/121799
 
+
+
+
+% Author: Izaak Neutelings (March 2019)
+%v from https://tikz.net/blackbody_plots/
+
+
+\pgfdeclareverticalshading{rainbow}{100bp}{
+  color(0bp)=(red); color(25bp)=(red); color(35bp)=(yellow);
+  color(45bp)=(green); color(55bp)=(cyan); color(65bp)=(blue);
+  color(75bp)=(violet); color(100bp)=(violet)
+}
+
+% PLANCK & RAYLEIGH-JEANS
+% 2hc^2/lambda^5 = 2 * 6.62607015e-34 * 299792458^2
+%                = 1.191042972e-16
+%    W.m -> kW.nm: 1.191042972e26
+%  hc/k lambda T = 6.62607015e-34*299792458/(1.38064852e-23)
+%                = 0.01438777378
+%         m -> nm: 0.01438777378e9
+% 2ckT/lambda^4  = 2 * 299792458 * 1.38064852e-23
+%                = 8.278160269e-15
+%    W.m -> kW.nm: 8.278160269e18
+\pgfmathdeclarefunction{planck}{2}{%
+  \pgfmathparse{1.191042972e26/(#1^5)/(exp(0.01439e9/(#1*#2))-1)}%
+}
+\pgfmathdeclarefunction{rayleighjeans}{2}{%
+  \pgfmathparse{8.278160269e18*#2/(#1^4)}%
+}
+\pgfmathdeclarefunction{wien}{2}{%
+  \pgfmathparse{1.191042972e26/(#1^5)*exp(-0.01439e9/(#1*#2))}%
+}
+\pgfmathdeclarefunction{lampeak}{1}{% % Wien's displacement law
+  \pgfmathparse{2.898e6/#1}%
+}

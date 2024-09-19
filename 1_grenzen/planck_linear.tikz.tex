@@ -1,0 +1,99 @@
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+
+
+
+% \begin{document}
+
+% Author: Izaak Neutelings (March 2019)
+%v from https://tikz.net/blackbody_plots/
+
+
+
+% BLACK BODY - 3000, 4000, 5000K
+\begin{tikzpicture}
+  \def\N{60}
+  \def\xmax{2100}
+  \def\ymax{1.43e10}
+ % \def\tick#1#2{\draw[thick] (#1+.01*\ymax) -- (#1-.01*\ymax) node[below=-.5pt,scale=0.75] {#2};}
+  \begin{axis}[
+    font=\footnotesize,
+      every axis plot/.style={
+        mark=none,samples=\N,domain=5:\xmax,smooth},
+      xmin=(0), xmax=(\xmax),
+      ymin=(0), ymax=(\ymax),
+      restrict y to domain=0:\ymax,
+      %axis lines=middle,
+     % axis line style=thick,
+     % tick style={black,thick},
+     % ticklabel style={scale=0.8},
+      xlabel={Wellenlänge $\lambda$ (nm)},
+      ylabel={Power $P$ (willk.E.) },
+      ytick = {0},
+      %xlabel style={below=-1pt,font=\small},
+      %ylabel style={above=-1pt},
+      width=55mm, height=40mm,
+      %tick scale binop=\times,
+      %every y tick scale label/.style={at={(rel axis cs:0,1)},anchor=south}]
+      x tick label style={/pgf/number format/.cd,%
+          scaled x ticks = false,
+          set thousands separator={\, },
+          fixed},    
+      y tick label style={/pgf/number format/.cd,%
+          scaled y ticks = false,
+          set thousands separator={\, },
+          fixed},  
+          ]
+    
+    % RAINBOW
+    %\draw[dashed] (380,{planck(380,5000)}) -- (380,\ymax);
+    %\draw[dashed] (740,{planck(740,5000)}) -- (740,\ymax);
+    
+    \begin{scope}
+      \clip[variable=\x,domain=200:1000,samples=40]
+        plot(\x,{planck(\x,5000)}) |- (200,0) -- cycle;
+      \shade[shading=rainbow,shading angle=90,opacity=0.7] (380,0) rectangle (740,\ymax);
+    \end{scope}
+    
+    % PLANCK
+    \addplot[ thick,black]    {planck(x,3000)};
+    \addplot[ thick,blue] {planck(x,4000)};
+    \addplot[ thick,samples=3*\N,red] {planck(x,5000)};
+    \addplot[dashed,,red,domain=1000:4000]   {rayleighjeans(x,5000)};
+    
+    % MAXIMUM (Wien's displacement law)
+    \addplot[black, thin,variable=T,domain=2200:4000,samples=40]
+      ({lampeak(T)},{planck(lampeak(T),T)});
+    \addplot[black, thin,variable=T,domain=4000:5500,samples=100]
+      ({lampeak(T)},{planck(lampeak(T),T)});
+    \fill[black] ({lampeak(3000)},{planck(lampeak(3000),3000)}) circle(1.5pt);
+    \fill[black] ({lampeak(4000)},{planck(lampeak(4000),4000)}) circle(1.5pt);
+    \fill[black] ({lampeak(5000)},{planck(lampeak(5000),5000)}) circle(1.5pt);
+    
+    % LABELS
+    % \node[above=0pt,scale=0.75,red]
+    %   at (1150,{planck(1150,3000)}) {\SI{3000}{K}};
+    % \node[above right=-1pt,scale=0.75,orange!80!black]
+    %   at (740,{planck(740,4000)}) {\SI{4000}{K}};
+    % \node[above right=-1pt,scale=0.75,blue]
+    %   at (800,{planck(800,5000)}) {\SI{5000}{K}};
+     \node[above right=-1pt,scale=0.75,red]
+       at (1400,{rayleighjeans(1400,5000)}) {Rayleigh-J.};
+    
+    % LABELS
+    % \node[below=2pt,scale=0.8] at (200,\ymax) {\strut UV}; % 10 - 400 nm
+    % \node[below=2pt,scale=0.8] at (562,\ymax) {\strut optical}; % 380 - 740 nm
+    % \node[below=2pt,scale=0.8] at (920,\ymax) {\strut IR}; % 740 - 1050 nm
+    
+  \end{axis}
+\end{tikzpicture}
+
+
+
+  
+
+
+%\end{document}
+
+

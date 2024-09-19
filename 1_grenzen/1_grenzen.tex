@@ -31,6 +31,18 @@ Eine Reihe von Experimenten zeigte Ende des 19. Jahrhunderts Widersprüche zu de
 
 \section{Schwarzkörperstrahlung}
 
+\begin{marginfigure}
+    \inputtikz{\currfiledir planck_linear}
+    \caption{Schwarzkörperspektren}
+\end{marginfigure}
+
+
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir planck_log}
+    \caption{Schwarzkörperspektren}
+\end{marginfigure}
+
 Wichtige Erkenntnisse über die Natur des Lichts stammen aus einer einfachen Beobachtung: Viele leuchtende Objekte ändern ihre Farbe in Abhängigkeit von der Temperatur. Der Glühfaden einer Glühbirne ändert seine Farbe von grau zu gelb, wenn er durch den fließenden Strom nur heiß genug wird. Stahl ändert seine Farbe im Kohlefeuer der Schmiede. Lava ist im kalten Zustand schwarz, am Vulkan aber rot bis gelb.
 
 In der Wärmelehre haben Sie gesehen, dass die Wärmestrahlung eines Körpers mit der vierten Potenz seiner Temperatur $T$ zunimmt
@@ -61,9 +73,35 @@ XXX Bsp: Treibhaus über Wien Gesetz
 
 In einer Gasentladungsröhre fließt ein elektrischer Strom durch ein Gas, das in einer Glasröhre eingeschlossen ist. Die bunten Lichter der Leuchtreklame oder 'Neonröhren' basieren auf diesem Prinzip, haben aber manchmal noch einen leuchtenden Phosphor als Beschichtung auf der Röhre selbst. Das Emissionsspektrum unterscheidet sich deutlich von dem eines schwarzen Strahlers. Es besteht aus diskreten, sehr scharfen Linien, die sich für jedes Element wie ein Fingerabdruck unterscheiden. Neon zum Beispiel hat viele Linien im roten Spektralbereich. Sie erzeugen das rote Licht der Leuchtreklame.
 
+\begin{marginfigure}
+    \ Emission
+
+    \pgfspectra[width=\textwidth ,element=Ne , Imin=0.2]
+% 540.1 585.2 640.2 692.9 702.4 703.2 717.4 724.5 748.9 753.6
+% \pgfspectradata{element=Ne, Imin=0.2}  \pgfspectratable
+
+    \ \\
+
+   \  Absorption
+
+   % from DOI: 10.21883/EOS.2022.14.53991.2177-21
+   \pgfspectra[width=\textwidth ,absorption, lines={585.2  , 692.9}]
+
+\caption{Spektrallinien von \ch{Ne} in Emission und Absorption.}
+
+\end{marginfigure}
+
 Man kann auch das Absorptionsspektrum der Atome eines Gases messen, indem man beispielsweise ein kontinuierliches Schwarzkörperspektrum durch ein Gas schickt und dann spektroskopiert. Man findet diskrete, schmale, dunkle Linien, die das Gas aus dem breiten Spektrum des Schwarzkörpers herausschneidet. Diese Absorptionslinien sind jedoch nur eine Teilmenge der Emissionslinien. Für jede Absorptionslinie gibt es eine Emissionslinie bei der gleichen Wellenlänge, aber nicht umgekehrt.
 
 Mit der klassischen Physik war das alles nicht zu erklären. Warum diskrete Linien, warum für jedes Element anders, warum mehr in der Emission als in der Absorption?
+
+
+\begin{figure}
+    \pgfspectra[width=\textwidth, element=H,back=visible40, gamma=.6,axis, axis step=50,axis ticks=4,begin=300,end=750,
+    axis label text={Wellenlänge $\lambda$ (nm)},axis label position=right, UVcolor=white, IRcolor=white]
+    
+    \caption{Die Balmer-Serie von Wasserstoff.}
+    \end{figure}
 
 Der einzige Lichtblick war die Entdeckung des Schweizer Lehrers Johann Balmer, dass die Wellenlänge der Emissionslinien des einfachsten Atoms, des Wasserstoffs, durch eine einfache Formel beschrieben werden kann:
 \begin{equation}
