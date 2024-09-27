@@ -7,8 +7,8 @@
 % \begin{document}
 
 % Author: Izaak Neutelings (March 2019)
-%v from https://tikz.net/blackbody_plots/
-
+% from https://tikz.net/blackbody_plots/
+% with modifications by ML
 
 
 % BLACK BODY - 3000, 4000, 5000K
@@ -16,8 +16,20 @@
   \def\N{60}
   \def\xmax{2100}
   \def\ymax{1.43e10}
- % \def\tick#1#2{\draw[thick] (#1+.01*\ymax) -- (#1-.01*\ymax) node[below=-.5pt,scale=0.75] {#2};}
-  \begin{axis}[
+
+  \begin{groupplot}
+    [
+        group style={
+            group size=1 by 2,
+            % columns=2,
+            % rows=2,
+          %  xlabels at=edge bottom,
+          %  ylabels at=edge left,
+            vertical sep= 13mm
+        },
+    ]
+
+  \nextgroupplot[
     font=\footnotesize,
       every axis plot/.style={
         mark=none,samples=\N,domain=5:\xmax,smooth},
@@ -29,7 +41,7 @@
      % tick style={black,thick},
      % ticklabel style={scale=0.8},
       xlabel={Wellenlänge $\lambda$ (nm)},
-      ylabel={Power $P$ (willk.E.) },
+      ylabel={Leistung $P$ (willk.E.) },
       ytick = {0},
       %xlabel style={below=-1pt,font=\small},
       %ylabel style={above=-1pt},
@@ -46,10 +58,7 @@
           fixed},  
           ]
     
-    % RAINBOW
-    %\draw[dashed] (380,{planck(380,5000)}) -- (380,\ymax);
-    %\draw[dashed] (740,{planck(740,5000)}) -- (740,\ymax);
-    
+    % RAINBOW    
     \begin{scope}
       \clip[variable=\x,domain=200:1000,samples=40]
         plot(\x,{planck(\x,5000)}) |- (200,0) -- cycle;
@@ -71,22 +80,55 @@
     \fill[black] ({lampeak(4000)},{planck(lampeak(4000),4000)}) circle(1.5pt);
     \fill[black] ({lampeak(5000)},{planck(lampeak(5000),5000)}) circle(1.5pt);
     
-    % LABELS
-    % \node[above=0pt,scale=0.75,red]
-    %   at (1150,{planck(1150,3000)}) {\SI{3000}{K}};
-    % \node[above right=-1pt,scale=0.75,orange!80!black]
-    %   at (740,{planck(740,4000)}) {\SI{4000}{K}};
-    % \node[above right=-1pt,scale=0.75,blue]
-    %   at (800,{planck(800,5000)}) {\SI{5000}{K}};
-     \node[above right=-1pt,scale=0.75,red]
-       at (1400,{rayleighjeans(1400,5000)}) {Rayleigh-J.};
+
+     \node[above right=-1pt,red]
+       at (1400,{rayleighjeans(1400,5000)}) {Rayleigh};
     
-    % LABELS
-    % \node[below=2pt,scale=0.8] at (200,\ymax) {\strut UV}; % 10 - 400 nm
-    % \node[below=2pt,scale=0.8] at (562,\ymax) {\strut optical}; % 380 - 740 nm
-    % \node[below=2pt,scale=0.8] at (920,\ymax) {\strut IR}; % 740 - 1050 nm
+ 
+
+    \nextgroupplot[ font=\footnotesize,
+    ymode=log, xmode=log,
+        %every axis plot/.style={
+        %   thick,mark=none,domain=\xmin:\xmax,samples=\N,smooth},
+        xmin=1.5e2, xmax=(1.01*2e5),
+        ymin=5e-8, ymax=4,
+        %restrict y to domain=5e-8:4,
+        domain = 1e2:2e5,
+        log basis y=10,
+        %axis line style=thick,
+        %tick style={black,thick},
+        %ticklabel style={scale=0.8},
+        %ticks=none,
+        max space between ticks=23,
+        yminorticks=false,
+        xlabel={Wellenlänge $\lambda$ (nm)},
+        ylabel={Leistung $P/P_0$ },
+       % xlabel style={at={(rel axis cs:0.5,0)},below=8pt},
+       % ylabel style={above=-2pt},
+        width=55mm, height=40mm,
+       % legend style={at={(0.14,0.15)},anchor=south west,draw=none,fill=none,font=\small},
+       % legend cell align={left},
+       % axis line on top
+      ]
+
+      
+
+      % RAINBOW
+       \shade[shading=rainbow,shading angle=90,opacity=0.1] (380,5e-8) rectangle (740,4);
+        
+%       % PLANCK
+       \addplot[black,samples=100]      {planck(x ,3000)/1e9};
+       \addplot[thick,blue] {rayleighjeans(x ,3000)/1e9};
+       \addplot[thick,red]  {wien(x ,3000)/1e9};
     
-  \end{axis}
+%     %   % LEGENDS
+
+ \node at (25e3, 0.3) {\footnotesize Rayleigh-Jeans};
+\node at (15e3,1e-6) {\footnotesize Wien};
+      
+     \end{groupplot}
+
+
 \end{tikzpicture}
 
 

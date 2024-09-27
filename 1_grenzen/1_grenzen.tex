@@ -14,7 +14,7 @@ xxx }
 
 xxx
 
-Dieses Kapitel folgt Kapitel 37 von Knight. Gute andere Darstellungen finden sich in XXX Demtröder und XXX Haken/Wolf.
+Dieses Kapitel folgt Kapitel 37 von \cite{Knight_physics}. Gute andere Darstellungen finden sich in \cite{Haliday_Resnick}, \cite{Demtröder_ep3} und \cite{Haken_wolf_I}.
 
 
 \section{Was bislang geschah}
@@ -32,16 +32,13 @@ Eine Reihe von Experimenten zeigte Ende des 19. Jahrhunderts Widersprüche zu de
 \section{Schwarzkörperstrahlung}
 
 \begin{marginfigure}
-    \inputtikz{\currfiledir planck_linear}
-    \caption{Schwarzkörperspektren}
+    \inputtikz{\currfiledir planck_linlog}
+    \caption{Schwarzkörperspektren. Oben: lineare Darstellung für $T=$ 3000 K, 4000 K und 5000 K. Unten: Doppelt-logarithmische Darstellung (3000 K) mit Modellen von Wien und Rayleigh-Jeans.}
 \end{marginfigure}
 
 
 
-\begin{marginfigure}
-    \inputtikz{\currfiledir planck_log}
-    \caption{Schwarzkörperspektren}
-\end{marginfigure}
+
 
 Wichtige Erkenntnisse über die Natur des Lichts stammen aus einer einfachen Beobachtung: Viele leuchtende Objekte ändern ihre Farbe in Abhängigkeit von der Temperatur. Der Glühfaden einer Glühbirne ändert seine Farbe von grau zu gelb, wenn er durch den fließenden Strom nur heiß genug wird. Stahl ändert seine Farbe im Kohlefeuer der Schmiede. Lava ist im kalten Zustand schwarz, am Vulkan aber rot bis gelb.
 
@@ -55,7 +52,7 @@ Ende des 19. Jahrhunderts versuchte man, möglichst ideale Schwarzkörper zu kon
 \begin{equation}
     \lambda_{peak} = \frac{b}{T}
 \end{equation}
-mit der Wien'schen Verschiebungskonstanten $b \approx $ \si{2898}{um K}.
+mit der Wien'schen Verschiebungskonstanten $b \approx $ 2898 \textmu m K .
 
 Damals erwartete man, dass die Form des Schwarzkörperspektrums aus einer gut verstandenen Thermodynamik und der Maxwellschen Theorie der elektromagnetischen Strahlung abgeleitet werden könnte. Man fand zwei Modelle\sidenote{Wir diskutieren im nächsten Kapitel die heute akzeptierte Form und finden dann diese beiden alten Modelle als Genzfälle}, die aber jeweils nur einen Teil des Spektrums richtig beschrieben: Das Wiensche Gesetz den langwelligen Teil, das von Rayleigh und Jeans den kurzwelligen. Schlimmer noch: Das Rayleigh-Jeans-Gesetz liefert ein divergierendes Spektrum, so dass auch die abgestrahlte Leistung divergiert. Das ist die \emph{UV-Katastrophe}.
 
@@ -67,7 +64,11 @@ Trotz des einfachen Experiments 'Spektrum eines schwarzen Körpers' und eigentli
     \nu_{peak} \neq \frac{c}{\lambda_{peak}}
 \end{equation}
 
-XXX Bsp: Treibhaus über Wien Gesetz
+
+\begin{questions}
+\item Sonnenlicht lässt sich gut durch ein Schwarzkörperspektren von etwa 5000~K beschrieben. Die Erde hingegen strahlt wie ein Körper von 300~K in den Weltraum ab. Skizzieren Sie diese beiden Spektren und leiten Sie daraus das Transmissionsspektrum der Atmosphäre ab, das zum natürlichen Treibhauseffekt führt.
+\end{questions}
+
 
 \section{Spektren von atomaren Gasen}
 
@@ -88,7 +89,6 @@ In einer Gasentladungsröhre fließt ein elektrischer Strom durch ein Gas, das i
    \pgfspectra[width=\textwidth ,absorption, lines={585.2  , 692.9}]
 
 \caption{Spektrallinien von \ch{Ne} in Emission und Absorption.}
-
 \end{marginfigure}
 
 Man kann auch das Absorptionsspektrum der Atome eines Gases messen, indem man beispielsweise ein kontinuierliches Schwarzkörperspektrum durch ein Gas schickt und dann spektroskopiert. Man findet diskrete, schmale, dunkle Linien, die das Gas aus dem breiten Spektrum des Schwarzkörpers herausschneidet. Diese Absorptionslinien sind jedoch nur eine Teilmenge der Emissionslinien. Für jede Absorptionslinie gibt es eine Emissionslinie bei der gleichen Wellenlänge, aber nicht umgekehrt.
@@ -149,6 +149,8 @@ Damit kann die Geschwindigkeit $v$ bestimmt werden. Bleibt dann alles unverände
 \begin{equation}
     \frac{q}{m} = \frac{v}{r B}
 \end{equation}
+
+
 
 \section{Das Elektron}
 
