@@ -88,5 +88,227 @@ Ich kann das Konzept einer Materiewelle benutzen um Experimente mit Teilchen zu 
 % physical meaning of the real part, even though both have the same physical significance
 
 
+\section{Überblick}
+
+Wir werden in diesem und dem folgenden Kapitel die Grundlagen der Quantenmechanik untersuchen. Die Gliederung folgt wiederum den Kapiteln 39 und 40 von \cite{Knight_physics}. In diesem Kapitel führen wir das Konzept der Wellenfunktionen ein und im nächsten Kapitel die Schrödingergleichung, mit der man Wellenfunktionen findet. Wenn Sie bereits eine Vorlesung über die Quantenmechanik besucht haben, wird Ihnen vieles bekannt vorkommen. Im restlichen Teil der Vorlesung werden wir die Quantenmechanik benutzen, um Atome und Moleküle zu beschreiben.
+
+
+\section{Das Doppelspaltexperiment mit Lichtwellen}
+
+Kommen wir noch einmal auf das Doppelspaltexperiment von Young zurück, das Sie bereits in der Optik behandelt haben. Wir behandeln Licht als Welle und nicht als Teilchen. Eine ebene Welle fällt auf zwei (sehr dünne) Spalten in einem ansonsten undurchlässigen Schirm. Man kann sich vorstellen, dass von jedem Punkt in den Spalten eine Huygenssche Elementarwelle $E_{1,2}$ ausgeht, die man schreiben kann als 
+\begin{equation}
+    E_{i} = a_i \, \sin ( k \, r_i - \omega t) \quad \text{mit}. \quad i = 1,2
+\end{equation}
+mit der Amplitude $a$ und dem Abstand $r$ vom Spalt. $k = 2 \pi / \lambda $ ist die Länge des Wellenvektors, auch Wellenzahl genannt.
+Die Kreisfrequenz ist $\omega = c k$.
+
+
+Auf dem Schirm überlagern sich die Wellen. Das Superpositionsprinzip besagt, dass das resultierende elektromagnetische Feld genau die Summe der beiden Felder ist, also $E = E_1 + E_2$. In der Optik haben Sie gesehen, dass sich daraus die folgende Amplitude $A(x)$ am Ort $x$ des Schirms ergibt
+\begin{equation}
+    A(x) = 2 a\cos \left( \frac{\pi d}{\lambda L} \, x \right)
+\end{equation}
+mit dem Abstand $L$ zwischen Spaltebene und Schirm und dem Abstand $d$ zwischen den beiden Spalten.\sidenote{Oben haben wir angenommen, dass die Spalten sehr dünn sind. Daher geht die Spaltweite nicht ein und die Gleichung wird einfacher.} Die Amplitude $A$ ist maximal ($A = 2a$), wenn sich zwei Wellenberge am Schrim treffen, und minimal ($A = -2 a$), wenn sich zwei Täler treffen.  Dazwischen gibt es Nulldurchgänge. 
+
+Im Experiment wird nicht die Amplitude der Wellen beobachtet, sondern ihre Intensität $I \propto A^2$, d.h.
+\begin{equation}
+    I(x) = C \, \cos^2 \left( \frac{\pi d}{\lambda L} \, x \right)
+\end{equation}
+mit einer Proportionalitätskonstanten $C$. Die Nulldurchgänge der Amplitude ergeben somit ein Minimum der Intensität (destruktive Interferenz). Die Maxima der Amplitude ergeben unabhängig vom Vorzeichen ein Maximum der Intensität (konstruktive Interferenz). Nur die Intensität beschreibt also die experimentell beobachtbare Realität.
+
+\section{Wahrscheinlichkeit}
+
+Bevor wir zur Beschreibung durch Photonen kommen, müssen wir kurz über Wahrscheinlichkeiten sprechen. In einem Gedankenexperiment werfen Sie mit verbundenen Augen Dartpfeile auf eine Wand. Jeder Pfeil trifft die Wand, aber nicht immer an der gleichen Stelle. Nach 100 Würfen ergibt sich ein Muster wie in Abbildung XXX. Wo wird der nächste Wurf treffen? Das können wir nicht mit Sicherheit sagen. Aber wir können eine Wahrscheinlichkeit angeben. Bisher sind $N_A =45$ von $N = 100$ Würfen im Bereich A gelandet. Ob von den nächsten 100 Würfen wieder genau 45 Würfe hier landen, ist eher unwahrscheinlich. 100 Würfe sind einfach zu wenig. Deshalb definiert man die Wahrscheinlichkeit $P_A$ als Grenzwert für sehr viele Versuche.
+\begin{equation}
+    P_A =  \lim_{N \rightarrow \infty} \frac{N_A}{N}
+\end{equation}
+Für Abbildung XXX können wir also nur $P_A \approx 0.45$ schreiben. 
+
+
+Die Wahrscheinlichkeiten für sich ausschließende Ergebnisse addieren sich. Die Wahrscheinlichkeit, im Bereich A oder B zu landen, beträgt also
+\begin{equation}
+    P_{A oder B} = \lim_{N \rightarrow \infty} \frac{N_A + N_B}{N} = P_A + P_B
+\end{equation}
+und die Summe aller Wahrscheinlichkeiten ist eins, also 
+\begin{equation}
+    P_A + P_B + P_C = 1
+\end{equation}
+
+Der erwartete Wert $N_{erw}$ für die Anzahl der Treffer im Bereich A ergibt sich durch Umformung zu 
+\begin{equation}
+    N_{A, erw} = P_A \, N
+\end{equation}
+Unsere beste Vorhersage für die Anzahl der Treffer nach 60 Versuchen ist also $0.45 \cdot 60 = 27 $. Die tatsächlich beobachtete Anzahl der Treffer kann davon abweichen. Je mehr Versuche $N$ durchgeführt werden, desto geringer wird die Abweichung sein.
+
+
+
+\section{Interpretation des Interferenzmusters von Photonen }
+
+Im letzten Kapitel haben wir bereits gesehen, welches Punktmuster Photonen auf einem Schirm hinter einem Doppelspalt hinterlassen (siehe Abb. XXX). Dieses wollen wir nun etwas genauer betrachten. Wie ein Foto in der Zeitung besteht das Bild auf dem Schirm aus vielen Punkten, die mehr oder weniger dicht beieinander liegen. Und wie bei den Dartpfeilen können wir nicht sagen, wo das nächste Photon detektiert wird. Aber es gibt Regionen, in denen dies mehr oder weniger wahrscheinlich ist.
+
+Wir definieren entlang der Ortskoordinaten $x$ einen schmalen Streifen der Breite $\delta x$ und Höhe $H$ und zählen alle Photonen, die in diesen Streifen gefallen sind. Diese Zahl nennen wir hier $N(x, \delta x)$. Sie hängt natürlich von der Position $x$ ab, ob es sich um eine hellere oder dunklere Stelle des Sinterferenzmusters handelt. Wir definieren die Wahrscheinlichkeit $WK$ wieder als Grenzwert für eine Gesamtzahl von Photonen $N$.
+\begin{equation}
+    WK(x, \delta x) = \lim_{N \rightarrow \infty} \, \frac{N(x, \delta x)}{N}
+\end{equation}
+Von einer guten Theorie erwarten wir, dass diese Wahrscheinlichkeit $WK(x, \delta x)$ vorhersagt, so dass wir die erwartete Anzahl von Photonen in diesem Intervall berechnen können, d.h. 
+\begin{equation}
+    N(x, \delta x)_{ erw} = WK(x, \delta x) \, N
+\end{equation}
+Wir werden nicht in der Lage sein, den Auftreffpunkt des nächsten Photons vorherzusagen. Aber wir werden in der Lage sein, die Wahrscheinlichkeit und damit die Anzahl der zu erwartenden Photonen in einem schmalen Streifen zu berechnen.
+
+
+\section{Photonen- und Wellenbild vereinigen}
+
+XXX Korrespondenzprinzip hier oder später
+
+
+Wie erhält man die Wahrscheinlichkeit $WK(x, \delta x)$? Hier hilft uns die Energie des Lichts auf dem Schirm. Die Energie, die in dem Streifen mit der Breite $\delta x$ und der Höhe $H$ an der Position $x$ einfällt, sei $E(x, \delta x)$. Für sie gilt 
+\begin{equation}
+    E(x, \delta x) = I(x) \, \delta x \, H
+\end{equation}
+wobei angenommen wird, dass $\delta x$ so klein ist, dass sich die Intensität $I(x)$ über die Breite des Streifens nicht wesentlich ändert. Im Photonenbild trägt jedes Photon die Energie $h \nu$ bei. Die Anzahl der Photonen, die pro Sekunde\sidenote{Die Tilde bezeichnet hier Raten (pro Sekunde) im Gegensatz zu Gesamtzahlen.} auf dem Streifen ankommen, ist also 
+\begin{equation}
+    \tilde{N}(x, \delta x) =\frac{ E(x, \delta x)}{h \nu}
+\end{equation}
+und damit die Wahrscheinlichkeit
+\begin{equation}
+    WK(x, \delta x) =  \frac{\tilde{N}(x, \delta x) }{\tilde{N}} =
+    \frac{ E(x, \delta x}{h \nu \, \tilde{N}} = 
+    \frac{ I(x) H \delta x}{h \nu \, \tilde{N}}    
+\end{equation}
+Inbesondere ist  $I(x) \propto |A(x)|^2$ und damit
+\begin{equation}
+    WK(x, \delta x)  \propto |A(x)|^2 \delta x
+\end{equation}
+Die Wahrscheinlichkeit, ein Photon im Intervall $(x, x+\delta x)$ zu treffen, ist also proportional zum Quadrat der Wellenamplitude an diesem Ort. Diese Gleichung verbindet das Wellenbild mit dem Photonenbild. Sie bildet die Grundlage für die Interpretation der Quantenmechanik.
+
+XXX Korrespondenzprinzip
+
+
+\subsection{Wahrscheinlichkeitsdichte}
+
+Das Interferenzmuster ändert sich kontinuierlich entlang der Koordinate $x$. Eigentlich möchte man die Ereignisse nicht auf einem Streifen der Breite $\delta x$ zählen, sondern jedem Ort einen Wert zuordnen. Dies ist mit der \emph{Wahrscheinlichkeitsdichte} möglich. Sie ist wie die Massen- oder Ladungsdichte eine Größe, die multipliziert mit einer Länge, einer Fläche oder einem Volumen eine Masse, eine Ladung oder eine Wahrscheinlichkeit ergibt. Um den Unterschied zwischen Länge, Fläche und Volumen deutlich zu machen, schreibt man gerne das Infinitesimale dazu ($dx$, $dA$, $dV$). Damit gilt 
+\begin{equation}
+    WK(x, \delta x)  = \int_{x}^{x + \delta x} P(x') \, dx' = P(x) \delta x 
+\end{equation}
+und somit
+\begin{equation}
+    P(x) dx  = C'  |A(x)|^2 dx
+\end{equation}
+mit einer Proportionalitätskonstanten $C'$.
+Die Wahrscheinlichkeitsdichte $P$ ist im Gegensatz zur Wahrscheinlichkeit $WK(x, \delta x) $ unabhängig von der Streifenbreite. Diese Gleichung gilt für Photonen in jeder Situation, auch wenn wir sie für das Doppelspaltexperiment hergeleitet haben.
+
+
+\section{Die Wellenfunktion}
+
+Im letzten Kapitel haben wir im Davidson-Germer-Experiment gesehen, dass Elektronen auch Welleneigenschaften besitzen. Elektronen verhalten sich also an einem Doppelspalt wie Photonen. Auch hier können wir am Schirm die Anzahl der eintreffenden Elektronen pro Flächenintervall bestimmen. Auch hier können wir eine Wahrscheinlichkeitsdichte $P(x)$ messen, die das Interferenzmuster im Doppelspaltexperiment beschreibt und damit die Wahrscheinlichkeit, ein Elektron in der Nähe des Ortes $x$ zu finden.
+
+Für Photonen haben wir gerade gesehen, dass die Wahrscheinlichkeitsdichte $P(x)$ mit dem Quadrat der Amplitude $A(x)$ der optischen Wellen zusammenhängt. Diese Form der Beschreibung wollen wir auch für Elektronen übernehmen. Wir nehmen also an, dass es auch hier eine \emph{Wellenfunktion} $\Psi(x)$ gibt, die die Wahrscheinlichkeitsdichte analog zur Amplitude $A(x)$ beschreibt, also
+\begin{equation}
+    P(x) dx  = |\Psi(x)|^2 dx
+\end{equation}
+Im Gegensatz zum optischen Fall haben wir hier die Proportionalitätskonstante auf Eins gesetzt, da wir $\Psi(x)$ neu definieren und nicht auf eine aus der Optik bekannte Größe $A(x)$ zurückgreifen müssen.
+
+Diese Gleichung \emph{definiert} die Wellenfunktionen $\Psi(x)$. Das Experiment bestimmt aber nur $|\Psi(x)|^2$, nicht $\Psi(x)$. Insbesondere können wir nichts über das Vorzeichen von $\Psi(x)$ sagen\sidenote{wie wir später sehen werden, kann $\Psi(x)$ auch komplex sein, so dass uns ein unbekannter Faktor $\exp(i\phi)$ bleibt.}
+
+Im Gegensatz zu einer elektromagnetischen Welle schwingt nichts mit der Wellenfunktion $\Psi(x)$.  $\Psi$ verhält sich wie eine Welle, ist aber nicht mit einer Auslenkung von irgendetwas verbunden. Wir können auch nicht $\Psi(x)$ selbst messen, sondern nur $|\Psi(x)|^2$. Es hat sich aber gezeigt, dass man mit der Annahme einer wellenartigen Funktion $\Psi$ den Ausgang von Experimenten sehr gut beschreiben kann. 
+
+Mit der Wellenfunktion haben wir aber erst die Hälfte. Wir brauchen noch Regeln, wie wir die Wellenfunktion in einer gegebenen Situation bestimmen können und wie sich eine gegebene Wellenfunktion mit der Zeit verändert. Dazu dient die Schrödingergleichung, die im nächsten Kapitel behandelt wird.
+
+
+\subsection{Normierung}
+
+Wie bei den Dartpfeilen muss die Summe aller sich gegenseitig ausschließenden Wahrscheinlichkeiten eins ergeben. Irgendwo muss das Elektron detektiert werden, es kann nicht verschwinden. Für diskrete Bereiche $A$, $B$, $C$ usw. schreibt man dies als
+\begin{equation}
+    \sum_{j = A, B, C, \dots} P_j = 1
+\end{equation}
+Mit der Wahrscheinlichkeitsdichte wird die Summe ein Integral, d.h.
+\begin{equation}
+    \int_{-\infty}^{+\infty} P(x) dx = 1
+\end{equation}
+Dies hat Konsequenzen für die Wellenfunktion $\Psi(x)$. Da $P(x) = |\Psi(x)|^2$, muss also 
+\begin{equation}
+    \int_{-\infty}^{+\infty} |\Psi(x)|^2 dx = 1
+\end{equation}
+Dies wird Normierungsbedingung genannt, oder eine Wellenfunktion ist normiert, wenn sie diese Bedingung erfüllt. Noch einmal: Wir können nur etwas über das Quadrat der Wellenfunktion sagen, aber nichts über die Wellenfunktion selbst, und damit auch nichts über ein Integral der Wellenfunktion selbst.
+
+
+\section{Wellenpakete}
+
+Welle und Teilchen sind zwei klassische Konzepte, die sich gegenseitig ausschließen. Keines von beiden kann allein das Doppelspaltexperiment beschreiben und den Welle-Teilchen-Dualismus auflösen. Klassische Wellenpakete zeigen jedoch viele Eigenschaften, die wir auch auf der atomaren Skala finden. Sie können deshalb als Modell dienen.
+
+Betrachten wir ein Wellenpaket, wie es in Abbildung XXX skizziert ist. Im Gegensatz zu einer Sinuswelle ist das Wellenpaket räumlich und zeitlich begrenzt. Dadurch ähnelt es einem Teilchen. Gleichzeitig hat ein Wellenpaket aber auch eine Wellenlänge und schwingt wie eine Welle in Raum und Zeit. Aber auch Wellenpakete sind kein ideales Modell. Letztlich beschreibt nur die Quantenmechanik Objekte auf atomarer Skala korrekt.
+
+Überlagern sich zwei Sinuswellen mit den Frequenzen $f_1$ und $f_2$, so entsteht eine Schwebung (engl beating). Die Amplitude der Gesamtwelle ändert sich periodisch mit der Schwebungsfrequenz
+\begin{equation}
+    f_{beat} = | f_1 - f_2 | = \frac{1}{T_{beat}} \label{eq:3_tbeat}
+\end{equation}
+Es entsteht also eine Abfolge von Wellenpaketen mit dem Abstand $T_{beat}$. Nennen wir die Differenz der beiden Frequenzen $\Delta f$ und die Länge der Wellenpakete $\Delta t$ (also ihren Abstand $T_{beat}$, also $T_{beat} = \Delta t$), so können wir Gl. \ref{eq:3_tbeat} schreiben als
+\begin{equation}
+    \Delta t \, \Delta f = 1
+\end{equation}
+Das ist zunächst trivial, aber es ist ein Vorbote von etwas Größerem. Wenn sich die beiden Frequenzen annähern, werden die Wellenpakete länger.
+
+Um nicht einen Zug von Wellenpaketen, sondern ein einziges Paket zu erhalten, müssen viele Sinuswellen überlagert werden. Zum Zeitpunkt $t=0$ überlagern sich alle konstruktiv (siehe Skizze XXX), zu allen anderen Zeitpunkten jedoch mehr oder weniger destruktiv. Insbesondere gibt es für große Zeiten zu jeder Welle immer eine andere, die diese gerade auslöscht. Der Zusammenhang zwischen den Frequenzkomponenten und dem zeitlichen Verlauf wird durch die Fourier-Transformation hergestellt. Eine Eigenschaft der Fourier-Transformation ist die Pulsdauer-Bandbreiten-Grenze
+\begin{equation}
+    \Delta t \, \Delta f \approx 1
+\end{equation}
+Der genaue Wert der Konstanten auf der rechten Seite hängt von der zeitlichen Form des Wellenpakets ab und auch davon, wie genau man die Breiten $\Delta t$ und $\Delta f$ definiert. Auf diese Details soll hier nicht eingegangen werden. Ich verstecke alles in 'ungefähr eins'. Die Bedeutung ist unabhängig von diesen Details: Ein Wellenpaket, das aus der Superposition verschiedener Sinuswellen gebildet wird, kann nicht beliebig kurz sein. Es hat eine minimale Länge $\Delta t$, die sich aus seiner Breite im Frequenzraum $\Delta f$ ergibt. Dies ist schon eine Eigenschaft der Fourier-Transformation und gilt daher auch in der klassischen Physik.
+
+
+\subsection{Bandbreite}
+
+Die Pulsdauer-Bandbreitenbegrenzung der Fourier-Transformation hat verschiedene technische Konsequenzen. Immer dann, wenn die Breite im Frequenzbereich begrenzt ist, ist auch die zeitliche Dauer nach unten begrenzt. Ein Beispiel hierfür sind kurze Laserpulse. Um einen Laserpuls der Länge $\Delta t = 100 fs = 100 \cdot 10^{-15}$s zu erzeugen, benötigt man ein Spektrum, das mindestens 
+\begin{equation}
+    \Delta f = \frac{1}{100 fs} = 10 \cdot 10^{12} Hz = 10 THz
+\end{equation}
+breit ist. Bei einer Zentralwellenlänge von 800~nm entspricht dies einer Breite von etwa 20~nm.
+
+
+\subsection{Unschärfe}
+
+Die Breiten $\Delta t$ und $\Delta f$ können auch als \emph{Unschärfe} verstanden werden. Bei einem Wellenpaket der Zeitlänge $\Delta t$ können wir nicht mehr eindeutig sagen, wann es am Detektor eintrifft. Ist die Ankunftszeit der Anfang des Pakets oder das Ende oder das Maximum? Ebenso können wir nicht mehr eindeutig sagen, welche Frequenz und damit welche Wellenlänge es hat, da verschiedene Sinuswellen zum Wellenpaket beitragen. Dies ist eine grundsätzliche Eigenschaft von Wellenpaketen und hat nichts mit experimentellen Unzulänglichkeiten zu tun.
+
+Diese beiden Unschärfen sind miteinander verknüpft. Wenn wir ein Wellenpaket erzeugen wollen, das zeitlich sehr gut definiert ist, also eine kleine zeitliche Unschärfe $\Delta t$ hat, dann verlangt die Pulsdauer-Bandbreiten-Grenze, dass die Frequenzunschärfe $\Delta f$ besonders groß ist. Und umgekehrt: Wenn die Frequenz in einem Wellenpaket sehr genau bekannt sein soll, $\Delta f$ also klein sein soll, dann kann man nur sehr ungenau angeben, wann dieses Wellenpaket eintrifft.
+
+Technisch ist 
+\begin{equation}
+    \Delta t \, \Delta f \approx 1
+\end{equation}
+eine untere Grenze. Aufgrund von Rauschen oder anderen technischen Faktoren kann die zeitliche Dauer oder die Bandbreite noch größer sein. Dieses Produkt aus Pulsdauer und Bandbreite definiert die Grenze des Wissens, das über ein beliebiges Wellenpaket gewonnen werden kann.
+
+
+\section{Die Heisenbergsche Unschärfe-Relation}
+
+Wir wollen nun ein Teilchen durch ein Wellenpaket beschreiben. Das Teilchen mit der Masse $m$ bewegt sich mit der Geschwindigkeit $v_x$ entlang der Achse $x$. Seine de Broglie Wellenlänge ist $\lambda = h / p_x$ mit $p_x = m v_x$ der x-Komponente des Impulses. Die Periodendauer des Wellenpakets sei $\Delta t$. Dann ist die räumliche Ausdehnung $\Delta x$.
+\begin{equation}
+    \Delta x = v_x \Delta t = \frac{p_x}{m} \, \Delta t
+\end{equation}
+
+Die Frequenz $\nu$ der Materiewelle des Teilchens ergibt sich aus dessen de Broglie-Wellenlänge via\sidenote{hier ist Phasen- gleich Gruppengeschwindigkeit}
+\begin{equation}
+    \nu \lambda = v
+\end{equation}
+also 
+\begin{equation}
+    \nu = \frac{v}{\lambda } = \frac{p_x / m}{h / p_x} = \frac{p_x^2}{h m}
+\end{equation}
+Durch Ableitung finden wir
+\begin{equation}
+    \Delta \nu = \frac{2 p_x}{h m} \, \Delta p_x
+\end{equation}
+Wenn wir all dies in die Gleichung für Pulsdauer und Bandbreite einsetzen (und die Frequenzen auf der atomaren Skala als $\nu$ schreiben), dann erhalten wir
+\begin{equation}
+    \Delta t \Delta \nu = \frac{m}{p_x} \Delta x \, \, \frac{2 p_x}{h m} \, \Delta p_x = \frac{2}{h} \, \Delta x \, \Delta p_x  
+\end{equation}
+Die Pulsdauer-Bandbreiten-Grenze ist ja eine untere Grenze. Darum schreibe ich das $\approx$ jetzt als $\ge$ und wir erhalten
+\begin{equation}
+    \Delta x \, \Delta p_x  \ge  \frac{h}{2}
+\end{equation}
+Dies ist die \emph{Heisenbergsche Unschärferelation}. Wie oben hängt die rechte Seite der Gleichung von der genauen Definition der beiden Breiten $\Delta x$ und $\Delta p_x$ ab. Aber auch hier sind die Details nicht so wichtig, solange ein $h$ auftaucht.
+
+\paragraph*{Was bedeutet das?}
+
 %--------------------
+
+
 \printbibliography[segment=\therefsegment,heading=subbibliography]
