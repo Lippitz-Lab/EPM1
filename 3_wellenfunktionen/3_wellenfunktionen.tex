@@ -12,19 +12,7 @@ Ich kann das Konzept einer Materiewelle benutzen um Experimente mit Teilchen zu 
 
 \section{Overview}
 
-39 Wave Functions and Uncertainty 1170
 
-39.1 Waves, Particles, and the Double-Slit Experiment 1171
-
-39.2 Connecting the Wave and Photon Views 1174
-
-39.3 The Wave Function 1176
-
-39.4 Normalization 1178
-
-39.5 Wave Packets 1180
-
-39.6 The Heisenberg Uncertainty Principle 1183
 
 \phet{Quantum_Wave_Interference}
 
@@ -72,20 +60,6 @@ Ich kann das Konzept einer Materiewelle benutzen um Experimente mit Teilchen zu 
 % • We introduce wave packets early because they are much more intuitive than plane waves and
 % easier to relate to “particles.”
 
-% 12. Wave equations and Differential equations
-% • It is worth emphasizing that the way we solve differential equations in physics, by just
-% “guessing” the solution, is completely different from the way they have been taught to solve
-% differential equations in math classes. Many students make this section way too hard by
-% attempting to use complicated methods they have learned in math classes.
-
-% 13. Schrodinger equation for free particle
-% Sim: Quantum Tunneling
-% • You can use the Quantum Tunneling sim to demonstrate free particles by just setting the
-% potential to “constant.”
-% • Students often have difficulty understanding the meaning of complex wave functions. This
-% can perhaps best be illustrated by the observation that students frequently ask, “What is the
-% physical meaning of the imaginary part of the wave function?” but never ask about the
-% physical meaning of the real part, even though both have the same physical significance
 
 
 \section{Überblick}
@@ -304,9 +278,27 @@ Die Pulsdauer-Bandbreiten-Grenze ist ja eine untere Grenze. Darum schreibe ich d
 \begin{equation}
     \Delta x \, \Delta p_x  \ge  \frac{h}{2}
 \end{equation}
-Dies ist die \emph{Heisenbergsche Unschärferelation}. Wie oben hängt die rechte Seite der Gleichung von der genauen Definition der beiden Breiten $\Delta x$ und $\Delta p_x$ ab. Aber auch hier sind die Details nicht so wichtig, solange ein $h$ auftaucht.
+Dies ist die \emph{Heisenbergsche Unschärferelation}, in dieser Form auch Orts-Impuls-Unschärfe genannt. Wie oben hängt die rechte Seite der Gleichung von der genauen Definition der beiden Breiten $\Delta x$ und $\Delta p_x$ ab. Aber auch hier sind die Details nicht so wichtig, solange ein $h$ auftaucht.
 
-\paragraph*{Was bedeutet das?}
+\paragraph*{Was bedeutet das?} Die Heisenbergsche Unschärferelation beschreibt die Grenze unseres Wissens über ein quantenmechanisches Teilchen. Wir können nicht gleichzeitig den Ort und den Impuls (oder die Geschwindigkeit) beliebig genau kennen. Je genauer wir den Ort kennen wollen, desto ungenauer muss unser Wissen über den Impuls sein und umgekehrt.
+
+Messunsicherheiten sind ein Charakteristikum der klassischen Physik. Jede Messung ist mit einer Unsicherheit behaftet. In der klassischen Physik ist dies jedoch ein technisches Problem. Mit etwas mehr Aufwand könnte man die Unsicherheit reduzieren. Außerdem sind zwei Messungen, z.B. Ort und Geschwindigkeit, voneinander unabhängig, und wir könnten beide Unsicherheiten vernachlässigen.
+
+Die Heisenbergsche Unschärferelation besagt, dass dies in der atomaren Welt nicht der Fall ist. Es handelt sich nicht mehr um ein technisches Problem, sondern um eine grundsätzliche Grenze unseres Wissens. Wie auch immer wir es technisch machen, Ort und Impuls können nicht beliebig genau bestimmt werden. In dieser Hinsicht sind Atomteilchen Wellenpaketen ähnlich.
+
+\paragraph*{Nebenbemerkung} Wenn Sie eine Vorlesung über Quantenmechanik besucht haben, werden Sie gesehen haben, dass die Heisenbergsche Unschärferelation mit den Operatoren $\hat{A}$, $\hat{B}$ geschrieben wird als\footcite{Nolting-QM} 
+\begin{equation}
+    \Delta A \, \Delta B \ge \frac{1}{2} \left|   \braket{ [\hat{A}, \hat{B}]  } \right|
+\end{equation}
+wobei die eckige Klammer $[ \cdots]$ den Kommutator darstellt\sidenote{$[\hat{A}, \hat{B}] = \hat{A} \hat{B} - \hat{B} \hat{A}$} und die spitze Klammer $\braket{\cdots}$ den Erwartungswert bezeichnet. Auf diese Weise erhält man die oben hergeleitet Orts-Impuls-Unschärfe.
+
+Die Pulsdauer-Bandbreiten-Unschärfe, oder durch Multiplikation mit $h$ die Energie-Zeit-Unschärfe
+\begin{equation}
+    \Delta E \, \Delta t \ge h
+\end{equation}
+ist aber eigentlich keine Heisenbergsche Unschärferelation im engeren Sinne, weil es in der Quantenmechanik keinen Zeitoperator gibt. Sie ist 'nur' eine Eigenschaft der Fourier-Transformation. Diese Unterscheidung wird aber nicht oft geamcht.
+
+
 
 %--------------------
 
