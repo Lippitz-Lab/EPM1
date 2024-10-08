@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{7. Oktober 2024}
+\renewcommand{\lastmod}{8. Oktober 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Quantisierung}
@@ -87,8 +87,9 @@ Das zentrale und wichtige Experiment, das zur Quantenhypothese der Photonen füh
 (technische Stromrichtung entgegen dem Uhrzeigersinn). Ohne Licht gibt es keine austretenden Elektronen und damit keinen Strom.
 
 \begin{marginfigure}
- \caption{XXX Skizze des Versuchsaufbaus zum Photoeffekt}
- \label{fig:2_photoeffekt_setup}
+    \includegraphics[width=\textwidth]{\currfiledir sketch/photoeffekt.png}
+    \caption{Skizze des Versuchsaufbaus zum Photoeffekt}
+    \label{fig:2_photoeffekt_setup}
 \end{marginfigure}
 
 
@@ -103,11 +104,13 @@ Lenard untersuchte 1902 den Zusammenhang zwischen der Potentialdifferenz $\Delta
 \end{enumerate}
 
 \begin{marginfigure}
-    \caption{XXX Skizze Grenzfrequenz}
+    \includegraphics[width=0.6\textwidth]{\currfiledir sketch/PE_I_nu.png}
+    \caption{Es gibt eine Grenzfrequenz $\nu_0$, unterhalb derer kein Strom detektiert wird.}
    \end{marginfigure}
 
    \begin{marginfigure}
-    \caption{XXX Skizze Stop-Spannung}
+    \includegraphics[width=\textwidth]{\currfiledir sketch/PE_I_V.png}
+    \caption{Es gibt eine Stop-Spannung $- V_{stop}$,  unterhalb derer kein Strom detektiert wird.}
    \end{marginfigure}
 
 
@@ -156,8 +159,9 @@ Im Jahr 1905, dem 'annus mirabilis',  veröffentlichte Albert Einstein 4 wichtig
 \end{enumerate}
 
 \begin{marginfigure}
-    \caption{XXX Skizze Photon Vernuchtung und Elektrin Austritt }
-   \end{marginfigure}
+    \includegraphics[width=\textwidth]{\currfiledir sketch/PE_Einstein.png}
+    \caption{Ein Photon wird vernichtet und ein Elektron tritt aus dem Metall aus.}
+\end{marginfigure}
 
 
 Der entscheidende Punkt bei der Erklärung des Photoeffektes war die Annahme, dass die Energie einer Lichtwelle \emph{quantisiert} ist. Es gibt eine kleinste mögliche Energiemenge und alles andere sind ganzzahlige Vielfache davon. Dieses Lichtquantum nennt man heute \emph{Photon}. Es bewegt sich mit Lichtgeschwindigkeit.  Die Energie $E$ eines Photons hängt von der Frequenz $\nu$ der Lichtwelle ab
@@ -185,7 +189,8 @@ Auf das Metall trifft Licht der Frequenz $\nu$. Jedes Photon hat dabei die Energ
  Sie ist also insbesondere nicht von der Lichtintensität abhängig.
 
  \begin{marginfigure}
-    \caption{XXX Skizze mit Daten Stop-Spannung als Fkn Frequenz}
+    \includegraphics[width=\textwidth]{\currfiledir sketch/PE_Vstop.png}
+    \caption{Stop-Spannung als Funktion der Frequenz $\nu$ für 3 verschiedene Metalle.}
 \end{marginfigure}
 
 
@@ -262,6 +267,11 @@ wobei die Zustandssumme $Z$ so gewählt wird, dass das Integral über $p$ eins e
  \end{equation}
 Dieses \emph{Plancksche Strahlungsgesetz} beschreibt die Schwarzkörperstrahlung vollständig.
 
+\begin{marginfigure}
+    \inputtikz{1_grenzen/planck_linlog}
+    \caption{Schwarzkörperspektren in linearer und logarithmischer Darstellung.}
+\end{marginfigure}
+
 \paragraph*{Nebenbemerkung} Heute bezeichnet man Photonen als Bosonen, also als Quantenteilchen mit ganzzahligem Spin, die der Bose-Einstein-Statistik unterliegen. Für solche Teilchen gilt anstelle der Boltzmann-Statistik die Besetzungswahrscheinlichkeit
 \begin{equation}
    p_{BE}(E) = \frac{1}{Z} \, \frac{1}{e^{\frac{E}{k_b T}} -1}  \quad .
@@ -272,10 +282,7 @@ Damit kann das Spektrum als Zustandsdichte mal Besetzungswahrscheinlichkeit mal 
 \end{equation}
 
 
-\begin{marginfigure}
-    \inputtikz{1_grenzen/planck_linlog}
-    \caption{Schwarzkörperspektren}
-\end{marginfigure}
+
 
 \subsection{Wiensches Strahlungsgesetz}
 Das Wiensche Strahlungsgesetz ergibt sich historisch rückblickend aus dem Planckschen Strahlungsgesetz für Photonenenergien viel größer als die thermische Energie, also $h \nu \gg k_b T$ und damit 
@@ -306,9 +313,15 @@ und $x \approx 4.965$ der Nullstelle eine Gleichung, die das Maximum des Spektru
 
 
 
- \section{Compton Streuung}
+ \section{Compton-Streuung}
 
  Ob es Photonen wirklich 'gibt' oder ob sie nur ein gutes Modell sind, um die Absorption von Lichtwellen zu beschreiben, ist eine fast philosophische Frage, die auch in der Physik unterschiedlich beantwortet wird. Das wohl überzeugendste Argument für die Existenz des Photons als Teilchen ist das Streuexperiment von Arthur Compton. Er untersuchte 1922 die Ablenkung hochenergetischer Röntgenphotonen beim Auftreffen auf einen Festkörper. Dabei stellte er fest, dass sich nicht nur die Richtung, sondern auch die Wellenlänge der Photonen zu längeren Wellenlängen hin ändert. Das ist so, als ob ein grüner Laserpointer plötzlich rot wird, nachdem er an eine Wand gestrahlt wurde.
+
+ \begin{marginfigure}
+    \includegraphics[width=\textwidth]{\currfiledir sketch/compton_setup.png}
+    \caption{Versuchsaufbau zur Compton-Streuung}
+\end{marginfigure}
+
 
  Dieser Effekt kann als Kollision zweier punktförmiger Teilchen 'Photon' und 'Elektron' mit Energie- und Impulserhaltung unter Berücksichtigung des relativistischen Energie-Impulssatzes beschrieben werden. Vor dem Stoß ist das Elektron in Ruhe, danach hat es (relativistische) kinetische Energie. Die Energieerhaltung ist somit
 \begin{equation}
@@ -336,9 +349,9 @@ Die Konstante $\lambda_C$ nennt man \emph{Compton-Wellenlänge} des Elektrons.
 
 
 \begin{marginfigure}
-    \caption{XXX Sketch Compton scattering}
+    \includegraphics[width=\textwidth]{\currfiledir sketch/compton_vorher_nachher.png}
+    \caption{Kollision von Photon und Elektron.}
 \end{marginfigure}
-
 
 
  \section{Materiewellen}
@@ -371,7 +384,8 @@ Die Konstante $\lambda_C$ nennt man \emph{Compton-Wellenlänge} des Elektrons.
 
 
  \begin{marginfigure}
-    \caption{XXX Sketch Teiclhen im Kasten: WF und Energien}
+    \includegraphics[width=\textwidth]{\currfiledir sketch/Teilchen_im_kasten.png}
+    \caption{Teilchen im Kasten: Wellenfunktionen und Energien}
  \end{marginfigure}
 
 Nimmt man jedoch eine Materiewelle zur Beschreibung des Teilchens, so hat diese Welle die de Broglie Wellenlänge $\lambda_{dB}$. Diese Welle wird an den Wänden des Kastens reflektiert und es bilden sich Knoten an den Wänden und eine stehende Welle. Dies ist nur bei bestimmten Wellenlängen $\lambda_n$ möglich
@@ -429,7 +443,8 @@ Ein Energieniveau-Diagramm ist ein wichtiges Hilfsmittel, um den Überblick übe
 
 
 \begin{marginfigure}
-    \caption{XXX Sketch Energiezustandsdiagramm}
+    \includegraphics[width=\textwidth]{\currfiledir sketch/diagramm_demo.png}
+    \caption{Beispiel eines Energiezustandsdiagramms}
  \end{marginfigure}
 
 
@@ -464,7 +479,8 @@ mit der \emph{Rydberg-Energie} $R_y = h c R_\infty =  - 13.60$eV, und der Rydber
 Das gebundene Elektron-Proton-Paar hat eine niedrigere Energie, weil wir Energie aufwenden müssen, um es in den freien Zustand zu überführen. Daher bezeichnet man $|E_n|$ als \emph{Bindungsenergie}, also die Energie, die in der Bindung steckt. Die Bindungsenergie des Grundzustandes $|E_1|$ wird auch als \emph{Ionisierungsenergie} bezeichnet. Will man ein Elektron aus einem Atom entfernen, also das Atom ionisieren, so muss man diese Energie aufbringen, da sich Atome eigentlich immer im Grundzustand befinden. 
 
 \begin{marginfigure}
-    \caption{XXX Sketch H Zustände}
+    \includegraphics[width=\textwidth]{\currfiledir sketch/Bohr_Energien.png}
+    \caption{Zustände des Wasserstoffatoms im Bohr-Modell}
     \label{fig:2_H_zustaende}
  \end{marginfigure}
 
