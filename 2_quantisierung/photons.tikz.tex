@@ -1,0 +1,81 @@
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+
+
+
+% \begin{document}
+
+
+
+\begin{tikzpicture}
+
+
+  \begin{groupplot}
+    [ 
+        group style={
+            group size=1 by 4,
+            % columns=2,
+            % rows=2,
+          %  xlabels at=edge bottom,
+          %  ylabels at=edge left,
+            vertical sep= 3mm
+        },
+    ]
+
+  \nextgroupplot[font=\footnotesize,
+      ymin = 0, ymax = 1, xmin=-7, xmax=7,
+      ticks=none,
+      width=55mm, height=40mm,
+      skip coords between index={11}{20000},
+      clip marker paths=true
+      ]
+      \addplot+[black,mark size=1pt, only marks] table[x index=0,y index=1,col sep=comma] {\currfiledir pluto/photons.dat};
+
+      \begin{pgfonlayer}{foreground}
+        \node[fill=white, anchor=north west] at (rel axis cs: 0, 1) {10 Photonen};
+       \end{pgfonlayer}
+
+  \nextgroupplot[font=\footnotesize,
+        ymin = 0, ymax = 1, xmin=-7, xmax=7,
+        ticks=none,
+        width=55mm, height=40mm,
+        skip coords between index={101}{20000},
+        clip marker paths=true
+       ]
+       \addplot+[black,mark size=1pt, only marks] table[x index=0,y index=1,col sep=comma] {\currfiledir pluto/photons.dat};
+       \begin{pgfonlayer}{foreground}
+        \node[fill=white, anchor=north west] at (rel axis cs: 0, 1) {100 Photonen};
+       \end{pgfonlayer}
+
+
+  \nextgroupplot[font=\footnotesize,
+        ymin = 0, ymax = 1, xmin=-7, xmax=7,
+        ticks=none,
+        width=55mm, height=40mm,
+        skip coords between index={1001}{20000},
+        clip marker paths=true,
+       ]
+       
+
+       \addplot+[black,mark size=1pt, only marks] table[x index=0,y index=1,col sep=comma] {\currfiledir pluto/photons.dat};
+
+       \begin{pgfonlayer}{foreground}
+         \node[fill=white, anchor=north west] at (rel axis cs: 0, 1) {1000 Photonen};
+        \end{pgfonlayer}
+
+                   
+      
+     \end{groupplot}
+
+
+\end{tikzpicture}
+
+
+
+  
+
+
+%\end{document}
+
+

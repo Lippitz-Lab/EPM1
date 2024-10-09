@@ -1,0 +1,39 @@
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+
+
+
+% \begin{document}
+
+
+
+\begin{tikzpicture}
+
+
+  \begin{axis}
+    [font=\footnotesize,
+      ymin = 0, ymax = 766, xmin=0, xmax=1322,
+      ticks=none,
+      width=55mm, height=40mm,
+      ]
+      \addplot+[blue,mark size=1pt, smooth] table[x index=0,y index=1,col sep=comma, skip first n=1] {\currfiledir data/davisson27_fig1c.csv};
+
+      %\draw[line width=0.5pt] (171,458) --  (223,684);
+      \draw[line width=1.5pt] (201, 580) -- ++(78:200);
+      \draw[line width=1.5pt] (201, 580) -- ++(78:-300);
+      \draw[<-]  (250,580) -- node[above] {Elektronenstrahl} (1200,580);
+
+     \end{axis}
+
+
+\end{tikzpicture}
+
+
+
+  
+
+
+%\end{document}
+
+
