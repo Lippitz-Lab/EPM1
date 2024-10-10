@@ -94,6 +94,47 @@ let
 
 	
 	
+	pgfsave("../wavepaket_synthesis.tikz.tex",myaxis; include_preamble= false)
+	myaxis
+
+end
+
+# ╔═╡ 97f32c92-d921-4bbe-9a90-e39559ddf8a7
+let
+
+	
+	myaxis = @pgf PGFPlotsX.Axis(
+	    {
+	      	#ymin = -11, 
+		    #ymax = 16, 
+			#xmin = -5,			xmax = 7,
+	width="70mm",
+	height="55mm",
+	font = "\\footnotesize",
+	 #       xmin = -200, xmax =200,
+			#axis_x_line ="bottom",
+			#axis_y_line ="none",
+			#ylabel = raw"Signal (V)",
+			#xlabel=raw"Frequenz (MHz)",
+			#xtick = 384226 .+ [0, 2, 4, 6, 8 ], 
+		"hide axis",
+	}
+		);
+
+ 
+	
+
+	 p = @pgf PGFPlotsX.Plot(
+        {
+         red, thick
+        },
+       Table(["x" => t, "y" => -6 .+ wp])
+    )
+		push!(myaxis, p)
+
+
+	
+	
 	pgfsave("../wavepaket.tikz.tex",myaxis; include_preamble= false)
 	myaxis
 
@@ -1400,5 +1441,6 @@ version = "1.4.1+1"
 # ╠═6f6ca632-5d0f-479d-8093-a1bb20437ef7
 # ╠═503be4cc-2c09-468b-ae3c-4711f8a23d1e
 # ╠═33e51005-5335-49dc-8b27-c71b3a25b256
+# ╠═97f32c92-d921-4bbe-9a90-e39559ddf8a7
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
