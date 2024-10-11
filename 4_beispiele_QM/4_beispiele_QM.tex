@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{10. September 2024}
+\renewcommand{\lastmod}{11. Oktober 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Beispiele aus der (1d) Quantenmechanik}
@@ -110,6 +110,7 @@ s.a. Demtröder 3, Kap. 4
 % • There is a lot of math here and it’s very easy to get lost in the math and forget why you’re
 % doing it. When asking students to work through it in homework, it’s very useful to ask them
 % to stop after each step in the math and explain in words what they just did.
+
 % 18. Superposition, measurement, and expectation values
 % Sim: Quantum Bound States
 % • Modern Physics textbooks typically do not cover superposition and measurement.
@@ -117,6 +118,199 @@ s.a. Demtröder 3, Kap. 4
 % you’re actually doing in QM or how it relates to the real world.
 % • We have chosen to cover expectation values in some semesters and not others. It helps to
 % relate it to more familiar examples such as grade distributions and gambling.
+
+
+
+\section{Die Schrödinger-Gleichung}
+
+Die Schrödingergleichung wurde 1925 von Erwin Schrödinger aufgestellt. Sie beschreibt, welche Wellenfunktionen $\Psi$ für ein quantenmechanisches System zulässig sind. Sie ist ähnlich fundamental wie die Newtonschen Gesetze und kann wie diese nicht hergeleitet, sondern nur plausibel gemacht werden.
+
+Für ein Teilchen der Masse $m$, das sich nur in der Raumrichtung $x$ bewegt und dabei die potentielle Energie $U(x)$ besitzt, lautet die Schrödingergleichung
+\begin{equation}
+   - \frac{\hbar}{2m} \frac{d^2}{dx^2} \Psi(x) + \left[ U(x) - E \right] \Psi(x) = 0
+   \label{eq:4_SG_1d}
+ \end{equation}
+ Es handelt sich also um eine Differentialgleichung zweiter Ordnung, wie man es von einer Wellengleichung erwarten würde.
+
+
+\paragraph*{Nebenbemerkung} In einer allgemeineren Form wird die Schrödingergleichung oft wie folgt geschrieben
+\begin{equation}
+    \hat{H} \, \Psi = E \, \Psi \quad .
+    \label{eq:4_SG_op_1d}
+\end{equation}
+Dabei bezeichnet $\hat{H}$ den Hamiltonoperator. Ein Operator ist eine Rechenvorschrift, die auf eine Funktion (hier $\Psi$) wirkt und wieder eine Funktion liefert. Im obigen Fall ist der Hamilton-Operator also
+\begin{equation}
+    \hat{H} = - \frac{\hbar}{2m} \frac{d^2}{dx^2} + U(x)
+\end{equation}
+Es gibt die zweite Ableitung nach dem Ort, aber es fehlt noch, was abgeleitet werden soll. Deshalb Operator und nicht einfach Konstante oder Funktion. 
+Die Form Gl.   \ref{eq:4_SG_op_1d} heißt Eigenwertgleichung und $E$ heißt \emph{Eigenwert}, weil der Operator wieder die gleiche Funktion $\Psi(x)$ ergibt, nur multipliziert mit einem skalaren Wert $E$.
+
+\section{Plausibilitätsbetrachtung}
+
+Nach de Broglie hat ein Teilchen mit der Masse $m$ und der Geschwindigkeit $v$ eine de Broglie-Wellenlänge 
+\begin{equation}
+    \lambda = \frac{h}{p} = \frac{h}{ m v}
+\end{equation}
+Seine Wellenfunktion oszilliert daher mit dieser Wellenlänge, z. B. sinusförmig
+\begin{equation}
+    \Psi(x) = \Psi_0 \, \sin\left( \frac{2 \pi x}{\lambda} \right)
+    \label{eq:4_sg_plausi_psi}
+\end{equation}
+
+Lassen Sie uns überprüffen, ob dieses $\Psi(x)$ die Schrödingergleichung löst.
+Durch die zweimalige Ableitung nach dem Ort wird aus dem Sinus wieder ein Sinus mit einem Vorfaktor.
+\begin{equation}
+    \frac{d^2}{dx^2} \Psi(x)  = - \left(\frac{2 \pi}{\lambda} \right)^2 \, \Psi(x)
+\end{equation}
+Eingesetzt in Gl.~\ref{eq:4_SG_1d} ergibt dies
+\begin{equation}
+     \frac{\hbar}{2m}  \left(\frac{2 \pi}{\lambda} \right)^2 \,  \Psi(x) + \left[ U(x) - E \right] \Psi(x) \overset{?}{=} 0
+     \label{eq:4_Sg_plausi}
+\end{equation}
+Unser Teilchen ist hier ein freies Teilchen. Es wirken keine äußeren Kräfte. Das Potential $U(x) = 0$. Die Energie $E$ ist vollständig in der kinetischen Energie $K$ , also 
+\begin{equation}
+    E =  K = \frac{1}{2} \, m \,  v^2 =  \frac{1}{2m} \, \left( \frac{h}{\lambda} \right)^2
+    \label{eq:4_Ekin_lambda}
+\end{equation}
+Mit $\hbar = h / (2 \pi)$ ist Gl.~\ref{eq:4_Sg_plausi} für alle Werte von $E$ bzw. der de Broglie Wellenlänge $\lambda$ erfüllt.
+
+Hätten wir nicht von vornherein  Gl.~\ref{eq:4_sg_plausi_psi} vermutet, so hätten wir diese Wellenfunktion mit Hilfe der Schrödinger-Gleichung finden können.\sidenote{Häufig löst man eine Differentialgleichung, indem man eine Lösung 'errät' und dann testet.}
+
+Was geschieht, wenn das Teilchen nicht frei ist? Die Kräfte, die dann auf das Teilchen wirken, werden durch das Potential $U(x)$ beschrieben. Die Gesamtenergie $E$ bleibt erhalten, so dass die kinetische Energie $K(x)$ ist.
+\begin{equation}
+    K(x) = E - U(x)
+\end{equation}
+Das ist genau der Term in der Klammer der Schrödingergleichung Gl \ref{eq:4_SG_1d}! Über Gl. \ref{eq:4_Ekin_lambda} gibt es einen Zusammenhang zwischen der kinetischen Energie und der Broglie-Wellenlänge. Wenn das Potential räumlich nicht konstant ist, ändert sich die de Broglie-Wellenlänge der Wellenfunktion. Wenn weniger Energie für die kinetische Energie 'übrig' bleibt, wird die Wellenlänge größer bzw. die Geschwindigkeit kleiner. Abbildung XXX zeigt ein Beispiel.
+
+\begin{marginfigure}
+    \caption{slope potential WF XXX}
+\end{marginfigure}
+
+
+
+
+\section{Modelle in der Quantenmechanik}
+
+Auch in der klassischen Physik haben wir Modelle betrachtet und vereinfachende Annahmen gemacht, z.B. dass keine Reibung wirkt oder dass die Masse in einem Punkt konzentriert ist. Die ganze Kunst der Physik besteht darin, gerade so viele Annahmen zu machen, dass das Wesen der Situation erhalten bleibt und man sie noch einfach beschreiben kann.
+
+In der Quantenmechanik machen wir ähnliche Annahmen. Um die zugrundeliegenden Prinzipien klar zu sehen, müssen wir einige Dinge vernachlässigen. Es gibt zwei wesentliche Unterschiede zwischen klassischen und quantenmechanischen Modellen. Die Schrödinger-Gleichung benutzt das Potential $U$ und nicht die Kraft. Wir modellieren also Potentiale und nicht Kräfte, wie wir es in der klassischen Physik sehr oft getan haben. Und das Ergebnis unseres Modells, die Wellenfunktion $\Psi$, ist selbst nicht direkt beobachtbar. Wir können $\Psi(x)$ nicht messen, und die Wahrscheinlichkeitsdichte $|\Psi(x)|^2$ wird im Labor nur selten gemessen. Wir müssen das Modell benutzen, um Aussagen über beobachtbare Größen wie Ladungen und Ströme, Absorptionslinien und Übergangsraten zu machen.
+
+
+\section{Lösen der Schrödingergleichung}
+
+Wenn wir nun ein Modell aufgestellt haben, d.h. wenn wir uns für einen räumlichen Verlauf des Potentials $U(x)$ entschieden haben, dann müssen wir nur noch die Schrödinger-Gleichung lösen. Das ist die Rechenvorschrift, die zu den von Niels Bohr postulierten stabilen Zuständen führt.
+
+Die Schrödinger-Gleichung ist eine Differentialgleichung zweiter Ordnung. Die Mathematik kennt analytische und numerische Methoden zu ihrer Lösung. Diese sollen hier aber nicht behandelt werden. Wir benutzen den dritten Weg, wie wir ihn oben beschritten haben: Wir 'erraten' eine Lösung, indem wir uns einfach davon überzeugen, dass eine Funktion die Gleichung erfüllt. Das ist möglich, weil andere die ersten beiden Wege gegangen sind und die interessanten Formen des Potentials und damit die möglichen Formen der Lösung begrenzt sind.
+
+An die Wellenfunktion $\Psi(x)$ können einige physikalische Anforderungen gestellt werden. Nicht alle mathematisch möglichen Lösungen der Gleichung sind auch physikalisch relevant. Dies war schon in der klassischen Physik der Fall, als wir z.B. forderten, dass Massen positiv sind, auch wenn eine Gleichung für $m<0$ ebenfalls gelöst wurde. In der Quantenmechanik ergeben sich die Anforderungen an $\Psi$ aus der Interpretation von $|\Psi(x)|^2$ als Wahrscheinlichkeitsdichte: $\Psi$ darf nicht so 'komisch' sein, dass $|\Psi(x)|^2$ keine Wahrscheinlichkeitsdichte mehr sein kann. Daraus folgende diese \emph{Randbedingungen}
+\begin{enumerate} \setlength{\itemsep}{0pt}
+    \item $\Psi(x)$ muss stetig sein
+    \item $\Psi(x)$ muss gleich Null sein an Orten, an denen das Teilchen physikalisch nicht sein kann
+    \item  $\Psi(x)$ strebt gegen Null für $x$ gegen $\pm \infty$
+    \item $\Psi(x)$ muss normiert sein
+\end{enumerate}
+
+
+Eine sehr nützliche Eigenschaft der Schrödingergleichung ist ihre Linearität. Wenn $\Psi_1$ und $\Psi_2$ Lösungen der Schrödingergleichung für die gleiche Energie $E$ sind, dann sind es auch die Linearkombinationen der beiden.
+\begin{equation}
+    \Phi = a_1 \, \Psi_1 + a_2 \, \Psi_2
+\end{equation}
+Die Normierungsanforderung legt dann die $a_i$ teilweise  fest.
+
+
+\subsection{Quantisierung} 
+
+Wir haben die Quantisierung der Energie und anderer Größen als zentrales Element der Quantenmechanik angesprochen. In der Schrödingergleichung scheint auf den ersten Blick nichts quantisiert zu sein. Sobald aber das Potential $U(x)$ die Bewegung des Teilchens einschränkt, gibt es nicht mehr für jede Energie $E$ eine Lösung. Für die allermeisten Werte von $E$ ist die Differentialgleichung unlösbar. Es gibt dann nur wenige diskrete Lösungen mit bestimmten, quantisierten Werten $E_n$.
+
+
+\section{Beispiel: Teilchen im Kasten}
+
+Wir hatten das Teilchen im Kasten bereits im Kapitel über die Quantisierung behandelt. Damals war es aber nur eine Hypothese, dass die de Broglie Wellenlänge zu stehenden Wellen im Kasten führen muss. Jetzt können wir es besser. Unsere Herangehensweise ist typisch für solche Aufgaben.
+
+
+\subsection{Potential}
+
+Zuerst müssen wir das Potential $U(x)$ finden, das unsere Situation 'Teilchen im Kasten' beschreibt. Der Kasten hat die Länge $L$ und die Wände sind starr, geben nicht nach und absorbieren keine Energie. Dies sind, wie so oft, vereinfachende Annahmen.
+
+Als Konsequenz dieser Annahmen kann sich das Teilchen im Bereich $0 < x < L$ frei bewegen. An den Enden, d.h. bei $x=0$ und $x=L$, wird das Teilchen unabhängig von seiner Energie reflektiert. Die Bereiche $x<0$ und $x>L$ sind verboten. Das Teilchen kann die Box nicht verlassen. Dieser Zustand wird durch das Potential 
+\begin{equation}
+    U(x) = \left\{ 
+        \begin{matrix}
+            0 & 0 \le x \le L \\
+            \infty & \text{sonst}
+        \end{matrix}
+    \right.
+\end{equation}
+beschrieben. Innerhalb des Kastens hat das Teilchen nur kinetische Energie, das Potential ist Null. Aber egal wie groß die Gesamtenergie des Teilchens ist, sie reicht niemals aus, um die unendlich große potenzielle Energie außerhalb des Kastens aufzubringen. Das Teilchen kann den Kasten nicht verlassen.
+
+
+\subsection{Randbedingungen}
+
+\begin{marginfigure}
+    \caption{XXX POtential Teilchen im Kasten}
+\end{marginfigure}
+
+Wir zeichnen das Potenzial (Abb. XXX). Wir schneiden die Potentialstufen, die ins Unendliche gehen würden, ab und ersetzen sie durch einen Pfeil nach oben.
+
+Das Teilchen kann sich physikalisch nicht außerhalb des Kastens befinden. Daher muss die Wellenfunktion dort Null sein, d.h.\begin{equation}
+    \Psi(x) = 0 \quad \text{für} \quad x < 0  \quad \text{oder} \quad x > L
+ \end{equation}
+ Daher ist die Wahrscheinlichkeitsdichte $|\Psi(x)|^2$ in diesen Bereichen gleich Null.
+
+Die Wellenfunktion muss ebenfalls stetig sein. Deshalb muss sie auch an den Rändern des Kastens Null sein, d. h.
+\begin{equation}
+    \Psi(x) = 0 \quad \text{für} \quad x = 0  \quad \text{oder} \quad x = L
+ \end{equation}
+ Unabhängig von der Form der Wellenfunktion im Kasten muss es an den Wänden einen Knoten geben.
+
+
+
+\subsection{Lösung der Gleichung}
+
+Wir suchen eine Lösung der Schrödingergleichung Gl.~\ref{eq:4_SG_1d} für $U=0$, also nur im Bereich $x0<x<L$. Alles andere haben wir schon. Eine Lösung bedeutet, dass wir sowohl eine Funktion $\Psi(x)$ als auch die zugehörige Energie $E$ finden müssen.
+Wir schreiben die Schrödingergleichung Gl.~\ref{eq:4_SG_1d} mit $\beta^2 = 2 m E / \hbar^2$ als
+\begin{equation}
+    \frac{d^2}{dx^2} \Psi(x) = - \beta^2 \Psi(x) 
+  \end{equation}
+Diese Differentialgleichung wird durch Sinus und Kosinus gelöst, also ist 
+\begin{equation}
+    \Psi(x) = A \sin \beta x  \, + \, B \cos \beta x
+\end{equation}
+die allgemeine Lösung. 
+
+Die Unbekannten $A$ und $B$ müssen nun so gefunden werden, dass die Randbedingungen erfüllt sind. Für $x=0$ muss $\Psi$ Null sein
+\begin{equation}
+    \Psi(0) =  A \sin   0  \, + \, B \cos   0 = B \overset{!}{0} \quad \text{also} \quad B = 0
+\end{equation}
+Ebenso muss $\Psi$ bei $x=L$ Null sein, also 
+\begin{equation}
+    \Psi(L) = A \sin \beta L \overset{!}{0} \text{also} \quad \beta L = n \, \pi \quad \text{mit} \quad n = 1, 2, 3, \dots
+\end{equation}
+Der Fall $n=0$ ist physikalisch unsinnig, da hier $\Psi = 0$ für alle $x$, also überhaupt kein Teilchen vorhanden wäre.
+
+Damit haben wir eine unendliche Menge an   Wellenfunktionen gefunden
+\begin{equation}
+    \Psi_n(x) = A \sin \beta_n x = A \sin \left(  \frac{n\pi}{L} x \right) \quad \text{mit} \quad n = 1, 2, 3, \dots
+\end{equation}
+Die Konstante $A$ werden wir unten aus der Normierung bestimmen.
+
+
+
+\subsection{Energie-Eigenwerte}
+
+Zunächst interessieren uns die möglichen Werte der Energie $E$, die zu diesen Wellenfunktionen $\Psi_n$ gehören. Mit der Definition von $\beta$ finden wir
+\begin{equation}
+    \beta_n = \frac{\sqrt{ 2 m E_n}}{\hbar} = \frac{n\pi}{L} \quad \text{mit} \quad n = 1, 2, 3, \dots
+\end{equation}
+und so 
+\begin{equation}
+    E_n = \frac{\pi^2 \, \hbar^2}{2 m L^2} \, n^2 \quad \text{mit} \quad n = 1, 2, 3, \dots
+\end{equation}
+Damit haben wir die Quantisierung. Nur diese Energiewerte sind für ein Teilchen im Kasten möglich. Dies ist eine Folge des Kastens, des confinement, nicht eine Eigenschaft des Teilchens selbst.  Abb. XXX skizziert diese Leiter der Energie-Eigenwerte. In solchen Skizzen hat nur die vertikale Achse als Energieachse eine Bedeutung. Die horizontale Achse hat keine physikalische Bedeutung und dient nur der graphischen Darstellung.
+
+\begin{marginfigure}
+    \caption{XXX Energie-Eigenwerte Teilchen im Kasten}
+\end{marginfigure}
 
 \section{Korrespondenzprinzip}
 An verschiedenen Stellen ist uns der Welle-Teilchen-Dualismus begegnet. Objekte auf der atomaren Skala können nicht mehr nur als Welle oder nur als Teilchen beschrieben werden, sondern sind beides oder nichts von beidem. Unsere Bilder sind zu schwach, um diese Objekte zu beschreiben. Es hat sich aber gezeigt, dass man den Übergang von der mikroskopischen zur makroskopischen Welt nutzen kann, um die Konsistenz der mikroskopischen Beschreibung zu überprüfen. 
