@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{10. Oktober 2024}
+\renewcommand{\lastmod}{11. Oktober 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Wellenfunktionen}
@@ -62,7 +62,7 @@ Die Gliederung folgt wiederum  Kapitel 39 von \cite{Knight_physics}. Weiterhin f
 
 \section{Das Doppelspaltexperiment mit Lichtwellen}
 
-Kommen wir noch einmal auf das Doppelspaltexperiment von Young zurück, das Sie bereits in der Optik behandelt haben. Wir behandeln Licht als Welle und nicht als Teilchen. Eine ebene Welle fällt auf zwei (sehr dünne) Spalten in einem ansonsten undurchlässigen Schirm. Man kann sich vorstellen, dass von jedem Punkt in den Spalten eine Huygenssche Elementarwelle $E_{1,2}$ ausgeht, die man schreiben kann als 
+Kommen wir noch einmal auf das Doppelspaltexperiment von Young zurück, das Sie bereits in der Optik behandelt haben. Wir beschreiben Licht als Welle und nicht als Teilchen. Eine ebene Welle fällt auf zwei (sehr dünne) Spalten in einem ansonsten undurchlässigen Schirm. Man kann sich vorstellen, dass von jedem Punkt in den Spalten eine Huygenssche Elementarwelle $E_{1,2}$ ausgeht, die man schreiben kann als 
 \begin{equation}
     E_{i} = a_i \, \sin ( k \, r_i - \omega t) \quad \text{mit} \quad i = 1,2
 \end{equation}
@@ -125,7 +125,7 @@ Unsere beste Vorhersage für die Anzahl der Treffer nach 60 Versuchen ist also $
 
 \section{Interpretation des Interferenzmusters von Photonen }
 
-Im letzten Kapitel haben wir bereits gesehen, welches Punktmuster Photonen auf einem Schirm hinter einem Doppelspalt hinterlassen (siehe Abb.~\ref{fig:3_Doppelspalt}). Dieses wollen wir nun etwas genauer betrachten. Wie ein Foto in der Zeitung besteht das Bild auf dem Schirm aus vielen Punkten, die mehr oder weniger dicht beieinander liegen. Und wie bei den Dartpfeilen können wir nicht sagen, wo das nächste Photon detektiert wird. Aber es gibt Regionen, in denen dies mehr oder weniger wahrscheinlich ist.
+Im letzten Abschnitt haben wir bereits gesehen, welches Punktmuster Photonen auf einem Schirm hinter einem Doppelspalt hinterlassen (siehe Abb.~\ref{fig:3_Doppelspalt}). Dieses wollen wir nun etwas genauer betrachten. Wie ein Foto in der Zeitung besteht das Bild auf dem Schirm aus vielen Punkten, die mehr oder weniger dicht beieinander liegen. Und wie bei den Dartpfeilen können wir nicht sagen, wo das nächste Photon detektiert wird. Aber es gibt Regionen, in denen dies mehr oder weniger wahrscheinlich ist.
 
 Wir definieren entlang der Ortskoordinaten $x$ einen schmalen Streifen der Breite $\delta x$ und Höhe $H$ und zählen alle Photonen, die in diesen Streifen gefallen sind. Diese Zahl nennen wir hier $N(x, \delta x)$. Sie hängt natürlich von der Position $x$ ab, ob es sich um eine hellere oder dunklere Stelle des Sinterferenzmusters handelt. Wir definieren die Wahrscheinlichkeit $WK$ wieder als Grenzwert für eine Gesamtzahl von Photonen $N$
 \begin{equation}
@@ -166,19 +166,19 @@ Die Wahrscheinlichkeit, ein Photon im Intervall $(x, x+\delta x)$ zu treffen, is
 
 Das Interferenzmuster ändert sich kontinuierlich entlang der Koordinate $x$. Eigentlich möchte man die Ereignisse nicht auf einem Streifen der Breite $\delta x$ zählen, sondern jedem Ort einen Wert zuordnen. Dies ist mit der \emph{Wahrscheinlichkeitsdichte} möglich. Sie ist wie die Massen- oder Ladungsdichte eine Größe, die multipliziert mit einer Länge, einer Fläche oder einem Volumen eine Masse, eine Ladung oder eine Wahrscheinlichkeit ergibt. Um den Unterschied zwischen Länge, Fläche und Volumen deutlich zu machen, schreibt man gerne das Infinitesimale dazu ($dx$, $dA$, $dV$). Damit gilt 
 \begin{equation}
-    WK(x, \delta x)  = \int_{x}^{x + \delta x} P(x') \, dx' = P(x) \delta x 
+    WK(x, \delta x)  = \int_{x}^{x + \delta x} P(x') \, dx' \approx  P(x) \delta x 
 \end{equation}
 und somit
 \begin{equation}
     P(x) dx  = C'  |A(x)|^2 dx
 \end{equation}
 mit einer Proportionalitätskonstanten $C'$.
-Die Wahrscheinlichkeitsdichte $P$ ist im Gegensatz zur Wahrscheinlichkeit $WK(x, \delta x) $ unabhängig von der Streifenbreite. Diese Gleichung gilt für Photonen in jeder Situation, auch wenn wir sie für das Doppelspaltexperiment hergeleitet haben.
+Die Wahrscheinlichkeitsdichte $P$ ist im Gegensatz zur Wahrscheinlichkeit $WK(x, \delta x) $ unabhängig von der Streifenbreite. Diese Gleichung gilt für Photonen in jeder Situation, auch unabhängig vom  Doppelspaltexperiment.
 
 
 \section{Die Wellenfunktion}
 
-Im letzten Kapitel haben wir im Davidson-Germer-Experiment gesehen, dass Elektronen auch Welleneigenschaften besitzen. Elektronen verhalten sich also an einem Doppelspalt wie Photonen. Auch hier können wir am Schirm die Anzahl der eintreffenden Elektronen pro Flächenintervall bestimmen. Auch hier können wir eine Wahrscheinlichkeitsdichte $P(x)$ messen, die das Interferenzmuster im Doppelspaltexperiment beschreibt und damit die Wahrscheinlichkeit, ein Elektron in der Nähe des Ortes $x$ zu finden.
+Im letzten Kapitel haben wir im Davisson-Germer-Experiment gesehen, dass Elektronen auch Welleneigenschaften besitzen. Elektronen verhalten sich also an einem Doppelspalt wie Photonen. Auch hier können wir am Schirm die Anzahl der eintreffenden Elektronen pro Flächenintervall bestimmen. Auch hier können wir eine Wahrscheinlichkeitsdichte $P(x)$ messen, die das Interferenzmuster im Doppelspaltexperiment beschreibt und damit die Wahrscheinlichkeit, ein Elektron in der Nähe des Ortes $x$ zu finden.
 
 Für Photonen haben wir gerade gesehen, dass die Wahrscheinlichkeitsdichte $P(x)$ mit dem Quadrat der Amplitude $A(x)$ der optischen Wellen zusammenhängt. Diese Form der Beschreibung wollen wir auch für Elektronen übernehmen. Wir nehmen also an, dass es auch hier eine \emph{Wellenfunktion} $\Psi(x)$ gibt, die die Wahrscheinlichkeitsdichte analog zur Amplitude $A(x)$ beschreibt, also
 \begin{equation}
@@ -186,14 +186,14 @@ Für Photonen haben wir gerade gesehen, dass die Wahrscheinlichkeitsdichte $P(x)
 \end{equation}
 Im Gegensatz zum optischen Fall haben wir hier die Proportionalitätskonstante auf Eins gesetzt, da wir $\Psi(x)$ neu definieren und nicht auf eine aus der Optik bekannte Größe $A(x)$ zurückgreifen müssen.
 
-Diese Gleichung \emph{definiert} die Wellenfunktionen $\Psi(x)$. Das Experiment bestimmt aber nur $|\Psi(x)|^2$, nicht $\Psi(x)$. Insbesondere können wir nichts über das Vorzeichen von $\Psi(x)$ sagen\sidenote{wie wir später sehen werden, kann $\Psi(x)$ auch komplex sein, so dass uns ein unbekannter Faktor $\exp(i\phi)$ bleibt.}
+Diese Gleichung \emph{definiert} die Wellenfunktionen $\Psi(x)$. Das Experiment bestimmt aber nur $|\Psi(x)|^2$, nicht $\Psi(x)$. Insbesondere können wir nichts über das Vorzeichen von $\Psi(x)$ sagen.\sidenote{Wie wir später sehen werden, kann $\Psi(x)$ auch komplexwertig sein, so dass uns ein unbekannter Faktor $\exp(i\phi)$ bleibt.}
 
 Im Gegensatz zu einer elektromagnetischen Welle schwingt nichts mit der Wellenfunktion $\Psi(x)$.  $\Psi$ verhält sich wie eine Welle, ist aber nicht mit einer Auslenkung von irgendetwas verbunden. Wir können auch nicht $\Psi(x)$ selbst messen, sondern nur $|\Psi(x)|^2$. Es hat sich aber gezeigt, dass man mit der Annahme einer wellenartigen Funktion $\Psi$ den Ausgang von Experimenten sehr gut beschreiben kann. 
 
 Mit der Wellenfunktion haben wir aber erst die Hälfte. Wir brauchen noch Regeln, wie wir die Wellenfunktion in einer gegebenen Situation bestimmen können und wie sich eine gegebene Wellenfunktion mit der Zeit verändert. Dazu dient die Schrödingergleichung, die im nächsten Kapitel behandelt wird.
 
 \begin{marginfigure}
-    \includegraphics[width=\textwidth]{\currfiledir sketch/wavefunction.png}
+    \inputtikz{\currfiledir wavefunction_demo}
     \caption{Eine Wellenfunktion $\Psi(x)$ könenn wir nicht direkt messen, sondern nur ihr Betragsquadrat $|\Psi(x)|^2$.}
 \end{marginfigure}
 
@@ -220,12 +220,6 @@ Dies wird Normierungsbedingung genannt, oder eine Wellenfunktion ist normiert, w
 \end{questions}
 
 
-\section{Korrespondenzprinzip}
-An verschiedenen Stellen ist uns der Welle-Teilchen-Dualismus begegnet. Objekte auf der atomaren Skala können nicht mehr nur als Welle oder nur als Teilchen beschrieben werden, sondern sind beides oder nichts von beidem. Unsere Bilder sind zu schwach, um diese Objekte zu beschreiben. Es hat sich aber gezeigt, dass man den Übergang von der mikroskopischen zur makroskopischen Welt nutzen kann, um die Konsistenz der mikroskopischen Beschreibung zu überprüfen. 
-
-Wir fragen uns also, ob das mikroskopische Modell noch funktioniert, wenn wir alles noch größer machen. Bei den Photonen am Doppelspalt zum Beispiel, indem wir die Anzahl der Photonen pro Fläche stark erhöhen, oder beim Teilchen im Kasten, indem wir die Quantenzahl $n$ sehr groß machen. Das \emph{Korrespondenzprinzip} besagt, dass das mikroskopische Modell für große Quantenzahlen in das entsprechende makroskopische Modell übergehen muss. Bei großen Quantenzahlen ist der Effekt der Quantisierung nicht mehr wahrnehmbar, der Unterschied zwischen benachbarten Quantenzahlen ist klein. Dies haben wir in den letzten Abschnitten ausgenutzt, um die Wellenfunktion der Photonen zu konstruieren: für große Photonenzahlen muss alles in die klassische Elektrodynamik übergehen.
-
-
 
 \section{Wellenpakete}
 
@@ -239,7 +233,7 @@ Welle und Teilchen sind zwei klassische Konzepte, die sich gegenseitig ausschlie
 
 Betrachten wir ein Wellenpaket, wie es in Abbildung~\ref{fig:3_wellenpaket} skizziert ist. Im Gegensatz zu einer Sinuswelle ist das Wellenpaket räumlich und zeitlich begrenzt. Dadurch ähnelt es einem Teilchen. Gleichzeitig hat ein Wellenpaket aber auch eine Wellenlänge und schwingt wie eine Welle in Raum und Zeit. Aber auch Wellenpakete sind kein ideales Modell. Letztlich beschreibt nur die Quantenmechanik Objekte auf atomarer Skala korrekt.
 
-Überlagern sich zwei Sinuswellen mit den Frequenzen $f_1$ und $f_2$, so entsteht eine Schwebung (engl beating). Die Amplitude der Gesamtwelle ändert sich periodisch mit der Schwebungsfrequenz
+Überlagern sich zwei Sinuswellen mit den Frequenzen $f_1$ und $f_2$, so entsteht eine Schwebung (engl. beating). Die Amplitude der Gesamtwelle ändert sich periodisch mit der Schwebungsfrequenz
 \begin{equation}
     f_{beat} = | f_1 - f_2 | = \frac{1}{T_{beat}} \quad . \label{eq:3_tbeat}
 \end{equation}
@@ -261,7 +255,7 @@ Um nicht einen Zug von Wellenpaketen, sondern ein einziges Paket zu erhalten, m�
 \begin{equation}
     \Delta t \, \Delta f \approx 1 \quad .
 \end{equation}
-Der genaue Wert der Konstanten auf der rechten Seite hängt von der zeitlichen Form des Wellenpakets ab und auch davon, wie genau man die Breiten $\Delta t$ und $\Delta f$ definiert. Auf diese Details soll hier nicht eingegangen werden. Ich verstecke alles in 'ungefähr eins'. Die Bedeutung ist unabhängig von diesen Details: Ein Wellenpaket, das aus der Superposition verschiedener Sinuswellen gebildet wird, kann nicht beliebig kurz sein. Es hat eine minimale Länge $\Delta t$, die sich aus seiner Breite im Frequenzraum $\Delta f$ ergibt. Dies ist schon eine Eigenschaft der Fourier-Transformation und gilt daher auch in der klassischen Physik.
+Der genaue Wert der Konstanten auf der rechten Seite hängt von der zeitlichen Form des Wellenpakets ab und auch davon, wie genau man die Breiten $\Delta t$ und $\Delta f$ definiert. Auf diese Details soll hier nicht eingegangen werden. Ich verstecke alles in 'ungefähr eins'. Die Bedeutung ist unabhängig von diesen Details: Ein Wellenpaket, das aus der Superposition verschiedener Sinuswellen gebildet wird, kann nicht beliebig kurz sein. Es hat eine minimale Länge $\Delta t$, die sich aus seiner Breite im Frequenzraum $\Delta f$ ergibt. Dies ist eine Eigenschaft der Fourier-Transformation und gilt daher auch in der klassischen Physik.
 
 
 \begin{questions}
@@ -283,7 +277,7 @@ Die Breiten $\Delta t$ und $\Delta f$ können auch als \emph{Unschärfe} verstan
 
 Diese beiden Unschärfen sind miteinander verknüpft. Wenn wir ein Wellenpaket erzeugen wollen, das zeitlich sehr gut definiert ist, also eine kleine zeitliche Unschärfe $\Delta t$ hat, dann verlangt die Pulsdauer-Bandbreiten-Grenze, dass die Frequenzunschärfe $\Delta f$ besonders groß ist. Und umgekehrt: Wenn die Frequenz in einem Wellenpaket sehr genau bekannt sein soll, $\Delta f$ also klein sein soll, dann kann man nur sehr ungenau angeben, wann dieses Wellenpaket eintrifft.
 
-Technisch ist 
+Prinzipiell ist 
 \begin{equation}
     \Delta t \, \Delta f \approx 1
 \end{equation}
@@ -292,7 +286,7 @@ eine untere Grenze. Aufgrund von Rauschen oder anderen technischen Faktoren kann
 
 \section{Die Heisenbergsche Unschärfe-Relation}
 
-Wir wollen nun ein Teilchen durch ein Wellenpaket beschreiben. Das Teilchen mit der Masse $m$ bewegt sich mit der Geschwindigkeit $v_x$ entlang der Achse $x$. Seine de Broglie-Wellenlänge ist $\lambda = h / p_x$ mit $p_x = m v_x$ der x-Komponente des Impulses. Die Periodendauer des Wellenpakets sei $\Delta t$. Dann ist die räumliche Ausdehnung $\Delta x$.
+Wir wollen nun ein Teilchen durch ein Wellenpaket beschreiben. Das Teilchen mit der Masse $m$ bewegt sich mit der Geschwindigkeit $v_x$ entlang der Achse $x$. Seine de Broglie-Wellenlänge ist $\lambda = h / p_x$ mit $p_x = m v_x$ der x-Komponente des Impulses. Die Dauer des Wellenpakets sei $\Delta t$. Dann ist die räumliche Ausdehnung $\Delta x$.
 \begin{equation}
     \Delta x = v_x \Delta t = \frac{p_x}{m} \, \Delta t \quad .
 \end{equation}
@@ -342,7 +336,7 @@ ist aber eigentlich keine Heisenbergsche Unschärferelation im engeren Sinne, we
     \item \emph{Quantenradierer} sind eine Klasse von Doppelspaltexperimenten mit Quanten, bei denen eigentlich der Weg des Photons durch den einen oder anderen Spalt gemessen wird, diese Information dann aber wieder 'ausradiert' wird. Eine (alte) populärwissenschaftliche Darstellung ist \cite{WT_dualismus}, neuere sind \cite{heise_quantenradierer} und \cite{Hossenfelder_quantenradierer}. Ist das jetzt ein Paradoxon, oder nicht?
 \end{questions}
 
-
+%\newpage
 
 \section{Zusammenfassung}
 
