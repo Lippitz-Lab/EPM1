@@ -1,10 +1,7 @@
-\documentclass{standalone}
-\input{../tikz_header}
+% \documentclass{standalone}
+% \input{../tikz_header}
 
-
-
-
-\begin{document}
+%\begin{document}
 
  
  
@@ -18,7 +15,7 @@
   \begin{groupplot}
     [
         group style={
-            group size=1 by 3,
+            group size=1 by 4,
             % columns=2,
             % rows=2,
           %  xlabels at=edge bottom,
@@ -29,8 +26,8 @@
 
   \nextgroupplot[ axis equal,disabledatascaling, %scale only axis,
     font=\footnotesize,
-      xmin=(-3), xmax=(3),
-      ymin=(-4.4), ymax=(1.5),
+      xmin=(-4), xmax=(4),
+      ymin=(-4.4), % ymax=(1.5),
       xtick=\empty,
       ytick=\empty,
       %axis lines=middle,
@@ -39,41 +36,49 @@
      % ticklabel style={scale=0.8},
       %xlabel style={below=-1pt,font=\small},
       %ylabel style={above=-1pt},
-      width=55mm, height=45mm,
+      width=55mm,  height=47mm,
       %tick scale binop=\times,
       %every y tick scale label/.style={at={(rel axis cs:0,1)},anchor=south}]
           ]
 
+          % plane waves
           \addplot[ blue] {\phi};
           \addplot[ blue] {\phi + \la};
-          \addplot[ blue] {\phi + \la + \la};
+         % \addplot[ blue] {\phi + \la + \la};
 
-          \tikzmath{\e = \la - \phi;}  
-          \tikzmath{\f = 2*\la - \phi;}  
-          \tikzmath{\g = 3*\la - \phi;}   
-          \tikzmath{\h = 4*\la - \phi;}   
-          \tikzmath{\j = 5*\la - \phi;}  
-          \tikzmath{\k = 6*\la - \phi;}  
+          % spherical waves
+          \tikzmath{\re = \la - \phi;}  
+          \tikzmath{\rf = 2*\la - \phi;}  
+          \tikzmath{\rg = 3*\la - \phi;}   
+          \tikzmath{\rh = 4*\la - \phi;}   
+          \tikzmath{\rj = 5*\la - \phi;}  
+          \tikzmath{\rk = 6*\la - \phi;}  
 
-          \draw[blue] (\dx,0) ++ (\a:\e) arc (\a:\b:\e);
-          \draw[blue] (\dx,0) ++ (\a:\f) arc (\a:\b:\f);
-          \draw[blue] (\dx,0) ++ (\a:\g) arc (\a:\b:\g);
-          \draw[blue] (\dx,0) ++ (\a:\h) arc (\a:\b:\h);
-          \draw[blue] (\dx,0) ++ (\a:\j) arc (\a:\b:\j);
-          \draw[blue] (\dx,0) ++ (\a:\k) arc (\a:\b:\k);
+          \draw[blue] (\dx,0) ++ (\a:\re) arc (\a:\b:\re);
+          \draw[blue] (\dx,0) ++ (\a:\rf) arc (\a:\b:\rf);
+          \draw[blue] (\dx,0) ++ (\a:\rg) arc (\a:\b:\rg);
+          \draw[blue] (\dx,0) ++ (\a:\rh) arc (\a:\b:\rh);
+          \draw[blue] (\dx,0) ++ (\a:\rj) arc (\a:\b:\rj);
+          \draw[blue] (\dx,0) ++ (\a:\rk) arc (\a:\b:\rk);
 
-          \draw[blue] (-\dx,0) ++ (\a:\e) arc (\a:\b:\e);
-          \draw[blue] (-\dx,0) ++ (\a:\f) arc (\a:\b:\f);
-          \draw[blue] (-\dx,0) ++ (\a:\g) arc (\a:\b:\g);
-          \draw[blue] (-\dx,0) ++ (\a:\h) arc (\a:\b:\h);
-          \draw[blue] (-\dx,0) ++ (\a:\j) arc (\a:\b:\j);
-          \draw[blue] (-\dx,0) ++ (\a:\k) arc (\a:\b:\k);
+          \draw[blue] (-\dx,0) ++ (\a:\re) arc (\a:\b:\re);
+          \draw[blue] (-\dx,0) ++ (\a:\rf) arc (\a:\b:\rf);
+          \draw[blue] (-\dx,0) ++ (\a:\rg) arc (\a:\b:\rg);
+          \draw[blue] (-\dx,0) ++ (\a:\rh) arc (\a:\b:\rh);
+          \draw[blue] (-\dx,0) ++ (\a:\rj) arc (\a:\b:\rj);
+          \draw[blue] (-\dx,0) ++ (\a:\rk) arc (\a:\b:\rk);
 
-
+          % double slit
           \draw[line width=3pt, gray] (-5,0) -- (-\dx-0.2,0);
           \draw[line width=3pt, gray]  (-\dx+0.2,0) -- (\dx - 0.2, 0);
           \draw[line width=3pt, gray]  (\dx+0.2,0) -- (5, 0);
      
+          % labels
+          \draw[<->] (-3, \phi) -- node[left] {$\lambda$} (-3, \phi + \la);
+          \draw[<->] (-\dx, 0.3) -- node[above] {$d$} (\dx, 0.3);
+
+          \draw[<->] (-\dx,0) ++ (-130:\re) -- node[right] {$\lambda$} ++(-130:\la);
+
   \nextgroupplot[ 
           font=\footnotesize,
             xmin=(-4), xmax=(4),
@@ -92,7 +97,8 @@
 
                 \addplot[ blue, samples=500, domain=-3.7:3.7] {cos(x * 360 * \la / (2 *\dx) )};
 
-
+                \node at (-3.6, 1) {$A$};
+                \node at (3.6, 0.4) {$x$};
                      
   \nextgroupplot[ 
     font=\footnotesize,
@@ -112,9 +118,25 @@
       %every y tick scale label/.style={at={(rel axis cs:0,1)},anchor=south}]
           ]
 
-          \addplot[ blue, samples=500,  domain=-3.7:3.7] {cos(x * 360 * \la / (2 *\dx) )^2};
+          \addplot[ blue, samples=500,  domain=-3.7:3.6] {cos(x * 360 * \la / (2 *\dx) )^2};
+          \node at (-3.6, 1) {$I$};
+          \node at (3.6, 0.2) {$x$};
 
 
+      \nextgroupplot[font=\footnotesize,
+          ymin = 0, ymax = 1, xmin=-4, xmax=4,
+          ticks=none,
+          width=55mm, height=30mm,
+          skip coords between index={701}{20000},
+          clip marker paths=true,
+         ]
+         
+  
+         \addplot+[black,mark size=1pt, only marks] table[x index=0, y index=1,col sep=comma,
+        % x expr=(\thisrowno{0}-3)*0.37, 
+         ] {\currfiledir pluto/photons.dat};
+
+         
 
      \end{groupplot}
 
@@ -123,10 +145,6 @@
 \end{tikzpicture}
 
 
-
-  
-
-
-\end{document}
+%\end{document}
 
 

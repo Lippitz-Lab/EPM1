@@ -15,28 +15,39 @@ using Random
 
 # ╔═╡ 934d41d2-ee1f-4c79-b280-fcbfe6202681
 begin
-	Random.seed!(123);
+	Random.seed!(1);
 	
-	x = rand(1000) .* 2 .- 1
-	y = rand(1000) .* 2 .- 1
+	x = randn(1000) .* 0.5
+	y = randn(1000) .* 0.5
+
+	# 100 points witin +-1 square
+	id0 = findall( (abs.(x) .< 1) .& (abs.(y) .< 1) )
+
+	keepat!(x, id0[1:100])
+	keepat!(y, id0[1:100])
+
 	r = sqrt.(x.^2 .+ y.^2)
+	rs = sort(r)
 	
-	r1 = 0.4
-	r2 = 0.8
+	r1 = (rs[45] + rs[46]) / 2
+	r2 = (rs[80] + rs[81]) / 2
 
 	idr1 = findall(r .< r1)
-	idr1 = idr1[1:45]
 	
 	idr2 = findall(r1 .< r .< r2)
-	idr2 = idr2[1:35]
 
 	idr3 = findall(r2 .< r )
-	idr3 = idr3[1:20]
 
 	scatter(x[idr1], y[idr1])
 	scatter!(x[idr2], y[idr2])
 	scatter!(x[idr3], y[idr3])
 end
+
+# ╔═╡ 33bffdb0-7afc-4b8f-a8d2-4e25983316ba
+length(idr1)
+
+# ╔═╡ b0569cf5-c757-4ae0-9c46-34ac6bbeadd3
+length(idr2)
 
 # ╔═╡ ddbff149-b46b-44a7-97e0-1ec33f40fc18
 length(idr1) + length(idr2) + length(idr3)  
@@ -99,9 +110,9 @@ let
 		push!(myaxis, "\\draw (0,0) circle [black, radius=$(r1)] ;")
 		push!(myaxis, "\\draw (0,0) circle [black, radius=$(r2)] ;")
 	
-		push!(myaxis, "\\node at (0.95, 0) {20} ;")
-		push!(myaxis, "\\node at (0.55, 0) {35} ;")
-		push!(myaxis, "\\node at (0.3, 0.1) {45} ;")
+		push!(myaxis, "\\node at (0.9, 0.1) {C} ;")
+		push!(myaxis, "\\node at (0.6, 0.1) {B} ;")
+		push!(myaxis, "\\node at (0.4, 0.1) {A} ;")
 
 	
 	
@@ -1407,6 +1418,8 @@ version = "1.4.1+1"
 # ╠═5d0634ce-a67d-4ce3-a80b-258f26903799
 # ╠═20a76a76-b69c-4790-bfde-0fd830530cc8
 # ╠═934d41d2-ee1f-4c79-b280-fcbfe6202681
+# ╠═33bffdb0-7afc-4b8f-a8d2-4e25983316ba
+# ╠═b0569cf5-c757-4ae0-9c46-34ac6bbeadd3
 # ╠═ddbff149-b46b-44a7-97e0-1ec33f40fc18
 # ╠═58d732d1-28ab-47a2-8ebb-b6f2101fc339
 # ╟─00000000-0000-0000-0000-000000000001
