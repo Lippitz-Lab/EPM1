@@ -298,19 +298,82 @@ Die Konstante $A$ werden wir unten aus der Normierung bestimmen.
 
 \subsection{Energie-Eigenwerte}
 
-Zunächst interessieren uns die möglichen Werte der Energie $E$, die zu diesen Wellenfunktionen $\Psi_n$ gehören. Mit der Definition von $\beta$ finden wir
+Dann interessieren uns die möglichen Werte der Energie $E$, die zu diesen Wellenfunktionen $\Psi_n$ gehören. Mit der Definition von $\beta$ finden wir
 \begin{equation}
     \beta_n = \frac{\sqrt{ 2 m E_n}}{\hbar} = \frac{n\pi}{L} \quad \text{mit} \quad n = 1, 2, 3, \dots
 \end{equation}
 und so 
 \begin{equation}
     E_n = \frac{\pi^2 \, \hbar^2}{2 m L^2} \, n^2 \quad \text{mit} \quad n = 1, 2, 3, \dots
+    \label{eq:4_En_kasten}
 \end{equation}
 Damit haben wir die Quantisierung. Nur diese Energiewerte sind für ein Teilchen im Kasten möglich. Dies ist eine Folge des Kastens, des confinement, nicht eine Eigenschaft des Teilchens selbst.  Abb. XXX skizziert diese Leiter der Energie-Eigenwerte. In solchen Skizzen hat nur die vertikale Achse als Energieachse eine Bedeutung. Die horizontale Achse hat keine physikalische Bedeutung und dient nur der graphischen Darstellung.
 
 \begin{marginfigure}
     \caption{XXX Energie-Eigenwerte Teilchen im Kasten}
 \end{marginfigure}
+
+Damit haben wir eine Theorie, mit der wir die Ergebnisse des letzten Kapitels erreichen können, ohne phänomenologische Annahmen machen zu müssen.
+
+
+\subsection{Normierung}
+
+Schließlich muss die Wellenfunktion $\Psi$ noch normiert werden. Das Integral über den Betrag von $\Psi$ muss eins ergeben, da das Teilchen irgendwo sein muss, also
+\begin{equation}
+    \int_{-\infty}^{+\infty} \left| \Psi(x) \right|^2 \,dx = 1
+\end{equation}
+Da der Kasten das Teilchen auf den Bereich zwischen $0$ und $L$ beschränkt, genügt es, über dieses Intervall zu integrieren, d.h. 
+\begin{equation}
+    \int_0^{L} \left|  A_n \sin \left(  \frac{n\pi}{L} x \right) \right|^2 \,dx =
+   A_n^2  \int_0^{L} \sin^2 \left(  \frac{n\pi}{L} x \right)  \,dx = 
+   A_n^2  \frac{L}{2} = 1
+\end{equation}
+also
+\begin{equation}
+    A_n = \sqrt{\frac{2}{L}} \quad \text{für alle }n
+\end{equation}
+Damit haben wir die normierte Wellenfunktion gefunden:
+\begin{equation}
+    \Psi_n(x) = \left\{
+    \begin{matrix}
+        \sqrt{\frac{2}{L}}  \sin \left(  \frac{n\pi}{L} x \right) \quad &\text{für} \quad & 0 \le x \le L \\
+        0  &  \text{für} &  x < 0 \text{ oder } x > L 
+    \end{matrix}
+    \right.
+    \label{eq:4_psi_kasten}
+\end{equation}
+
+\section{Interpretation}
+
+Damit wissen wir für das Teilchen im Kasten, dass die möglichen diskreten Werte der Energie durch Gl.  \ref{eq:4_En_Box}. Es gibt eine minimale Energie 
+\begin{equation}
+E_1 = \frac{\pi^2 \, \hbar^2}{2 m L^2}
+\end{equation}
+und alle anderen steigen quadratisch in $n$ an. Die Wellenfunktion ist eine stehende Welle, gegeben durch Gl. \ref{eq:4_psi_box}. Die Zahl $n$ beschreibt die Anzahl der Bäuche. An den Wänden der Box befinden sich immer Knoten.
+Dies sind die stationären Zustände des Systems.
+
+Die Wahrscheinlichkeitsdichte ist gegeben durch
+\begin{equation}
+    P_n(x) = |\Psi_n(x)|^2 = \frac{2}{L} \, \sin^2 \left(  \frac{n\pi}{L} x \right)
+\end{equation}
+Abbildung XXX zeigt dies für die ersten Werte von $n$. Es gibt also Bereiche entlang des Ortes $x$, in denen die Wahrscheinlichkeit, das Teilchen zu finden, gleich Null ist. Und es gibt $n$ Bereiche, in denen die Wahrscheinlichkeit maximal wird.
+
+Skizzen vom Typ XXX werden gerne verwendet, um Wellenfunktionen und Eigenenergien gleichzeitig darzustellen. Dabei ist jedoch Vorsicht geboten. Das Potential $U(x)$ ist leicht verständlich und wird 'wie üblich' gezeichnet. Die Eigenenergie $E_n$ hat keine $x$-Abhängigkeit. Nur die Lage der Linie auf der y-Achse ist von Bedeutung. Die Energie $E_n$ und das Potential $U(x)$ haben jedoch eine gemeinsame Energie-y-Achse. Die Wellenfunktion $\Psi_n(x)$ teilt sich mit dem Potential die x-Achse. Man verschiebt aber gerne den Nullpunkt von $\Psi_n(x)$ so, dass er auf $E_n$ liegt. Und natürlich hat $\Psi_n(x)$ eine andere Einheit als Energie. Es gibt also eine zweite Skala für die y-Achse, aber die zeichnet man eigentlich nie.
+
+\section{Nullpunktenergie}
+
+Eine wichtige und für die Quantenmechanik charakteristische Eigenschaft des Teilchens im Kasten ist die \emph{Nullpunktenergie}. Der Zustand der niedrigsten Energie ist 
+\begin{equation}
+    E_1 = \frac{\pi^2 \, \hbar^2}{2 m L^2} > 0
+\end{equation}
+Obwohl das Potential $U(x)$ Null ist, hat das Teilchen selbst im Grundzustand eine Energie, die etwas höher ist als der 'Boden' des Potentialtopfes. Diese Energie muss in der kinetischen Energie enthalten sein, d.h. das Teilchen bewegt sich! In der Quantenmechanik befindet sich ein Teilchen im Kasten nie in Ruhe. Selbst im Grundzustand bewegt es sich mit 
+\begin{equation}
+    \frac{1}{2} m v^2 = \frac{\pi^2 \, \hbar^2}{2 m L^2} 
+\end{equation}
+
+Nach der Heisenbergschen Unschärferelation muss das so sein. Wir wissen, dass das Teilchen irgendwo im Kasten ist. Daher ist die Ortsunschärfe $\Delta x = L$. Würde sich das Teilchen nicht bewegen, wäre seine Geschwindigkeit gleich Null und damit genau bekannt. Die Geschwindigkeitsunschärfe und damit die Impulsunschärfe wäre also ebenfalls Null, womit die Heiensbergsche Unschärferelation verletzt wäre. 
+Die Impulsunschärfe kann also nicht Null sein. Ein Teilchen, das sich nur in einem begrenzten Raumbereich aufhalten kann, muss in Bewegung sein, muss eine Impulsunschärfe haben.
+
 
 \section{Korrespondenzprinzip}
 An verschiedenen Stellen ist uns der Welle-Teilchen-Dualismus begegnet. Objekte auf der atomaren Skala können nicht mehr nur als Welle oder nur als Teilchen beschrieben werden, sondern sind beides oder nichts von beidem. Unsere Bilder sind zu schwach, um diese Objekte zu beschreiben. Es hat sich aber gezeigt, dass man den Übergang von der mikroskopischen zur makroskopischen Welt nutzen kann, um die Konsistenz der mikroskopischen Beschreibung zu überprüfen. 
