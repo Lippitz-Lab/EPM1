@@ -345,16 +345,17 @@ Damit haben wir die normierte Wellenfunktion gefunden:
 
 \section{Interpretation}
 
-Damit wissen wir für das Teilchen im Kasten, dass die möglichen diskreten Werte der Energie durch Gl.  \ref{eq:4_En_Box}. Es gibt eine minimale Energie 
+Damit wissen wir für das Teilchen im Kasten, dass die möglichen diskreten Werte der Energie durch Gl.  \ref{eq:4_En_kasten}. Es gibt eine minimale Energie 
 \begin{equation}
 E_1 = \frac{\pi^2 \, \hbar^2}{2 m L^2}
 \end{equation}
-und alle anderen steigen quadratisch in $n$ an. Die Wellenfunktion ist eine stehende Welle, gegeben durch Gl. \ref{eq:4_psi_box}. Die Zahl $n$ beschreibt die Anzahl der Bäuche. An den Wänden der Box befinden sich immer Knoten.
+und alle anderen steigen quadratisch in $n$ an. Die Wellenfunktion ist eine stehende Welle, gegeben durch Gl. \ref{eq:4_psi_kasten}. Die Zahl $n$ beschreibt die Anzahl der Bäuche. An den Wänden der Box befinden sich immer Knoten.
 Dies sind die stationären Zustände des Systems.
 
 Die Wahrscheinlichkeitsdichte ist gegeben durch
 \begin{equation}
     P_n(x) = |\Psi_n(x)|^2 = \frac{2}{L} \, \sin^2 \left(  \frac{n\pi}{L} x \right)
+    \label{eq:4_WK_kasten}
 \end{equation}
 Abbildung XXX zeigt dies für die ersten Werte von $n$. Es gibt also Bereiche entlang des Ortes $x$, in denen die Wahrscheinlichkeit, das Teilchen zu finden, gleich Null ist. Und es gibt $n$ Bereiche, in denen die Wahrscheinlichkeit maximal wird.
 
@@ -376,12 +377,120 @@ Die Impulsunschärfe kann also nicht Null sein. Ein Teilchen, das sich nur in ei
 
 
 \section{Korrespondenzprinzip}
-An verschiedenen Stellen ist uns der Welle-Teilchen-Dualismus begegnet. Objekte auf der atomaren Skala können nicht mehr nur als Welle oder nur als Teilchen beschrieben werden, sondern sind beides oder nichts von beidem. Unsere Bilder sind zu schwach, um diese Objekte zu beschreiben. Es hat sich aber gezeigt, dass man den Übergang von der mikroskopischen zur makroskopischen Welt nutzen kann, um die Konsistenz der mikroskopischen Beschreibung zu überprüfen. 
+Der Welle-Teilchen-Dualismus ist uns an verschiedenen Stellen begegnet. Objekte auf der atomaren Skala können nicht mehr nur als Welle oder nur als Teilchen beschrieben werden, sondern sind beides oder nichts von beidem. Unsere Bilder sind zu schwach, um diese Objekte zu beschreiben. Es hat sich jedoch gezeigt, dass man den Übergang von der mikroskopischen zur makroskopischen Welt nutzen kann, um die Konsistenz der mikroskopischen Beschreibung zu überprüfen. 
 
-Wir fragen uns also, ob das mikroskopische Modell noch funktioniert, wenn wir alles noch größer machen. Bei den Photonen am Doppelspalt zum Beispiel, indem wir die Anzahl der Photonen pro Fläche stark erhöhen, oder beim Teilchen im Kasten, indem wir die Quantenzahl $n$ sehr groß machen. Das \emph{Korrespondenzprinzip} besagt, dass das mikroskopische Modell für große Quantenzahlen in das entsprechende makroskopische Modell übergehen muss. Bei großen Quantenzahlen ist der Effekt der Quantisierung nicht mehr wahrnehmbar, der Unterschied zwischen benachbarten Quantenzahlen ist klein. Dies haben wir in den letzten Abschnitten ausgenutzt, um die Wellenfunktion der Photonen zu konstruieren: für große Photonenzahlen muss alles in die klassische Elektrodynamik übergehen.
+Die Idee ist, dass ein mikroskopisches Modell für große Quantenzahlen in ein klassisches makroskopisches Modell übergehen muss. Dies ist das \emph{Korrespondenzprinzip} von Niels Bohr. Versuchen wir es für das Teilchen im Kasten. Die betrachtete Größe ist die Wahrscheinlichkeitsdichte $P(x)$ (Gl. \ref{eq:4_WK_kasten}). Wir stellen uns einen großen makroskopischen Kasten vor, in dem sich ein Teilchen mit der Geschwindigkeit $v(x)$ periodisch hin und her bewegt, weil es am Ende reflektiert wird. Die Periodendauer ist $T$ und die Länge des Kastens wiederum $L$. Die Wahrscheinlichkeit, das Teilchen am Ort $x$ in einem Streifen der Breite $\delta x$ zu finden, hängt von der Zeit $\delta t$ ab, die das Teilchen benötigt, um die Strecke $\delta x = v(x) \delta t$ zu durchlaufen. Wenn wir berücksichtigen, dass das Teilchen den Ort $x$ zweimal pro Umlauf passiert, dann ist die Wahrscheinlichkeit
+\begin{equation}
+    WK(x, \delta x) = \frac{\delta t}{2 T } = \frac{\delta x}{2T v(x)}
+\end{equation} 
+und die Wahrscheinlichkeitsdichte
+\begin{equation}
+    P(x) = \frac{WK(x, \delta x)}{\delta x} = \frac{1}{2 T v(x)}
+\end{equation}
+Dies gilt für jede Form der Bewegung, also für jedes Geschwindigkeitsprofil $v(x)$.
+
+Für das Teilchen im Kasten ist die Geschwindigkeit konstant, also
+\begin{equation}
+    v(x) = \frac{2L}{T} \quad \text{und} \quad P(x) = \frac{1}{L}
+\end{equation}
+Im klassischen Fall ist die Wahrscheinlichkeitsdichte über die Position im Kasten konstant. Wie passt das mit dem $\sin^2$ aus Gl.~\ref{eq:4_WK_kasten} zusammen? Mit zunehmender Quantenzahl $n$ wird die Oszillation von $P_n(x)$ immer schneller. Für sehr große $n$ entstehen dann räumlich so dicht beieinander liegende Streifen, dass diese nicht mehr aufgelöst werden können und nur noch ein Mittelwert beobachtet wird. Dieser Mittelwert ist genau $1/L$!
 
 
+\section{Beispiel: Potentialtopf}
 
+Nun machen wir unser Teilchen-im-Kasten-Modell etwas realistischer. Das Potential $U(x)$ soll außerhalb des Kastens nicht mehr unendlich groß sein, sondern einen endlichen Wert $U_0$ annehmen, also
+\begin{equation}
+    U(x) = \left\{ 
+        \begin{matrix}
+            0 & 0 \le x \le L \\
+            U_0 & \text{sonst}
+        \end{matrix}
+    \right.
+\end{equation}
+Alternativ kann der Energienullpunkt auch auf das Plateau außerhalb des Kastens gelegt werden und der Boden auf $-U_0$. Der Energienullpunkt ist immer verschiebbar.
+
+Im klassischen Fall ist das Teilchen im Kasten gebunden und kann ihn nicht verlassen, solange seine Energie $E < U_0$ ist. Für größere Energien kann das Teilchen dem Kasten entkommen.
+
+In der Quantenmechanik ist die Situation ähnlich.  Die Berechnung ist in den üblichen Lehrbüchern der Quantenmechanik enthalten. Hier diskutieren wir nur die Ergebnisse. Abbildung XXX zeigt ein Beispiel für einen Elektron in einem Kasten mit einer Breite von 2~nm und einer Tiefe von 1~eV, wie er für Elektronen in Halbleitern typisch ist.
+\begin{itemize}\setlength{\itemsep}{0pt}
+    \item Die Zustände sind weiterhin quantisiert. Nur bestimmte diskrete Energiewerte können angenommen werden.
+    \item Es gibt nur eine endliche Anzahl von gebundenen Zuständen mit $E < U_0$. Die genaue Anzahl hängt von den Parametern des Topfes ab.
+    \item Die Wellenfunktionen sind ähnlich denen des Teilchens im Kasten. Die Anzahl der Bäuche entspricht der Quantenzahl $n$.
+    \item Der Hauptunterschied besteht darin, dass nun die Wellenfunktionen und damit auch die Wahrscheinlichkeitsdichte in den klassisch verbotenen Bereich hineinreichen. Das Teilchen wird an dieser niedrigen Wand reflektiert, dringt aber teilweise in die Wand ein.
+\end{itemize}
+
+Wenn man die Wellenfunktionen im klassisch verboteten Bereich $x > L$ berechnet, findet man
+\begin{equation}
+\Psi(x) = \Psi_L \, e^{- (x-L)/ \eta} \quad \text{für} \quad x > L
+\end{equation}
+wobei $\Psi_L$ der Wert der Wellenfunktion am Ort $x=L$ ist, der über die Lösung im Bereich $0 \le x \le L$ gefunden werden muss. Die charakteristische  Abfall-Länge $\eta$ ist
+\begin{equation}
+    \eta = \frac{\hbar}{\sqrt{2m ( U_0 - E)}} \quad \text{für} \quad U_0 > E
+\end{equation}
+Nach dieser Länge $\eta$ ist die Wellenfunktion in der Wand auf $e^{-1} \approx 0,37$ abgefallen. Für makroskopische Teilchen ist die Eindringtiefe oder Abfall-Länge $\eta$ vernachlässigbar, nicht aber für Quantenobjekte. Diese sind etwas 'unscharf' und werden nicht direkt an der Wand reflektiert, sondern etwas außerhalb.
+
+Das Teilchen im Potentialtopf ist ein häufig verwendetes Modell. Es beschreibt z.B. sehr gut Neutronen und Protonen in Atomkernen oder Elektronen in gezielt strukturierten Halbleitern, wie sie in Halbleiterlasern verwendet werden.
+
+\section{Wellenfunktionen raten}
+
+Für viele Zwecke ist es ausreichend, die ungefähre Form der Wellenfunktion bei gegebenem Potential zu erraten. Dazu müssen die oben definierten Randbedingungen erfüllt sein. Zwei weitere Punkte kommen hinzu:
+\begin{description}
+    \item[de Broglie Wellenlänge] Die de Broglie Wellenlänge ist proprotional zu $1/p$, bzw. $1/\sqrt{E_{kin}}$. Über 'tiefen' Stellen des Potentials $U$ ist $E_{kin}$ größer und damit die Wellenlänge kürzer.
+    \item[Wahrscheinlichkeitsdichte] Nach dem Korrespondenzprinzip ist die Wahrscheinlichkeitsdichte an Stellen größer, an denen das Teilchen langsamer ist. An 'flachen' Stellen des Potentials ist $E_{kin}$ kleiner und damit die Amplitude der Wellenfunktion größer.
+\end{description}
+
+Man zeichnet also zunächst das Potential $U(x)$ und trägt den Energieeigenwert $E$ ein. Die Wellenfunktion oszilliert im klassisch erlaubten Bereich, d.h. wenn $E > U(x)$. Die Quantenzahl $n$ gibt die Anzahl der Bäuche der Oszillation an. Wellenlänge und Amplitude der Oszillation variieren mit $U(x)$, wie gerade beschrieben. Bei unendlich hohen Potentialwällen ist die Wellenfunktion gleich Null, ansonsten fällt sie exponentiell in den klassisch verbotenen Bereich ab. Die Abklinglänge ist umso größer, je kleiner der Abstand zwischen $E$ und der Ebene $U_0$ des Potentials ist.
+
+
+\section{Beispiel: Harmonischer Oszillator}
+
+Der harmonische Oszillator ist eines der zentralen Modelle der klassischen Physik. Es wirkt eine Rückstellkraft, die proportional zur Auslenkung $x$ ist. Diese wird durch ein parabelförmiges Potential beschrieben:
+\begin{equation}
+    U(x) = \frac{1}{2} k x^2
+    \label{eq:4_harm_pot}
+\end{equation}
+Es handelt sich quasi um einen Potentialtopf mit gekrümmtem Boden.
+Ein klassisches Teilchen schwingt mit der Kreisfrequenz 
+\begin{equation}
+    \omega = \sqrt{\frac{k}{m}}
+\end{equation}
+
+In der Quantenmechanik lösen wir die Schrödingergleichung Gl. \ref{eq:4_SG_1d} mit dem harmonischen Potential \ref{eq:4_harm_pot}. Die Lösungen sind Hermitesche Funktionen, deren erste 3 lauten
+\begin{align}
+    \Psi_1(x) = & A_1 \, e^{-x^2 / 2 b^2} \\
+    \Psi_2(x) = & A_2 \, \frac{x}{b} \, e^{-x^2 / 2 b^2} \\
+    \Psi_3(x) = & A_3 \, \left(1- \frac{2x^2}{b^2} \right) \, e^{-x^2 / 2 b^2} \\
+\end{align}
+mit der Abkürzung 
+\begin{equation}
+    b = \sqrt{\frac{\hbar}{m \omega}}
+\end{equation}
+Die Länge $b$ ist gerade die maximale Auslenkung eines klassischen Oszillators bei der Energie des Grundzustandes $n=1$. Die Konstanten $A_i$ sind so gewählt, dass die Wellenfunktionen $\Psi_i$ normiert sind. Auch diese Wellenfunktionen zeigen eine Oszillation und auch hier gibt die Quantenzahl $n$ die Anzahl der Bäuche an. Da die Wände des Potentialtopfs nicht unendlich hoch sind, ragen die Wellenfunktionen etwas über die klassischen Umkehrpunkte bei $U(x) = E_n$ hinaus.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir vib_state_wf}
+    \caption{Wellenfunktionen und Wahrscheinlichkeitsdichte im harmonische Oscillator}
+\end{marginfigure}
+
+Die zugehörigen Eigenenergien $E_i$ sind
+\begin{equation}
+    E_n = \left( n - \frac{1}{2}\right) \, \hbar \omega \quad \text{mit} \quad n = 1, 2, 3, \dots
+\end{equation}
+Die Zustände im quantenmechanischen harmonischen Oszillator sind also äquidistant im Abstand $\hbar\omega$, im Gegensatz zum Kasten, in dem die Abstände quadratisch zunehmen. Auch hier gibt es wieder eine Nullpunktsenergie $E_1 = \hbar\omega/2$, die mit der Nullpunktbewegung des Oszillators verbunden ist. Ein quantenmechanisches Pendel steht also niemals still.
+
+Auch hier gilt das Korrespondenzprinzip. Für große Quantenzahlen geht die Bewegung des quantenmechanischen harmonischen Oszillators in die klassische Bewegung über. Die Skizze XXX zeigt die Wahrscheinlichkeitsdichte für den Zustand $n=11$ im Vergleich zum klassischen Fall. Gut zu erkennen ist die erhöhte Aufenthaltswahrscheinlichkeit an den Umkehrpunkten der Bewegung, an denen die Geschwindigkeit gering ist.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir harm_osz_korrepondenz}
+    \caption{Klassische (dick) und quantenmechanische (dünn, $n=11$) Wahrscheinlichkeitsdichte des harmonischen Oszillators.}
+\end{marginfigure}
+
+Dieses Modell des quantenmechanischen harmonischen Oszillators beschreibt z.B. gut die Schwingung von Atomen, die in Molekülen oder Festkörpern gebunden sind.
+
+\section{Beispiel: Tunneln durch eine Barriere}
+
+
+\section{Anhang: numerische Rechnung}
 
 \section{Zusammenfassung}
 
