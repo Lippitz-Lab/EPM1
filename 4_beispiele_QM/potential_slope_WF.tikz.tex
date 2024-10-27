@@ -1,0 +1,87 @@
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+ 
+ 
+\begin{tikzpicture}
+
+
+  \begin{groupplot}
+    [
+        group style={
+            group size=1 by 2,
+            % columns=2,
+            % rows=2,
+          %  xlabels at=edge bottom,
+          %  ylabels at=edge left,
+            vertical sep= 3mm
+        },
+    ]
+
+         
+
+  \nextgroupplot[ 
+          font=\footnotesize,
+            xmin=(0), xmax=(1),
+            ymin=-0.1 , ymax=1.4,
+          axis  x line =middle,    xtick=\empty,
+          axis  y line =left, ytick = {0},
+          % axis line style=thick,
+           % tick style={black,thick},
+           % ticklabel style={scale=0.8},
+            %xlabel style={below=-1pt,font=\small},
+            %ylabel style={above=-1pt},
+            width=55mm, height=35mm,
+            %tick scale binop=\times,
+            %every y tick scale label/.style={at={(rel axis cs:0,1)},anchor=south}]
+                ]
+
+                \addplot[ thick, blue,] {0.5 + x/2};
+                \addplot[ thick, red, ] {1.2};
+
+                \node at (0.2, 1.05) {$E$};
+                \node at (0.2, 0.45) {$U(x)$};
+
+                \draw[<->] (0.5, 1.2) -- node[left] {$E_{kin}$}(0.5, 0.75);
+                \draw[<->] (0.5, 0) -- node[left] {$U$}(0.5, 0.75);
+
+               \node at (0.95, 0.2) {$x$};
+                     
+  \nextgroupplot[ 
+    font=\footnotesize,
+      xmin=(0), xmax=(1),
+    ymin = -1.4, ymax=1.4,   
+    axis  x line =middle,
+    axis  y line =left,
+    xtick=\empty,
+    ytick = {0},
+    % axis line style=thick,
+     % tick style={black,thick},
+     % ticklabel style={scale=0.8},
+      %xlabel style={below=-1pt,font=\small},
+      %ylabel style={above=-1pt},
+      width=55mm, height=35mm,
+      %tick scale binop=\times,
+      %every y tick scale label/.style={at={(rel axis cs:0,1)},anchor=south}]
+          ]
+
+          \addplot[black, samples=1300 , domain=0:0.95] {cos( 3000 * x  -700* x*x)  };
+
+          \node[right] at (0.0, 1.2) {$\Psi(x)$};
+          \node at (0.95, 0.2) {$x$};
+
+
+  
+
+         
+
+     \end{groupplot}
+
+\end{tikzpicture}
+
+
+%\end{document}
+
+

@@ -4,82 +4,103 @@
 using Markdown
 using InteractiveUtils
 
+# ╔═╡ 0c3cc0a1-e796-4e60-a1fa-15c8726846b3
+using Unitful
+
 # ╔═╡ 0533d33e-24f1-4497-8f0e-41dc0af4274d
 using LinearAlgebra, Plots, PlutoUI
 
-# ╔═╡ 473e420b-a0a2-41e8-b34e-ab4d66c44f49
+# ╔═╡ 9ba88ba1-543e-4df5-a907-75cc4c949765
 using PGFPlotsX
-
 
 # ╔═╡ 3211484f-2abc-4d85-85e5-91580af2ca6f
 md"""
-# Solve 1D Schrödinger equation
+# Numerische Lösung der 1D Schrödinger-Gleichung
 """
+
+# ╔═╡ c9b0298b-a5aa-4a8b-b64e-f33c5ba471e9
+import PhysicalConstants.CODATA2018: ħ, m_e
 
 # ╔═╡ 031d5ab3-c298-4a9b-946d-70000790434d
 md"""
-We solve the Schrödinger equation
+Wir lösen die Schrödinger-Gleichung
 ```math
-H \psi =  \left(- T + V(x) \right) \psi =  \left( - \frac{\hbar}{2 m} \, \frac{\partial^2}{\partial x^2} + V(x)  \right) \psi = E \psi
+H \psi =  \left(- E_{kin} + U(x) \right) \psi =  \left( - \frac{\hbar^2}{2 m} \, \frac{\partial^2}{\partial x^2} + U(x)  \right) \psi = E \psi
 ```
-We assume $\hbar=1$ and $m=1$, and approximate the derivative by 
+Die zweifache Ableitung ist ungefähr 
 ```math
  \frac{\partial^2}{\partial x^2}  \psi  \approx \frac{\psi(x - \Delta x) - 2 \psi(x) +\psi(x + \Delta x)}{(\Delta x)^2}
 ```
-For the potential we assume
+Das Potential kann jede beliebige Form haben. Hier nehmen wir einen Potentialtopf
 ```math
-V(x) = V_{0} \cdot x^n
+V(a < x < b) = 0 \quad \text{sonst} \quad V = V_0
 ```
-We evaluate everything on a spatial grid of spacing  $\Delta x$, ranging from -1 to 1. We write $H$ as a square matrix and search eigenvalues $E$ and eigenvectors $\psi$.
+Wir werten alles auf einem räumlichen Gitter mit dem Abstand $\Delta x$ aus, das von -2 bis 2 reicht. Wir schreiben $H$ als quadratische Matrix und suchen Eigenwerte $E$ und Eigenvektoren $\psi$.
 """
 
 # ╔═╡ 18b481e8-46f8-11ec-3ed7-51fd08349f7b
 begin
-	Δx = 0.01
-	x = -2:Δx:2
-	N = length(x)
+	# x Achse
+	x = (-5:0.01:5) .* 1u"nm"
+	Δx = x[2] - x[1]   # Abstand der Gitterpunkte
 	
-	T = zeros(N,N)
-	T[diagind(T,-1)] .= 1
-	T[diagind(T,1)] .= 1
-	T[diagind(T)] .= -2
-	T = T/(Δx^2)
+	N = length(x)    # Anzahl Gitterpunkte
 
-	Vx = 200 .* x.^2 
-	V = zeros(N,N)
+	# Matrix zur doppelten Ableitung
+	Ekin = zeros(N,N)
+	Ekin[diagind(Ekin,-1)] .= 1
+	Ekin[diagind(Ekin,1)] .= 1
+	Ekin[diagind(Ekin)] .= -2
+	Ekin = Ekin .* ħ^2 ./(2 * m_e * Δx^2)
+
+	# Potential: Parameter
+	V0 = 3u"eV"
+	a = -0.5u"nm"
+	b = 0.5u"nm"
+
+	# 1d Potential
+	Vx = zeros(N) .* 0u"eV" .+ V0
+	Vx[a .< x .< b] .= 0u"eV"
+
+	# Kopieren in 2D Matrix
+	V = zeros(N,N) .* 0u"eV"
 	V[diagind(V)] .= Vx
-	
-	H = -T  + V
 
+	# alles addieren, Einheiten weglassen, weil sonst eigvec / eigvals nicht geht
+	H = -Ekin  + V |> ustrip
+
+	# Eigenwerte und -vektoren berechnen
 	ψs = eigvecs(H)
-    Es = eigvals(H)
+    Es = eigvals(H) .* 1u"J" .|> u"eV" # Einheit wieder anfügen
 end;
 
-# ╔═╡ 2a4c0617-f1b3-4ae0-bb08-aa3ea324e9b3
-pm = [ sum(x .* ψs[:,id].^2) for id in 1:7];
-
-# ╔═╡ 1e57fe6e-bf4d-464a-81ec-6e92ccf89357
+# ╔═╡ d1d359e3-a5f5-4176-8ee5-5e0b1fdf2e67
 begin
-	class_amp = x[findlast(Es[11] .> Vx)]
-	class_wk(x) = real(1 / ( pi * sqrt(class_amp^2 - x^2)))
-	 plot(x,  ψs[:,11].^2 ./ Δx)
-	 plot!(x, @. class_wk(complex(x)))
-	 plot!( [-1, -1] .* class_amp, [0, maximum( ψs[:,11].^2 ./ Δx)])
-	 plot!( [1, 1] .* class_amp, [0, maximum( ψs[:,11].^2 ./ Δx)])
-end
-
-# ╔═╡ 997b409d-12fb-48c6-bc3f-1d962e9ed783
-let
+	p = plot(x, Vx, 
+		xaxis = ("position x", (-1.1, 1.1)), 
+		yaxis=("energy, potential, prob. density"), 
+		leg=false)
 
 	
+	scale = 15u"eV" 
+	for id =1:4
+	  plot!(x, Es[id] .+ scale .* ψs[:,id].^2, fillrange = Es[id])
+	  plot!(x, Es[id] .+ scale .* 2e-1 .* ψs[:,id] )
+	end
+	p
+end
+
+# ╔═╡ 4fc2d9d9-b9fc-4ade-9bb9-b9004fb7c234
+let
+
 	myaxis = @pgf PGFPlotsX.Axis(
 	    {
-	      	ymin = 0, 
-		    ymax = 1.5, 
-			xmin = -1.6,			
-			xmax = 1.6,
+	      ymin = -0.2, 
+		    ymax = 4, 
+			xmin = -1.,			
+		  xmax = 1.,
 	width="60mm",
-	height="45mm",
+	height="55mm",
 	font = "\\footnotesize",
 	 #       xmin = -200, xmax =200,
 			#axis_x_line ="bottom",
@@ -92,29 +113,41 @@ let
 		);
 
  
-	
+
+	for id = 1:3
 
 	 p = @pgf PGFPlotsX.Plot(
         {
-         black
+         gray, fill
         },
-       Table(["x" => x, "y" => ψs[:,11].^2 ./ Δx])
-    )
-		push!(myaxis, p)
-
-	
-
-	 p = @pgf PGFPlotsX.Plot(
-        {
-         red, thick
-        },
-       Table(["x" => x, "y" =>  @. class_wk(complex(x))])
+       Table(["x" => x |> ustrip, "y" =>  Es[id] .+ scale .* ψs[:,id].^2 |> ustrip])
     )
 		push!(myaxis, p)
 
 
+	 p = @pgf PGFPlotsX.Plot(
+        {
+         red
+        },
+       Table(["x" => x |> ustrip, "y" =>  Es[id] .+ scale .* 1.5e-1 .* ψs[:,id] |> ustrip])
+    )
+		push!(myaxis, p)
+		push!(myaxis, "\\node[below] at (0.8, $(Es[id]|>ustrip) ) 
+		{$(round(Es[id]|>ustrip,digits=2)) eV} ;" )
+
+
+	end
+
+	 p = @pgf PGFPlotsX.Plot(
+        {
+         thick, blue
+        },
+       Table(["x" => x |> ustrip, "y" =>  Vx |> ustrip])
+    )
+		push!(myaxis, p)
+
 	
-	pgfsave("../harm_osz_korrepondenz.tikz.tex",myaxis; include_preamble= false)
+	pgfsave("../topf_endlich.tikz.tex",myaxis; include_preamble= false)
 	myaxis
 
 end
@@ -124,13 +157,17 @@ PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 PGFPlotsX = "8314cec4-20b6-5062-9cdb-752b83310925"
+PhysicalConstants = "5ad8b20f-a522-5ce9-bfc9-ddf1d5bda6ab"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
+Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
 [compat]
-PGFPlotsX = "~1.6.1"
+PGFPlotsX = "~1.5.1"
+PhysicalConstants = "~0.2.1"
 Plots = "~1.40.8"
 PlutoUI = "~0.7.60"
+Unitful = "~1.21.0"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -139,7 +176,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.1"
 manifest_format = "2.0"
-project_hash = "e9a090640cc5fc1c059de9980a0c69adf49b3844"
+project_hash = "df19a33053ff0d2deaa971e220f5be94626a630d"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -181,6 +218,12 @@ git-tree-sha1 = "009060c9a6168704143100f36ab08f06c2af4642"
 uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
 version = "1.18.2+1"
 
+[[deps.Calculus]]
+deps = ["LinearAlgebra"]
+git-tree-sha1 = "f641eb0a4f00c343bbc32346e1217b86f3ce9dad"
+uuid = "49dc2e85-a5d0-5ad3-a950-438e2897f1b9"
+version = "0.5.1"
+
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
 git-tree-sha1 = "bce6804e5e6044c6daab27bb533d1295e4a2e759"
@@ -217,6 +260,11 @@ git-tree-sha1 = "362a287c3aa50601b0bc359053d5c2468f0e7ce0"
 uuid = "5ae59095-9a9b-59fe-a467-6f913c188581"
 version = "0.12.11"
 
+[[deps.CommonSolve]]
+git-tree-sha1 = "68a0743f578349ada8bc911a5cbd5a2ef6ed6d1f"
+uuid = "38540f10-b2f7-11e9-35d8-d573e4eb0ff2"
+version = "0.2.0"
+
 [[deps.Compat]]
 deps = ["TOML", "UUIDs"]
 git-tree-sha1 = "8ae8d32e09f0dcf42a36b90d4e17f5dd2e4c4215"
@@ -237,6 +285,21 @@ deps = ["Serialization", "Sockets"]
 git-tree-sha1 = "ea32b83ca4fefa1768dc84e504cc0a94fb1ab8d1"
 uuid = "f0e56b4a-5159-44fe-b623-3e5288b988bb"
 version = "2.4.2"
+
+[[deps.ConstructionBase]]
+git-tree-sha1 = "76219f1ed5771adbb096743bff43fb5fdd4c1157"
+uuid = "187b0558-2788-49d3-abe0-74a17ed4e7c9"
+version = "1.5.8"
+
+    [deps.ConstructionBase.extensions]
+    ConstructionBaseIntervalSetsExt = "IntervalSets"
+    ConstructionBaseLinearAlgebraExt = "LinearAlgebra"
+    ConstructionBaseStaticArraysExt = "StaticArrays"
+
+    [deps.ConstructionBase.weakdeps]
+    IntervalSets = "8197267c-284f-5f27-9208-e0e47529a953"
+    LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+    StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
 
 [[deps.Contour]]
 git-tree-sha1 = "439e35b0b36e2e5881738abc8857bd92ad6ff9a8"
@@ -355,6 +418,11 @@ deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "1ed150b39aebcc805c26b93a8d0122c940f64ce2"
 uuid = "559328eb-81f9-559d-9380-de523a88c83c"
 version = "1.0.14+0"
+
+[[deps.Future]]
+deps = ["Random"]
+uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
+version = "1.11.0"
 
 [[deps.GLFW_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Libglvnd_jll", "Xorg_libXcursor_jll", "Xorg_libXi_jll", "Xorg_libXinerama_jll", "Xorg_libXrandr_jll", "libdecor_jll", "xkbcommon_jll"]
@@ -646,6 +714,12 @@ deps = ["Artifacts", "Libdl"]
 uuid = "c8ffd9c3-330d-5841-b78e-0817d7145fa1"
 version = "2.28.6+0"
 
+[[deps.Measurements]]
+deps = ["Calculus", "LinearAlgebra", "Printf", "RecipesBase", "Requires"]
+git-tree-sha1 = "58390f5617544fb09d27244749484fee0cae6712"
+uuid = "eff96d63-e80a-5855-80a2-b1b0885c5ab7"
+version = "2.7.0"
+
 [[deps.Measures]]
 git-tree-sha1 = "c13304c81eec1ed3af7fc20e75fb6b26092a1102"
 uuid = "442fdcdd-2543-5da2-b0f3-8c86c306513e"
@@ -720,22 +794,10 @@ uuid = "efcefdf7-47ab-520b-bdef-62a2eaa19f15"
 version = "10.42.0+1"
 
 [[deps.PGFPlotsX]]
-deps = ["ArgCheck", "Dates", "DefaultApplication", "DocStringExtensions", "MacroTools", "OrderedCollections", "Parameters", "Requires", "Tables"]
-git-tree-sha1 = "7bc55854924ceb9842646bf1f00396d6646c0c55"
+deps = ["ArgCheck", "DataStructures", "Dates", "DefaultApplication", "DocStringExtensions", "MacroTools", "Parameters", "Requires", "Tables"]
+git-tree-sha1 = "1d3729f2cd114a8150ce134f697d07f9ef2b9657"
 uuid = "8314cec4-20b6-5062-9cdb-752b83310925"
-version = "1.6.1"
-
-    [deps.PGFPlotsX.extensions]
-    ColorsExt = "Colors"
-    ContourExt = "Contour"
-    MeasurementsExt = "Measurements"
-    StatsBaseExt = "StatsBase"
-
-    [deps.PGFPlotsX.weakdeps]
-    Colors = "5ae59095-9a9b-59fe-a467-6f913c188581"
-    Contour = "d38c429a-6771-53c6-b99e-75d170b6e991"
-    Measurements = "eff96d63-e80a-5855-80a2-b1b0885c5ab7"
-    StatsBase = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+version = "1.5.1"
 
 [[deps.Pango_jll]]
 deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "FriBidi_jll", "Glib_jll", "HarfBuzz_jll", "JLLWrappers", "Libdl"]
@@ -754,6 +816,12 @@ deps = ["Dates", "PrecompileTools", "UUIDs"]
 git-tree-sha1 = "8489905bcdbcfac64d1daa51ca07c0d8f0283821"
 uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
 version = "2.8.1"
+
+[[deps.PhysicalConstants]]
+deps = ["Measurements", "Roots", "Unitful"]
+git-tree-sha1 = "2bc26b693b5cbc823c54b33ea88a9209d27e2db7"
+uuid = "5ad8b20f-a522-5ce9-bfc9-ddf1d5bda6ab"
+version = "0.2.1"
 
 [[deps.Pipe]]
 git-tree-sha1 = "6842804e7867b115ca9de748a0cf6b364523c16d"
@@ -893,6 +961,12 @@ git-tree-sha1 = "838a3a4188e2ded87a4f9f184b4b0d78a1e91cb7"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.0"
 
+[[deps.Roots]]
+deps = ["CommonSolve", "Printf", "Setfield"]
+git-tree-sha1 = "0abe7fc220977da88ad86d339335a4517944fea2"
+uuid = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
+version = "1.3.14"
+
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 version = "0.7.0"
@@ -906,6 +980,12 @@ version = "1.2.1"
 [[deps.Serialization]]
 uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
 version = "1.11.0"
+
+[[deps.Setfield]]
+deps = ["ConstructionBase", "Future", "MacroTools", "Requires"]
+git-tree-sha1 = "0afd9e6c623e379f593da01f20590bacc26d1d14"
+uuid = "efcf1570-3423-57d1-acb7-fd33fddbac46"
+version = "0.8.1"
 
 [[deps.Showoff]]
 deps = ["Dates", "Grisu"]
@@ -1362,12 +1442,13 @@ version = "1.4.1+1"
 
 # ╔═╡ Cell order:
 # ╟─3211484f-2abc-4d85-85e5-91580af2ca6f
+# ╠═0c3cc0a1-e796-4e60-a1fa-15c8726846b3
+# ╠═c9b0298b-a5aa-4a8b-b64e-f33c5ba471e9
 # ╟─031d5ab3-c298-4a9b-946d-70000790434d
 # ╠═18b481e8-46f8-11ec-3ed7-51fd08349f7b
-# ╠═2a4c0617-f1b3-4ae0-bb08-aa3ea324e9b3
+# ╠═d1d359e3-a5f5-4176-8ee5-5e0b1fdf2e67
 # ╠═0533d33e-24f1-4497-8f0e-41dc0af4274d
-# ╠═1e57fe6e-bf4d-464a-81ec-6e92ccf89357
-# ╠═473e420b-a0a2-41e8-b34e-ab4d66c44f49
-# ╠═997b409d-12fb-48c6-bc3f-1d962e9ed783
+# ╠═9ba88ba1-543e-4df5-a907-75cc4c949765
+# ╠═4fc2d9d9-b9fc-4ade-9bb9-b9004fb7c234
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
