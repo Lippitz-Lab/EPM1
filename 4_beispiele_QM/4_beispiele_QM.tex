@@ -1,44 +1,10 @@
-\renewcommand{\lastmod}{10. September 2024}
+\renewcommand{\lastmod}{28. Oktober 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Beispiele aus der (1d) Quantenmechanik}
 
 
 
-\goal{By the end of this chapter, you should be able to draw, calculate and align a ray's path through an optical system.}
-
-
-
-\section{Overview}
-
-s.a. Demtröder 3, Kap. 4
-
-
-40.1 The Schrödinger Equation 1194
-
-40.2 Solving the Schrödinger Equation 1197
-
-40.3 A Particle in a Rigid Box: Energies and Wave Functions 1199
-
-40.4 A Particle in a Rigid Box: Interpreting the Solution 1202
-
-40.5 The Correspondence Principle 1205
-
-
-40.6 Finite Potential Wells 1207
-
-40.7 Wave-Function Shapes 1212
-
-40.8 The Quantum Harmonic Oscillator 1214
-
-40.9 More Quantum Models 1217
-
-40.10 Quantum-Mechanical Tunneling 1220
-
-\phet{Quantum_Bound_States}
-\phet{Quantum_Tunneling_and_Wave_Packets}
-
-5.3 Harmonischer Oszillator 3	
 
 % 12. Wave equations and Differential equations
 % • It is worth emphasizing that the way we solve differential equations in physics, by just
@@ -110,6 +76,7 @@ s.a. Demtröder 3, Kap. 4
 % • There is a lot of math here and it’s very easy to get lost in the math and forget why you’re
 % doing it. When asking students to work through it in homework, it’s very useful to ask them
 % to stop after each step in the math and explain in words what they just did.
+
 % 18. Superposition, measurement, and expectation values
 % Sim: Quantum Bound States
 % • Modern Physics textbooks typically do not cover superposition and measurement.
@@ -118,13 +85,470 @@ s.a. Demtröder 3, Kap. 4
 % • We have chosen to cover expectation values in some semesters and not others. It helps to
 % relate it to more familiar examples such as grade distributions and gambling.
 
+
+
+\section{Überblick}
+
+In diesem Kapitel betreiben wir Quantenmechanik. Sie werden lernen, wie die Schrödingergleichung verwendet werden kann, um die von Bohr postulierten stationären Zustände zu finden.
+
+Wir besprechen die zentralen eindimensionalen Beispiele: Teilchen im Kasten und im Potentialtopf, harmonischer Oszillator und quantenmechanisches Tunneln. Die Vorgehensweise ist eigentlich immer gleich: Wir modellieren das System durch sein Potential $U(x)$ und suchen nach Lösungen der Schrödingergleichung. Wir verzichten hier auf Berechnungen, sondern versuchen zu raten bzw. die Formen plausibel zu machen. Viele Eigenschaften der Wellenfunktion können erkannt werden, ohne die Differentialgleichung wirklich zu lösen.
+
+Als übergreifende Eigenschaft werden wir finden, dass die Wellenfunktion in den klassisch zugänglichen Bereichen des Potentials oszilliert und die Anzahl der Bäche mit der Quantenzahl zunimmt. In den klassisch verbotenen Bereichen fällt die Wellenfunktion exponentiell ab, ist aber nicht notwendigerweise sofort Null. Dies führt dazu, dass ein quantenmechanisches Teilchen durch eine dünne Barriere 'tunneln' kann, also durch die Barriere hindurchgeht und nicht darüber. Das klingt zunächst seltsam, ist aber auch bei Lichtwellen der Fall. Der Grund dafür liegt im \emph{Korrespondenzprinzip}, das die Aussagen der Quantenmechanik über mikroskopische Phänomene mit der makroskopischen Welt verbindet.
+
+Die Gliederung folgt wiederum  Kapitel 40 von \cite{Knight_physics}. Weiterhin finden sich gute andere Darstellungen in \cite{Haliday_Resnick}, \cite{Demtröder_ep3}, \cite{Haken_wolf_I} und \cite{Harris_moderne_Physik}.
+
+
+
+
+\section{Die Schrödinger-Gleichung}
+
+Die Schrödingergleichung wurde 1925 von Erwin Schrödinger aufgestellt. Sie beschreibt, welche Wellenfunktionen $\Psi$ für ein quantenmechanisches System zulässig sind. Sie ist ähnlich fundamental wie die Newtonschen Gesetze und kann wie diese nicht hergeleitet, sondern nur plausibel gemacht werden.
+
+Für ein Teilchen der Masse $m$, das sich nur in der Raumrichtung $x$ bewegt und dabei die potentielle Energie $U(x)$ besitzt, lautet die Schrödingergleichung
+\begin{equation}
+   - \frac{\hbar^2}{2m} \frac{d^2}{dx^2} \Psi(x) + \left[ U(x) - E \right] \Psi(x) = 0 \quad .
+   \label{eq:4_SG_1d}
+ \end{equation}
+ Es handelt sich also um eine Differentialgleichung zweiter Ordnung, wie man es von einer Wellengleichung erwarten würde.
+
+
+\paragraph*{Nebenbemerkung} In einer allgemeineren Form wird die Schrödingergleichung oft  geschrieben als
+\begin{equation}
+    \hat{H} \, \Psi = E \, \Psi \quad .
+    \label{eq:4_SG_op_1d}
+\end{equation}
+Dabei nennt man $\hat{H}$ den Hamiltonoperator. Ein Operator ist eine Rechenvorschrift, die auf eine Funktion (hier $\Psi$) wirkt und wieder eine Funktion liefert. Im obigen Fall ist der Hamilton-Operator also
+\begin{equation}
+    \hat{H} = - \frac{\hbar}{2m} \frac{d^2}{dx^2} + U(x) \quad .
+\end{equation}
+Es gibt die zweite Ableitung nach dem Ort, aber es fehlt noch, was abgeleitet werden soll; deshalb Operator und nicht einfach Konstante oder Funktion. 
+Eine Gleichung der Form Gl. \ref{eq:4_SG_op_1d} heißt Eigenwertgleichung und $E$ heißt \emph{Eigenwert}, weil der Operator wieder die gleiche Funktion $\Psi(x)$ ergibt, nur multipliziert mit einem skalaren Wert $E$.
+
+\section{Plausibilitätsbetrachtung}
+
+Nach de Broglie hat ein Teilchen mit der Masse $m$ und der Geschwindigkeit $v$ eine de Broglie-Wellenlänge 
+\begin{equation}
+    \lambda = \frac{h}{p} = \frac{h}{ m v} \quad .
+\end{equation}
+Seine Wellenfunktion oszilliert daher mit dieser Wellenlänge, z. B. sinusförmig
+\begin{equation}
+    \Psi(x) = \Psi_0 \, \sin\left( \frac{2 \pi x}{\lambda} \right) \quad .
+    \label{eq:4_sg_plausi_psi}
+\end{equation}
+
+Lassen Sie uns überprüffen, ob dieses $\Psi(x)$ die Schrödingergleichung löst.
+Durch die zweimalige Ableitung nach dem Ort wird aus dem Sinus wieder ein Sinus mit einem Vorfaktor:
+\begin{equation}
+    \frac{d^2}{dx^2} \Psi(x)  = - \left(\frac{2 \pi}{\lambda} \right)^2 \, \Psi(x) \quad .
+\end{equation}
+Eingesetzt in Gl.~\ref{eq:4_SG_1d} ergibt dies
+\begin{equation}
+     \frac{\hbar}{2m}  \left(\frac{2 \pi}{\lambda} \right)^2 \,  \Psi(x) + \left[ U(x) - E \right] \Psi(x) \overset{?}{=} 0 \quad .
+     \label{eq:4_Sg_plausi}
+\end{equation}
+Unser Teilchen ist hier ein freies Teilchen. Es wirken keine äußeren Kräfte. Das Potential ist $U(x) = 0$. Die Energie $E$ steckt vollständig in der kinetischen Energie $K$ , also 
+\begin{equation}
+    E =  K = \frac{1}{2} \, m \,  v^2 =  \frac{1}{2m} \, \left( \frac{h}{\lambda} \right)^2 \quad .
+    \label{eq:4_Ekin_lambda}
+\end{equation}
+Mit $\hbar = h / (2 \pi)$ ist Gl.~\ref{eq:4_Sg_plausi} für alle Werte von $E$ bzw. der de Broglie Wellenlänge $\lambda$ erfüllt.
+
+Hätten wir nicht von vornherein  Gl.~\ref{eq:4_sg_plausi_psi} vermutet, so hätten wir diese Wellenfunktion mit Hilfe der Schrödinger-Gleichung finden können.\sidenote{Häufig löst man eine Differentialgleichung, indem man eine Lösung 'errät' und dann testet.}
+
+Was geschieht, wenn das Teilchen nicht frei ist? Die Kräfte, die dann auf das Teilchen wirken, werden durch das Potential $U(x)$ beschrieben. Die Gesamtenergie $E$ bleibt erhalten, so dass für die kinetische Energie $K(x)$ gilt
+\begin{equation}
+    K(x) = E - U(x) \quad .
+\end{equation}
+Das ist genau der Term in der Klammer der Schrödingergleichung Gl \ref{eq:4_SG_1d}! Über Gl. \ref{eq:4_Ekin_lambda} gibt es einen Zusammenhang zwischen der kinetischen Energie und der Broglie-Wellenlänge. Wenn das Potential räumlich nicht konstant ist, ändert sich die de Broglie-Wellenlänge der Wellenfunktion. Wenn weniger Energie für die kinetische Energie 'übrig' bleibt, wird die Wellenlänge größer bzw. die Geschwindigkeit kleiner. Abbildung  \ref{fig:4_potential_slope_WF} zeigt ein Beispiel.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir potential_slope_WF}
+    \caption{Wenn das Potentail $U(c)$ röumlich variiert, dann ändert sich die Wellenlänge der Wellenfunktion.}
+    \label{fig:4_potential_slope_WF}
+\end{marginfigure}
+
+
+
+
+\section{Modelle in der Quantenmechanik}
+
+Auch in der klassischen Physik haben wir Modelle betrachtet und vereinfachende Annahmen gemacht, z.B. dass keine Reibung wirkt oder dass die Masse in einem Punkt konzentriert ist. Die ganze Kunst der Physik besteht darin, gerade so viele Annahmen zu machen, dass das Wesen der Situation erhalten bleibt und man sie noch einfach beschreiben kann.
+
+In der Quantenmechanik machen wir ähnliche Annahmen. Um die zugrundeliegenden Prinzipien klar zu sehen, müssen wir einige Dinge vernachlässigen. Es gibt zwei wesentliche Unterschiede zwischen klassischen und quantenmechanischen Modellen. Die Schrödinger-Gleichung benutzt das Potential $U$ und nicht die Kraft. Wir modellieren also Potentiale und nicht Kräfte, wie wir es in der klassischen Physik sehr oft getan haben. Und das Ergebnis unseres Modells, die Wellenfunktion $\Psi$, ist selbst nicht direkt beobachtbar. Wir können $\Psi(x)$ nicht messen, und die Wahrscheinlichkeitsdichte $|\Psi(x)|^2$ wird im Labor nur selten gemessen. Wir müssen das Modell benutzen, um Aussagen über beobachtbare Größen wie Ladungen und Ströme, Absorptionslinien und Übergangsraten zu machen.
+
+
+\section{Lösen der Schrödingergleichung}
+
+Wenn wir nun ein Modell aufgestellt haben, d.h. wenn wir uns für einen räumlichen Verlauf des Potentials $U(x)$ entschieden haben, dann müssen wir nur noch die Schrödinger-Gleichung lösen. Das ist die Rechenvorschrift, die zu den von Niels Bohr postulierten stabilen Zuständen führt.
+
+Die Schrödinger-Gleichung ist eine Differentialgleichung zweiter Ordnung. Die Mathematik kennt analytische und numerische Methoden zu ihrer Lösung. Diese sollen hier aber nicht behandelt werden. Wir benutzen den dritten Weg, wie wir ihn oben beschritten haben: Wir 'erraten' eine Lösung, indem wir uns einfach davon überzeugen, dass eine Funktion die Gleichung erfüllt. Das ist möglich, weil andere die ersten beiden Wege gegangen sind und die interessanten Formen des Potentials und damit die möglichen Formen der Lösung begrenzt sind.
+
+An die Wellenfunktion $\Psi(x)$ können einige physikalische Anforderungen gestellt werden. Nicht alle mathematisch möglichen Lösungen der Gleichung sind auch physikalisch relevant. Dies war schon in der klassischen Physik der Fall, als wir z.B. forderten, dass Massen positiv sind, auch wenn eine Gleichung für $m<0$ ebenfalls gelöst wurde. In der Quantenmechanik ergeben sich die Anforderungen an $\Psi$ aus der Interpretation von $|\Psi(x)|^2$ als Wahrscheinlichkeitsdichte: $\Psi$ darf nicht so 'komisch' sein, dass $|\Psi(x)|^2$ keine Wahrscheinlichkeitsdichte mehr sein kann. Daraus folgende diese \emph{Randbedingungen}
+\begin{enumerate} \setlength{\itemsep}{0pt}
+    \item $\Psi(x)$ muss stetig sein
+    \item $\Psi(x)$ muss gleich Null sein an Orten, an denen das Teilchen physikalisch nicht sein kann
+    \item  $\Psi(x)$ strebt gegen Null für $x$ gegen $\pm \infty$
+    \item $\Psi(x)$ muss normiert sein
+\end{enumerate}
+
+
+Eine sehr nützliche Eigenschaft der Schrödingergleichung ist ihre Linearität. Wenn $\Psi_1$ und $\Psi_2$ Lösungen der Schrödingergleichung für die gleiche Energie $E$ sind, dann sind es auch die Linearkombinationen der beiden.
+\begin{equation}
+    \Phi = a_1 \, \Psi_1 + a_2 \, \Psi_2 \quad .
+\end{equation}
+Die Normierungsanforderung legt dann die $a_i$ teilweise  fest.
+
+
+\subsection{Quantisierung} 
+
+Wir haben die Quantisierung der Energie und anderer Größen als zentrales Element der Quantenmechanik angesprochen. In der Schrödingergleichung scheint auf den ersten Blick nichts quantisiert zu sein. Sobald aber das Potential $U(x)$ die Bewegung des Teilchens einschränkt, gibt es nicht mehr für jede Energie $E$ eine Lösung. Für die allermeisten Werte von $E$ ist die Differentialgleichung unlösbar. Es gibt dann nur wenige diskrete Lösungen mit bestimmten, quantisierten Werten $E_n$.
+
+
+\section{Beispiel: Teilchen im Kasten}
+
+Wir hatten das Teilchen im Kasten bereits im Kapitel über die Quantisierung behandelt. Damals war es aber nur eine Hypothese, dass die de Broglie Wellenlänge zu stehenden Wellen im Kasten führen muss. Jetzt können wir es besser. Unsere Herangehensweise ist typisch für solche Aufgaben.
+
+
+\subsection{Potential}
+
+Zuerst müssen wir das Potential $U(x)$ finden, das unsere Situation 'Teilchen im Kasten' beschreibt. Der Kasten hat die Länge $L$ und die Wände sind starr, geben nicht nach und absorbieren keine Energie. Dies sind, wie so oft, vereinfachende Annahmen.
+
+Als Konsequenz dieser Annahmen kann sich das Teilchen im Bereich $0 < x < L$ frei bewegen. An den Enden, d.h. bei $x=0$ und $x=L$, wird das Teilchen unabhängig von seiner Energie reflektiert. Die Bereiche $x<0$ und $x>L$ sind verboten. Das Teilchen kann die Box nicht verlassen. Dieser Zustand wird durch das Potential 
+\begin{equation}
+    U(x) = \left\{ 
+        \begin{matrix}
+            0 & 0 \le x \le L \\
+            \infty & \text{sonst}
+        \end{matrix}
+    \right.
+\end{equation}
+beschrieben. Innerhalb des Kastens hat das Teilchen nur kinetische Energie, das Potential ist Null. Aber egal wie groß die Gesamtenergie des Teilchens ist, sie reicht niemals aus, um die unendlich große potenzielle Energie außerhalb des Kastens aufzubringen. Das Teilchen kann den Kasten nicht verlassen.
+
+
+\subsection{Randbedingungen}
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir kasten_potential}
+    \caption{Potential: Teilchen im Kasten}
+    \label{fig:4_kasten_potential}
+\end{marginfigure}
+
+Wir zeichnen das Potenzial (Abb.  \ref{fig:4_kasten_potential}). Wir schneiden die Potentialstufen, die ins Unendliche gehen würden, ab und ersetzen sie durch einen Pfeil nach oben.
+
+Das Teilchen kann sich physikalisch nicht außerhalb des Kastens befinden. Daher muss die Wellenfunktion dort Null sein, d.h.
+\begin{equation}
+    \Psi(x) = 0 \quad \text{für} \quad x < 0  \quad \text{oder} \quad x > L \quad .
+ \end{equation}
+ Daher ist die Wahrscheinlichkeitsdichte $|\Psi(x)|^2$ in diesen Bereichen gleich Null.
+
+Die Wellenfunktion muss ebenfalls stetig sein. Deshalb muss sie auch an den Rändern des Kastens Null sein, d. h.
+\begin{equation}
+    \Psi(x) = 0 \quad \text{für} \quad x = 0  \quad \text{oder} \quad x = L \quad .
+ \end{equation}
+ Unabhängig von der Form der Wellenfunktion im Kasten muss es an den Wänden einen Knoten geben.
+
+
+
+\subsection{Lösung der Gleichung}
+
+Wir suchen eine Lösung der Schrödingergleichung Gl.~\ref{eq:4_SG_1d} für $U=0$, also nur im Bereich $x0<x<L$. Alles andere haben wir schon. Eine Lösung bedeutet, dass wir sowohl eine Funktion $\Psi(x)$ als auch die zugehörige Energie $E$ finden müssen.
+Wir schreiben die Schrödingergleichung Gl.~\ref{eq:4_SG_1d} mit $\beta^2 = 2 m E / \hbar^2$ als
+\begin{equation}
+    \frac{d^2}{dx^2} \Psi(x) = - \beta^2 \Psi(x)  \quad .
+  \end{equation}
+Diese Differentialgleichung wird durch Sinus und Kosinus gelöst, also ist 
+\begin{equation}
+    \Psi(x) = A \sin \beta x  \, + \, B \cos \beta x
+\end{equation}
+die allgemeine Lösung. 
+
+Die Unbekannten $A$ und $B$ müssen nun so gefunden werden, dass die Randbedingungen erfüllt sind. Für $x=0$ muss $\Psi$ Null sein:
+\begin{equation}
+    \Psi(0) =  A \sin   0  \, + \, B \cos   0 = B \overset{!}{=} 0 \quad \text{also} \quad B = 0 \quad .
+\end{equation}
+Ebenso muss $\Psi$ bei $x=L$ Null sein, also 
+\begin{equation}
+    \Psi(L) = A \sin \beta L \overset{!}{0} \text{also} \quad \beta L = n \, \pi \quad \text{mit} \quad n = 1, 2, 3, \dots \quad .
+\end{equation}
+Der Fall $n=0$ ist physikalisch unsinnig, da hier $\Psi = 0$ für alle $x$, also überhaupt kein Teilchen vorhanden wäre.
+
+Damit haben wir eine unendliche Menge an   Wellenfunktionen gefunden
+\begin{equation}
+    \Psi_n(x) = A \sin \beta_n x = A \sin \left(  \frac{n\pi}{L} x \right) \quad \text{mit} \quad n = 1, 2, 3, \dots \quad .
+\end{equation}
+Die Konstante $A$ werden wir unten aus der Normierung bestimmen.
+
+
+
+\subsection{Energie-Eigenwerte}
+
+Dann interessieren uns die möglichen Werte der Energie $E$, die zu diesen Wellenfunktionen $\Psi_n$ gehören. Mit der Definition von $\beta$ finden wir
+\begin{equation}
+    \beta_n = \frac{\sqrt{ 2 m E_n}}{\hbar} = \frac{n\pi}{L} \quad \text{mit} \quad n = 1, 2, 3, \dots
+\end{equation}
+und so 
+\begin{equation}
+    E_n = \frac{\pi^2 \, \hbar^2}{2 m L^2} \, n^2 \quad \text{mit} \quad n = 1, 2, 3, \dots \quad .
+    \label{eq:4_En_kasten}
+\end{equation}
+Damit haben wir die Quantisierung. Nur diese Energiewerte sind für ein Teilchen im Kasten möglich. Dies ist eine Folge des Kastens, des \textit{confinement}, nicht eine Eigenschaft des Teilchens selbst.  Abb.  \ref{fig:4_kasten_eigenwerte} skizziert diese Leiter der Energie-Eigenwerte. In solchen Skizzen hat nur die vertikale Achse als Energieachse eine Bedeutung. Die horizontale Achse hat keine physikalische Bedeutung und dient nur der graphischen Darstellung.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir kasten_eigenwerte}
+    \caption{Energieeigenwerte des Teilchens im Kasten}
+    \label{fig:4_kasten_eigenwerte}
+\end{marginfigure}
+
+Damit haben wir eine Theorie, mit der wir die Ergebnisse des letzten Kapitels erreichen können, ohne phänomenologische Annahmen machen zu müssen.
+
+
+\subsection{Normierung}
+
+Schließlich muss die Wellenfunktion $\Psi$ noch normiert werden. Das Integral über den Betrag von $\Psi$ muss eins ergeben, da das Teilchen irgendwo sein muss, also
+\begin{equation}
+    \int_{-\infty}^{+\infty} \left| \Psi(x) \right|^2 \,dx = 1 \quad .
+\end{equation}
+Da der Kasten das Teilchen auf den Bereich zwischen $0$ und $L$ beschränkt, genügt es, über dieses Intervall zu integrieren, d.h. 
+\begin{equation}
+    \int_0^{L} \left|  A_n \sin \left(  \frac{n\pi}{L} x \right) \right|^2 \,dx =
+   A_n^2  \int_0^{L} \sin^2 \left(  \frac{n\pi}{L} x \right)  \,dx = 
+   A_n^2  \frac{L}{2} = 1
+\end{equation}
+also
+\begin{equation}
+    A_n = \sqrt{\frac{2}{L}} \quad \text{für alle }n \quad .
+\end{equation}
+Damit haben wir die normierte Wellenfunktion gefunden:
+\begin{equation}
+    \Psi_n(x) = \left\{
+    \begin{matrix}
+        \sqrt{\frac{2}{L}}  \sin \left(  \frac{n\pi}{L} x \right) \quad &\text{für} \quad & 0 \le x \le L \\
+        0  &  \text{für} &  x < 0 \text{ oder } x > L 
+    \end{matrix}
+    \right. \quad .
+    \label{eq:4_psi_kasten}
+\end{equation}
+
+\section{Interpretation}
+
+Wir wissen  für das Teilchen im Kasten, dass die möglichen diskreten Werte der Energie durch Gl.  \ref{eq:4_En_kasten} gegebn sind. Es gibt eine minimale Energie 
+\begin{equation}
+E_1 = \frac{\pi^2 \, \hbar^2}{2 m L^2}
+\end{equation}
+und alle anderen steigen quadratisch in $n$ an. Die Wellenfunktion ist eine stehende Welle, gegeben durch Gl. \ref{eq:4_psi_kasten}. Die Zahl $n$ beschreibt die Anzahl der Bäuche. An den Wänden des Kastens befinden sich immer Knoten.
+Dies sind die stationären Zustände des Systems, wie Niels Bohr sie gefordert hat.
+
+Die Wahrscheinlichkeitsdichte ist gegeben durch
+\begin{equation}
+    P_n(x) = |\Psi_n(x)|^2 = \frac{2}{L} \, \sin^2 \left(  \frac{n\pi}{L} x \right) \quad .
+    \label{eq:4_WK_kasten}
+\end{equation}
+Abbildung  \ref{fig:4_topf_unendlich} zeigt dies für die ersten Werte von $n$. Es gibt also Bereiche entlang des Ortes $x$, in denen die Wahrscheinlichkeit, das Teilchen zu finden, gleich Null ist. Und es gibt $n$ Bereiche, in denen die Wahrscheinlichkeit maximal wird.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir topf_unendlich}
+    \caption{Teilchen im Kasten, 1 nm breit, hier mit Energie-Eigenwerten für ein Elektron.}
+    \label{fig:4_topf_unendlich}
+\end{marginfigure}
+
+Skizzen vom Typ \ref{fig:4_topf_unendlich} werden gerne verwendet, um Wellenfunktionen und Eigenenergien gleichzeitig darzustellen. Dabei ist jedoch Vorsicht geboten. Das Potential $U(x)$ ist leicht verständlich und wird 'wie üblich' gezeichnet. Die Eigenenergie $E_n$ hat keine $x$-Abhängigkeit. Nur die Lage der Linie auf der y-Achse ist von Bedeutung. Die Energie $E_n$ und das Potential $U(x)$ haben jedoch eine gemeinsame Energie-y-Achse. Die Wellenfunktion $\Psi_n(x)$ teilt sich mit dem Potential die x-Achse. Man verschiebt aber gerne den Nullpunkt von $\Psi_n(x)$ so, dass er auf $E_n$ liegt. Und natürlich hat $\Psi_n(x)$ eine andere Einheit als Energie. Es gibt also eine zweite Skala für die y-Achse, aber die zeichnet man eigentlich nie ein.
+
+
+\begin{questions}
+    \item In dieser Simulation\phet{Quantum_Bound_States} können Sie das alles ausprobieren. 
+\end{questions}
+
+\section{Nullpunktenergie}
+
+Eine wichtige und für die Quantenmechanik charakteristische Eigenschaft des Teilchens im Kasten ist die \emph{Nullpunktenergie}. Der Zustand der niedrigsten Energie ist 
+\begin{equation}
+    E_1 = \frac{\pi^2 \, \hbar^2}{2 m L^2} > 0 \quad .
+\end{equation}
+Obwohl das Potential $U(x)$ Null ist, hat das Teilchen selbst im Grundzustand eine Energie, die etwas höher ist als der 'Boden' des Potentialtopfes. Diese Energie muss in der kinetischen Energie enthalten sein, d.h. das Teilchen bewegt sich! In der Quantenmechanik befindet sich ein Teilchen im Kasten nie in Ruhe. Selbst im Grundzustand bewegt es sich mit 
+\begin{equation}
+    \frac{1}{2} m v^2 = \frac{\pi^2 \, \hbar^2}{2 m L^2}  \quad .
+\end{equation}
+
+Nach der Heisenbergschen Unschärferelation muss das so sein. Wir wissen, dass das Teilchen irgendwo im Kasten ist. Daher ist die Ortsunschärfe $\Delta x = L$. Würde sich das Teilchen nicht bewegen, wäre seine Geschwindigkeit gleich Null und damit genau bekannt. Die Geschwindigkeitsunschärfe und damit die Impulsunschärfe wäre also ebenfalls Null, womit die Heiensbergsche Unschärferelation verletzt wäre. 
+Die Impulsunschärfe kann also nicht Null sein. Ein Teilchen, das sich nur in einem begrenzten Raumbereich aufhalten kann, muss in Bewegung sein, muss eine Impulsunschärfe haben.
+
+
 \section{Korrespondenzprinzip}
-An verschiedenen Stellen ist uns der Welle-Teilchen-Dualismus begegnet. Objekte auf der atomaren Skala können nicht mehr nur als Welle oder nur als Teilchen beschrieben werden, sondern sind beides oder nichts von beidem. Unsere Bilder sind zu schwach, um diese Objekte zu beschreiben. Es hat sich aber gezeigt, dass man den Übergang von der mikroskopischen zur makroskopischen Welt nutzen kann, um die Konsistenz der mikroskopischen Beschreibung zu überprüfen. 
+Der Welle-Teilchen-Dualismus ist uns an verschiedenen Stellen begegnet. Objekte auf der atomaren Skala können nicht mehr nur als Welle oder nur als Teilchen beschrieben werden, sondern sind beides oder nichts von beidem. Unsere Bilder sind zu schwach, um diese Objekte zu beschreiben. Es hat sich jedoch gezeigt, dass man den Übergang von der mikroskopischen zur makroskopischen Welt nutzen kann, um die Konsistenz der mikroskopischen Beschreibung zu überprüfen. 
 
-Wir fragen uns also, ob das mikroskopische Modell noch funktioniert, wenn wir alles noch größer machen. Bei den Photonen am Doppelspalt zum Beispiel, indem wir die Anzahl der Photonen pro Fläche stark erhöhen, oder beim Teilchen im Kasten, indem wir die Quantenzahl $n$ sehr groß machen. Das \emph{Korrespondenzprinzip} besagt, dass das mikroskopische Modell für große Quantenzahlen in das entsprechende makroskopische Modell übergehen muss. Bei großen Quantenzahlen ist der Effekt der Quantisierung nicht mehr wahrnehmbar, der Unterschied zwischen benachbarten Quantenzahlen ist klein. Dies haben wir in den letzten Abschnitten ausgenutzt, um die Wellenfunktion der Photonen zu konstruieren: für große Photonenzahlen muss alles in die klassische Elektrodynamik übergehen.
+Die Idee ist, dass ein mikroskopisches Modell für große Quantenzahlen in ein klassisches makroskopisches Modell übergehen muss. Dies ist das \emph{Korrespondenzprinzip} von Niels Bohr. Versuchen wir es für das Teilchen im Kasten. Die betrachtete Größe ist die Wahrscheinlichkeitsdichte $P(x)$ (Gl. \ref{eq:4_WK_kasten}). Wir stellen uns einen großen makroskopischen Kasten vor, in dem sich ein Teilchen mit der Geschwindigkeit $v(x)$ periodisch hin und her bewegt, weil es am Ende reflektiert wird. Die Periodendauer ist $T$ und die Länge des Kastens wiederum $L$. Die Wahrscheinlichkeit, das Teilchen am Ort $x$ in einem Streifen der Breite $\delta x$ zu finden, hängt von der Zeit $\delta t$ ab, die das Teilchen benötigt, um die Strecke $\delta x = v(x) \delta t$ zu durchlaufen. Wenn wir berücksichtigen, dass das Teilchen den Ort $x$ zweimal pro Umlauf passiert, dann ist die Wahrscheinlichkeit
+\begin{equation}
+    WK(x, \delta x) = \frac{\delta t}{2 T } = \frac{\delta x}{2T v(x)}
+\end{equation} 
+und die Wahrscheinlichkeitsdichte
+\begin{equation}
+    P(x) = \frac{WK(x, \delta x)}{\delta x} = \frac{1}{2 T v(x)} \quad .
+\end{equation}
+Dies gilt für jede Form der Bewegung, also für jedes Geschwindigkeitsprofil $v(x)$.
+
+Für das Teilchen im Kasten ist die Geschwindigkeit konstant, also
+\begin{equation}
+    v(x) = \frac{2L}{T} \quad \text{und} \quad P(x) = \frac{1}{L} \quad .
+\end{equation}
+Im klassischen Fall ist die Wahrscheinlichkeitsdichte über die Position im Kasten konstant. Wie passt das mit dem $\sin^2$ aus Gl.~\ref{eq:4_WK_kasten} zusammen? Mit zunehmender Quantenzahl $n$ wird die Oszillation von $P_n(x)$ immer schneller. Für sehr große $n$ entstehen dann räumlich so dicht beieinander liegende Streifen, dass diese nicht mehr aufgelöst werden können und nur noch ein Mittelwert beobachtet wird. Dieser Mittelwert ist genau $1/L$!
+
+
+\section{Beispiel: Potentialtopf}
+
+Nun machen wir unser Teilchen-im-Kasten-Modell etwas realistischer. Das Potential $U(x)$ soll außerhalb des Kastens nicht mehr unendlich groß sein, sondern einen endlichen Wert $U_0$ annehmen, also
+\begin{equation}
+    U(x) = \left\{ 
+        \begin{matrix}
+            0 & 0 \le x \le L \\
+            U_0 & \text{sonst}
+        \end{matrix}
+    \right. \quad .
+\end{equation}
+Alternativ kann der Energienullpunkt auch auf das Plateau außerhalb des Kastens gelegt werden und der Boden auf $-U_0$. Der Energienullpunkt ist immer verschiebbar.
+
+Im klassischen Fall ist das Teilchen im Kasten gebunden und kann ihn nicht verlassen, solange seine Energie $E < U_0$ ist. Für größere Energien kann das Teilchen dem Kasten entkommen.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir topf_endlich}
+    \caption{Potentialtopf für ein Elektron, 1 nm breit und 3 eV tief. Es gibt nur diese 3 gebundenen Zustände.}
+    \label{fig:4_topf_endlich}
+\end{marginfigure}
+
+In der Quantenmechanik ist die Situation ähnlich.  Die Berechnung ist in den üblichen Lehrbüchern der Quantenmechanik enthalten. Hier diskutieren wir nur die Ergebnisse. Abbildung  \ref{fig:4_topf_endlich} zeigt ein Beispiel für einen Elektron in einem Kasten mit einer Breite von 1~nm und einer Tiefe von 3~eV, wie er für Elektronen in Halbleitern typisch ist.
+\begin{itemize}\setlength{\itemsep}{0pt}
+    \item Die Zustände sind weiterhin quantisiert. Nur bestimmte diskrete Energiewerte können angenommen werden.
+    \item Es gibt nur eine endliche Anzahl von gebundenen Zuständen mit $E < U_0$. Die genaue Anzahl hängt von den Parametern des Topfes ab.
+    \item Die Wellenfunktionen sind ähnlich denen des Teilchens im Kasten. Die Anzahl der Bäuche entspricht der Quantenzahl $n$.
+    \item Der Hauptunterschied besteht darin, dass nun die Wellenfunktionen und damit auch die Wahrscheinlichkeitsdichte in den klassisch verbotenen Bereich hineinreichen. Das Teilchen wird an dieser niedrigen Wand reflektiert, dringt dabei aber teilweise in die Wand ein.
+\end{itemize}
+
+Wenn man die Wellenfunktionen im klassisch verboteten Bereich $x > L$ berechnet, findet man
+\begin{equation}
+\Psi(x) = \Psi_L \, e^{- (x-L)/ \eta} \quad \text{für} \quad x > L
+\end{equation}
+wobei $\Psi_L$ der Wert der Wellenfunktion am Ort $x=L$ ist, der über die Lösung im Bereich $0 \le x \le L$ gefunden werden muss. Die charakteristische  Abfall-Länge $\eta$ ist
+\begin{equation}
+    \eta = \frac{\hbar}{\sqrt{2m ( U_0 - E)}} \quad \text{für} \quad U_0 > E \quad .
+\end{equation}
+Nach dieser Länge $\eta$ ist die Wellenfunktion in der Wand auf $e^{-1} \approx 0.37$ abgefallen. Für makroskopische Teilchen ist die Eindringtiefe oder Abfall-Länge $\eta$ vernachlässigbar, nicht aber für Quantenobjekte. Diese sind etwas 'unscharf' und werden nicht direkt an der Wand reflektiert, sondern etwas später.
+
+Das Teilchen im Potentialtopf ist ein häufig verwendetes Modell. Es beschreibt z.B. sehr gut Neutronen und Protonen in Atomkernen oder Elektronen in gezielt strukturierten Halbleitern, wie sie in Halbleiterlasern verwendet werden.
+
+\section{Wellenfunktionen raten}
+
+Für viele Zwecke ist es ausreichend, die ungefähre Form der Wellenfunktion bei gegebenem Potential zu erraten. Dazu müssen die oben definierten Randbedingungen erfüllt sein. Zwei weitere Punkte kommen hinzu:
+\begin{description}
+    \item[de Broglie Wellenlänge] Die de Broglie Wellenlänge ist proprotional zu $1/p$, bzw. $1/\sqrt{E_{kin}}$. Über 'tiefen' Stellen des Potentials $U$ ist $E_{kin}$ größer und damit die Wellenlänge kürzer.
+    \item[Wahrscheinlichkeitsdichte] Nach dem Korrespondenzprinzip ist die Wahrscheinlichkeitsdichte an Stellen größer, an denen das Teilchen langsamer ist. An 'flachen' Stellen des Potentials ist $E_{kin}$ kleiner und damit die Amplitude der Wellenfunktion größer.
+\end{description}
+
+Man zeichnet also zunächst das Potential $U(x)$ und trägt den Energieeigenwert $E$ ein. Die Wellenfunktion oszilliert im klassisch erlaubten Bereich, d.h. wenn $E > U(x)$. Die Quantenzahl $n$ gibt die Anzahl der Bäuche der Oszillation an. Wellenlänge und Amplitude der Oszillation variieren mit $U(x)$, wie gerade beschrieben. Bei unendlich hohen Potentialwällen ist die Wellenfunktion gleich Null, ansonsten fällt sie exponentiell in den klassisch verbotenen Bereich ab. Die Abklinglänge ist umso größer, je kleiner der Abstand zwischen $E$ und der Ebene $U_0$ des Potentials ist.
+
+
+\section{Beispiel: Harmonischer Oszillator}
+
+Der harmonische Oszillator ist eines der zentralen Modelle der klassischen Physik. Es wirkt eine Rückstellkraft, die proportional zur Auslenkung $x$ ist. Diese wird durch ein parabelförmiges Potential beschrieben:
+\begin{equation}
+    U(x) = \frac{1}{2} k x^2n\quad .
+    \label{eq:4_harm_pot}
+\end{equation}
+Es handelt sich quasi um einen Potentialtopf mit gekrümmtem Boden.
+Ein klassisches Teilchen schwingt mit der Kreisfrequenz $\omega$
+\begin{equation}
+    \omega = \sqrt{\frac{k}{m}} \quad .
+\end{equation}
+
+In der Quantenmechanik lösen wir die Schrödingergleichung Gl. \ref{eq:4_SG_1d} mit dem harmonischen Potential \ref{eq:4_harm_pot}. Die Lösungen sind Hermitesche Funktionen, deren erste 3 lauten
+\begin{align}
+    \Psi_1(x) = & A_1 \, e^{-x^2 / 2 b^2} \\
+    \Psi_2(x) = & A_2 \, \frac{x}{b} \, e^{-x^2 / 2 b^2} \\
+    \Psi_3(x) = & A_3 \, \left(1- \frac{2x^2}{b^2} \right) \, e^{-x^2 / 2 b^2} 
+\end{align}
+mit der Abkürzung 
+\begin{equation}
+    b = \sqrt{\frac{\hbar}{m \omega}} \quad .
+\end{equation}
+Die Länge $b$ ist gerade die maximale Auslenkung eines klassischen Oszillators bei der Energie des Grundzustandes $n=1$. Die Konstanten $A_i$ sind so gewählt, dass die Wellenfunktionen $\Psi_i$ normiert sind. Auch diese Wellenfunktionen zeigen eine Oszillation und auch hier gibt die Quantenzahl $n$ die Anzahl der Bäuche an. Da die Wände des Potentialtopfs nicht unendlich hoch sind, ragen die Wellenfunktionen etwas über die klassischen Umkehrpunkte bei $U(x) = E_n$ hinaus.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir vib_state_wf}
+    \caption{Wellenfunktionen und Wahrscheinlichkeitsdichte im harmonischen Oscillator}
+\end{marginfigure}
+
+Die zugehörigen Eigenenergien $E_i$ sind
+\begin{equation}
+    E_n = \left( n - \frac{1}{2}\right) \, \hbar \omega \quad \text{mit} \quad n = 1, 2, 3, \dots \quad .
+\end{equation}
+Die Zustände im quantenmechanischen harmonischen Oszillator sind also äquidistant im Abstand $\hbar\omega$, im Gegensatz zum Kasten, in dem die Abstände quadratisch zunehmen. Auch hier gibt es wieder eine Nullpunktsenergie $E_1 = \hbar\omega/2$, die mit der Nullpunktbewegung des Oszillators verbunden ist. Ein quantenmechanisches Pendel steht also niemals still.
+
+Auch hier gilt das Korrespondenzprinzip. Für große Quantenzahlen geht die Bewegung des quantenmechanischen harmonischen Oszillators in die klassische Bewegung über. Die Skizze \ref{fig:4_harm_osz_korrepondenz} zeigt die Wahrscheinlichkeitsdichte für den Zustand $n=11$ im Vergleich zum klassischen Fall. Gut zu erkennen ist die erhöhte Aufenthaltswahrscheinlichkeit an den Umkehrpunkten der Bewegung, an denen die Geschwindigkeit gering ist.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir harm_osz_korrepondenz}
+    \caption{Klassische (dick) und quantenmechanische (dünn, $n=11$) Wahrscheinlichkeitsdichte des harmonischen Oszillators.}
+    \label{fig:4_harm_osz_korrepondenz}
+\end{marginfigure}
+
+Dieses Modell des quantenmechanischen harmonischen Oszillators beschreibt z.B. gut die Schwingung von Atomen, die in Molekülen oder Festkörpern gebunden sind.
+
+\section{Beispiel: Tunneln durch eine Barriere}
+
+Als letztes Beispiel betrachten wir eine Barriere wie in Abb.  \ref{fig:4_barrier} skizziert ist. Das Potential $U(x)$ ist überall Null, nur in einem kurzen Bereich nimmt es den Wert $U_0 > 0$ an. Die Übergänge dazwischen sind nicht so wichtig und werden hier als trapezförmig gezeichnet.
+
+Ein klassisches Teilchen mit der Energie $0 < E < U_0$ würde sich über weite Strecken mit konstanter Geschwindigkeit bewegen und dann den Potentialberg hinaufklettern, bis am Ort $x_0$ der Punkt $U(x_0) = E$ erreicht ist. Dann ist alle kinetische Energie in potentielle Energie umgewandelt, das Teilchen kommt zum Stillstand und rollt den Berg wieder hinunter, hat also seine Bewegungsrichtung geändert. Nur wenn ein Teilchen die Energie $E > U_0$ besitzt, kann es die Barriere überwinden.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir barrier}
+    \caption{Tunneln durch eine Barriere. Dargestellt ist der Realteil der Wellenfunktion $\Psi(x)$. Der grau unterlegte Bereich $U > E$ ist klassisch verboten.}
+    \label{fig:4_barrier}
+\end{marginfigure}
+
+
+Anders verhält es sich in der Quantenmechanik. Wir haben bereits gesehen, dass quantenmechanische Teilchen in den klassisch verbotenen Bereich eintreten können und ihre Wellenfunktion dort exponentiell abfällt. Dies geschieht nun auch an der Barriere für $E < U_0$. Wenn aber die Barriere so dünn ist, dass die Wellenfunktion auch am hinteren Ende noch nicht auf Null gefallen ist, dann tritt das Teilchen dort aus und bewegt sich normal weiter. Man sagt, dass das Teilchen durch die Barriere getunnelt ist. 
+
+Auf beiden Seiten\sidenote{diese Rechnung nimmt senkrechte Wände der Barriere an} der Barriere, in den klassisch zulässigen Bereichen, wird die Wellenfunktion des Teilchens durch Sinus- und Kosinusfunktionen beschrieben, wie wir es ganz am Anfang des Kapitels getan haben. Alternativ kann auch eine komplexwertige Wellenfunktion angenommen werden, z. B. links von der Barriere mit der Breite $w$ bei $0 < x < w$.
+\begin{equation}
+    \Psi(x < 0) = \Psi_0 e^{i \beta x}
+\end{equation}
+mit einer komplexwertigen Konstanten $\Psi_0$  und $\beta = \sqrt{2 m E }/ \hbar$ wie oben. Da wir die Wellenfunktion $\Psi$ selbst nicht beobachten können, ist es auch kein Problem, wenn sie komplexwertig ist. Beobachtbar ist das Betragsquadrat $|\Psi|^2$, das auch hier existiert.
+
+Innerhalb der Barriere fällt die Wellenfunkion dann exponentiell ab
+\begin{equation}
+    \Psi(0 \le x \le w) = \Psi_{Kante} e^{- x / \eta}
+\end{equation}
+mit einer Abfall-Länge $\eta$ wie oben 
+\begin{equation}
+    \eta = \frac{\hbar}{\sqrt{2m ( U_0 - E)}} \quad \text{für} \quad U_0 > E \quad .
+\end{equation}
+
+Für die gesamte Wellenfunktion werden die drei Teile links, Barriere und rechts so zusammengesetzt, dass die Übergänge stetig sind.  Der Ansatz als Sinuswelle oder Exponentialfunktion ist nicht normierbar, was in diesem Fall toleriert werden muss. Alternativ könnte man mit einem Wellenpaket arbeiten, was aber komplizierter ist.
+
+Wie auch Abbildung \ref{fig:4_barrier} zeigt, ist die Amplitude der Wellenfunktion nach der Barriere kleiner als vorher. Dies kann man als Tunnel-Wahrscheinlichkeit beschreiben, d.h. die Wahrscheinlichkeit, dass ein Teilchen, das links auf die Barriere trifft, rechts wieder herauskommt (andernfalls wird es reflektiert, geht aber nie verloren). Diese Wahrscheinlichkeit beträgt
+\begin{equation}
+    P_{tunnel} = \frac{|\Psi(0)|^2)} {|\Psi(w)|^2} = e^{-2 w / \eta} \quad .
+\end{equation}
+Diese Wahrscheinlichkeit $P_{tunnel}$ bzw. die Abklinglänge $\eta$ hängt stark von der Breite und Form der Barriere und der Differenz zwischen der Teilchenenergie $E$ und der Barrierenhöhe $U_0$ ab.
+
+Im \emph{Rastertunnelmikroskop} (engl. scanning tunneling microscope, STM) wird dieser Effekt ausgenutzt. Elektronen tunneln durch einen kleinen ($< 1$~nm) Vakuumspalt zwischen einer Metallspitze und der leitfähigen Probe. Die Stromstärke der tunnelnden Elektronen wird als Funktion der Spitzenposition gemessen und als Bild aufgetragen. Manchmal wird eine Pseudo-3D-Darstellung verwendet, bei der Bereiche mit höheren Strömen als Berge dargestellt werden.
 
 
 
+\begin{questions}
+    \item In dieser Simulation\phet{Quantum_Tunneling_and_Wave_Packets} können Sie das alles ausprobieren. 
+\end{questions}
+
+\subsection{Korrespondenz zur Optik}
+
+Photonen sind Quantenteilchen, die der Quantenmechanik unterliegen. Gleichzeitig wird Licht aber auch durch die Elektrodynamik und die Optik gut beschrieben. Viele Experimente mit Quantenteilchen lassen sich mit Photonen durchführen. Die Ergebnisse müssen aufgrund des Korrespondenzprinzips mit denen der Optik übereinstimmen.
+
+Die Reflexion an einer Barriere eines Quantenteilchens entspricht in der Optik der Totalreflexion am Übergang von einem dichten zu einem dünnen Medium. Auch hier dringt das Lichtfeld etwas in das dünne Medium ein (ein Bruchteil der Wellenlänge), wird aber dennoch vollständig reflektiert.
+
+Man kann jedoch ein zweites, ebenfalls optisch dichtes Medium nahe an das erste heranbringen und nur einen dünnen Bereich des dünnen Mediums stehen lassen. Durch diesen Spalt kann das Photon tunneln. Klassisch wird dies als frustrierte Totalreflexion bezeichnet, die genau denselben Gesetzen folgt. Dieser Effekt wird manchmal in optischen Strahlteilern ausgenutzt.
+
+
+
+
+%\section{Anhang: numerische Rechnung}
 
 \section{Zusammenfassung}
 
