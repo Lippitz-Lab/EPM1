@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{29. Oktober 2024}
+\renewcommand{\lastmod}{30. Oktober 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Beispiele aus der (1d) Quantenmechanik}
@@ -268,7 +268,7 @@ Die Unbekannten $A$ und $B$ müssen nun so gefunden werden, dass die Randbedingu
 \end{equation}
 Ebenso muss $\Psi$ bei $x=L$ Null sein, also 
 \begin{equation}
-    \Psi(L) = A \sin \beta L \overset{!}{0} \text{also} \quad \beta L = n \, \pi \quad \text{mit} \quad n = 1, 2, 3, \dots \quad .
+    \Psi(L) = A \sin \beta L \overset{!}{=} 0 \quad \text{also} \quad \beta L = n \, \pi \quad \text{mit} \quad n = 1, 2, 3, \dots \quad .
 \end{equation}
 Der Fall $n=0$ ist physikalisch unsinnig, da hier $\Psi = 0$ für alle $x$, also überhaupt kein Teilchen vorhanden wäre.
 
@@ -449,7 +449,7 @@ Man zeichnet also zunächst das Potential $U(x)$ und trägt den Energieeigenwert
 
 Der harmonische Oszillator ist eines der zentralen Modelle der klassischen Physik. Es wirkt eine Rückstellkraft, die proportional zur Auslenkung $x$ ist. Diese wird durch ein parabelförmiges Potential beschrieben:
 \begin{equation}
-    U(x) = \frac{1}{2} k x^2n\quad .
+    U(x) = \frac{1}{2} k x^2 \quad .
     \label{eq:4_harm_pot}
 \end{equation}
 Es handelt sich quasi um einen Potentialtopf mit gekrümmtem Boden.
@@ -508,13 +508,13 @@ Anders verhält es sich in der Quantenmechanik. Wir haben bereits gesehen, dass 
 
 Auf beiden Seiten\sidenote{diese Rechnung nimmt senkrechte Wände der Barriere an} der Barriere, in den klassisch zulässigen Bereichen, wird die Wellenfunktion des Teilchens durch Sinus- und Kosinusfunktionen beschrieben, wie wir es ganz am Anfang des Kapitels getan haben. Alternativ kann auch eine komplexwertige Wellenfunktion angenommen werden, z. B. links von der Barriere mit der Breite $w$ bei $0 < x < w$
 \begin{equation}
-    \Psi(x < 0) = \Psi_{+} e^{i \beta x} \, + \, \Psi_{-} e^{-i \beta x}
+    \Psi(x < 0) = \Psi_{+}\,  e^{i \beta x} \, + \, \Psi_{-} \,e^{-i \beta x}
 \end{equation}
 mit den komplexwertigen Konstanten $\Psi_\pm$  und $\beta = \sqrt{2 m E }/ \hbar$ wie oben. Da wir die Wellenfunktion $\Psi$ selbst nicht beobachten können, ist es auch kein Problem, wenn sie komplexwertig ist. Beobachtbar ist das Betragsquadrat $|\Psi|^2$, das auch hier existiert.
 
 Innerhalb der Barriere fällt die Wellenfunkion dann exponentiell ab
 \begin{equation}
-    \Psi(0 \le x \le w) = \Psi_{Kante} e^{- x / \eta}
+    \Psi(0 \le x \le w) = \Psi_{Kante} \, e^{- x / \eta}
 \end{equation}
 mit einer Abfall-Länge $\eta$ wie oben 
 \begin{equation}
@@ -525,7 +525,7 @@ Für die gesamte Wellenfunktion werden die drei Teile links, Barriere und rechts
 
 Wie auch Abbildung \ref{fig:4_barrier} zeigt, ist die Amplitude der Wellenfunktion nach der Barriere kleiner als vorher. Dies kann man als Tunnel-Wahrscheinlichkeit beschreiben, d.h. die Wahrscheinlichkeit, dass ein Teilchen, das links auf die Barriere trifft, rechts wieder herauskommt (andernfalls wird es reflektiert, geht aber nie verloren). Diese Wahrscheinlichkeit beträgt
 \begin{equation}
-    P_{tunnel} = \frac{|\Psi(0)|^2)} {|\Psi(w)|^2} = e^{-2 w / \eta} \quad .
+    P_{tunnel} = \frac{|\Psi(w)|^2} {|\Psi(0)|^2} = e^{-2 w / \eta} \quad .
 \end{equation}
 Diese Wahrscheinlichkeit $P_{tunnel}$ bzw. die Abklinglänge $\eta$ hängt stark von der Breite und Form der Barriere und der Differenz zwischen der Teilchenenergie $E$ und der Barrierenhöhe $U_0$ ab.
 
