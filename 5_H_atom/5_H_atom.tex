@@ -54,6 +54,105 @@ Hyperfeinstruktur ?? wohl erst später, nur erwähnen
 % the reasons for and limitations of each models. It’s amazing how difficult this is for students.
 
 
+\section{Schrödinger-Gleichung in 3 Dimensionen}
+In der Quantenmechanik ist das Wasserstoffatom nur eine spezielle Form eines Potentialtopfs, nämlich ein dreidimensionaler Topf mit kugelsymmetrischem Potential, das durch das Coulombpotential gegeben ist. Das Potential hängt also nur vom Abstand $r$ zwischen Kern und Elektron ab, nicht von einer Richtung\sidenote{Ich verwende 'fette' Buchstaben wie $\br$ für Vektoren und 'dünne' Buchstaben wie $r$ für die Länge dieser Vektoren.}
+\begin{equation}
+    U(r) = - \frac{1}{4 \pi \epsilon_0} \, \frac{e^2}{r}
+\end{equation}
+weil sowohl Kern als auch Elektron jeweils die Ladung $\pm e$ tragen.
+
+Im letzten Kapitel hatte ich die Schrödingergleichung in einer Dimension $x$ geschrieben, hier nur in 3 Dimensionen, ganz analog dazu
+\begin{equation}
+    - \frac{\hbar^2}{2m} \,\nabla^2 \, \Psi(\br) + \left[ U(\br) - E \right] \Psi(\br) = 0 \quad .
+    \label{eq:5_SG_3d}
+  \end{equation}
+mit dem Quadrat des Nabla-Operators $\nabla^2$ als Abkürzung für
+\begin{equation}
+    \nabla^2 = \frac{\partial^2}{\partial x^2 } + \frac{\partial^2}{\partial y^2 } + 
+    \frac{\partial^2}{\partial z^2 } 
+\end{equation}
+d.h. die Summe der doppelten (partiellen) Ableitungen in den drei Raumrichtungen. Wie im letzten Kapitel werden wir das nie wirklich selbst ausrechnen, sondern uns nur die Lösung anschauen. Die Rechnung findet man in jedem Buch zur Quantenmechanik.
+
+\section{Quantenzahlen des Wasserstoff-Atoms}
+
+In einer Dimension haben wir im letzten Kapitel gesehen, dass die Beschränkung des Teilchens auf einen Raumbereich zur Quantisierung der Energie und damit zur Quantenzahl $n$ führt, mit der wir die möglichen Energiewerte durchnummeriert haben. Nur diese Energien waren möglich, nur diese Wellenfunktionen lösten die Schrödingergleichung. Das gleiche gilt in drei Dimensionen. Schränkt man das Teilchen in drei Raumrichtungen ein, so erhält man drei Quantisierungen. Drei verschiedene Größen können nur bestimmte quantisierte Werte annehmen, wenn die Schrödingergleichung für das kugelsymmetrische Coulombpotential gelöst werden soll. Dies sind
+\begin{description}
+    \item[Hauptquantenzahl] Die Zahl $n$, die die Energien durchnummeriert, wird nun Hauptquantenzahl genannt, da weitere Quantenzahlen hinzukommen. Die zugehörigen Eigenenergien sind
+ \begin{equation}
+E_n = - \frac{1}{n^2} \left( \frac{1}{4 \pi \epsilon_0} \, \frac{e^2}{2 a_B }\right) = - \frac{13.6 \, eV}{n^2} \quad \text{mit} \quad n = 1,2, 3 \dots       
+    \end{equation}
+    mit dem Bohr-Radius $a_B = 4 \pi \epsilon_0 \hbar^2 / (m e^2) \approx 0.5$\AA. Das sind die gleichen Energien, die wir auch im Bohrmodell gefunden haben.
+
+    \item[Drehimpuls-Quantenzahl] Der Bahndrehimpuls $\bL$ des Elektrons ist in seiner Länge $L$ quantisiert
+    \begin{equation}
+        L = \hbar \sqrt{l (l+1) }  \quad \text{mit} \quad l = 0, 1,2, \dots , n-1
+    \end{equation}
+Diese Zahl $l$ wird (Bahn)Drehimpuls-Quantenzahl genannt.
+
+\item[Magnetische Quantenzahl] Die z-Komponente $L_z$ des Bahndrehimpulses $\bL$ ist ebenfalls quantisiert 
+\begin{equation}
+    L_z = m \hbar   \quad \text{mit} \quad m = -l, -l+1, \dots, 0, \dots, l-1, l
+\end{equation}
+Diese Zahl $m$ wird magnetische Quantenzahl genannt. Den Grund für diesen Namen sehen wir unten.
+
+\end{description}
+Jeder stationäre Zustand des Wasserstoffatoms ist also durch drei Zahlen $(n,l,m)$ definiert. Jede dieser Zahlen beschreibt eine physikalische Eigenschaft des Atoms, wobei die Energie im Wasserstoffatom nur von der Hauptquantenzahl $n$ abhängt.
+
+In anderen Atomen und bei einer Erweiterung des Modells aufgrund der Relativitätstheorie (siehe unten) hat dann auch die Drehimpulsquantenzahl $l$ einen Einfluss auf die Energie. Man bezeichnet daher die Zustände der Elektronen in Atomen mit den beiden Zahlen $n$ und $l$ (nicht aber $m$). Dazu kodiert man die Drehimpuls-Quantenzahl als Buchstaben nach folgendem Schema
+\begin{equation}
+    l = 0, 1, 2, 3 \quad \text{ergibt Buchstaben \ \ s, p, d, f}
+\end{equation}
+Der Zustand $(n,l) = (1,0)$ wird 1s genannt. Der Zustand $(n,l) = (3,2)$ heißt 3d. Da die magnetische Quantenzahl $m$ insgesamt $2l+2$ Werte annehmen kann, ist der Zustand 3d 7-fach entartet, der Grundzustand 1s dagegen nicht.
+
+
+
+Abbildung XXX zeigt die möglichen Zustände (ohne $m$-Entartung). Die Bedingung $n > l$ führt zu dieser dreieckigen Anordnung. Alle Zustände mit gleichem $n$ haben die gleiche Energie. Die Zustände liegen mit zunehmender Hauptquantenzahl $n$ immer näher an der Ionisationsgrenze $E=0$. Die Abhängigkeit von $n$ ist genau wie beim Bohr-Modell.
+
+
+\section{Quantisierung des Drehimpulses}
+
+Wir müssen noch etwas genauer auf den Drehimpuls eingehen. Wir haben schon beim Bohrmodell gesehen, dass der Bahndrehimpuls quantisiert ist. Damals konnte er nur ganzzahlige Vielfache von $\hbar$ annehmen. Jetzt ist es ähnlich, nur die Werte sind etwas anders, nämlich wie oben.
+\begin{equation}
+    L = \hbar \sqrt{l (l+1) } = 0, \sqrt{2} \hbar, \sqrt{6} \hbar, \sqrt{12} \hbar, \dots
+\end{equation}
+mit einer ganzen Zahl $l \ge 0$.
+
+Dies ist die \emph{Länge} des Drehimpulsvektors $\bL$. Seine drei kartesischen Komponenten sind $L_x$, $L_y$ und $L_z$ und natürlich
+\begin{equation}
+    L^2 = L_x^2 + L_y^2+ L_z^2
+\end{equation} 
+Jede der kartesischen Komponenten muss kleiner als die Länge sein, also 
+\begin{equation}
+    L_{x,y,z}^2 \le L^2
+\end{equation}
+Die Besonderheit des Drehimpulses in der Quantenmechanik ist nun, dass eine beliebige Komponente $L_{x,y,z}$ und die Länge $L$ zusammen gleichzeitig ohne Unschärfe gemessen werden können. Über die beiden anderen Komponenten kann man dann aber nichts mehr sagen, außer dass sie zusammen die richtige Gesamtlänge ergeben müssen. Wenn man also $L$ und $L_z$ gemessen hat, kann man nur noch sagen
+\begin{equation}
+    L_x^2 + L_y^2 = L^2 - L_z^2
+\end{equation}
+Die Aufteilung zwischen $L_x$ und $L_y$ ist jedoch nicht festgelegt. Man kann sie sich als einen Vektor $\bL$ vorstellen, dessen Spitze auf einem Kreis liegt, der durch Gl. xxx beschrieben wird, oder als einen Vektor, der einen Kegel beschreibt. Da $L_z$ ebenfalls quantisiert ist, gibt es $2l+1$ solcher Kreise bzw. Kegel.
+
+Unabhängig davon, welche der drei kartesischen Komponenten gemessen wird, sind die beiden anderen immer innerhalb der genannten Grenzen unbestimmt. Typischerweise legt man das Koordinatensystem so an, dass die gemessene Komponente $L_z$ ist. In der Quantenmechanik ist es auch unerheblich, ob man diese Komponente tatsächlich misst oder nur messen kann\sidenote{wie beim Elektron im Doppelspalt}. Wie wir weiter unten sehen werden, ist der Drehimpuls mit einem magnetischen Moment verbunden, dessen Orientierung im Magnetfeld einen Energiebeitrag liefert. Die Orientierung eines äußeren Magnetfeldes definiert also die Richtung der z-Koordinate. Daher wird die Quantenzahl $m$ von $L_z$ auch als magnetische Quantenzahl bezeichnet.
+
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir vector3d}
+    \caption{Skizze eines Drehimpulsvektors mit unbekannter xy-Komponente.}
+\end{marginfigure}
+    
+
+
+Eine Konsequenz der Quantisierung von $L$ und $L_z$ ist, dass der Vektor $\bL$ niemals exakt in z-Richtung orientiert sein kann. Es kann nie $L_z = L$ sein, weil $L_z$ ein ganzzahliges Vielfaches von $\hbar$ ist, $L$ aber diesen $\sqrt{l(l+1)}$-Term hat, der immer etwas größer als $l$ ist. Nur im Grenzfall sehr großer $l$ (im Korrespondenzprinzip) ist eine reine z-Orientierung möglich.
+
+Weiterhin ist bemerkenswert, dass das Elektron im Grundzustand, d.h. im Zustand 1s, also $n=1$ und $l=0$, einen Bahndrehimpuls von Null hat. Ein klassisches Teilchen würde sich in diesem Fall überhaupt nicht auf einer geschlossenen Bahn bewegen. Für das Elektron in der Quantenmechanik ist das aber kein Problem.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir vector2d}
+    \caption{Mögliche Orientierung von  Drehimpuls-artiger Vektoren mit $l=1/2$ (links) und $l=2$ (rechts). Der Abstand der Hilfslinien beträgt $1/2 \hbar$ bzw. $1\hbar$.}
+\end{marginfigure}
+
+Es gibt nicht nur Vektoren, die einem klassischen Drehimpuls entsprechen, sondern auch anderen Größen, die sich sehr ähnlich einem Drehimpuls verhalten, wie beispielsweise der Spin des Elektrons oder des Kerns. Bahndrehimpulse haben immer ganzzahlige Quantenzahlen $l$,$m$, Spins können auch halbzahlig sein. Immer ist der Abstand zwischen benachbarten Quantenzahlen aber eins. 
+
+
 
 \section{Zusammenfassung}
 
