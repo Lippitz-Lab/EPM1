@@ -154,6 +154,49 @@ Es gibt nicht nur Vektoren, die einem klassischen Drehimpuls entsprechen, sonder
 
 
 
+\section{Wellenfunktionen}
+
+Die Wellenfunktion $\Psi$, die die Schrödingergleichung löst, lässt sich am einfachsten in sphärischen Koordinaten schreiben, also statt $x,y,z$ als Funktion von $r,  \theta,\phi$. Die Lösungen besteht aus   drei Teilen: die Normierung, der Radialanteil $R(r)$ und der Winkelanteil $Y(\theta, \phi)$, also 
+\begin{equation}
+    \Psi_{n,l,m} (r, \theta, \phi) = A_{n,m} \, R_{n,l}(r) \, Y_l^m (\theta, \phi)
+\end{equation}
+Die $R_{n,l}(r)$ sind dabei Laguerre-Polynome und die $Y_l^m(\theta, \phi)$ Kugelflächenfunktionen.
+Die ersten Wellenfunktionen sind (XXX check, also def of aB)
+\begin{align}
+    n,l,m  & & A_{n,m}                      & &R_{n,l}(r) & & Y_l^m(\theta, \phi) \\
+   1,0,0   && \frac{1}{\sqrt{\pi a_B^3}}    & &e^{-r / a_B} && \\
+   %
+    2,0,0  & & \frac{1}{4 \sqrt{2 \pi a_B^3}}   & & \left( 2 - \frac{r}{a_B}\right) e^{-r /2 a_B} && \\
+    2,1,0  & & \frac{1}{4 \sqrt{2 \pi a_B^3}}   & & \frac{r}{a_B} e^{-r /2 a_B} && \cos \theta \\
+    2,1,\pm 1  & & \frac{1}{8 \sqrt{\pi a_B^3}}   & & \frac{r}{a_B} e^{-r /2 a_B} && \sin \theta \, e^{\pm i \phi} 
+    %
+\end{align}
+
+
+\section{Darstellung von 3d-Wellenfunktionen}
+
+Im letzten Kapitel haben wir die eindimensionale Wellenfunktion $\Psi(x)$ entweder direkt auf der x-Achse aufgetragen oder als Wahrscheinlichkeitsdichte $P(x) = |\Psi(x)|^2$ dargestellt. Im Eindimensionalen ist dies leicht möglich. Im Dreidimensionalen ordnet die Wahrscheinlichkeitsdichte jedem Punkt $\br$ im Raum einen Wert zu. Dies ist schwierig darzustellen. Zum einen ist Papier oder ein Bildschirm immer nur zweidimensional. Zum anderen verdecken 'vordere' Werte die dahinter liegenden, wenn der Wert z.B. als Farbe kodiert ist.
+
+Es gibt verschiedene Möglichkeiten, die jedoch alle ihre Vor- und Nachteile haben (Die Abbildungen XXX zeigen Beispiele):
+\begin{description}
+    \item[Punktwolke] Man kann die Detektion des Elektrons an verschiedenen Orten simulieren und in eine Punktwolke eintragen. Je näher die Punkte beieinander liegen, desto höher ist die Wahrscheinlichkeitsdichte. Die Gesamtzahl der Punkte muss klein gehalten werden, damit die Wolke noch einigermaßen durchsichtig ist. Am Computer kann man die Wolke drehen, um einen dreidimensionalen Eindruck zu erhalten.
+    \item[Iso-Flächen] Man kann Flächen $P(\br) = |\Psi(\br)|^2 = const.$ zeichnen, ähnlich den Isobaren im Wetterbericht. Wenn die Konstante gut gewählt ist, erhält man eine Vorstellung von der Wellenfunktion. Diese kann dreidimensional dargestellt oder mit einer Ebene geschnitten werden.
+    \item[Schnitte] Man kann $P(x,y)$ farbkodiert auf einer Ebene darstellen. Die Ebene enthält fast immer den Atomkern. Manchmal ist es hilfreich, eine zweite Ebene senkrecht dazu darzustellen.
+    \item[Radiananteil] Anstatt zu fragen, wie groß die Wahrscheinlichkeit ist, das Elektron am Ort $\br$ zu finden, kann man fragen, wie groß die Wahrscheinlichkeit ist, es im Abstand $r$ vom Kern zu finden. Dies ist die \emph{radiale Wahrscheinlichkeitsdichte} $P_r(r)$.
+    \begin{equation}
+        P_r(r) = \iint P(r, \theta, \phi) \, d\theta d\phi = 4 \pi r^2 |R_{n,l}(r)|^2
+    \end{equation}
+    Der Term $4 \pi r^2$ berücksichtigt, dass mit zunehmendem Radius $r$ die Anzahl der Möglichkeiten und also das Volumen der Kugelschale zunimmt.
+\end{description}
+
+
+Die verschiedenen Darstellungen scheinen sich zu widersprechen. Alle s-Wellenfunktionen (also $l=0$) haben ein Maximum bei $P(\br = 0)$, aber eine Nullstelle bei $P_r(r=0)$. Der wahrscheinlichste Ort für ein Elektron ist daher der Kern. Gleichzeitig ist der wahrscheinlichste Abstand vom Kern weit von Null entfernt.  Dies sind jedoch zwei verschiedene Fragen. Für kleine Abstände reduziert die $r^2$-Abhängigkeit in $P_r$ die Wahrscheinlichkeit drastisch. Für große Abstände gibt es viel mehr Möglichkeiten auf der Kugeloberfläche. Jede dieser Möglichkeiten ist für sich jedoch unwahrscheinlicher als der Ort auf dem Kern.
+
+
+Betrachtet man die radiale Aufenthaltswahrscheinlichkeit $P_r(r)$, so stellt man fest, dass die Wellenfunktionen mit dem größten $l$ bei gegebenen $n$, also 1s, 2p, 3d usw., ihre Maxima bei den von Bohr erwarteten Radien, also $1 a_B$, $4 a_B$ und $9 a_B$ haben. Die anderen Wellenfunktionen liegen mit einer gewissen Wahrscheinlichkeit weiter außen. Dies ist eine weitere Konsequenz des Korrespondenzprinzips. Für große Quantenzahlen $l$ werden die Elektronen immer klassischer, die Bahnen immer kreisförmiger, immer näher am Bohrschen Modell. Bei kleinen Bahndrehimpulsen ist die Bahn nicht mehr so kreisförmig, bis hin zur s-Wellenfunktion ohne Bahndrehimpuls.
+
+Die Schrödingergleichung gibt also die von Bohr postulierten Bahnen wieder, aber nur als Maximum der Wahrscheinlichkeit, den Bahnradius zu messen. Mit einer gewissen Wahrscheinlichkeit sind auch andere Bahnradien möglich. Noch einmal: In der Quantenmechanik bewegt sich das Elektron nicht auf einer geschlossenen Bahn. Allerdings entspricht die Wahrscheinlichkeitsdichte, das Elektron in einem bestimmten Abstand vom Kern zu finden, dem klassischen Bahnmodell.
+
 \section{Zusammenfassung}
 
 \textit{Schreiben Sie hier ihre persönliche Zusammenfassung des Kapitels auf. Konzentrieren Sie sich auf die wichtigsten Aspekte.}
