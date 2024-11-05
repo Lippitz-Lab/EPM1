@@ -4,22 +4,26 @@
 using Markdown
 using InteractiveUtils
 
+# This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
+macro bind(def, element)
+    quote
+        local iv = try Base.loaded_modules[Base.PkgId(Base.UUID("6e696c72-6542-2067-7265-42206c756150"), "AbstractPlutoDingetjes")].Bonds.initial_value catch; b -> missing; end
+        local el = $(esc(element))
+        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : iv(el)
+        el
+    end
+end
+
 # ╔═╡ 0c3cc0a1-e796-4e60-a1fa-15c8726846b3
 using Unitful
 
 # ╔═╡ 0533d33e-24f1-4497-8f0e-41dc0af4274d
 using LinearAlgebra, Plots, PlutoUI
 
-# ╔═╡ 9ba88ba1-543e-4df5-a907-75cc4c949765
-using PGFPlotsX
-
 # ╔═╡ 3211484f-2abc-4d85-85e5-91580af2ca6f
 md"""
 # Numerische Lösung der 1D Schrödinger-Gleichung
 """
-
-# ╔═╡ c9b0298b-a5aa-4a8b-b64e-f33c5ba471e9
-import PhysicalConstants.CODATA2018: ħ, m_e
 
 # ╔═╡ 031d5ab3-c298-4a9b-946d-70000790434d
 md"""
@@ -36,6 +40,14 @@ Das Potential kann jede beliebige Form haben. Hier nehmen wir einen Potentialtop
 V(a < x < b) = 0 \quad \text{sonst} \quad V = V_0
 ```
 Wir werten alles auf einem räumlichen Gitter mit dem Abstand $\Delta x$ aus, das von -2 bis 2 reicht. Wir schreiben $H$ als quadratische Matrix und suchen Eigenwerte $E$ und Eigenvektoren $\psi$.
+"""
+
+# ╔═╡ c9b0298b-a5aa-4a8b-b64e-f33c5ba471e9
+import PhysicalConstants.CODATA2018: ħ, m_e
+
+# ╔═╡ 544ea957-dcdf-48d0-92ab-1f610448f8e6
+md"""
+slope = $(@bind dV Slider(-5:0.1:5; show_value=true, default=0)) eV/nm
 """
 
 # ╔═╡ 18b481e8-46f8-11ec-3ed7-51fd08349f7b
@@ -58,9 +70,14 @@ begin
 	a = -0.5u"nm"
 	b = 0.5u"nm"
 
-	# 1d Potential
-	Vx = zeros(N) .* 0u"eV" .+ V0
-	Vx[a .< x .< b] .= 0u"eV"
+	# 1d Potential  flacher Boden
+	# Vx = zeros(N) .* 0u"eV" .+ V0
+	#Vx[a .< x .< b] .= 0u"eV"  
+
+	# 1d Potential, schräger Boden
+	Vx =  zeros(N) .* 0u"eV"  + x ./ 1u"nm" .* 1u"eV" .* dV
+	Vx[x .< a] .= V0
+	Vx[x .> b] .= V0
 
 	# Kopieren in 2D Matrix
 	V = zeros(N,N) .* 0u"eV"
@@ -77,93 +94,30 @@ end;
 # ╔═╡ d1d359e3-a5f5-4176-8ee5-5e0b1fdf2e67
 begin
 	p = plot(x, Vx, 
-		xaxis = ("position x", (-1.1, 1.1)), 
+	xaxis = ("position x" ,(-1.1, 1.1)
+	), 
 		yaxis=("energy, potential, prob. density"), 
 		leg=false)
 
 	
 	scale = 15u"eV" 
-	for id =1:4
+	for id =1:3
 	  plot!(x, Es[id] .+ scale .* ψs[:,id].^2, fillrange = Es[id])
 	  plot!(x, Es[id] .+ scale .* 2e-1 .* ψs[:,id] )
 	end
 	p
 end
 
-# ╔═╡ 4fc2d9d9-b9fc-4ade-9bb9-b9004fb7c234
-let
-
-	myaxis = @pgf PGFPlotsX.Axis(
-	    {
-	      #ymin = 0, 
-		  #  ymax = 1.5, 
-			xmin = -1.,			
-		  xmax = 1.,
-	width="60mm",
-	height="55mm",
-	font = "\\footnotesize",
-	 #       xmin = -200, xmax =200,
-			#axis_x_line ="bottom",
-			#axis_y_line ="none",
-			ylabel = raw"Wahrscheinlichkeitsdichte",
-			xlabel=raw"Auslenkung",
-			xtick = [0], 
-		"hide axis",
-	}
-		);
-
- 
-
-	for id = 1:4
-
-	 p = @pgf PGFPlotsX.Plot(
-        {
-         gray, fill
-        },
-       Table(["x" => x |> ustrip, "y" =>  Es[id] .+ scale .* ψs[:,id].^2 |> ustrip])
-    )
-		push!(myaxis, p)
-
-	end
-	
-	for id = 1:4
-
-	 p = @pgf PGFPlotsX.Plot(
-        {
-         red
-        },
-       Table(["x" => x |> ustrip, "y" =>  Es[id] .+ scale .* 1.5e-1 .* ψs[:,id] |> ustrip])
-    )
-		push!(myaxis, p)
-
-	end
-
-	 p = @pgf PGFPlotsX.Plot(
-        {
-         thick, blue
-        },
-       Table(["x" => x |> ustrip, "y" =>  Vx |> ustrip])
-    )
-		push!(myaxis, p)
-
-	
-	pgfsave("../topf_endlich.tikz.tex",myaxis; include_preamble= false)
-	myaxis
-
-end
-
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-PGFPlotsX = "8314cec4-20b6-5062-9cdb-752b83310925"
 PhysicalConstants = "5ad8b20f-a522-5ce9-bfc9-ddf1d5bda6ab"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
 [compat]
-PGFPlotsX = "~1.5.1"
 PhysicalConstants = "~0.2.1"
 Plots = "~1.40.8"
 PlutoUI = "~0.7.60"
@@ -176,18 +130,13 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.1"
 manifest_format = "2.0"
-project_hash = "df19a33053ff0d2deaa971e220f5be94626a630d"
+project_hash = "3de99c17fa0d6858ecfaf43e4299fcef64284811"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
 git-tree-sha1 = "6e1d2a35f2f90a4bc7c2ed98079b2ba09c35b83a"
 uuid = "6e696c72-6542-2067-7265-42206c756150"
 version = "1.3.2"
-
-[[deps.ArgCheck]]
-git-tree-sha1 = "a3a402a35a2f7e0b87828ccabbd5ebfbebe356b4"
-uuid = "dce04be8-c92d-5529-be00-80e4d2c0e197"
-version = "2.3.0"
 
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
@@ -317,11 +266,6 @@ git-tree-sha1 = "1d0a14036acb104d9e89698bd408f63ab58cdc82"
 uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
 version = "0.18.20"
 
-[[deps.DataValueInterfaces]]
-git-tree-sha1 = "bfc1187b79289637fa0ef6d4436ebdfe6905cbd6"
-uuid = "e2d170a0-9d28-54be-80f0-106bbe20a464"
-version = "1.0.0"
-
 [[deps.Dates]]
 deps = ["Printf"]
 uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
@@ -332,12 +276,6 @@ deps = ["Artifacts", "Expat_jll", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "fc173b380865f70627d7dd1190dc2fce6cc105af"
 uuid = "ee1fde0b-3d02-5ea6-8484-8dfef6360eab"
 version = "1.14.10+0"
-
-[[deps.DefaultApplication]]
-deps = ["InteractiveUtils"]
-git-tree-sha1 = "c0dfa5a35710a193d83f03124356eef3386688fc"
-uuid = "3f0dd361-4fe0-5fc6-8523-80b14ec94d85"
-version = "1.1.0"
 
 [[deps.DelimitedFiles]]
 deps = ["Mmap"]
@@ -504,11 +442,6 @@ version = "1.11.0"
 git-tree-sha1 = "630b497eafcc20001bba38a4651b327dcfc491d2"
 uuid = "92d709cd-6900-40b7-9082-c6be49f344b6"
 version = "0.2.2"
-
-[[deps.IteratorInterfaceExtensions]]
-git-tree-sha1 = "a3f24677c21f5bbe9d2a714f95dcd58337fb2856"
-uuid = "82899510-4779-5014-852e-03e436cf321d"
-version = "1.0.0"
 
 [[deps.JLFzf]]
 deps = ["Pipe", "REPL", "Random", "fzf_jll"]
@@ -793,23 +726,11 @@ deps = ["Artifacts", "Libdl"]
 uuid = "efcefdf7-47ab-520b-bdef-62a2eaa19f15"
 version = "10.42.0+1"
 
-[[deps.PGFPlotsX]]
-deps = ["ArgCheck", "DataStructures", "Dates", "DefaultApplication", "DocStringExtensions", "MacroTools", "Parameters", "Requires", "Tables"]
-git-tree-sha1 = "1d3729f2cd114a8150ce134f697d07f9ef2b9657"
-uuid = "8314cec4-20b6-5062-9cdb-752b83310925"
-version = "1.5.1"
-
 [[deps.Pango_jll]]
 deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "FriBidi_jll", "Glib_jll", "HarfBuzz_jll", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "e127b609fb9ecba6f201ba7ab753d5a605d53801"
 uuid = "36c8627f-9965-5494-a995-c6b170f724f3"
 version = "1.54.1+0"
-
-[[deps.Parameters]]
-deps = ["OrderedCollections", "UnPack"]
-git-tree-sha1 = "34c0e9ad262e5f7fc75b10a9952ca7692cfc5fbe"
-uuid = "d96e819e-fc66-5662-9728-84c9c7592b0a"
-version = "0.12.3"
 
 [[deps.Parsers]]
 deps = ["Dates", "PrecompileTools", "UUIDs"]
@@ -1055,18 +976,6 @@ deps = ["Dates"]
 uuid = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
 version = "1.0.3"
 
-[[deps.TableTraits]]
-deps = ["IteratorInterfaceExtensions"]
-git-tree-sha1 = "c06b2f539df1c6efa794486abfb6ed2022561a39"
-uuid = "3783bdb8-4a98-5b6b-af9a-565f29a5fe9c"
-version = "1.0.1"
-
-[[deps.Tables]]
-deps = ["DataAPI", "DataValueInterfaces", "IteratorInterfaceExtensions", "OrderedCollections", "TableTraits"]
-git-tree-sha1 = "598cd7c1f68d1e205689b1c2fe65a9f85846f297"
-uuid = "bd369af6-aec1-5ad0-b16a-f7cc5008161c"
-version = "1.12.0"
-
 [[deps.Tar]]
 deps = ["ArgTools", "SHA"]
 uuid = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
@@ -1102,11 +1011,6 @@ version = "1.5.1"
 deps = ["Random", "SHA"]
 uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
 version = "1.11.0"
-
-[[deps.UnPack]]
-git-tree-sha1 = "387c1f73762231e86e0c9c5443ce3b4a0a9a0c2b"
-uuid = "3a884ed6-31ef-47d7-9d2a-63182c4928ed"
-version = "1.0.2"
 
 [[deps.Unicode]]
 uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
@@ -1442,13 +1346,12 @@ version = "1.4.1+1"
 
 # ╔═╡ Cell order:
 # ╟─3211484f-2abc-4d85-85e5-91580af2ca6f
+# ╟─031d5ab3-c298-4a9b-946d-70000790434d
 # ╠═0c3cc0a1-e796-4e60-a1fa-15c8726846b3
 # ╠═c9b0298b-a5aa-4a8b-b64e-f33c5ba471e9
-# ╟─031d5ab3-c298-4a9b-946d-70000790434d
 # ╠═18b481e8-46f8-11ec-3ed7-51fd08349f7b
+# ╟─544ea957-dcdf-48d0-92ab-1f610448f8e6
 # ╠═d1d359e3-a5f5-4176-8ee5-5e0b1fdf2e67
 # ╠═0533d33e-24f1-4497-8f0e-41dc0af4274d
-# ╠═9ba88ba1-543e-4df5-a907-75cc4c949765
-# ╠═4fc2d9d9-b9fc-4ade-9bb9-b9004fb7c234
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
