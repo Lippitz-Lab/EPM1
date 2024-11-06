@@ -117,6 +117,28 @@ Plot(
 	Layout(width=600, height=400) # adjust size in pixel
  )
 
+# ╔═╡ 0b2dd236-4cd5-4705-9ee1-e622538b7aed
+# this needs to be a capital P in Plot !
+Plot(	
+	isosurface(
+
+    x=X[:],  # unfold 3D arrays to one long 1D array
+    y=Y[:],
+    z=Z[:],
+    value= abs.(values[:]).^2,
+
+   
+	isomin=0.,	# symmetric around 0
+    isomax=0.05,
+
+    opacity=1, # needs to be small to see through all surfaces
+    surface_count=1, 
+	caps=attr(x_show=false, y_show=false, z_show=false),
+	#slices_x=attr(show=true, locations=[0]), # slice along x=0 plane
+),
+	Layout(width=600, height=400) # adjust size in pixel
+ )
+
 # ╔═╡ 35c9ea23-da51-495d-9367-8f3c5883046b
 # the radial part only
 Plot(
@@ -741,6 +763,7 @@ version = "17.4.0+2"
 # ╟─d1f36372-7efa-4964-834c-a01bb0e4576a
 # ╟─82ab8918-799a-49d2-b1cd-3795516e31a3
 # ╠═7596c3ef-6bac-45f0-a1c7-0b593c35909b
+# ╠═0b2dd236-4cd5-4705-9ee1-e622538b7aed
 # ╠═35c9ea23-da51-495d-9367-8f3c5883046b
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002
