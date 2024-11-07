@@ -25,6 +25,15 @@
 
 \section{Überblick}
 
+In diesem Kapitel knüpfen wir an die Beschreibung der Atommodelle in Kapitel 2 an und führen das quantenmechanische Modell des Wasserstoffatoms ein. Die Lösung der dreidimensionalen Schrödingergleichung eines Elektrons im kugelsymmetrischen Coulomb-Potential liefert die gleichen Energien wie das Bohr'sche Modell, da sie mit dem Experiment übereinstimmen müssen. Außerdem findet man eine Quantisierung des Drehimpulses, wie sie auch von Bohr vorgeschlagen wurde, allerdings mit etwas anderen Werten.
+
+Eine genauere Messung der Übergangslinien im Wasserstoffatom zeigt jedoch Abweichungen vom Bohr'schen Modell und damit auch von diesem einfachen quantenmechanischen Modell. Neben dem Coulomb-Potential gibt es noch weitere Beiträge zur potentiellen Energie des Elektrons. Zentral ist dabei der Spin des Elektrons, den wir zur Erklärung des Stern-Gerlach-Experiments einführen werden. Der Spin ähnelt einem Drehimpuls und ist mit einem magnetischen Moment verbunden. Ein Magnetfeld, das durch die Bahnbewegung entsteht, führt zu einem Energiebeitrag des magnetischen Moments.
+
+Heute dient das Wasserstoffatom als Präzisionstest für unsere Modelle, deren Details hier den Rahmen sprengen würden. Derzeit gibt es jedoch keine Diskrepanz zwischen Theorie und Experiment.
+
+Dieses und die beiden folgenden Kapitel sind in vielfältiger Weise miteinander verknüpft. An einigen Stellen muss ich daher den folgenden Kapiteln etwas vorgreifen. Die Reihenfolge ein Elektron -- viele Elektronen -- Magnetfeld ist nicht die einzig mögliche. In manchen Büchern ist die Reihenfolge anders. Ich beginne wieder mit \cite{Knight_Physik}, um dann zu \cite{Demtröder_ep3} überzugehen. Gut lesbar finde ich immer noch \cite{Harris_moderne_Physik}.
+
+
 \section{Schrödinger-Gleichung in 3 Dimensionen}
 In der Quantenmechanik ist das Wasserstoffatom nur eine spezielle Form eines Potentialtopfs, nämlich ein dreidimensionaler Topf mit kugelsymmetrischem Potential, das durch das Coulombpotential gegeben ist. Das Potential hängt also nur vom Abstand $r$ zwischen Kern und Elektron ab, nicht von einer Richtung\sidenote{Ich verwende 'fette' Buchstaben wie $\br$ für Vektoren und 'dünne' Buchstaben wie $r$ für die Länge dieser Vektoren.}
 \begin{equation}
@@ -76,6 +85,10 @@ In anderen Atomen und bei einer Erweiterung des Modells aufgrund der Relativitä
 Der Zustand $(n,l) = (1,0)$ wird 1s genannt. Der Zustand $(n,l) = (3,2)$ heißt 3d. Da die magnetische Quantenzahl $m$ insgesamt $2l+2$ Werte annehmen kann, ist der Zustand 3d 7-fach entartet, der Grundzustand 1s dagegen nicht.
 
 
+\begin{marginfigure}
+    \inputtikz{\currfiledir H_SG_energien}
+    \caption{Eigenenergien im Wasserstoffatom.}
+\end{marginfigure}
 
 Abbildung XXX zeigt die möglichen Zustände (ohne $m$-Entartung). Die Bedingung $n > l$ führt zu dieser dreieckigen Anordnung. Alle Zustände mit gleichem $n$ haben die gleiche Energie. Die Zustände liegen mit zunehmender Hauptquantenzahl $n$ immer näher an der Ionisationsgrenze $E=0$. Die Abhängigkeit von $n$ ist genau wie beim Bohr-Modell.
 
@@ -125,6 +138,22 @@ Weiterhin ist bemerkenswert, dass das Elektron im Grundzustand, d.h. im Zustand 
 Es gibt nicht nur Vektoren, die einem klassischen Drehimpuls entsprechen, sondern auch anderen Größen, die sich sehr ähnlich einem Drehimpuls verhalten, wie beispielsweise der Spin des Elektrons oder des Kerns. Bahndrehimpulse haben immer ganzzahlige Quantenzahlen $l$,$m$, Spins können auch halbzahlig sein. Immer ist der Abstand zwischen benachbarten Quantenzahlen aber eins. 
 
 
+\begin{table}
+    \begin{tabular}{ll}
+        Drehimpuls & $\bl$ \\
+        Betrag & $|\bl| = \hbar \sqrt{l (l+1) }$ \\
+        Quantenzahl & $l$ \\
+        Operator & $\hat{l}$ \\
+        Eigenwerte &  $\hat{l}^2 \,  \Psi =  \hbar^2 \, l (l +1 )\,  \Psi  =|\bl|^2 \, \Psi $\\ 
+        & \\
+        z-Komponente & $l_z = \hbar m_l$ \\
+        Quantenzahl & $m_l$ mit $|m_l| \le l$ \\
+        Operator & $\hat{l}_z$ \\
+        Eigenwerte &  $\hat{l}_z\,  \Psi =  \hbar \, m \,  \Psi  = l_z \, \Psi $\\ 
+    \end{tabular}
+\caption{Zusammenfassung der Beschreibung drehimpulsartiger Größen wie $\bs$, $\bj$, $\bF$, $\bI$. Im Fall von $\bl$ wird oft $m_l$ als $m$ geschrieben, ansonsten aber $m_s$, $m_j$ etc.}
+\end{table}
+
 
 \section{Wellenfunktionen}
 
@@ -147,10 +176,8 @@ mit dem Bohr-Radius $a_B$
 \begin{equation}
     a_B = \frac{4 \pi \epsilon_0 \hbar^2}{\mu m_e^2}
 \end{equation}
-und der reduzierten Masse $\mu$. Man kann die Wellenfunktionen mit $m = \pm 1$, die  komplex sind, zu neuen reellen linear-kombinieren:
-\begin{equation}
-    \Psi_{+} = \Psi_{n,l,+1} +  \Psi_{n,l,-1} \quad \text{und} \Psi_{-} = -i \left( \Psi_{n,l,+1} -  \Psi_{n,l,-1}  \right)
-\end{equation}
+und der reduzierten Masse $\mu$. Manchmal kombiniert man die komplexen Wellenfunktionen mit $m = \pm 1$  zu solchen, die rein real sind. 
+
 
 \section{Darstellung von 3d-Wellenfunktionen}
 
@@ -228,40 +255,38 @@ Bei ausgeschaltetem Magneten ergibt sich eine horizontale Linie, die der horizon
 
 \section{Der Spin}
 
-Stern und Gerlach fanden nicht drei, sondern nur zwei Linien und entdeckten damit den Elektronenspin, bevor dieses Konzept überhaupt erfunden wurde.\sidenote{Details siehe \cite{SEP_Stern_gerlach}} Heute wissen wir, dass sich das relevante Elektron im Silberatom im Zustand $l=0$ befindet, der Bahndrehimpuls selbst also keine Aufspaltung liefert. 
+Stern und Gerlach fanden nicht drei, sondern nur zwei Linien und entdeckten damit den Elektronenspin, bevor dieses Konzept überhaupt erfunden wurde.\sidenote{Details siehe \cite{SEP_Stern_gerlach}} Heute wissen wir, dass sich das relevante Elektron im Silberatom im Zustand $l=0$ befindet, der Bahndrehimpuls selbst also keine Aufspaltung liefert. Woher stammen dann die beiden beobachteten Linien?
 
 Ein Elektron hat eine Masse und eine Ladung, die für die Gravitationskraft und die Coulombkraft relevant sind. Es hat sich herausgestellt, dass ein Elektron noch eine weitere Eigenschaft besitzt, ein magnetisches Moment. Dieses innere magnetische Moment des Elektrons nennt man Spin.  Ein geladener Ball, der sich um sich selbst dreht, hätte solch ein magnetisches Moment, das mit dieser Drehung verbunden ist. Das Elektron dreht sich aber nicht wirklich, sondern nur in
 unserer Vorstellung. Der Spin-Drehimpuls des Elektrons ist aber wirklich vorhanden, wie das Einstein--de Haas--Experiment zeigt, das wir im Kapitel über Atome im Magnetfeld besprechen werden.
 
-Für Elektronen ist der Spin $\bS$ 
+Für Elektronen ist der Spin $\bs$ mit
 \begin{equation}
-    S = | \bS | = \hbar \sqrt{s (s+1)} \quad \text{mit} \quad s = \frac{1}{2} \quad .
+    | \bs | = \hbar \sqrt{s (s+1)} \quad \text{mit} \quad s = \frac{1}{2} \quad .
 \end{equation}
-Auch andere quantenmechanische Teilchen besitzen diesen eingebauten Drehimpuls, den Spin, der auch andere Längen $S$ und Quantenzahlen $s$ annehmen kann.
+Auch andere quantenmechanische Teilchen besitzen diesen eingebauten Drehimpuls, den Spin, der dort auch andere Längen $ | \bs |$ und Quantenzahlen $s$ annehmen kann.
 
 Analog zum Bahndrehimpuls ist auch die Orientierung des Spins quantisiert. Die Spanne der möglichen Werte ist wiederum $\hbar$, so dass nur die Werte 
 \begin{equation}
-   S_z = m_s \hbar \quad \text{mit} \quad m_s = \pm \frac{1}{2}
+   s_z = m_s \hbar \quad \text{mit} \quad m_s = \pm \frac{1}{2}
 \end{equation}
-möglich sind. Der Zustand $m_s = + 1/2$ mit $S_z = \hbar /2$ wird als 'spin up' bezeichnet, der andere als 'spin down', was manchmal durch $\uparrow$ und $\downarrow$ symbolisiert wird.\sidenote{Wie oben kann der Spin nicht vollständig in z-Richtung zeigen}.
-
-XXX alle großen Drehimpulse klein machen !!
+möglich sind. Der Zustand $m_s = + 1/2$ mit $s_z = \hbar /2$ wird als 'spin up' bezeichnet, der andere als 'spin down', was manchmal durch $\uparrow$ und $\downarrow$ symbolisiert wird.\sidenote{Wie oben kann der Spin nicht vollständig in z-Richtung zeigen}.
 
 
 \section{Spin-Bahn-Kopplung}
 
 Das magnetische Moment $\bmu$, das mit dem Spin $\bs$ des Elektrons verbunden ist, führt zu einem Energiebeitrag in der Schrödinger-Gleichung, der als \emph{Spin-Bahn-Kopplung} bezeichnet wird. Dazu ändern wir die Perspektive und setzen uns auf das Elektron. Dann umkreist der Kern das Elektron. Der Kern ist positiv geladen und seine Kreisbewegung entspricht einem Kreisstrom, der mit einem Magnetfeld $\bB \propto \bl$ verbunden ist. Dieses Feld trägt zur potentiellen Energie des Elektrons bei
 \begin{equation}
-    U_{ls} = - \bmu \cdot \bB = \cdots = \frac{Z e^2 \mu_0}{8 \pi m_e^2 r^3} \, \bl \cdot \bs
+    U_{ls} = - \bmu \cdot \bB = \cdots = \frac{e^2 \mu_0}{8 \pi m_e^2 r^3} \, \bl \cdot \bs
 \end{equation}
 In der Quantenmechanik muss der Erwartungswert $\braket{U_{ls}}$ verwendet werden, also
 \begin{equation}
-    E_{ls} = \braket{U_{ls}} = \frac{Z e^2 \mu_0}{8 \pi m_e^2 r^3} \, \braket{\bl \cdot \bs}
+    E_{ls} = \braket{U_{ls}} = \frac{e^2 \mu_0}{8 \pi m_e^2 r^3} \, \braket{\bl \cdot \bs}
     = \frac{a}{\hbar^2} \, l \, s \, \cos \phi
 \end{equation}
 mit dem Winkel $\phi$ zwischen den Vektoren $\bs$ und $\bl$ und der Spin-Bahn-Kopplungskonstante $a$
 \begin{equation}
-    a = \frac{Z e^2 \mu_0 \hbar^2}{8 \pi m_e^2 r^3} \quad . 
+    a = \frac{e^2 \mu_0 \hbar^2}{8 \pi m_e^2 r^3} \quad . 
 \end{equation}
 
 Man beschreibt nun den Term $l \, s \, \cos \phi$ bzw. den Winkel $\phi$ zwischen den Vektoren $\bs$ und $\bl$ über die Vektorsumme $\bj = \bl + \bs$ . Die Vektoren $\bs$, $\bl$ und $\bj$ bilden ein Dreieck, für dessen Kantenlänge gilt
@@ -291,7 +316,7 @@ Welche Werte kann $\bj$ bzw. seine Quantenzahl $j$ annehmen? Wir haben $\bj$ als
 
 Nimmt man alle drei relativistischen Korrekturen zusammen, die Massenzunahme, die Positionsunschärfe und die Spin-Bahn-Kopplung, so erhält man im Wasserstoffatom Eigenenergien, die nur noch von $n$ und $j$, aber nicht mehr von $l$ abhängen. ($s$ ist ohnehin immer $1/2$, nur die Richtung des Spins $m_s$ ist relevant).
 \begin{equation}
-    E_{n,j} = E_n \left[ 1 + \frac{Z^2 \alpha^2}{n} \left( \frac{1}{j + 1/2} - \frac{3}{4n} \right) \right]
+    E_{n,j} = E_n \left[ 1 + \frac{\alpha^2}{n} \left( \frac{1}{j + 1/2} - \frac{3}{4n} \right) \right]
 \end{equation}
 Wir ergänzend ie Bezeichnung der   Zustände durch ein tiefergestelltes $j$. Die Zustände 2s$_1/2$ und 2p$_1/2$ haben also die selbe Energie, ebenso  3p$_3/2$ und 3d$_3/2$. Abbildung XX skizziert dies (See Demtröder 5.22).
 

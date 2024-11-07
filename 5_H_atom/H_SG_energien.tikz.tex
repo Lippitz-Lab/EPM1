@@ -1,0 +1,52 @@
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+ 
+ 
+\begin{tikzpicture}[font=\footnotesize]
+
+
+
+  \tikzmath{\E =10; \dL = 0.8; \dx=0.2;}
+  
+  \draw[dotted] (0,0) --  ++ (5,0);
+
+  \draw (0, {-\E}) -- node[above] {1s} ++(\dL, 0);
+
+  \draw (0, {-\E/4})  -- node[above] {2s} ++(\dL, 0);
+  \draw ({\dL+\dx}, {-\E/4})  --  node[above] {2p} ++(\dL, 0);
+  
+  \draw (0, {-\E/9}) -- node[above] {3s} ++(\dL, 0);
+  \draw ({\dL+\dx}, {-\E/9})  -- node[above] {3p} ++(\dL, 0);
+  \draw ({2*\dL+2*\dx}, {-\E/9})  --  node[above] {3d} ++(\dL, 0);
+
+  \draw (0, {-\E/16})  -- ++(\dL, 0);
+  \draw ({\dL+\dx}, {-\E/16})  -- ++(\dL, 0);
+  \draw ({2*\dL+2*\dx}, {-\E/16})  -- ++(\dL, 0);
+  \draw ({3*\dL+3*\dx}, {-\E/16})  -- ++(\dL, 0);
+
+
+  \draw (0, {-\E/25})  -- ++(\dL, 0);
+  \draw ({\dL+\dx}, {-\E/25})  -- ++(\dL, 0);
+  \draw ({2*\dL+2*\dx}, {-\E/25})  -- ++(\dL, 0);
+  \draw ({3*\dL+3*\dx}, {-\E/25})  -- ++(\dL, 0);
+  \draw ({4*\dL+4*\dx}, {-\E/25})  -- ++(\dL, 0);
+
+
+  \foreach \i in {6,...,14}
+{
+  \draw[gray] (0, {-\E/(\i * \i)})  --  ++ (5,0);
+}
+
+\fill[gray] (0,0) rectangle (5,{-\E/(15*15)});
+
+ 
+
+\end{tikzpicture}
+
+
+%\end{document}
+
+
