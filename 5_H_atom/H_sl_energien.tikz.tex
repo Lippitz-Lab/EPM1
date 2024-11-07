@@ -1,0 +1,47 @@
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+ 
+ 
+\begin{tikzpicture}[font=\footnotesize]
+  % (- 1/n * (1 / (j + 0.5) - 3/4n ))
+  \def\DE(#1, #2){-3/#1 * (1 / (#2 + 0.5) - 3 / (4 * #1))}
+
+  \tikzmath{ \dL = 0.4; \dx=1.1;}
+  
+
+  % n = 1
+  \begin{scope}
+      \draw[gray] node[left] {$n=1$ } (0, 0)  --  ++ (3*\dL + 2*\dx,0);
+      \draw (0, {\DE(1, 0.5)}) -- ++ (\dL, 0) node[right] {$1s_{1/2}$};
+    \end{scope}
+
+  % n = 2
+  \begin{scope}[yshift=2cm]
+    \draw[gray] node[left] {$n=2$ } (0, 0)   --  ++ (3*\dL + 2*\dx,0);
+    \draw (0, {\DE(2, 0.5)}) -- ++ (\dL, 0) node[right] {$2s_{1/2}$};
+
+    \draw (1*\dL + \dx, {\DE(2, 0.5)}) -- ++ (\dL, 0) node[right] {$2p_{1/2}$};
+    \draw (1*\dL + \dx, {\DE(2, 1.5)}) -- ++ (\dL, 0) node[right] {$2p_{3/2}$};
+\end{scope}
+
+  % n = 3
+  \begin{scope}[yshift=4cm]
+    \draw[gray] node[left] {$n=3$ } (0, 0)  --  ++ (3*\dL + 2*\dx,0);
+    \draw (0, {\DE(3, 0.5)}) -- ++ (\dL, 0) node[right] {$3s_{1/2}$};
+
+    \draw (1*\dL + \dx, {\DE(3, 0.5)}) -- ++ (\dL, 0) node[right] {$3p_{1/2}$};
+    \draw (1*\dL + \dx, {\DE(3, 1.5)}) -- ++ (\dL, 0) node[right] {$3p_{3/2}$};
+
+    \draw (2*\dL + 2*\dx, {\DE(3, 1.5)}) -- ++ (\dL, 0) node[right,yshift=-3] {$3d_{3/2}$};
+    \draw (2*\dL + 2*\dx, {\DE(3, 2.5)}) -- ++ (\dL, 0) node[right,yshift=3] {$3d_{5/2}$};
+\end{scope}
+
+\end{tikzpicture}
+
+
+%\end{document}
+
+
