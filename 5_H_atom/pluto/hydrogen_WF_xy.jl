@@ -69,11 +69,20 @@ function make_png(qn, scalefac)
 		X = (x * ones(size(x))' ) .* dx
 	 	Y = (ones(size(x)) * x' ) .* dx
 	
-		f = (x,y)->abs.(psi_cart(x ,0,y, qn)).^2 
+		f = (x,y)->psi_cart(x ,0,y, qn)
 		Z = @. f(X,Y)
+
+		S = scalefac .* Z./ maximum(filter(!isnan,abs.(Z[:])))
+		SP = clamp01nan.(S)
+		SM = clamp01nan.(-S);
+		W = ones(size(S));
 	
-		pic = transpose(colorview(Gray, 
-				1 .- n0f16.(clamp01nan.(scalefac .* Z./ maximum(filter(!isnan,Z[:]))))))
+		R = n0f16.(1 .- SM);
+		G = n0f16.(1 .- (SP .+ SM) .* 0.8);
+		B = n0f16.(1 .- SP)
+	
+		pic = transpose(colorview(RGB, R, G, B))
+
 		filename = "WF_$(qn.n)_$(qn.l)_$(qn.m).png"
 		Images.save(filename, pic)
 	
