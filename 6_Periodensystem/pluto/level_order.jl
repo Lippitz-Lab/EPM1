@@ -19,80 +19,6 @@ using PGFPlotsX
 # ╔═╡ 0f1e2428-5a65-4351-9aea-83009a13c4b6
 using Unitful
 
-# ╔═╡ a10b5d27-c82e-43e7-9970-b70ac26591df
-begin
-# XPS data from https://userweb.jlab.org/~gwyn/ebindene.html
-	xps_raw =
-	"1 H     13.6 
-	 2 He    24.6*
-	 3 Li    54.7*
-	 4 Be    111.5*
-	 5 B     188*
-	 6 C     284.2*
-	 7 N     409.9*   37.3*
-	 8 0     543.1*   41.6*
-	 9 F     696.7*
-	10 Ne    870.2*   48.5*    21.7*    21.6*
-	11 Na    1070.8+  63.5+    30.65    30.81
-	12 Mg    1303.0+  88.7     49.78    49.50
-	13 Al    1559.6   117.8*   72.95    72.55
-	14 Si    1839     149.7*  99.82    99.42"
-	xps = replace(xps_raw, '*' => "", '+' => "", '\t' => "")
-	xps_data = CSV.read(IOBuffer(xps), DataFrame; header = [:Z, :ch, :a, :b, :c, :d], delim = ' ', ignorerepeated=true)
-end
-
-# ╔═╡ 267e83da-bdf2-4abd-ac29-086570e53d00
-begin
-	# reconstuct electron levels
-	
-	Eion = [e.ionenergy[1] |> ustrip for e in chem_elements[1:14]]
-	s1 = xps_data.a
-	
-	s2 = xps_data.b;
-	s2[ [5, 6, 9] ] .= [15, 25, 45] # guessed
-	s2[ [3, 4] ] .= Eion[ [3,4] ]
-
-	p2 = xps_data.c
-	p2[ (5:9) ] .= Eion[ (5:9) ]
-
-	s3 = missings(Float64, 14)
-	s3[ (13:14) ] .= [11, 17]  # guessed
-	s3[ (11:12) ] .=  Eion[ [11, 12] ]
-	
-	p3 = missings(Float64, 14)
-	p3[ (13:14) ] .=  Eion[ [13, 14] ]
-
-
-	
-end
-
-# ╔═╡ 5be89f6e-9162-4742-a349-2ed7ba7e3905
--13.6 ./ ([2,3,4]).^2
-
-# ╔═╡ 2ee01c71-a255-4930-b976-4de4f161f347
-begin
-		marker = [:He, :Ne, :Ar, :Kr, :Xe, :Hg]
-		marker_e = [e.ionenergy[1] for e in chem_elements[marker]]
-		marker_Z = [e.protons for e in chem_elements[marker]]
-	
-		scatter(s1 )
-		scatter!(s2 )
-		scatter!(p2)
-		scatter!(s3, yscale=:log10)
-		scatter!(p3, yscale=:log10)
-	scatter!( [1,1,1], 13.6 ./ ([1,2,3]).^2)
-		#scatter!(Eion;  yscale=:log10)
-		#scatter!(guess_x, guess_y; yscale=:log10)
-		#scatter!(marker_Z, marker_e)
-end
-
-# ╔═╡ 312ba9c8-3709-43bd-b071-ff1d98617f58
-[e.el_config for e in chem_elements[ 1:14]]
-
-# ╔═╡ 7c16d007-8227-480b-add0-fec786f5767d
-chem_elements[2].symbol
-
-
 # ╔═╡ 74057057-c549-479d-a7f6-3c2c2ff4adba
 names =  join( [String(e.symbol) for e in chem_elements[ 1:14]], ",")
 
@@ -100,27 +26,77 @@ names =  join( [String(e.symbol) for e in chem_elements[ 1:14]], ",")
 function n_elec(Z)
 	
 	s = replace(chem_elements[Z].el_config, 
-		'¹' => 1, '²' => 2, '³' =>3 , '⁴' => 4, '⁵' => 5, '⁶' => 6)
-	
-	nelec =  [parse(Int64, c) for c in s[ (3:4:end) ] ]
-	
-	ss = s[ (2:4:end) ]
-	ps = replace( ss, "s" =>"1" , "p" =>"2", "d" =>"3")
-	
-	p =  [parse(Int64, c) for c in ps ]
-	n =  [parse(Int64, c) for c in s[ (1:4:end) ] ]
+		'¹' => 1, '²' => 2, '³' =>3 , '⁴' => 4, '⁵' => 5, '⁶' => 6, '⁷' => 7, '⁸' => 8, '⁹' => 9,   '⁰' => 0)
 
-	N= Int64.(zeros(4,3))
-	for id =1 :length(nelec)
-		N[ n[id], p[id]] = nelec[id]
+	levels = split(s, " ")
+
+	N= (zeros(7,5))
+	for lev in levels
+		n = parse(Int64, lev[1])
+
+		if (lev[2] == 's')  p = 1; end
+		if (lev[2] == 'p')  p = 2; end
+		if (lev[2] == 'd')  p = 3; end
+		if (lev[2] == 'f')  p = 4; end
+	
+		nelec = parse(Int64, lev[3:end])
+	
+		N[ n, p] = nelec ./ (2* (2 * (p-1) +1));
 	end
 	
 	return N
 end;
 
 
+# ╔═╡ b534ff63-e788-4269-a519-fa4407890323
+n_elec(11)
+
 # ╔═╡ fb9bf422-73bf-437e-9b84-c4939f37d48d
-n_elec(14)
+mymap(ci) = (ci[1] -1) * 5 + ci[2] -1 
+
+# ╔═╡ ddba25cd-bc9f-4813-88b8-a3079f0eafd0
+neues_elec(Z) = findfirst(x -> x>0, n_elec(Z) .- n_elec(Z-1))
+
+# ╔═╡ c34d6a64-da3a-4b38-8570-3cc465f9617e
+begin
+	NM = 100;
+	N = (zeros(35,NM))
+	for id = 1:NM
+		N[:,id] = reshape(transpose(n_elec(id)),:,1)
+	end
+	heatmap(N)
+end
+
+
+# ╔═╡ e4f2eef2-a37d-4e7a-a195-9d4a5a48b0a9
+heatmap( 0 .< N .< 1)
+
+# ╔═╡ 1ca051bc-3a75-4d15-97cf-e049ce8df38a
+n_elec(15)
+
+# ╔═╡ 1d7ecfaf-1469-442e-842d-53af071f0557
+chem_elements[3:4].ionenergy[1] |> ustrip
+
+# ╔═╡ 725df8fe-4f54-493c-9433-6daf78edefce
+nmax = 30
+
+# ╔═╡ 09f622df-49fe-4300-9fc7-1aaa4941dfbe
+ion = [e.ionenergy[1] |> ustrip for e in chem_elements[ 2:nmax ]]
+
+# ╔═╡ 88cd108c-e5fb-4c4c-9333-b03aabebce0b
+laststate = @. mymap(neues_elec(2:nmax))
+
+# ╔═╡ 6451ea05-33d3-42af-95de-6f2f20bff830
+scatter(laststate, -ion)
+
+# ╔═╡ c6cf9eb4-b639-4161-936e-02e51c148762
+scatter(-ion)
+
+# ╔═╡ 20041d47-cf82-4672-ae3c-8d91b9de2812
+scatter(laststate)
+
+# ╔═╡ 794df75e-04d0-4f6c-89b8-0a2936716100
+scatter(@. mymap(neues_elec(2:107)))
 
 # ╔═╡ 9520a2bb-648f-4dfd-8aa5-383ed9554a24
 function sw(L)
@@ -244,7 +220,7 @@ let
 	
 
 	
-	pgfsave("../PSE_states.tikz.tex",myaxis; include_preamble= false)
+	#pgfsave("../PSE_states.tikz.tex",myaxis; include_preamble= false)
 	myaxis
 
 end
@@ -1545,15 +1521,22 @@ version = "1.4.1+1"
 # ╠═82ee9946-9ded-11ef-148f-8fc8618fada3
 # ╠═64eb4e84-75cb-4696-aa04-7e006d49790f
 # ╠═c7f07bee-1da0-460d-b953-a7791592cbf3
-# ╠═a10b5d27-c82e-43e7-9970-b70ac26591df
-# ╠═267e83da-bdf2-4abd-ac29-086570e53d00
-# ╠═5be89f6e-9162-4742-a349-2ed7ba7e3905
-# ╠═2ee01c71-a255-4930-b976-4de4f161f347
-# ╠═312ba9c8-3709-43bd-b071-ff1d98617f58
-# ╠═7c16d007-8227-480b-add0-fec786f5767d
 # ╠═74057057-c549-479d-a7f6-3c2c2ff4adba
 # ╠═d8f913ce-4997-4a7a-8311-55fec594bb32
+# ╠═b534ff63-e788-4269-a519-fa4407890323
 # ╠═fb9bf422-73bf-437e-9b84-c4939f37d48d
+# ╠═ddba25cd-bc9f-4813-88b8-a3079f0eafd0
+# ╠═c34d6a64-da3a-4b38-8570-3cc465f9617e
+# ╠═e4f2eef2-a37d-4e7a-a195-9d4a5a48b0a9
+# ╠═1ca051bc-3a75-4d15-97cf-e049ce8df38a
+# ╠═1d7ecfaf-1469-442e-842d-53af071f0557
+# ╠═725df8fe-4f54-493c-9433-6daf78edefce
+# ╠═09f622df-49fe-4300-9fc7-1aaa4941dfbe
+# ╠═88cd108c-e5fb-4c4c-9333-b03aabebce0b
+# ╠═6451ea05-33d3-42af-95de-6f2f20bff830
+# ╠═c6cf9eb4-b639-4161-936e-02e51c148762
+# ╠═20041d47-cf82-4672-ae3c-8d91b9de2812
+# ╠═794df75e-04d0-4f6c-89b8-0a2936716100
 # ╠═81e6532d-8341-4d9a-a917-92edc607de56
 # ╠═9520a2bb-648f-4dfd-8aa5-383ed9554a24
 # ╠═ecc0d4c6-b3af-46a3-822f-bed3430a2106
