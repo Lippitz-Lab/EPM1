@@ -18,21 +18,36 @@ md"""
 see [wikipedia](https://en.wikipedia.org/wiki/Hydrogen-like_atom#Non-relativistic_wavefunction_and_energy)
 """
 
+# ╔═╡ 41e2721f-bf80-4679-9d2b-3bfcb99ff5d6
+a0 = 1 # Bohr radius, for convenience
+
+# ╔═╡ bdb21227-422c-4737-950d-1686cf5d7d79
+# radial part
+norm(qn) = sqrt( (2/(qn.n * a0))^3 * factorial(qn.n - qn.l - 1) / 
+		(2 * qn.n * factorial(qn.n + qn.l) ) );
+
+# ╔═╡ 19fbf2cd-8c5a-43a9-a2b8-9d850024de1a
+Yml(qn, θ) = (-1)^qn.m * sf_legendre_sphPlm(qn.l, abs(qn.m), cos(θ)) ;
+
+# ╔═╡ 115f9b9b-7a3a-47b5-b526-e2496dab82b0
+mutable struct QN
+    n::Int64
+	l::Int64
+    m::Int64
+end
+
 # ╔═╡ db0cd01f-022e-4f4e-aeee-681e4ad545b3
 # radial part of the wave function
-function radial(r, qn)
+function radial(r, qn::QN)
 	a0=1; #for convenience, or 5.2917721092(17)×10−11 m
 	ρ  = 2 * r / (qn.n * a0) # reduced radial coodinate 
 
-		norm = sqrt( (2/(qn.n * a0))^3 * factorial(qn.n - qn.l - 1) / 
-		(2 * qn.n * factorial(qn.n + qn.l) ) )
-	
-	return norm * sf_laguerre_n(qn.n  - qn.l - 1, 2 * qn.l + 1, ρ) * ℯ^(-ρ/2) * ρ^qn.l
+	return norm(qn) * sf_laguerre_n(qn.n  - qn.l - 1, 2 * qn.l + 1, ρ) * ℯ^(-ρ/2) * ρ^qn.l
 end;
 
 # ╔═╡ 0252c645-5560-48db-bca8-cf5b38e5e10d
 # Hydrogen wave function in spherical coordinates
-function psi(r, θ, ϕ, qn)
+function psi(r, θ, ϕ, qn::QN)
 	
 	# complex valued
 	# phasefac = ℯ^(im * qn.m * ϕ)
@@ -44,37 +59,48 @@ function psi(r, θ, ϕ, qn)
 		phasefac = cos(abs(qn.m) * ϕ)
 	end
 	
-	Yml = (-1)^qn.m * sf_legendre_Plm(qn.l, abs(qn.m), cos(θ)) 
-
-	
-	return radial(r,  qn) * Yml * phasefac 
+	return radial(r,  qn) * Yml(qn, θ) * phasefac 
 end;
 
 # ╔═╡ dad6985f-dd47-433c-9d35-2116fb7dcec3
 #Hydrogen wave function in cartesian coordinates
-function psi_cart(x,y,z; qn)
+function psi_cart(x,y,z, qn::QN)
 	r=sqrt(x^2 + y^2 + z^2)
 	θ=acos(z/r) # [0,π].
 	#ϕ=atan(y/x) # [−π/2,π/2].   # we need to cover the whole sphere
 	ϕ=atan(y, x) # [−π , π].
 	
-	return psi( r, θ, ϕ, qn)
-end;
-
-# ╔═╡ b2d1fcfc-2a2a-4eb0-893c-444e7b957ca5
-qn = (n = 3, m= 0, l=2)
-
-# ╔═╡ be460682-cf5c-437e-9d4b-867e080ffa6f
-# evaluate wave function on 3D grid
-begin
-	dx = 13;
-	xs = range(-dx,dx; length=150)
-	values =[ real(psi_cart(x,y,z, qn = qn)) for x =xs, y=xs, z=xs]
-	values = values ./ maximum(abs.(values[:]))
+	return psi( r, θ, ϕ, qn) 
 end;
 
 # ╔═╡ a92bc776-0071-4c3d-ba4c-f2121e17b2ab
-begin
+function make_3d(qn::QN)
+	#qn = QN(3,2,0)
+
+	# get size of WF 50% line
+	dx = 2 + (qn.n * qn.l)*5
+	xs = range(1e-3,dx; length=100)
+	values =[ real(psi_cart(x,y,z, qn )) for x =xs, y=xs, z=xs]
+	values = values ./ maximum(abs.(values[:]))
+
+	r =[ sqrt(x^2 +y^2+z^2) for x =xs, y=xs, z=xs]
+	dx2 = maximum(r[findall(abs.(values[:]) .> 0.4) ])
+
+	# tweak autoscaling
+	if (qn.n==4) & (qn.l==2)
+		dx2 = dx2 .* 0.5
+	end
+
+	if  (qn.l==0)
+		dx2 = dx2 .* 1.2
+	end
+	
+	# calculate WF
+	xs = range(-dx2,dx2; length=150)
+	values =[ real(psi_cart(x,y,z, qn )) for x =xs, y=xs, z=xs]
+	values = values ./ maximum(abs.(values[:]))
+
+	
 	mm = 96/25.4
 	pt = 4/3
 	
@@ -86,12 +112,12 @@ begin
 	
 	volume!(ax,values, algorithm = :iso, isorange = 0.05, isovalue = -0.5, backlight=0.9, specular=0.9, shading=FastShading)
 
-
-	fig 
-end
+	save("WF_3d_$(qn.n)_$(qn.l)_$(qn.m).png", fig)
+	return fig #, dx, dx2
+end;
 
 # ╔═╡ 0d9aeeab-6ae4-4809-9c67-eb210b7fdb62
-save("mytest2.png", fig)
+[ make_3d( QN(n,l,m)) for n = (1:4) for l=(0:n-1) for m=0:l ]
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
 PLUTO_PROJECT_TOML_CONTENTS = """
@@ -1731,12 +1757,14 @@ version = "1.4.1+1"
 # ╔═╡ Cell order:
 # ╟─412ce6e4-9a4f-41c0-8ffd-11490382aa54
 # ╠═ebd77d9f-de41-4478-83b4-a78219ad9949
+# ╠═41e2721f-bf80-4679-9d2b-3bfcb99ff5d6
+# ╠═bdb21227-422c-4737-950d-1686cf5d7d79
 # ╠═db0cd01f-022e-4f4e-aeee-681e4ad545b3
+# ╠═19fbf2cd-8c5a-43a9-a2b8-9d850024de1a
 # ╠═0252c645-5560-48db-bca8-cf5b38e5e10d
 # ╠═dad6985f-dd47-433c-9d35-2116fb7dcec3
 # ╠═614d2191-f5ee-4935-8c3a-d36b09caf7d3
-# ╠═b2d1fcfc-2a2a-4eb0-893c-444e7b957ca5
-# ╠═be460682-cf5c-437e-9d4b-867e080ffa6f
+# ╠═115f9b9b-7a3a-47b5-b526-e2496dab82b0
 # ╠═a92bc776-0071-4c3d-ba4c-f2121e17b2ab
 # ╠═0d9aeeab-6ae4-4809-9c67-eb210b7fdb62
 # ╟─00000000-0000-0000-0000-000000000001

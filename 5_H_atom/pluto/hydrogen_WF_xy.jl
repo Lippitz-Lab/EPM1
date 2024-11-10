@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.1
+# v0.20.3
 
 using Markdown
 using InteractiveUtils
@@ -44,7 +44,7 @@ function psi(r, θ, ϕ, qn)
 		phasefac = cos(abs(qn.m) * ϕ)
 	end
 	
-	Yml = (-1)^qn.m * sf_legendre_Plm(qn.l, abs(qn.m), cos(θ)) 
+	Yml = (-1)^qn.m * sf_legendre_sphPlm(qn.l, abs(qn.m), cos(θ)) 
 
 	
 	return radial(r,  qn) * Yml * phasefac 
@@ -92,16 +92,16 @@ end;
 # ╔═╡ 25b528e8-e05f-4a88-94e5-18209a6bf605
 	[
 	 make_png( (n = 1, m= 0, l=0) , 1),
-	 make_png( (n = 2, m= 0, l=0) , 1 *2^3),
-	 make_png( (n = 3, m= 0, l=0) , 1 *3^3),
-	 make_png( (n = 4, m= 0, l=0) , 1 *4^3)]
+	 make_png( (n = 2, m= 0, l=0) , 1 *2^2),
+	 make_png( (n = 3, m= 0, l=0) , 1 *3^2),
+	 make_png( (n = 4, m= 0, l=0) , 1 *4^2)]
 
 # ╔═╡ e2cae8c2-5876-45e1-8fbc-e7bd89aa0d7a
 	[
 	 make_png( (n = 2, m= 0, l=1) , 1),
 	 make_png( (n = 2, m= 1, l=1) , 1),
-	 make_png( (n = 3, m= 0, l=1) , 1*(3/2)^3),
-	 make_png( (n = 4, m= 0, l=1) ,1*(4/2)^3)
+	 make_png( (n = 3, m= 0, l=1) , 1*(3/2)^2),
+	 make_png( (n = 4, m= 0, l=1) ,1*(4/2)^2)
 	]
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001

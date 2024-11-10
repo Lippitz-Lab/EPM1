@@ -184,7 +184,7 @@ und der reduzierten Masse $\mu$. Manchmal kombiniert man die komplexen Wellenfun
 
 Im letzten Kapitel haben wir die eindimensionale Wellenfunktion $\Psi(x)$ entweder direkt auf der x-Achse aufgetragen oder als Wahrscheinlichkeitsdichte $P(x) = |\Psi(x)|^2$ dargestellt. Im Eindimensionalen ist dies leicht möglich. Im Dreidimensionalen ordnet die Wahrscheinlichkeitsdichte jedem Punkt $\br$ im Raum einen Wert zu. Dies ist schwierig darzustellen. Zum einen ist Papier oder ein Bildschirm immer nur zweidimensional. Zum anderen verdecken 'vordere' Werte die dahinter liegenden, wenn der Wert z.B. als Farbe kodiert ist.
 
-Es gibt verschiedene Möglichkeiten, die jedoch alle ihre Vor- und Nachteile haben (Die Abbildungen XXX zeigen Beispiele):
+Es gibt verschiedene Möglichkeiten, die jedoch alle ihre Vor- und Nachteile haben (Die folgenden Abbildungen zeigen Beispiele):
 \begin{description}
     \item[Punktwolke] Man kann die Detektion des Elektrons an verschiedenen Orten simulieren und in eine Punktwolke eintragen. Je näher die Punkte beieinander liegen, desto höher ist die Wahrscheinlichkeitsdichte. Die Gesamtzahl der Punkte muss klein gehalten werden, damit die Wolke noch einigermaßen durchsichtig ist. Am Computer kann man die Wolke drehen, um einen dreidimensionalen Eindruck zu erhalten.
     \item[Iso-Flächen] Man kann Flächen $P(\br) = |\Psi(\br)|^2 = const.$ zeichnen, ähnlich den Isobaren im Wetterbericht. Wenn die Konstante gut gewählt ist, erhält man eine Vorstellung von der Wellenfunktion. Diese kann dreidimensional dargestellt oder mit einer Ebene geschnitten werden.
@@ -196,19 +196,20 @@ Es gibt verschiedene Möglichkeiten, die jedoch alle ihre Vor- und Nachteile hab
     Der Term $4 \pi r^2$ berücksichtigt, dass mit zunehmendem Radius $r$ die Anzahl der Möglichkeiten und also das Volumen der Kugelschale zunimmt.
 \end{description}
 
+\begin{figure}[tb]
+    \inputtikz{\currfiledir WF_3d_panel}
+    \caption{Iso-Flächen der Wellenfunktionen $\Psi(\br)$. Angegeben sind die Quantenzahlen $(n,l,m,)$. Die Farbe kodiert das Vorzeichen. Die Größe ist willkürlich skaliert.}
+\end{figure}
 
 Die verschiedenen Darstellungen scheinen sich zu widersprechen. Alle s-Wellenfunktionen (also $l=0$) haben ein Maximum bei $P(\br = 0)$, aber eine Nullstelle bei $P_r(r=0)$. Der wahrscheinlichste Ort für ein Elektron ist daher der Kern. Gleichzeitig ist der wahrscheinlichste Abstand vom Kern weit von Null entfernt.  Dies sind jedoch zwei verschiedene Fragen.  Für große Abstände gibt es viel mehr Möglichkeiten auf der Kugeloberfläche. Jede dieser Möglichkeiten ist für sich jedoch unwahrscheinlicher als der Ort auf dem Kern.
 
-\begin{marginfigure} 
-    \inputtikz{\currfiledir WF_panel}
-    \caption{Schnitt der Wellenfunktion $\Psi(\br)$ in der xy-Ebene. Die Längen sind mit $1/n^2$ skaliert, die Wellenfunktionen mit $1/n^3$. Die Farbe kodiert das Vorzeichen.}
-\end{marginfigure}
+
+\begin{figure}[tb]
+    \inputtikz{\currfiledir WF_P_2d_panel}
+    \caption{Schnitt der Wellenfunktion $\Psi(\br)$ und der Wahrscheinlichkeitsdichte $P(\br)$ in der xy-Ebene. Die Längen sind mit $1/n^2$ skaliert, die Wellenfunktionen mit $1/n^3$. Die Farbe kodiert das Vorzeichen.}
+\end{figure}
 
 
-\begin{marginfigure}
-    \inputtikz{\currfiledir P_panel}
-    \caption{Schnitt der Wahrscheinlichkeitsdichte $P(\br)$ in der xy-Ebene. Die Längen sind mit $1/n^2$ skaliert, die Wahrscheinlichkeiten mit $1/n^3$.}
-\end{marginfigure}
 
 \begin{marginfigure}
     \inputtikz{\currfiledir radial_P}

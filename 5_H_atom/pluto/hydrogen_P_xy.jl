@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.1
+# v0.20.3
 
 using Markdown
 using InteractiveUtils
@@ -44,7 +44,7 @@ function psi(r, θ, ϕ, qn)
 		phasefac = cos(abs(qn.m) * ϕ)
 	end
 	
-	Yml = (-1)^qn.m * sf_legendre_Plm(qn.l, abs(qn.m), cos(θ)) 
+	Yml = (-1)^qn.m * sf_legendre_sphPlm(qn.l, abs(qn.m), cos(θ)) 
 
 	
 	return radial(r,  qn) * Yml * phasefac 
