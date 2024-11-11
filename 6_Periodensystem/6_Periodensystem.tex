@@ -63,7 +63,7 @@ Alle Atome mit Ausnahme von Wasserstoff haben mehr als ein Elektron. Wir müssen
      U(x_1, x_2) \, \Psi(x_1, x_2)
      = E \, \Psi(x_1, x_2)
 \end{equation}
-mit der Wellenfunktion $\Psi(x_1, x_2)$, die nun von zwei Ortskoordinaten abhängt.
+mit der Wellenfunktion $\Psi(x_1, x_2)$, die nun von zwei Ortskoordinaten abhängt, nämlich den Positionen der beiden Teilchen.
 
 Für einen Topf mit starren Wänden ergibt\sidenote{Rechnung in \cite{Harris_moderne_Physik}} sich
 \begin{equation}
@@ -76,15 +76,15 @@ Die alten Zustände, Quantenzahlen, Potentiale und Wellenfunktionen, die wir fü
 
 \subsection{Wahrscheinlichkeitsdichte}
 
-Die Zweiteilchen-Wahrscheinlichkeitsdichte $P(x_1, x_2) = | \Psi(x_1, x_2)|^2$ beschreibt die Wahrscheinlichkeit, Teilchen 1 am Ort $x_1$ und Teilchen 2 am Ort $x_2$ oder in einem Intervall $dx$ um diese Orte herum zu finden.
+Die Zweiteilchen-Wahrscheinlichkeitsdichte $P(x_a, x_b) = | \Psi(x_a, x_b)|^2$ beschreibt die Wahrscheinlichkeit, Teilchen 1 am Ort $x_a$ und Teilchen 2 am Ort $x_b$ oder in einem Intervall $dx$ um diese Orte herum zu finden.
 
 Betrachten wir ein Beispiel. Die Quantenzahlen seien $n = 4$ und $n' = 3$. Damit ist 
 \begin{equation}
-    P(x_1, x_2) = |  \Psi(x_1, x_2)|^2 = \frac{4}{L^2} \, \sin^2 \frac{4 \pi x_1}{L} \, \sin^2 \frac{3 \pi x_2}{L} \
+    P(x_1, x_2) = |  \Psi(x_1, x_2)|^2 = \frac{4}{L^2} \, \sin^2 \frac{4 \pi x_1}{L} \, \sin^2 \frac{3 \pi x_2}{L} \quad .
 \end{equation}
-Die Wahrscheinlichkeit, das Teilchen 1 in der Mitte des Kastens bei $x_1 = L/2$ zu finden, ist Null, da $\Psi_4(x)$ dort einen Knoten hat
+Die Wahrscheinlichkeit, das Teilchen 1 in der Mitte des Kastens bei $x_1 = L/2$ zu finden, ist Null, da $\Psi_4(x)$ dort einen Knoten hat, also 
 \begin{equation}
-    P\left(\frac{L}{2}, x_2\right) = \frac{4}{L^2} \, \sin^2 \frac{4 \pi (L/2)}{L} \, \sin^2 \frac{3 \pi x_2}{L}  = 0
+    P\left(\frac{L}{2}, x_2\right) = \frac{4}{L^2} \, \sin^2 \frac{4 \pi (L/2)}{L} \, \sin^2 \frac{3 \pi x_2}{L}  = 0 \quad .
 \end{equation}
 Diese Wahrscheinlichkeit ist unabhängig von der Position $x_2$ des zweiten Teilchens. Die Wahrscheinlichkeit, das zweite Teilchen in der Mitte des Kastens zu finden, ist jedoch nicht durchgängig Null, da $\Psi_3(x)$ dort einen Bauch hat
 \begin{equation}
@@ -93,7 +93,7 @@ Diese Wahrscheinlichkeit ist unabhängig von der Position $x_2$ des zweiten Teil
 zumindest für manche Werte von $x_1$.
 
 
-Es kann nicht sein, dass Teilchen 1 nicht in der Mitte des Kastens ist, Teilchen 2 aber schon, wenn sie ununterscheidbar sind! Wir können die Quantenteilchen nicht mit Namensschildern versehen. Da der Abstand zwischen den Teilchen beliebig klein sein kann, können wir einem Teilchen auch nicht immer folgen.
+Es kann aber nicht sein, dass Teilchen 1 nicht in der Mitte des Kastens ist, Teilchen 2 aber schon, wenn sie ununterscheidbar sind! Wir können die Quantenteilchen nicht mit Namensschildern versehen. Da der Abstand zwischen den Teilchen beliebig klein sein kann, können wir einem Teilchen auch nicht immer folgen.
 
 Diese Ununterscheidbarkeit der Quantenteilchen ist der zentrale Punkt. Die Wahrscheinlichkeitsdichte und andere beobachtbare Größen dürfen sich nicht ändern, wenn wir die Namen, die Quantenzahlen der ununterscheidbaren Teilchen vertauschen. Man sagt, dass die Wahrscheinlichkeitsdichte unter Vertauschung der Indizes symmetrisch sein muss.
 
@@ -109,25 +109,23 @@ Die Symmetrie der Wahrscheinlichkeitsdichte erreichen wir durch Linearkombinatio
 Im zweiten Summanden sind die Quantenzahlen gegenüber dem ersten vertauscht und damit auch der Name des Teilchens. Da die Schrödingergleichung linear ist, sind diese Linearkombinationen auch Lösungen der Schrödingergleichung.
 Durch Ausmultiplizieren des Betragsquadrats stellt man fest, dass beide Wellenfunktionen zu einer Wahrscheinlichkeitsdichte führen, die sich bei Vertauschung der Indizes nicht ändert, also symmetrisch ist.
 
-Abbildung XXX zeigt die Wahrscheinlichkeitsdichte $ P(x_1, x_2) $ für die erste, noch nicht symmetrisierte Wellenfunktion $ \Psi(x_1, x_2)$ sowie für die symmetrische $ \Psi_S(x_1, x_2)$ und die asymmetrische $ \Psi_A(x_1, x_2)$. Dies ist eine zweidimensionale Darstellung auf der Achse $x_1$--$x_2$, aber der Kasten ist eindimensional mit der Achse $x$.
+Abbildung XXX zeigt die Wahrscheinlichkeitsdichte $ P(x_1, x_2) $ für die erste, noch nicht symmetrisierte Wellenfunktion $ \Psi(x_1, x_2)$ sowie für die symmetrische $ \Psi_S(x_1, x_2)$ und die asymmetrische $ \Psi_A(x_1, x_2)$. Dies ist eine zweidimensionale Darstellung im $x_1$--$x_2$ Raum, aber der Kasten ist eindimensional mit der Achse $x$.
 
 
 Die Wahrscheinlichkeitsdichten sind bis zu einem gewissen Grad ähnlich. Alle haben 12 Peaks. Bei der nicht symmetrisierten Variante kann man jedoch die Achse $x_1$ von der Achse $x_2$ unterscheiden.
-Die symmetrisierten Varianten sind entlang der Linie $x_1 = x_2$ spiegelsymmetrisch. Für $\Psi_S(x_1, x_2)$ liegen die höchsten Peaks entlang dieser $x_1 = x_2$-Linie. Für $\Psi_A(x_1, x_2)$ liegen die höchsten Peaks in den anderen Ecken, d.h. wenn $x_1 - x_2$ am größten wird. Zwei Teilchen in der symmetrischen Zweiteilchen-Wellenfunktion neigen dazu, sich am gleichen Ort zu befinden. Zwei Teilchen in der antisymmetrischen Zweiteilchen-Wellenfunktion sind im Mittel sehr weit voneinander entfernt.
+Die symmetrisierten Varianten sind entlang der Linie $x_1 = x_2$ spiegelsymmetrisch. Für $\Psi_S(x_1, x_2)$ liegen die höchsten Peaks entlang dieser $x_1 = x_2$-Linie. Für $\Psi_A(x_1, x_2)$ liegen die höchsten Peaks in den anderen Ecken, d.h. wenn $|x_1 - x_2|$ am größten wird. Zwei Teilchen in der symmetrischen Zweiteilchen-Wellenfunktion neigen dazu, sich am gleichen Ort zu befinden. Zwei Teilchen in der antisymmetrischen Zweiteilchen-Wellenfunktion sind im Mittel sehr weit voneinander entfernt.
 
 
 \section{Mehr Quantenzahlen und Spin}
 
-Die Wahrscheinlichkeitsdichte muss immer symmetrisch sein, wenn die Teilchen vertauscht werden, unabhängig vom Potential und den zur Beschreibung notwendigen Quantenzahlen. Wir können jedoch die obige Schreibweise beibehalten, indem wir unter dem Index $n$ von $\Psi_n(x)$ die Menge aller benötigten Quantenzahlen verstehen. Im Wasserstoffatom umfasst $n$ also $\{ n, l, m_l, m_s \}$. Im Grundzustand des Wasserstoffatoms nimmt dies die Werte $\{ 1, 0, 0, \uparrow \}$ an.
-
-Insbesondere bezieht sich die Bezeichnung 'symmetrisch' oder 'antisymmetrisch' auf alle Quantenzahlen zusammen. Wir vertauschen also nicht nur die Orte, sondern auch die Spinzustände der Teilchen.
+Die Wahrscheinlichkeitsdichte muss immer symmetrisch sein, wenn die Teilchen vertauscht werden, unabhängig vom Potential und den zur Beschreibung notwendigen Quantenzahlen. Wir können jedoch die obige Schreibweise beibehalten, indem wir unter dem Index $n$ von $\Psi_n(x)$ die Menge aller benötigten Quantenzahlen verstehen. Im Wasserstoffatom umfasst $n$ also $\{ n, l, m_l, m_s \}$ und $\{ 1, 0, 0, \uparrow \}$ ist der Grundzustand. Insbesondere bezieht sich die Bezeichnung 'symmetrisch' oder 'antisymmetrisch' auf alle Quantenzahlen zusammen. Diese Sorte Symmetrie nennt man Austauschsymmetrie.
 
 
 
 \section{Das Pauliprinzip}
 
 
-Alle Quantenteilchen besitzen die Eigenschaft 'Spin', auch wenn dieser manchmal Null ist. Man unterscheidet zwischen \emph{Fermionen} mit halbzahligem Spin ($1/2$, $3/2$, $5/2$, usw.) und \emph{Bosonen} mit ganzzahligem Spin. Die Tabelle zeigt Beispiele. Bosonen haben eine symmetrische Mehrteilchen-Wellenfunktion (Gl. \ref{eq:6_sym_WF}) und Fermionen bilden eine asymmetrische Mehrteilchen-Wellenfunktion (Gl. \ref{eq:6_asym_WF}). Wenn wir Atome mit mehr als einem Elektron beschreiben wollen, müssen wir dafür sorgen, dass die Mehrteilchen-Wellenfunktion anti-symmetrisch ist, denn Elektronen sind Fermionen, da sie den Spin $1/2$ besitzen.
+Alle Quantenteilchen besitzen die Eigenschaft 'Spin', auch wenn dieser manchmal Null ist. Man unterscheidet zwischen \emph{Fermionen} mit halbzahligem Spin ($1/2$, $3/2$, $5/2$, usw.) und \emph{Bosonen} mit ganzzahligem Spin. Die Tabelle zeigt Beispiele. Bosonen haben eine symmetrische Mehr\-teil\-chen-Wellenfunktion (Gl. \ref{eq:6_sym_WF}) und Fermionen bilden eine antisymmetrische Mehrteilchen-Wellenfunktion (Gl. \ref{eq:6_asym_WF}). Wenn wir Atome mit mehr als einem Elektron beschreiben wollen, müssen wir dafür sorgen, dass die Mehrteilchen-Wellenfunktion anti-symmetrisch ist, denn Elektronen sind Fermionen, da sie den Spin $1/2$ besitzen.
 
 \begin{marginfigure}
     \begin{tabular}{ll}
@@ -152,24 +150,28 @@ Alle Quantenteilchen besitzen die Eigenschaft 'Spin', auch wenn dieser manchmal 
 
 Die weitreichendste Konsequenz ist das nach Wolfgang Pauli benannte Pauli-Prinzip. Wenn zwei Elektronen in allen Quantenzahlen übereinstimmen, also $n = n'$ in unserer obigen Nomenklatur, dann ist die antisymmetrische Zweiteilchen-Wellenfunktion Null:
 \begin{equation}
-    \Psi_A(x_1, x_2) =  \Psi_{n}(x_1) \, \Psi_{n}(x_2) \, - \, \Psi_{n}(x_1) \, \Psi_{n}(x_2) = 0
+    \Psi_A(x_1, x_2) =  \Psi_{n}(x_1) \, \Psi_{n}(x_2) \, - \, \Psi_{n}(x_1) \, \Psi_{n}(x_2) = 0 \quad ,
 \end{equation}
-Also kann  diesen Fall also nicht geben. Das ist das Ausschlussprinzip von Pauli: Zwei ununterscheidbare Fermionen können nicht im selben Einteilchenzustand sein, d.h. sie können nicht in allen Quantenzahlen übereinstimmen. Dieses Prinzip gilt für jedes Paar von Fermionen, wenn es mehr als zwei gibt.
+also kann  diesen Fall also nicht geben. Das ist das Ausschlussprinzip von Pauli: Zwei ununterscheidbare Fermionen können nicht im selben Einteilchenzustand sein, d.h. sie können nicht in allen Quantenzahlen übereinstimmen. Dieses Prinzip gilt für jedes Paar von Fermionen, wenn es mehr als zwei gibt.
 
 Das Wort 'ununterscheidbar' ist wichtig. Ein Elektron und ein Proton können in den Quantenzahlen übereinstimmen. Auch zwei Elektronen können in den Quantenzahlen übereinstimmen, wenn sie nur weit genug voneinander entfernt sind, so dass sie nicht unbemerkt die Plätze tauschen können. 
 
 Für Bosonen gilt das Pauli-Prinzip nicht. Das Plus in Gl. \ref{eq:6_sym_WF} stört nicht, wenn $n = n'$.
 
-Eine Folge des Pauli-Prinzips ist, dass sich in einem Atom mit $Z$ Protonen und damit auch $Z$ Elektronen nicht alle Elektronen im Grundzustand $1s$ befinden können. Man füllt die Zustände in aufsteigender Reihenfolge auf, bis alle Elektronen untergebracht sind. Dabei darf kein Zustand doppelt besetzt sein, so dass wir die energetisch niedrigsten $Z$-Zustände besetzen. Die chemischen Eigenschaften eines Elements ergeben sich dann aus den letzten besetzten und den ersten unbesetzten Zuständen des Atoms.
+Eine Folge des Pauli-Prinzips ist, dass sich in einem Atom mit $Z$ Protonen und damit auch $Z$ Elektronen nicht alle Elektronen im Grundzustand $1s$ befinden können. Man füllt die Zustände in aufsteigender Reihenfolge auf, bis alle Elektronen untergebracht sind. Dabei darf kein Zustand doppelt besetzt sein, so dass wir die $Z$ energetisch niedrigsten Zustände besetzen. Die chemischen Eigenschaften eines Elements ergeben sich dann aus den letzten besetzten und den ersten unbesetzten Zuständen des Atoms.
 
 
 \section{Näherung der unabhängigen Elektronen}
 
-Wie findet man diese energetisch niedrigsten Zustände $Z$? Zunächst müssen wir berücksichtigen, dass die Kernladung nun $Z$ ist und nicht mehr eins wie beim Wasserstoffatom. Überall dort, wo im letzten Kapitel ein Term $e^2$ vorkam, müsste man nun $Z \, e^2$ schreiben. Das wäre machbar, berücksichtigt aber nur die Ladung im Kern. Die Ladung der Elektronen, die zum Wasserstoff hinzukommen, ist aber auch $Z-1$, also nicht wirklich kleiner.\sidenote{Das ist der Unterschied zu einem Planetensystem. Dort ist   die Masse aller Planeten zusammen viel kleiner als die der Sonne.} Wir können sie nicht vernachlässigen. Eigentlich müssten wir die Schrödingergleichung mit dem Potential
+Wie findet man diese energetisch niedrigsten Zustände? Zunächst müssen wir berücksichtigen, dass die Kernladung nun $Z$ ist und nicht mehr eins wie beim Wasserstoffatom. Überall dort, wo im letzten Kapitel ein Term $e^2$ vorkam, müsste man nun $Z \, e^2$ schreiben.\sidenote{Das ist im POtential $U$, den Eigneenergien $E_n$, dem Bohr'schen Radis $a_B$ und der Feinstrukturkonstanten $a$} Damit ist 
+\begin{equation}
+    E_n \propto Z^2  \quad .
+\end{equation}
+Das  berücksichtigt aber nur die Ladung im Kern. Die Ladung der Elektronen, die zum Wasserstoff hinzukommen, ist aber auch $Z-1$, also nicht wirklich kleiner.\sidenote{Das ist der Unterschied zu einem Planetensystem. Dort ist   die Masse aller Planeten zusammen viel kleiner als die der Sonne.} Wir können sie nicht vernachlässigen. Eigentlich müssten wir die Schrödingergleichung mit dem Potential
 \begin{equation}
     U(r_1, r_2, \dots, r_Z) = -\frac{e^2}{4 \pi \epsilon_0} \, \sum_{i=1}^Z  \left[  \frac{Z}{r_i} - \sum_{j=1}^{i-1}  \frac{1}{|r_i - r_j|} \right]
 \end{equation} 
-lösen. Das ist näherungsweise möglich, aber nicht einfach und Thema der Vielteilchen-Quantenmechanik. Hier machen wir, wie fast überall, die Näherung der unabhängigen Elektronen. Wir nehmen an, dass sich jedes Elektron in einem effektiven Potential bewegt, das aus der Kernladung und einer Wolke der übrigen Elektronen besteht. Diese Elektronenwolke schirmt den Kern etwas ab. Ein sehr weit außen befindliches Elektron erfährt dann quasi nur noch eine einzige positive Restladung, alles andere ist abgeschirmt. Ganz innen sieht das Elektron dann einen Kern der Ladung $Z$. Das abgeschirmte Coulombpotential ist dann
+lösen. Das ist näherungsweise möglich, aber nicht einfach und Thema der Vielteilchen-Quantenmechanik. Hier machen wir, wie fast überall, die \emph{Näherung der unabhängigen Elektronen}. Wir nehmen an, dass sich jedes Elektron in einem effektiven Potential bewegt, das aus der Kernladung und einer Wolke der übrigen Elektronen besteht. Diese Elektronenwolke schirmt den Kern etwas ab. Ein sehr weit außen befindliches Elektron erfährt dann quasi nur noch eine einzige positive Restladung, alles andere ist abgeschirmt. Ganz innen sieht das Elektron dann einen Kern der Ladung $Z$. Das abgeschirmte Coulombpotential ist also
 \begin{equation}
     U(r) =  -\frac{e^2}{4 \pi \epsilon_0} \, \frac{1}{r} \cdot
     \left\{
@@ -182,7 +184,7 @@ lösen. Das ist näherungsweise möglich, aber nicht einfach und Thema der Vielt
 Alle Abhängigkeiten der Form $|r_i - r_j|$ werden vernachlässigt. Abbildung XXX skizziert ein solches Potential (Abb. 86, Harrsus und Abb. 8.1 Heintze).
 
 
-Wie beim Wasserstoffatom handelt es sich um ein Zentralpotential. Die Winkelabhängigkeit der Lösungen ist daher identisch. Der Radialanteil der Wellenfunktion ändert sich etwas. Die Eigenenergien verschieben sich mit steigendem $Z$ zu negativeren Werten, da das Potential viel negativer wird. Gleichzeitig werden aber auch mehr Elektronen eingefüllt, so dass der höchste besetzte Zustand mit steigendem $Z$ weiter vom Grundzustand entfernt ist. Wir werden sehen, dass sich diese beiden Effekte nahezu ausgleichen.
+Wie beim Wasserstoffatom handelt es sich um ein Zentralpotential. Die Winkelabhängigkeit der Lösungen ist daher identisch. Der Radialanteil der Wellenfunktion ändert sich etwas. Die Eigenenergien verschieben sich quadratisch mit steigendem $Z$ zu negativeren Werten, da das Potential viel negativer wird. Gleichzeitig werden aber auch mehr Elektronen eingefüllt, so dass der höchste besetzte Zustand mit steigendem $Z$ weiter vom Grundzustand entfernt ist. Wir werden sehen, dass sich diese beiden Effekte nahezu ausgleichen.
 
 
 \section{Einfluss des Bahn-Drehimpulses}
@@ -190,19 +192,44 @@ Wie beim Wasserstoffatom handelt es sich um ein Zentralpotential. Die Winkelabh�
 Im vorigen Kapitel haben wir gesehen, dass die Wellenfunktionen mit dem maximalen $l$ bei gegebener Hauptquantenzahl $n$, also $l=n-1$, am kreisförmigsten sind und zu einem Maximum in der radialen Aufenthaltswahrscheinlichkeit führen, das gut durch den zugehörigen Bohrschen Bahnradius $n \cdot a_B$ beschrieben wird. Wellenfunktionen mit kleinerem $l$ beschreiben Elektronen mit elliptischeren Bahnen, die sich mit größerer Wahrscheinlichkeit weiter innen befinden. Zustände mit kleinem $l$ sind daher energetisch niedriger als Zustände mit großem $l$. Diese Unterschiede sind größer als die der im letzten Kapitel beschriebenen Spin-Bahn-Kopplung, die ebenfalls die $l$-Entartung im Wasserstoffatom aufhebt.
 
 Berechnet man die Summe der Aufenthaltswahrscheinlichkeiten aller Einteilchen-Elektronenzustände mit gegebenem $n$, so ist diese kugelsymmetrisch und wird von den Elektronen mit maximalem $l$ dominiert, d.h. von denen nahe  der Bohr'schen Bahn. 
-Man sagt, dass diese Elektronen mit der gleichen Hauptquantenzahl $n$ eine \emph{Schale} bilden, die manchmal mit den großen Buchstaben K, L, M, N bezeichnet wird.  Aufgrund der gerade beschriebenen Drehimpulsabhängigkeit spaltet sich jede Schale in $n$ Teilschalen auf, die manchmal mit römischen Ziffern bezeichnet werden.
+Man sagt, dass diese Elektronen mit der gleichen Hauptquantenzahl $n$ eine \emph{Schale} bilden, die manchmal mit den großen Buchstaben K, L, M, N bezeichnet wird.  Aufgrund der gerade beschriebenen Drehimpulsabhängigkeit spaltet sich jede Schale in $n$ Unterschalen auf, die manchmal mit römischen Ziffern bezeichnet werden. In jede Unterschale passen nach dem Pauli-Prinzip $2 (2l +1)$ Elektronen, da es $2l +1$ mögliche Werte der magnetischen Quantenzahl $m_l$ gibt und dann noch je zwei Möglichkeiten für die Orientierung $m_s = \pm 1/2$ des Spins. In jeder Schale befinden sich $2n^2$ Zustände.
 
-Empirisch zeigt sich, dass die energetische Anordnung der Unterschalen und damit die Reihenfolge des Auffüllens der Elektronen mit steigendem $n+l$ erfolgt. Bei Unterschalen mit gleichem $n+l$ werden die mit kleinerem $n$ zuerst aufgefüllt. Dies ist in Abbildung XXX dargestellt. Man erkennt auch, dass sich die Reihenfolge der Unterschalen mit der Kernladungszahl ändert, unsere einfachen Regeln also nicht alles erfassen.
+Empirisch zeigt sich, dass die energetische Anordnung der Unterschalen und damit die Reihenfolge des Auffüllens der Elektronen mit steigendem $n+l$ erfolgt. Bei Unterschalen mit gleichem $n+l$ werden die mit kleinerem $n$ zuerst aufgefüllt. Dies ist in Abbildung XXX (analog Harris 8.13) dargestellt. Man erkennt auch, dass sich die Reihenfolge der Unterschalen mit der Kernladungszahl ändert, unsere einfachen Regeln also nicht alles erfassen.
 
 XXX Merkschema Schachbrett Demtröder Fig. 6.16 für schwere Atome, also nach allem Umsortieren
 
-\begin{marginfigure}
-    \inputtikz{\currfiledir E_ionisation}
-\end{marginfigure}
+
+\section{Das Periodensystem der Elemente}
+
+Die chemischen Eigenschaften der Elemente werden wesentlich durch die Anzahl und die Bindungsenergie der Elektronen in der noch nicht vollständig gefüllten Schale bestimmt. Diese Elektronen werden als Valenzelektronen bezeichnet, da sie die Wertigkeit des Elements bestimmen. Sehr häufig ist dies auch die äußerste, also die energiereichste Schale. Da jede Unterschale nur $2 (2l +1)$ Elektronen aufnehmen kann, sind die chemischen Eigenschaften periodisch in der Kernladungszahl $Z$. Daraus ergibt sich das Periodensystem der Elemente. Abbildung XXX zeigt die experimentell bestimmte energetische Lage und Besetzung der Zustände der ersten Elemente des Periodensystems. Die Energie besetzter Zustände wird bestimmt, indem ein Elektron durch ein Röntgenphoton aus einem solchen Zustand herausgeschlagen wird (XPS). Die Energie unbesetzter Zustände kann bestimmt werden, indem ein Valenzelektron zu einem solchen Zustand angeregt und die Übergangsenergie bestimmt wird.
 
 \begin{figure}
     \inputtikz{\currfiledir PSE_states}
+    \caption{Verlauf der Zustände und deren Besetzung.}
 \end{figure}
+
+\begin{description}
+    \item[Wasserstoff (\ch{H}) )] Das Wasserstoffatom besitzt nur ein Elektron, das sich im 1s-Zustand bei -13,6~eV befindet.
+  
+  \item[Hellium (\ch{He})] Helium hat zwei Protonen. Die Energie des 1s-Zustandes wäre daher eigentlich um den Faktor $n^2 = 4$ negativer als die des Wasserstoffs, also -54,4~eV. Die beiden Elektronen stoßen sich aber ab, so dass sie im Potential weiter außen liegen, also etwas weniger negativ. Damit liegt der 1s-Zustand bei XXX nun bei etwa -40 eV. Man schreibt die \emph{Elektronenkonfiguration} als 1s$^2$, wobei die hochgestellte Zahl die Anzahl der Elektronen in der 1s-Schale angibt. Nach dem Pauli-Prinzip haben die beiden Elektronen entgegengesetzten Spin. Helium ist ein Edelgas, da seine voll besetzte 1s-Schale energetisch relativ weit von der Ionisationsgrenze bei $E=0$ entfernt ist.
+   
+    \item[Lithium (\ch{Li})] Da die 1s-Schale voll besetzt ist, muss das dritte Elektron in die 2s-Schale gehen. Lithium hat also nur ein Valenzelektron, das nur schwach gebunden ist (XXX eV). Lithium ist daher chemisch sehr reaktionsfreudig.
+    
+    \item[Kohelnstoff (\ch{C})]   Kohlenstoff hat die Elektronenkonfiguration 1s$^2$2s$^2$2p$^2$ oder abgekürzt [He]2s$^2$2p$^2$. In der 2p-Schale befinden sich also 2 Elektronen. Während bei zwei Elektronen in einer s-Schale der Spin immer entgegengesetzt sein muss, ist dies in einer p-Schale nicht mehr notwendig, es gibt sogar 3 verschiedene Werte für $m_l$. Die \emph{Hund'sche Regel} bestimmt, in welcher Reihenfolge diese insgesamt 6 Zustände der p-Schale besetzt werden: Zunächst haben alle Elektronen die gleiche Spinausrichtung, erst das 4. Elektron (bei Sauerstoff) hat die entgegengesetzte. Wie wir später sehen werden, wird dadurch der Gesamtspin maximiert. Die Hund'sche Regel ist nur eine Abkürzung für eine Energiebetrachtung. Wenn die Elektronen den gleichen Spin haben, sind sie viel weiter voneinander entfernt (siehe Beispiel am Anfang des Kapitels). Dadurch verringert sich die Energie ihrer gegenseitigen Coulomb-Abstoßung.
+    
+    \item[Fluor (\ch{F})] Beim Fluor befinden sich 7 Elektronen in der 2p-Schale. Für die Edelgaskonfiguration fehlt noch eines. In chemischen Reaktionen nimmt Fluor daher gerne ein weiteres Elektron auf, um die Schale zu vervollständigen.
+
+    \item[Neon (\ch{Ne})]  Bei Neon ist die 2p-Schale vollständig besetzt. Auch dies ist eine der stabilen Edelgaskonfigurationen.
+    
+    \item[Natrium (\ch{Na})] Bei Natrium wiederholt sich eigentlich alles analog zu Lithium. Auch hier befindet sich nur ein Valenzelektron in einer s-Schale, hier einer 3s-Schale. Hauptgruppe geben bei chemischen Reaktionen gerne Elektronen ab.
+\end{description}
+
+Diese Periodizität findet sich in vielen chemischen Eigenschaften wieder. Abbildung XXX zeigt sie für die Ionisierungsenergie, d. h. den Abstand des höchsten besetzten Zustandes vom Vakuum. Eine ähnliche Periodizität findet sich auch für das Atomvolumen.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir E_ionisation}
+    \caption{Ionisationsenergie der ersten Elemente (Daten aus XXX Julia). Die gefüllten Schalen der Edelgase sind besonders stabil.}
+\end{marginfigure}
 
 
 \section{Zusammenfassung}
