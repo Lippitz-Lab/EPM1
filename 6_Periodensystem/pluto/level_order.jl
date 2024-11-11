@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.1
+# v0.20.3
 
 using Markdown
 using InteractiveUtils
@@ -21,6 +21,15 @@ using Unitful
 
 # ╔═╡ 74057057-c549-479d-a7f6-3c2c2ff4adba
 names =  join( [String(e.symbol) for e in chem_elements[ 1:14]], ",")
+
+# ╔═╡ 08f8f037-79c6-4d42-b760-ba7e73554009
+[chem_elements[x].symbol for x in (19:31)]
+
+# ╔═╡ 93439f8a-6072-4085-8bb8-31f71550e513
+[chem_elements[x].el_config for x in (19:31)]
+
+# ╔═╡ 316b1c28-80c8-4663-93ac-839a7528a192
+[chem_elements[x].ionenergy[1] for x in (18:30)]
 
 # ╔═╡ d8f913ce-4997-4a7a-8311-55fec594bb32
 function n_elec(Z)
@@ -1522,6 +1531,9 @@ version = "1.4.1+1"
 # ╠═64eb4e84-75cb-4696-aa04-7e006d49790f
 # ╠═c7f07bee-1da0-460d-b953-a7791592cbf3
 # ╠═74057057-c549-479d-a7f6-3c2c2ff4adba
+# ╠═08f8f037-79c6-4d42-b760-ba7e73554009
+# ╠═93439f8a-6072-4085-8bb8-31f71550e513
+# ╠═316b1c28-80c8-4663-93ac-839a7528a192
 # ╠═d8f913ce-4997-4a7a-8311-55fec594bb32
 # ╠═b534ff63-e788-4269-a519-fa4407890323
 # ╠═fb9bf422-73bf-437e-9b84-c4939f37d48d
