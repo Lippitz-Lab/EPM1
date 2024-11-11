@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{10. November 2024}
+\renewcommand{\lastmod}{11. November 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Quantentheorie des H-Atoms}
@@ -31,7 +31,7 @@ Eine genauere Messung der Übergangslinien im Wasserstoffatom zeigt jedoch Abwei
 
 Heute dient das Wasserstoffatom als Präzisionstest für unsere Modelle, deren Details hier den Rahmen sprengen würden. Derzeit gibt es jedoch keine Diskrepanz zwischen Theorie und Experiment.
 
-Dieses und die beiden folgenden Kapitel sind in vielfältiger Weise miteinander verknüpft. An einigen Stellen muss ich daher den folgenden Kapiteln etwas vorgreifen. Die Reihenfolge ein Elektron -- viele Elektronen -- Magnetfeld ist nicht die einzig mögliche. In manchen Büchern ist die Reihenfolge anders. Ich beginne wieder mit \cite{Knight_Physik}, um dann zu \cite{Demtröder_ep3} überzugehen. Gut lesbar finde ich immer noch \cite{Harris_moderne_Physik}.
+Dieses und die beiden folgenden Kapitel sind in vielfältiger Weise miteinander verknüpft. An einigen Stellen muss ich daher den folgenden Kapiteln etwas vorgreifen. Die Reihenfolge ein Elektron -- viele Elektronen -- Magnetfeld ist nicht die einzig mögliche. In manchen Büchern ist die Reihenfolge anders. Ich beginne wieder mit \cite{Knight_physics}, um dann zu \cite{Demtröder_ep3} überzugehen. Gut lesbar finde ich immer noch \cite{Harris_moderne_Physik} und auch \cite{Heintze_WTA}.
 
 
 \section{Schrödinger-Gleichung in 3 Dimensionen}
@@ -343,17 +343,18 @@ Welche Werte kann $\bj$ bzw. seine Quantenzahl $j$ annehmen? Wir haben $\bj$ als
 
 \section{Alle relativistischen Korrekturen zusammen}
 
+\begin{marginfigure}[-20mm]
+    \inputtikz{\currfiledir H_sl_energien}
+    \caption{Die Spin-Bahn-Kopplung führt zu einer Aufspaltung nach $j$. Grau eingezeichnet sind die Bohr-Niveaus. In der Darstellung ändert sich die Energie-Skalierung mit $n$.}
+    \label{fig:5_H_sl_energien}
+\end{marginfigure} 
+
 Nimmt man alle drei relativistischen Korrekturen zusammen, die Massenzunahme, die Positionsunschärfe und die Spin-Bahn-Kopplung, so erhält man im Wasserstoffatom Eigenenergien, die nur noch von $n$ und $j$, aber nicht mehr von $l$ abhängen. ($s$ ist ohnehin immer $1/2$, nur die Richtung des Spins $m_s$ ist relevant).
 \begin{equation}
     E_{n,j} = E_n \left[ 1 + \frac{\alpha^2}{n} \left( \frac{1}{j + 1/2} - \frac{3}{4n} \right) \right]
 \end{equation}
 Wir ergänzend ie Bezeichnung der   Zustände durch ein tiefergestelltes $j$. Die Zustände 2s$_{1/2}$ und 2p$_{1/2}$ haben also die selbe Energie, ebenso  3p$_{3/2}$ und 3d$_{3/2}$. Abbildung \ref{fig:5_H_sl_energien} skizziert dies.
 
-\begin{marginfigure}[-60mm]
-    \inputtikz{\currfiledir H_sl_energien}
-    \caption{Die Spin-Bahn-Kopplung führt zu einer Aufspaltung nach $j$. Grau eingezeichnet sind die Bohr-Niveaus. In der Darstellung ändert sich die Energie-Skalierung mit $n$.}
-    \label{fig:5_H_sl_energien}
-\end{marginfigure} 
 
 
 
