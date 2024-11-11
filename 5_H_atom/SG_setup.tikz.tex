@@ -1,0 +1,123 @@
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+
+\newcommand{\magnet}[1]{
+   % \draw[fill=black] (0,0) circle (0.5mm);
+    \draw[fill=gray!10] (-\magz, {-\magw/2}) coordinate (b#1)
+           --  (-\magz, {\magw/2}) coordinate (a#1) 
+           arc [start angle=90, end angle=\phiu, radius={\magw*1.5}]  coordinate (u#1)
+           arc [start angle=\phiu, end angle=270, radius={\magw*1.5}] 
+           -- ++ ({5*\magz},0)
+           arc [start angle=-90, end angle=\phio, radius={\magw*1.5}]  coordinate (o#1)
+           arc [start angle=\phio, end angle=90, radius={\magw*1.5}]  coordinate (d#1)
+           -- (\magz, 0)  coordinate (c#1)
+        -- ({4*\magz}, {-\magw/2})  
+      arc [start angle=90, end angle=-90, radius={\magw/2}] 
+      -- ++ ({-5*\magz},0) coordinate (l#1)
+      arc [start angle=270, end angle=90, radius={\magw/2}] -- cycle;
+}
+
+\tdplotsetmaincoords{70}{120}
+
+\begin{tikzpicture}[tdplot_main_coords, font=\footnotesize, scale=0.7]
+
+    %screen ----------
+ 
+    \begin{scope}[canvas is zy plane at x=-6]
+      \draw[fill=gray!20] (-1,-1) rectangle (1,1);
+      \node at (-1.24,0) {Schirm};
+
+  \end{scope} 
+
+
+    % Magnet ------------------------------
+
+    \tikzmath{\magw = 1; \magz = 0.2; \phiu = 140; \phio = -40;}
+    \begin{scope}[canvas is zy plane at x=-3]
+        \magnet{h}
+    \end{scope} 
+
+    \begin{scope}[canvas is zy plane at x=-1.5]
+        \magnet{v}
+    \end{scope} 
+
+    \fill[fill=gray!10] (dv) -- (dh) -- ++ (0,-2,1) -- cycle;
+    \draw[fill=gray!10] (av) -- (ah) -- (bh) -- (bv) -- cycle;
+    \draw[fill=gray!50] (dv) -- (dh) -- (ch) -- (cv) -- cycle;
+    \fill[gray!10] (uv) -- ++(0,0,1) -- (uh) --cycle; % cover bottom right part
+    \draw (uv) -- (uh);
+    \fill[fill=gray!10] (lv)  rectangle ++(0,1,-1);
+    \fill[gray!10] (ov) -- (oh) -- ++ (0,0,-1) -- cycle;
+    \draw (ov) -- (oh);
+         
+    \begin{scope}[canvas is zy plane at x=-1.5]
+      \magnet{d}
+      \node at (-1.2,1) {Magnet};
+
+    \end{scope} 
+
+
+
+    %beam --------------
+
+    \foreach \y in {-0.07,-0.04,...,0.07}
+    {
+      \draw[line width=2pt, black!70] (1,\y,0) -- (-2,\y,0)  -- (-6,\y,0.2);
+      \draw[line width=2pt, black!70] (1,\y,0) -- (-2,\y,0)   -- (-6,\y,-0.2);
+   }
+ 
+     %blende ----------
+ 
+     \begin{scope}[canvas is zy plane at x=1.5]
+      \draw[fill=gray!20] (-1,-1) rectangle (1,1);
+      \draw[fill=white] (-0.07,-0.2) rectangle (0.07, 0.2);
+     
+      \node at (-1.2,1) {Blende};
+
+    \end{scope} 
+
+ %beam --------------
+
+ \foreach \y in {-0.07,-0.04,...,0.07}
+ {
+   \draw[line width=2pt,black!70]  (4,\y,0) -- (1.5,\y,0) ;
+   \draw[line width=2pt, black!70]  (4,\y,0) -- (1.5,\y,0)  ;
+}
+
+\tikzmath{\cp1 = 145; \cp2 = -35;}
+  %Ofen ------------
+  \begin{scope}[canvas is zy plane at x=4]
+     \draw[fill=gray!10]  (0,0) circle (0.4);
+     \coordinate (c1) at (\cp1:0.4);
+     \coordinate (c3) at (\cp2:0.4);
+  \end{scope} 
+
+
+  \begin{scope}[canvas is zy plane at x=6]
+    \coordinate (c2) at (\cp1:0.4);
+    \coordinate (c4) at (\cp2:0.4);
+   \end{scope} 
+ 
+   \fill[fill=gray!10] (c1) -- (c2) --(c4) -- (c3) -- cycle;
+   \draw (c1) -- (c2);
+   \draw (c3) -- (c4);
+
+   \begin{scope}[canvas is zy plane at x=6]
+    \draw[fill=gray!10]  (0,0) circle (4mm);
+    \node at (0,1.2) {Ofen};
+    \end{scope} 
+
+
+    % \draw[thick,->] (0,0,0) -- (1,0,0) node[anchor=north east]{$x$};
+    % \draw[thick,->] (0,0,0) -- (0,1,0) node[anchor=north west]{$y$};
+    % \draw[thick,->] (0,0,0) -- (0,0,1) node[anchor=south]{$z$};
+
+
+
+  \end{tikzpicture}
+
+
+%\end{document}

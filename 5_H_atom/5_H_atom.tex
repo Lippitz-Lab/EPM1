@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{7. November 2024}
+\renewcommand{\lastmod}{11. November 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Quantentheorie des H-Atoms}
@@ -31,7 +31,7 @@ Eine genauere Messung der Übergangslinien im Wasserstoffatom zeigt jedoch Abwei
 
 Heute dient das Wasserstoffatom als Präzisionstest für unsere Modelle, deren Details hier den Rahmen sprengen würden. Derzeit gibt es jedoch keine Diskrepanz zwischen Theorie und Experiment.
 
-Dieses und die beiden folgenden Kapitel sind in vielfältiger Weise miteinander verknüpft. An einigen Stellen muss ich daher den folgenden Kapiteln etwas vorgreifen. Die Reihenfolge ein Elektron -- viele Elektronen -- Magnetfeld ist nicht die einzig mögliche. In manchen Büchern ist die Reihenfolge anders. Ich beginne wieder mit \cite{Knight_Physik}, um dann zu \cite{Demtröder_ep3} überzugehen. Gut lesbar finde ich immer noch \cite{Harris_moderne_Physik}.
+Dieses und die beiden folgenden Kapitel sind in vielfältiger Weise miteinander verknüpft. An einigen Stellen muss ich daher den folgenden Kapiteln etwas vorgreifen. Die Reihenfolge ein Elektron -- viele Elektronen -- Magnetfeld ist nicht die einzig mögliche. In manchen Büchern ist die Reihenfolge anders. Ich beginne wieder mit \cite{Knight_physics}, um dann zu \cite{Demtröder_ep3} überzugehen. Gut lesbar finde ich immer noch \cite{Harris_moderne_Physik} und auch \cite{Heintze_WTA}.
 
 
 \section{Schrödinger-Gleichung in 3 Dimensionen}
@@ -184,7 +184,13 @@ und der reduzierten Masse $\mu$. Manchmal kombiniert man die komplexen Wellenfun
 
 Im letzten Kapitel haben wir die eindimensionale Wellenfunktion $\Psi(x)$ entweder direkt auf der x-Achse aufgetragen oder als Wahrscheinlichkeitsdichte $P(x) = |\Psi(x)|^2$ dargestellt. Im Eindimensionalen ist dies leicht möglich. Im Dreidimensionalen ordnet die Wahrscheinlichkeitsdichte jedem Punkt $\br$ im Raum einen Wert zu. Dies ist schwierig darzustellen. Zum einen ist Papier oder ein Bildschirm immer nur zweidimensional. Zum anderen verdecken 'vordere' Werte die dahinter liegenden, wenn der Wert z.B. als Farbe kodiert ist.
 
-Es gibt verschiedene Möglichkeiten, die jedoch alle ihre Vor- und Nachteile haben (Die Abbildungen XXX zeigen Beispiele):
+\begin{marginfigure}
+    \includegraphics[width=40mm]{\currfiledir pluto/scatter_WF.png}
+    \caption{Wellenfunktion eines 3d-Zustandes als Punktwolke simulierter Detektionsereignisse. Das Vorzeichen der Wellenfunktion ergibt die Farbe des Punktes.}
+\end{marginfigure}
+
+
+Es gibt verschiedene Möglichkeiten, die jedoch alle ihre Vor- und Nachteile haben (Die folgenden Abbildungen zeigen Beispiele):
 \begin{description}
     \item[Punktwolke] Man kann die Detektion des Elektrons an verschiedenen Orten simulieren und in eine Punktwolke eintragen. Je näher die Punkte beieinander liegen, desto höher ist die Wahrscheinlichkeitsdichte. Die Gesamtzahl der Punkte muss klein gehalten werden, damit die Wolke noch einigermaßen durchsichtig ist. Am Computer kann man die Wolke drehen, um einen dreidimensionalen Eindruck zu erhalten.
     \item[Iso-Flächen] Man kann Flächen $P(\br) = |\Psi(\br)|^2 = const.$ zeichnen, ähnlich den Isobaren im Wetterbericht. Wenn die Konstante gut gewählt ist, erhält man eine Vorstellung von der Wellenfunktion. Diese kann dreidimensional dargestellt oder mit einer Ebene geschnitten werden.
@@ -196,9 +202,25 @@ Es gibt verschiedene Möglichkeiten, die jedoch alle ihre Vor- und Nachteile hab
     Der Term $4 \pi r^2$ berücksichtigt, dass mit zunehmendem Radius $r$ die Anzahl der Möglichkeiten und also das Volumen der Kugelschale zunimmt.
 \end{description}
 
+\begin{figure}[tb]
+    \inputtikz{\currfiledir WF_3d_panel}
+    \caption{Iso-Flächen der Wellenfunktionen $\Psi(\br)$. Angegeben sind die Quantenzahlen $(n,l,m,)$. Die Farbe kodiert das Vorzeichen. Die Größe ist willkürlich skaliert.}
+\end{figure}
 
 Die verschiedenen Darstellungen scheinen sich zu widersprechen. Alle s-Wellenfunktionen (also $l=0$) haben ein Maximum bei $P(\br = 0)$, aber eine Nullstelle bei $P_r(r=0)$. Der wahrscheinlichste Ort für ein Elektron ist daher der Kern. Gleichzeitig ist der wahrscheinlichste Abstand vom Kern weit von Null entfernt.  Dies sind jedoch zwei verschiedene Fragen.  Für große Abstände gibt es viel mehr Möglichkeiten auf der Kugeloberfläche. Jede dieser Möglichkeiten ist für sich jedoch unwahrscheinlicher als der Ort auf dem Kern.
 
+
+\begin{figure}[tb]
+    \inputtikz{\currfiledir WF_P_2d_panel}
+    \caption{Schnitt der Wellenfunktion $\Psi(\br)$ und der Wahrscheinlichkeitsdichte $P(\br)$ in der xy-Ebene. Die Längen sind mit $1/n^2$ skaliert, die Wellenfunktionen mit $1/n^3$. Die Farbe kodiert das Vorzeichen.}
+\end{figure}
+
+
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir radial_P}
+    \caption{Radiale Aufenthaltswahrscheinlichkeiten  $P_r(r)$ für $n=1,2,3$.}
+\end{marginfigure}
 
 Betrachtet man die radiale Aufenthaltswahrscheinlichkeit $P_r(r)$, so stellt man fest, dass die Wellenfunktionen mit dem größten $l$ bei gegebenen $n$, also 1s, 2p, 3d usw., ihre Maxima bei den von Bohr erwarteten Radien, also $1 a_B$, $4 a_B$ und $9 a_B$ haben. Die anderen Wellenfunktionen liegen mit einer gewissen Wahrscheinlichkeit weiter außen. Dies ist eine weitere Konsequenz des Korrespondenzprinzips. Für große Quantenzahlen $l$ werden die Elektronen immer klassischer, die Bahnen immer kreisförmiger, immer näher am Bohrschen Modell. Bei kleinen Bahndrehimpulsen ist die Bahn nicht mehr so kreisförmig, bis hin zur s-Wellenfunktion ohne Bahndrehimpuls.
 
@@ -235,6 +257,7 @@ Die Bahnbewegung des Elektrons kann als Strom aufgefasst werden und ist mit eine
 Die Messung des magnetischen Moments gibt also Auskunft über den Bahndrehimpuls $\bl$.
 Um 1922 wollten Otto Stern und Walter Gerlach deshalb das magnetische Moment von Atomen messen und damit den Bahndrehimpuls bestimmen. Rückblickend haben sie damit den Spin des Elektrons gefunden.\footcite{SEP_Stern_gerlach}
 
+
 Die potentielle Energie eines magnetischen Moments in einem magnetischen Feld beträgt
 \begin{equation}
     U_B = - \bmu \cdot \bB \quad .
@@ -244,6 +267,11 @@ Daher wirkt eine Kraft $\bF_B$
     \bF_B = - \text{grad} ( U_B ) =  \text{grad} (\bmu \cdot \bB ) = \mu_z \cdot \frac{\partial B}{\partial z} \quad .
 \end{equation}
 Im letzten Schritt wurde die übliche Annahme getroffen, dass das Magnetfeld in z-Richtung orientiert ist. Eine räumliche Änderung (in z-Richtung) des Magnetfeldes bewirkt somit eine Kraft auf einen magnetischen Dipol, die proportional zur z-Komponente des Dipols ist.
+
+\begin{marginfigure} 
+    \inputtikz{\currfiledir SG_setup}
+    \caption{Stern-Gerlach Versuch. Ein Strahl von Silberatomen wird im inhomogenen Magnetfeld aufgespaltenen.}
+\end{marginfigure}
 
 Dies kann man sich auch anschaulich vorstellen, wenn man sich den magnetischen Dipol als Stabmagnet vorstellt. Befindet sich der Nordpol des Magneten an einer größeren z-Koordinate, so ist die Kraft auf ihn größer als die Kraft auf den Südpol, weil das Feld mit z stärker wird. Daraus ergibt sich eine Nettokraft in positiver z-Richtung. 
 
@@ -315,17 +343,18 @@ Welche Werte kann $\bj$ bzw. seine Quantenzahl $j$ annehmen? Wir haben $\bj$ als
 
 \section{Alle relativistischen Korrekturen zusammen}
 
+\begin{marginfigure}[-20mm]
+    \inputtikz{\currfiledir H_sl_energien}
+    \caption{Die Spin-Bahn-Kopplung führt zu einer Aufspaltung nach $j$. Grau eingezeichnet sind die Bohr-Niveaus. In der Darstellung ändert sich die Energie-Skalierung mit $n$.}
+    \label{fig:5_H_sl_energien}
+\end{marginfigure} 
+
 Nimmt man alle drei relativistischen Korrekturen zusammen, die Massenzunahme, die Positionsunschärfe und die Spin-Bahn-Kopplung, so erhält man im Wasserstoffatom Eigenenergien, die nur noch von $n$ und $j$, aber nicht mehr von $l$ abhängen. ($s$ ist ohnehin immer $1/2$, nur die Richtung des Spins $m_s$ ist relevant).
 \begin{equation}
     E_{n,j} = E_n \left[ 1 + \frac{\alpha^2}{n} \left( \frac{1}{j + 1/2} - \frac{3}{4n} \right) \right]
 \end{equation}
 Wir ergänzend ie Bezeichnung der   Zustände durch ein tiefergestelltes $j$. Die Zustände 2s$_{1/2}$ und 2p$_{1/2}$ haben also die selbe Energie, ebenso  3p$_{3/2}$ und 3d$_{3/2}$. Abbildung \ref{fig:5_H_sl_energien} skizziert dies.
 
-\begin{marginfigure}[-60mm]
-    \inputtikz{\currfiledir H_sl_energien}
-    \caption{Die Spin-Bahn-Kopplung führt zu einer Aufspaltung nach $j$. Grau eingezeichnet sind die Bohr-Niveaus. In der Darstellung ändert sich die Energie-Skalierung mit $n$.}
-    \label{fig:5_H_sl_energien}
-\end{marginfigure} 
 
 
 

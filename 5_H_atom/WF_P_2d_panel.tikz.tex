@@ -1,0 +1,42 @@
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+\newcommand{\myelemc}[5]{%
+\node[inner sep=0pt]  at ({#1*2.2},{#2*-2.2}) {\includegraphics[width=2.2cm] {\currfiledir pluto/#5_#3.png}};
+\begin{pgfonlayer}{foreground}
+\node at ({#1*2.2}, {#2*-2.2 + 1}) {#4};
+\end{pgfonlayer}
+}
+
+\newcommand{\myelem}[4]{%
+\myelemc{#1}{#2}{#3}{}{WF};
+\myelemc{#1}{ {-2.2+#2} }{#3}{#4}{P};
+}
+
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{main,foreground}
+
+\begin{tikzpicture}[font=\footnotesize]
+
+    \node[rotate=0] at (-1.7,0) {$\Psi(x,y)$};
+    \node[rotate=0] at (-1.7,-2.2) {$|\Psi(x,y)|^2$};
+    \node[rotate=0] at (-1.7,-4.4) {$\Psi(x,y)$};
+    \node[rotate=0] at (-1.7,-6.6) {$|\Psi(x,y)|^2$};
+
+    \myelem{0}{0}{1_0_0}{1s};
+    \myelem{1}{0}{2_0_0}{2s};
+    \myelem{2}{0}{3_0_0}{3s};
+    \myelem{3}{0}{4_0_0}{4s};
+
+
+    \myelem{0}{2}{2_1_0}{2p$_y$};
+    \myelem{1}{2}{2_1_1}{2p$_x$};
+    \myelem{2}{2}{3_1_0}{3p$_y$};
+    \myelem{3}{2}{4_1_0}{4p$_y$};
+
+
+\end{tikzpicture}
+
+%\end{document}
