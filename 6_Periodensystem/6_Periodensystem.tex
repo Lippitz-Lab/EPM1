@@ -215,9 +215,9 @@ Die chemischen Eigenschaften der Elemente werden wesentlich durch die Anzahl und
 \begin{description}
     \item[Wasserstoff (\ch{H}) )] Das Wasserstoffatom besitzt nur ein Elektron, das sich im 1s-Zustand bei -13,6~eV befindet.
   
-  \item[Hellium (\ch{He})] Helium hat zwei Protonen. Die Energie des 1s-Zustandes wäre daher eigentlich um den Faktor $n^2 = 4$ negativer als die des Wasserstoffs, also -54,4~eV. Die beiden Elektronen stoßen sich aber ab, so dass sie im Potential weiter außen liegen, also etwas weniger negativ. Damit liegt der 1s-Zustand bei XXX nun bei etwa -40 eV. Man schreibt die \emph{Elektronenkonfiguration} als 1s$^2$, wobei die hochgestellte Zahl die Anzahl der Elektronen in der 1s-Schale angibt. Nach dem Pauli-Prinzip haben die beiden Elektronen entgegengesetzten Spin. Helium ist ein Edelgas, da seine voll besetzte 1s-Schale energetisch relativ weit von der Ionisationsgrenze bei $E=0$ entfernt ist.
+  \item[Hellium (\ch{He})] Helium hat zwei Protonen. Die Energie des 1s-Zustandes wäre daher eigentlich um den Faktor $n^2 = 4$ negativer als die des Wasserstoffs, also -54,4~eV. Die beiden Elektronen stoßen sich aber ab, so dass sie im Potential weiter außen liegen, also etwas weniger negativ. Damit liegt der 1s-Zustand bei etwa -24.6 eV. Man schreibt die \emph{Elektronenkonfiguration} als 1s$^2$, wobei die hochgestellte Zahl die Anzahl der Elektronen in der 1s-Schale angibt. Nach dem Pauli-Prinzip haben die beiden Elektronen entgegengesetzten Spin. Helium ist ein Edelgas, da seine voll besetzte 1s-Schale energetisch relativ weit von der Ionisationsgrenze bei $E=0$ entfernt ist.
    
-    \item[Lithium (\ch{Li})] Da die 1s-Schale voll besetzt ist, muss das dritte Elektron in die 2s-Schale gehen. Lithium hat also nur ein Valenzelektron, das nur schwach gebunden ist (XXX eV). Lithium ist daher chemisch sehr reaktionsfreudig.
+    \item[Lithium (\ch{Li})] Da die 1s-Schale voll besetzt ist, muss das dritte Elektron in die 2s-Schale gehen. Lithium hat also nur ein Valenzelektron, das nur schwach gebunden ist (5.4 eV). Lithium ist daher chemisch sehr reaktionsfreudig.
     
     \item[Kohelnstoff (\ch{C})]   Kohlenstoff hat die Elektronenkonfiguration 1s$^2$2s$^2$2p$^2$ oder abgekürzt [He]2s$^2$2p$^2$. In der 2p-Schale befinden sich also 2 Elektronen. Während bei zwei Elektronen in einer s-Schale der Spin immer entgegengesetzt sein muss, ist dies in einer p-Schale nicht mehr notwendig, es gibt sogar 3 verschiedene Werte für $m_l$. Die \emph{Hund'sche Regel} bestimmt, in welcher Reihenfolge diese insgesamt 6 Zustände der p-Schale besetzt werden: Zunächst haben alle Elektronen die gleiche Spinausrichtung, erst das 4. Elektron (bei Sauerstoff) hat die entgegengesetzte. Wie wir später sehen werden, wird dadurch der Gesamtspin maximiert. Die Hund'sche Regel ist nur eine Abkürzung für eine Energiebetrachtung. Wenn die Elektronen den gleichen Spin haben, sind sie viel weiter voneinander entfernt (siehe Beispiel am Anfang des Kapitels). Dadurch verringert sich die Energie ihrer gegenseitigen Coulomb-Abstoßung.
     
@@ -232,8 +232,22 @@ Diese Periodizität findet sich in vielen chemischen Eigenschaften wieder. Abbil
 
 \begin{marginfigure}
     \inputtikz{\currfiledir E_ionisation}
-    \caption{Ionisationsenergie der ersten Elemente (Daten aus XXX Julia). Die gefüllten Schalen der Edelgase sind besonders stabil.}
+    \caption{Ionisationsenergie der ersten Elemente (Daten aus dem Paket Mendeleev.jl). Die gefüllten Schalen der Edelgase sind besonders stabil.}
 \end{marginfigure}
+
+
+\section{Viele Drehimpulse}
+
+
+Für das Wasserstoffatom haben wir die Spin-Bahn-Kopplung besprochen, d.h. den Energiebeitrag des Spins des Elektrons im Magnetfeld, der sich aus der Bahn ergibt. Bei Mehrelektronenatomen hat jedes Elektron einen Spin $\bs_i$ und einen Bahndrehimpuls $\bl_l$. Jede Kombination $\bs_i \cdot \bl_j$ liefert einen Energiebeitrag. Das ist zunächst unübersichtlich. Glücklicherweise lassen sich viele Atome sehr gut durch einen der beiden einfachen Grenzfälle beschreiben. Dazu müssen wir zunächst den Gesamtspin und den Gesamtdrehimpuls einführen und auch die Addition von Drehimpulsen in der Quantenmechanik etwas genauer betrachten.
+
+
+\section{Addition von Drehimpulsen}
+
+Schon im letzten Kapitel hatten wir den Drehimpuls $\bj$ eingeführt als $\bj = \bl + \bs$ und die Eigenschaften von $\bj$ besrpcohen. Dabei hat geholfen, dass der Spin eines einzelnen Elektrons nur in zwei versciednee Reichtungen zeigen kann, up oder down. Der (bald eingeführte) Gesamtspin $\bS$ kann größer sein und damit megr Orientungen haben. Daher müssen wir das noch eteas genauer besprechen. Ich benutze hier die Variablen $\bJ = \bL + \bS$, also die große Buchgstaben der demnäcsht eingeführten Gesamt-Dreshimpulse. Das funktionoert so aber mit jeglicher zwei drehimpulsartigen Vektoren.
+
+Nehmen wir an, dass wir von den beiden Vektoren $\bS$ und $\bL$ die Länge (quantenzahl $S$ und $L$) und die z-Kompinente (Quantenzahl $m_S$ und $m_L$) kennen. Was können wir damit über den Vektor $\bJ$ und seine Quantenzahlen $J$ und $m_J$ aussagen? Der Anhang XXX gibt die Antwort im Fiormualsimis der Quantenmechanil
+
 
 
 \section{Zusammenfassung}

@@ -13,114 +13,240 @@ using Plots
 # ╔═╡ c7f07bee-1da0-460d-b953-a7791592cbf3
 using CSV, DataFrames
 
+# ╔═╡ 917f126f-bf16-4d4b-abb5-c59a8f45c6bf
+using HTTP
+
 # ╔═╡ 81e6532d-8341-4d9a-a917-92edc607de56
 using PGFPlotsX
 
 # ╔═╡ 0f1e2428-5a65-4351-9aea-83009a13c4b6
 using Unitful
 
-# ╔═╡ a10b5d27-c82e-43e7-9970-b70ac26591df
+# ╔═╡ 1da99de9-b1d3-4190-90bf-74ca88745081
+# ╠═╡ show_logs = false
 begin
-# XPS data from https://userweb.jlab.org/~gwyn/ebindene.html
-	xps_raw =
-	"1 H     13.6 
-	 2 He    24.6*
-	 3 Li    54.7*
-	 4 Be    111.5*
-	 5 B     188*
-	 6 C     284.2*
-	 7 N     409.9*   37.3*
-	 8 0     543.1*   41.6*
-	 9 F     696.7*
-	10 Ne    870.2*   48.5*    21.7*    21.6*
-	11 Na    1070.8+  63.5+    30.65    30.81
-	12 Mg    1303.0+  88.7     49.78    49.50
-	13 Al    1559.6   117.8*   72.95    72.55
-	14 Si    1839     149.7*  99.82    99.42"
-	xps = replace(xps_raw, '*' => "", '+' => "", '\t' => "")
-	xps_data = CSV.read(IOBuffer(xps), DataFrame; header = [:Z, :ch, :a, :b, :c, :d], delim = ' ', ignorerepeated=true)
-end
-
-# ╔═╡ 267e83da-bdf2-4abd-ac29-086570e53d00
-begin
-	# reconstuct electron levels
+	xps_raw = open("../data/xps.dat") do file
+	    		read(file, String)
+			end
+	xps = replace(xps_raw, '*' => "", '+' => "",'a' => "",'b' => "", '\t' => "")
+		
+	xps_data = CSV.read(IOBuffer(xps), DataFrame; header = [:Z, :ch, :K, :L1, :L2, :L3, :M1, :M2, :M3 , :M4, :M5, :N1, :N2, :N3, :dummy ], delim = ' ', ignorerepeated=true, skipto=3)
 	
-	Eion = [e.ionenergy[1] |> ustrip for e in chem_elements[1:14]]
-	s1 = xps_data.a
+end;
+
+# ╔═╡ ed450e1b-a9a1-49d1-a537-887575856e5f
+num_elements = length(xps_data.Z)
+
+# ╔═╡ 8bdb35bf-51c2-4824-86a4-c4a549ec14d2
+	Eion = [e.ionenergy[1] |> ustrip for e in chem_elements[1:num_elements]];
+
+# ╔═╡ 84cd1426-d21b-4192-82f8-142760f83ea8
+function getlevels(element)
+	#element = "Na i"
+
+	# fetch data from NIST Atomic Spectra Database
+	url ="https://physics.nist.gov/cgi-bin/ASD/energy1.pl?de=0&spectrum=$(HTTP.escape(element))&submit=Retrieve+Data&units=1&format=2&output=1&page_size=45&multiplet_ordered=1&conf_out=on&level_out=on&temp="
 	
-	s2 = xps_data.b;
-	s2[ [5, 6, 9] ] .= [15, 25, 45] # guessed
-	s2[ [3, 4] ] .= Eion[ [3,4] ]
+	rawdata = CSV.read(download(url), DataFrame, header = [:conf, :pre, :E, :suf, :dummy], skipto=2)
 
-	p2 = xps_data.c
-	p2[ (5:9) ] .= Eion[ (5:9) ]
+	# extract highest electron state descriptor, ie., 1s, 3p, etc.
+	s = replace.(rawdata.conf, '=' => "", '\"' => "")
+	f = findlast.( ".", s)
+	sl = deepcopy(s)
+	for id = 1: length(f)
+		temp= s[id] #[f[id]:end]
+		si = f[id]
+		if (si != nothing)
+			if (id == 1) & isdigit(temp[end])
+				sl[id] = temp[(si[1] +1):end-1] # clean up GS
+			else
+				sl[id] = temp[(si[1] +1):end]
+			end		
+		end
+	end
 
-	s3 = missings(Float64, 14)
-	s3[ (13:14) ] .= [11, 17]  # guessed
-	s3[ (11:12) ] .=  Eion[ [11, 12] ]
+	# keep only one of each state, as fine structure does not matter
+	i = unique(i -> sl[i], eachindex(sl))
+
+	# format energy column (eV)
+	E = parse.(Float64, replace.(rawdata.E, '=' => "", '\"' => ""))
+	lev = DataFrame()
+	lev.lev = sl[i]
+	lev.E = E[i]
 	
-	p3 = missings(Float64, 14)
-	p3[ (13:14) ] .=  Eion[ [13, 14] ]
-
-
-	
-end
+	return lev
+end;
 
 # ╔═╡ 5be89f6e-9162-4742-a349-2ed7ba7e3905
--13.6 ./ ([2,3,4]).^2
+all_level = [ getlevels(join([string(chem_elements[id].symbol), " I"])) for id in (1:num_elements)]
 
-# ╔═╡ 2ee01c71-a255-4930-b976-4de4f161f347
-begin
-		marker = [:He, :Ne, :Ar, :Kr, :Xe, :Hg]
-		marker_e = [e.ionenergy[1] for e in chem_elements[marker]]
-		marker_Z = [e.protons for e in chem_elements[marker]]
-	
-		scatter(s1 )
-		scatter!(s2 )
-		scatter!(p2)
-		scatter!(s3, yscale=:log10)
-		scatter!(p3, yscale=:log10)
-	scatter!( [1,1,1], 13.6 ./ ([1,2,3]).^2)
-		#scatter!(Eion;  yscale=:log10)
-		#scatter!(guess_x, guess_y; yscale=:log10)
-		#scatter!(marker_Z, marker_e)
+# ╔═╡ 3f98d8a5-3b62-43ac-9193-09b41dd77434
+all_level[21]
+
+# ╔═╡ 0e729e0c-d064-4a70-97bd-5614a6d8a96c
+function state_energies(data, lev)
+
+	energy =missings(Float64, length(data))
+	for id=1:length(data)
+		df = data[id]
+		row = findfirst(==(lev), df.lev)
+		if row != nothing
+			energy[id] = df[row, :].E
+		end
+	end
+	return energy
 end
 
-# ╔═╡ 312ba9c8-3709-43bd-b071-ff1d98617f58
-[e.el_config for e in chem_elements[ 1:14]]
+# ╔═╡ fbbd1678-eda5-46cb-8dc1-21d6021ea693
+function fill_xps(xps, lev)
+	for id = 1 : length(lev)
+		if ismissing(xps[id]) 
+			xps[id] = lev[id]
+		end
+	end
+	return xps
+end
 
-# ╔═╡ 7c16d007-8227-480b-add0-fec786f5767d
-chem_elements[2].symbol
+# ╔═╡ 27da4977-1614-4250-aaa4-bd43572b9ea9
+begin
+	# unify XPS and ALD data
+	uni = DataFrame()
+	uni.s1 = xps_data.K
+	uni.s2 = fill_xps(xps_data.L1, Eion - state_energies(all_level, "2s") )
+	uni.p2 = fill_xps( (xps_data.L2 + xps_data.L3 ) ./ 2  , 
+					Eion - state_energies(all_level, "2p") )
+	
+	uni.s3 = fill_xps(xps_data.M1, Eion - state_energies(all_level, "3s") )
+	uni.p3 = fill_xps( (xps_data.M2 + xps_data.M3 ) ./ 2  , 
+					Eion - state_energies(all_level, "3p") )
+
+	uni.d3 = fill_xps( (xps_data.M4 + xps_data.M5 ) ./ 2  , 
+					Eion - state_energies(all_level, "3d") )
+
+	uni.s4 = fill_xps(xps_data.N1, Eion - state_energies(all_level, "4s") )
+	uni.p4 = fill_xps( (xps_data.N2 + xps_data.N3 ) ./ 2  , 
+					Eion - state_energies(all_level, "4p") )
+
+	uni.s2[ [5,6, 9] ] = [20,30, 45]  # faked !
+	uni.s3[ (13:17) ] = [10, 12, 14, 16, 18]  # faked !
+	uni.d3[ (20:29) ] =  (0:9) .+ 2   # faked !
+	uni.s4[ (31:35) ] = [10, 12, 14, 16, 18]  # faked !
+	uni.p4[ [7, 22,23, 25, 26, 27] ] = [1.3, 4, 4, 4, 4, 4]
+	
+
+	uni
+end
+
+# ╔═╡ 5da3aa75-f4b9-45c8-9357-64249eb83162
+chem_elements[21]
 
 
-# ╔═╡ 74057057-c549-479d-a7f6-3c2c2ff4adba
-names =  join( [String(e.symbol) for e in chem_elements[ 1:14]], ",")
+# ╔═╡ 1e96eb1f-3c05-4d6f-bc25-aa08402ea602
+begin
+	plot(uni.s1)
+	plot!(uni.s2; connectgaps=true)
+	plot!(uni.s3, yaxis=:log10)
+	plot!(uni.s4, yaxis=:log10)
+
+	plot!(uni.p2)
+	plot!(uni.p3)
+	plot!(uni.p4, yaxis=:log10)
+
+	plot!(uni.d3)
+end
+
+# ╔═╡ 250d0f0d-979e-40d8-a788-c5c360d1932b
+function n_elec_norm(Z)
+	
+	s = replace(chem_elements[Z].el_config, 
+		'¹' => 1, '²' => 2, '³' =>3 , '⁴' => 4, '⁵' => 5, '⁶' => 6, '⁷' => 7, '⁸' => 8, '⁹' => 9, '⁰' => 0, "s" =>"1" , "p" =>"2", "d" =>"3", "f" => 4)
+
+	N= Float64.(zeros(7,4))
+
+	for s_level in split(s, ' ')	
+		#println(s_level)
+
+		nelec =  parse(Int64, s_level[3:end])
+		n =  parse(Int64, s_level[1])
+		l = parse(Int64,   s_level[2]) # our l starts at 1!
+		N[ n, l] = nelec ./ (2 * (2 * (l-1) +1))
+	end
+	
+	return N
+end;
 
 # ╔═╡ d8f913ce-4997-4a7a-8311-55fec594bb32
 function n_elec(Z)
 	
 	s = replace(chem_elements[Z].el_config, 
-		'¹' => 1, '²' => 2, '³' =>3 , '⁴' => 4, '⁵' => 5, '⁶' => 6)
-	
-	nelec =  [parse(Int64, c) for c in s[ (3:4:end) ] ]
-	
-	ss = s[ (2:4:end) ]
-	ps = replace( ss, "s" =>"1" , "p" =>"2", "d" =>"3")
-	
-	p =  [parse(Int64, c) for c in ps ]
-	n =  [parse(Int64, c) for c in s[ (1:4:end) ] ]
+		'¹' => 1, '²' => 2, '³' =>3 , '⁴' => 4, '⁵' => 5, '⁶' => 6, '⁷' => 7, '⁸' => 8, '⁹' => 9, '⁰' => 0, "s" =>"1" , "p" =>"2", "d" =>"3", "f" => 4)
 
-	N= Int64.(zeros(4,3))
-	for id =1 :length(nelec)
-		N[ n[id], p[id]] = nelec[id]
+	N= Float64.(zeros(7,4))
+
+	for s_level in split(s, ' ')	
+		#println(s_level)
+
+		nelec =  parse(Int64, s_level[3:end])
+		n =  parse(Int64, s_level[1])
+		l = parse(Int64,   s_level[2]) # our l starts at 1!
+		N[ n, l] = nelec 
 	end
 	
 	return N
 end;
 
 
-# ╔═╡ fb9bf422-73bf-437e-9b84-c4939f37d48d
-n_elec(14)
+# ╔═╡ 374c395f-3899-4ff0-8eec-49f13efd8652
+begin
+	nz = zeros(num_elements, 7,4)
+	
+	for id =1 :num_elements
+		nz[id,:,:] = n_elec_norm(id)
+	end
+end
+
+# ╔═╡ a07ca37f-5dc8-4016-9695-e37dcbe3166f
+begin
+	plot(uni.s1, linewidth= 0.5 .+ nz[:,1,1] .* 5)
+
+	plot!(uni.s2; linewidth= 0.5 .+ nz[:,2,1] .* 5)
+
+	plot!(uni.s3, yaxis=:log10, linewidth= 0.5 .+ nz[:,3,1] .* 5)
+
+	plot!(uni.s4, linewidth= 0.5 .+ nz[:,4,1] .* 5)
+
+
+	plot!(uni.p2, linewidth= 0.5 .+ nz[:,2,2] .* 5)
+
+	plot!(uni.p3, linecolor= :red) #, nz[:,3,2] ))
+
+	plot!(uni.p4, linewidth= 0.5 .+ nz[:,4,2] .* 5)
+
+	plot!(uni.d3, linewidth= 0.5 .+ nz[:,3,3] .* 5)
+end
+
+# ╔═╡ 9efd58f1-7c2b-4b5b-838c-ec03760dd927
+begin
+	plot(sqrt.( uni.s1 ) , linewidth= 0.5 .+ nz[:,1,1] .* 5)
+
+	plot!(sqrt.( uni.s2 )  ; linewidth= 0.5 .+ nz[:,2,1] .* 5)
+
+	plot!(sqrt.( uni.s3 )  ,  linewidth= 0.5 .+ nz[:,3,1] .* 5)
+
+	plot!(sqrt.( uni.s4 )  , linewidth= 0.5 .+ nz[:,4,1] .* 5)
+
+
+	plot!(sqrt.( uni.p2 ), linewidth= 0.5 .+ nz[:,2,2] .* 5)
+
+	plot!(sqrt.( uni.p3 ), linewidth = 0.5 .+ nz[:,3,2] .* 5)
+
+	plot!(sqrt.( uni.p4 ) , linewidth= 0.5 .+ nz[:,4,2] .* 5)
+
+	plot!(sqrt.( uni.d3 ), linewidth= 0.5 .+ nz[:,3,3] .* 5, legend=false, yrange =(0,5))
+end
+
+# ╔═╡ 74057057-c549-479d-a7f6-3c2c2ff4adba
+names =  join( [String(e.symbol) for e in chem_elements[ 1:num_elements]], ",")
 
 # ╔═╡ 9520a2bb-648f-4dfd-8aa5-383ed9554a24
 function sw(L)
@@ -131,8 +257,17 @@ function sw(L)
 end
 
 # ╔═╡ ecc0d4c6-b3af-46a3-822f-bed3430a2106
-state(E, l, Z) = "\\draw[line width=0.7pt]  ( $(Z-sw(l)), $(-log10.(E[Z]))) 
+function state(E, l, Z) 
+	if (log10(E[Z]) >  log10(5) )
+			s = "\\draw[line width=0.7pt]  ( $(Z-sw(l)), $(-log10.(E[Z]))) 
 			             -- ( $(Z+sw(l)), $(-log10.(E[Z])));"  
+	else 	
+			s = "\\draw[line width=0.7pt, gray!70]  ( $(Z-sw(l)), $(-log10.(E[Z]))) 
+			             -- ( $(Z+sw(l)), $(-log10.(E[Z])));"  
+	 	
+	end
+	return s
+end
 
 # ╔═╡ 3e47ddcb-c236-40e9-baae-2102d4672f42
 function epos(n, l, Z)
@@ -145,33 +280,44 @@ function epos(n, l, Z)
 		return pos
 end
 
+# ╔═╡ e405d76b-833e-49fb-9288-7403604dd9e3
+epos(2,1,17)
+
 # ╔═╡ 430e3a1d-4266-4bb3-bfad-8a57bff4c093
 function electrons(E, n, l, Z)
 	ep = epos(n,l,Z)
 	s = ""
 	for id = 1:length(ep)
-		if (iseven(id))
-			arrow = "<-"
+		
+		if (id-1 > (2*l) )
+			arrow = "{Latex[length=1mm,width=0.5mm]}-"
+			dy = -0.02
 		else
-			arrow = "->"
+			arrow = raw"-{Latex[length=1mm,width=0.5mm]}"
+			dy = 0.02
 		end
 	
-		s1 = "\\draw[ $(arrow) ]  ( $(Z + ep[id]), $(-log10.(E[Z]) -0.07 )) 
-					             -- ( $(Z + ep[id]), $(-log10.(E[Z]) +0.07 ));"
+		s1 = "\\draw[ $(arrow) ]  ( $(Z + ep[id]), $(-log10.(E[Z]) -0.08 + dy )) 
+					             -- ( $(Z + ep[id]), $(-log10.(E[Z]) +0.08 + dy ));"
 		s = join([s, s1])
 	end
 	return s
 end
 
+# ╔═╡ 18e7b588-c114-4965-8887-f706e5afab25
+chem_elements[3].ionenergy[1]
+
 # ╔═╡ 6a87d844-1266-46ad-b33c-6271dcaf3d4a
 let
-
+	push!(PGFPlotsX.CUSTOM_PREAMBLE, raw"\usetikzlibrary{arrows.meta}")
+	zmax = 14;
+	
 	myaxis = @pgf PGFPlotsX.Axis(
-	    {
-	     ymin = -3.5, 
+	    { "axis on top",
+	     ymin = -2.55, 
 		    ymax = 0, 
-			xmin = 0,			
-		  xmax = 15,
+			xmin = 0.5,			
+		  xmax = zmax+0.5,
 	width="105mm",
 	height="65mm",
 	font = "\\footnotesize",
@@ -180,7 +326,7 @@ let
 			#axis_y_line ="left",
 			ylabel = raw"Energie $E$ (eV)",
 			#xlabel=raw"Kernladung $Z$ ",
-			yticklabels = raw"  $-10^4$, $-10^3$, $-100$, $-10$, $-1$ ",
+			yticklabels = raw"   $-10^3$, $-100$, $-10$, $-1$ ",
 			xticklabels= names,
 			xtick= "{1,...,14}",
 		#"hide axis",
@@ -188,60 +334,80 @@ let
 		);
 
 
-	x = (1:0.1:length(s1)+1)
+	push!(myaxis, "\\fill[gray!10] (0, $(-log10(5)) ) 
+							rectangle (15, $(- log10(24)) );")
 
-	 p = @pgf PGFPlotsX.Plot(
-        {
-         gray
-        },
-       Table(["x" => x, "y" =>  -log10.(x.^2) .-1])
-    )
-		push!(myaxis, p)
+	
+ #	x = (0.5:0.1:zmax+1)
+	# p = @pgf PGFPlotsX.Plot( { gray}, Table(["x" => x, "y" =>  -log10.(x.^2) .-1]))
+#	push!(myaxis, p)
 
 
+
+	#---------- 1s 
+	for id = 1 :6 #zmax
+		push!(myaxis, state(uni.s1, 0, id))
+		push!(myaxis, electrons(uni.s1, 1,0 , id))
+	end
+
+	
+	#---------- 2s 
+	for id = 1 :zmax
+		push!(myaxis, state(uni.s2, 0, id))
+		push!(myaxis, electrons(uni.s2, 2,0 , id))
+	end
+
+	
+	#---------- 2p
+	for id = 1 :zmax
+		push!(myaxis, state(uni.p2, 1, id))
+		push!(myaxis, electrons(uni.p2, 2,1 , id))
+	end
+
+	#---------- 3s 
+	for id = 1 : zmax
+		push!(myaxis, state(uni.s3, 0, id))
+		push!(myaxis, electrons(uni.s3, 3,0 , id))
+	end
+
+ 
+	#---------- 3p
+	for id = 1 : zmax
+		push!(myaxis, state(uni.p3, 1, id))
+		push!(myaxis, electrons(uni.p3, 3,1 , id))
+	end
+
+		#---------- 3d
+	#for id = 1 : zmax
+	#	push!(myaxis, state(uni.d3, 2, id))
+	#	push!(myaxis, electrons(uni.d3, 3,2 , id))
+	#end
+
+	
+
+	#---------- 4s
+	for id = 1 : zmax
+		push!(myaxis, state(uni.s4, 0, id))
+		push!(myaxis, electrons(uni.s4, 4,0 , id))
+	end
+
+	#---------- 4p
+	for id = 1 : zmax
+		push!(myaxis, state(uni.p4, 1, id))
+		push!(myaxis, electrons(uni.p4, 4,1 , id))
+	end
+
+	
 	push!(myaxis, "\\draw[dotted] (2.5,0) -- (2.5,-5);")
 	push!(myaxis, "\\draw[dotted] (4.5,0) -- (4.5,-5);")
 	push!(myaxis, "\\draw[dotted] (10.5,0) -- (10.5,-5);")
 	push!(myaxis, "\\draw[dotted] (12.5,0) -- (12.5,-5);")
 	
-	push!(myaxis, "\\node at (1.5, -0.2) {1s};")
-	push!(myaxis, "\\node at (3.5, -0.2) {2s};")
-	push!(myaxis, "\\node at (7.5, -0.2) {2p};")
-	push!(myaxis, "\\node at (11.5, -0.2) {3s};")
-	push!(myaxis, "\\node at (13.5, -0.2) {3p};")
-
-
-	#---------- 1s 
-	for id = 1 :length(s1)
-		push!(myaxis, state(s1, 0, id))
-		push!(myaxis, electrons(s1, 1,0 , id))
-	end
-
-	#---------- 2s 
-	for id = 3 :length(s2)
-		push!(myaxis, state(s2, 0, id))
-		push!(myaxis, electrons(s2, 2,0 , id))
-	end
-	
-	#---------- 2p
-	for id = 5 :length(p2)
-		push!(myaxis, state(p2, 1, id))
-		push!(myaxis, electrons(p2, 2,1 , id))
-	end
-
-	#---------- 3s 
-	for id = 11 :length(s3)
-		push!(myaxis, state(s3, 0, id))
-		push!(myaxis, electrons(s3, 3,0 , id))
-	end
-	
-	#---------- 3p
-	for id = 13 :length(p3)
-		push!(myaxis, state(p3, 1, id))
-		push!(myaxis, electrons(p3, 3,1 , id))
-	end
-
-	
+	push!(myaxis, "\\node at (1.5, -0.1) {1s};")
+	push!(myaxis, "\\node at (3.5, -0.1) {2s};")
+	push!(myaxis, "\\node at (7.5, -0.1) {2p};")
+	push!(myaxis, "\\node at (11.5, -0.1) {3s};")
+	push!(myaxis, "\\node at (13.5, -0.1) {3p};")
 
 	
 	pgfsave("../PSE_states.tikz.tex",myaxis; include_preamble= false)
@@ -254,6 +420,7 @@ PLUTO_PROJECT_TOML_CONTENTS = """
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
 Mendeleev = "c116f080-063d-490a-9873-2b5b2cce4c34"
 PGFPlotsX = "8314cec4-20b6-5062-9cdb-752b83310925"
 Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
@@ -262,6 +429,7 @@ Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 [compat]
 CSV = "~0.10.14"
 DataFrames = "~1.6.1"
+HTTP = "~1.10.9"
 Mendeleev = "~1.0.1"
 PGFPlotsX = "~1.5.1"
 Plots = "~1.40.8"
@@ -274,7 +442,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.1"
 manifest_format = "2.0"
-project_hash = "360311210c68a8ceab78fa452a0e93ee62abf7c1"
+project_hash = "5140ca68b12d6ad39195c1746cc0f04951dec13d"
 
 [[deps.ArgCheck]]
 git-tree-sha1 = "a3a402a35a2f7e0b87828ccabbd5ebfbebe356b4"
@@ -1545,20 +1713,31 @@ version = "1.4.1+1"
 # ╠═82ee9946-9ded-11ef-148f-8fc8618fada3
 # ╠═64eb4e84-75cb-4696-aa04-7e006d49790f
 # ╠═c7f07bee-1da0-460d-b953-a7791592cbf3
-# ╠═a10b5d27-c82e-43e7-9970-b70ac26591df
-# ╠═267e83da-bdf2-4abd-ac29-086570e53d00
+# ╠═1da99de9-b1d3-4190-90bf-74ca88745081
+# ╠═ed450e1b-a9a1-49d1-a537-887575856e5f
+# ╠═917f126f-bf16-4d4b-abb5-c59a8f45c6bf
+# ╠═8bdb35bf-51c2-4824-86a4-c4a549ec14d2
+# ╠═84cd1426-d21b-4192-82f8-142760f83ea8
 # ╠═5be89f6e-9162-4742-a349-2ed7ba7e3905
-# ╠═2ee01c71-a255-4930-b976-4de4f161f347
-# ╠═312ba9c8-3709-43bd-b071-ff1d98617f58
-# ╠═7c16d007-8227-480b-add0-fec786f5767d
-# ╠═74057057-c549-479d-a7f6-3c2c2ff4adba
+# ╠═3f98d8a5-3b62-43ac-9193-09b41dd77434
+# ╠═0e729e0c-d064-4a70-97bd-5614a6d8a96c
+# ╠═fbbd1678-eda5-46cb-8dc1-21d6021ea693
+# ╠═27da4977-1614-4250-aaa4-bd43572b9ea9
+# ╠═5da3aa75-f4b9-45c8-9357-64249eb83162
+# ╠═1e96eb1f-3c05-4d6f-bc25-aa08402ea602
+# ╠═250d0f0d-979e-40d8-a788-c5c360d1932b
 # ╠═d8f913ce-4997-4a7a-8311-55fec594bb32
-# ╠═fb9bf422-73bf-437e-9b84-c4939f37d48d
+# ╠═374c395f-3899-4ff0-8eec-49f13efd8652
+# ╠═a07ca37f-5dc8-4016-9695-e37dcbe3166f
+# ╠═9efd58f1-7c2b-4b5b-838c-ec03760dd927
+# ╠═74057057-c549-479d-a7f6-3c2c2ff4adba
 # ╠═81e6532d-8341-4d9a-a917-92edc607de56
 # ╠═9520a2bb-648f-4dfd-8aa5-383ed9554a24
 # ╠═ecc0d4c6-b3af-46a3-822f-bed3430a2106
 # ╠═3e47ddcb-c236-40e9-baae-2102d4672f42
+# ╠═e405d76b-833e-49fb-9288-7403604dd9e3
 # ╠═430e3a1d-4266-4bb3-bfad-8a57bff4c093
+# ╠═18e7b588-c114-4965-8887-f706e5afab25
 # ╠═6a87d844-1266-46ad-b33c-6271dcaf3d4a
 # ╠═0f1e2428-5a65-4351-9aea-83009a13c4b6
 # ╟─00000000-0000-0000-0000-000000000001
