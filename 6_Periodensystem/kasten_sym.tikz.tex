@@ -1,0 +1,76 @@
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+ 
+ 
+\begin{tikzpicture}[font=\footnotesize]
+
+  \begin{groupplot}[
+    axis on top=true ,
+    group style={group size=1 by 3,
+    vertical sep=1mm, },
+    xlabel =  $x_1$ ,
+    ylabel =  $x_2$,
+    x label style={at={(axis description cs:0.35, 0)},anchor=north},
+    y label style={at={(axis description cs:0.9, 0.1)},anchor=north},
+    xtick = {0,1},
+    xmax = 1.1,
+    ymax = 1.1,
+    x dir=reverse,
+    ytick = {0,1},
+    xticklabels = { $0$, $L$},
+    yticklabels = { $0$, $L$},
+    ztick = {0},
+    axis z line = none,
+    axis x line = bottom,
+    axis y line = left,
+    width = 60mm,
+    height=40mm,
+    every tick/.style={
+      black,
+      thin,
+    },
+    every axis title/.style={below right,at={(0,0.8)}},
+    ]
+
+    \nextgroupplot [ title = $ |\Psi|^2$,]
+    \addplot3 [
+        surf,
+        shader=interp,
+       % colormap name = viridis,
+        samples=50,
+        domain=0:1,
+        y domain=0:1,
+        clip = false,
+    ] { ( sin(2 * 360 * x) * sin(1.5 * 360 * y) ) ^2};
+    
+
+    \nextgroupplot [  title = $ |\Psi_S|^2$ ,]
+    \addplot3 [
+        surf,
+        shader=interp,
+       % colormap name = viridis,
+        samples=50,
+        domain=0:1,
+        y domain=0:1
+    ] { ( sin(2 * 360 * x) * sin(1.5 * 360 * y) +  sin(2 * 360 * y) * sin(1.5 * 360 * x) ) ^2};
+
+    \nextgroupplot [  title = $ |\Psi_A|^2$,]
+    \addplot3 [
+        surf,
+        shader=interp,
+       % colormap name = viridis,
+        samples=50,
+        domain=0:1,
+        y domain=0:1
+    ] { ( sin(2 * 360 * x) * sin(1.5 * 360 * y)  -  sin(2 * 360 * y) * sin(1.5 * 360 * x)) ^2};
+
+\end{groupplot}
+\end{tikzpicture}
+
+
+%\end{document}
+
+
