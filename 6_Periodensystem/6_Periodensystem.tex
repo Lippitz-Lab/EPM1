@@ -1,10 +1,11 @@
-\renewcommand{\lastmod}{10. November 2024}
+\renewcommand{\lastmod}{15. November 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Die restlichen Atome des Periodensystems}
 
 
 
+\section{Überblick}
 
 Ich kann Eigenschaften der Elemente und deren Anordnung im Periodensystem mit dem Schalenaufbau der Elektronen erklären. 
 
@@ -15,38 +16,9 @@ Ich kann die Eigenwerte und Eigenfunktionen eines Drehimpuls-Operators bestimmen
 Ich kann die Wechselwirkung zwischen den verschiedenen magnetischen Momenten eines Atoms (ohne externes Magnetfeld) beschreiben und die sich daraus ergebende Verschiebung der Energien berechnen.
 
 
-
-\section{Overview}
-
 s.a. Demtröder 3, Kap. 6
 
 
-6.1 Das Periodensystem der Elemente 1	
-
-* (41.4 Multielectron Atoms; 
-
-41.5 The Periodic Table of the Elements )
-
-6.2 Atomare Term-Symbole2	*	2 
-
-6.3* Hund’sche Regeln3	***
-
-6.4 Kopplungsschemata von Drehimpulsen: LS und jj 4	**
-
-6.5 Vollständiges Termschema 5	*	5 
-
-8.4 Feinstruktur-Aufspaltung [2] 4	
-
-8.5 Natrium D Linien [2] 5
-
-Schalenmodell
-
-Rubidium Experiment
-
-% 20. Multielectron atoms
-% • We cover this topic very qualitatively and briefly, mentioning spin and the Pauli exclusion
-% principle and talking about how quantum mechanics explains the patterns in the periodic
-% table, but not doing any calculations. Students have seen this before in chemistry.
 
 
 
@@ -108,6 +80,11 @@ Die Symmetrie der Wahrscheinlichkeitsdichte erreichen wir durch Linearkombinatio
 \end{align}
 Im zweiten Summanden sind die Quantenzahlen gegenüber dem ersten vertauscht und damit auch der Name des Teilchens. Da die Schrödingergleichung linear ist, sind diese Linearkombinationen auch Lösungen der Schrödingergleichung.
 Durch Ausmultiplizieren des Betragsquadrats stellt man fest, dass beide Wellenfunktionen zu einer Wahrscheinlichkeitsdichte führen, die sich bei Vertauschung der Indizes nicht ändert, also symmetrisch ist.
+
+
+\begin{marginfigure}
+    \caption{XXX  Wahrscheinlichkeitsdichte zu $ \Psi(x_1, x_2)$,  $ \Psi_S(x_1, x_2)$ und  $ \Psi_a(x_1, x_2)$.}
+\end{marginfigure}
 
 Abbildung XXX zeigt die Wahrscheinlichkeitsdichte $ P(x_1, x_2) $ für die erste, noch nicht symmetrisierte Wellenfunktion $ \Psi(x_1, x_2)$ sowie für die symmetrische $ \Psi_S(x_1, x_2)$ und die asymmetrische $ \Psi_A(x_1, x_2)$. Dies ist eine zweidimensionale Darstellung im $x_1$--$x_2$ Raum, aber der Kasten ist eindimensional mit der Achse $x$.
 
@@ -183,6 +160,9 @@ lösen. Das ist näherungsweise möglich, aber nicht einfach und Thema der Vielt
 \end{equation}
 Alle Abhängigkeiten der Form $|r_i - r_j|$ werden vernachlässigt. Abbildung XXX skizziert ein solches Potential (Abb. 86, Harrsus und Abb. 8.1 Heintze).
 
+\begin{marginfigure}
+    \caption{XXX  abgeschirmtes Coulombpotential}
+\end{marginfigure}
 
 Wie beim Wasserstoffatom handelt es sich um ein Zentralpotential. Die Winkelabhängigkeit der Lösungen ist daher identisch. Der Radialanteil der Wellenfunktion ändert sich etwas. Die Eigenenergien verschieben sich quadratisch mit steigendem $Z$ zu negativeren Werten, da das Potential viel negativer wird. Gleichzeitig werden aber auch mehr Elektronen eingefüllt, so dass der höchste besetzte Zustand mit steigendem $Z$ weiter vom Grundzustand entfernt ist. Wir werden sehen, dass sich diese beiden Effekte nahezu ausgleichen.
 
@@ -194,22 +174,24 @@ Im vorigen Kapitel haben wir gesehen, dass die Wellenfunktionen mit dem maximale
 Berechnet man die Summe der Aufenthaltswahrscheinlichkeiten aller Einteilchen-Elektronenzustände mit gegebenem $n$, so ist diese kugelsymmetrisch und wird von den Elektronen mit maximalem $l$ dominiert, d.h. von denen nahe  der Bohr'schen Bahn. 
 Man sagt, dass diese Elektronen mit der gleichen Hauptquantenzahl $n$ eine \emph{Schale} bilden, die manchmal mit den großen Buchstaben K, L, M, N bezeichnet wird.  Aufgrund der gerade beschriebenen Drehimpulsabhängigkeit spaltet sich jede Schale in $n$ Unterschalen auf, die manchmal mit römischen Ziffern bezeichnet werden. In jede Unterschale passen nach dem Pauli-Prinzip $2 (2l +1)$ Elektronen, da es $2l +1$ mögliche Werte der magnetischen Quantenzahl $m_l$ gibt und dann noch je zwei Möglichkeiten für die Orientierung $m_s = \pm 1/2$ des Spins. In jeder Schale befinden sich $2n^2$ Zustände.
 
-Empirisch zeigt sich, dass die energetische Anordnung der Unterschalen und damit die Reihenfolge des Auffüllens der Elektronen mit steigendem $n+l$ erfolgt. Bei Unterschalen mit gleichem $n+l$ werden die mit kleinerem $n$ zuerst aufgefüllt. Dies ist in Abbildung XXX (analog Harris 8.13) dargestellt. Man erkennt auch, dass sich die Reihenfolge der Unterschalen mit der Kernladungszahl ändert, unsere einfachen Regeln also nicht alles erfassen.
+Empirisch zeigt sich, dass die energetische Anordnung der Unterschalen und damit die Reihenfolge des Auffüllens der Elektronen mit steigendem $n+l$ erfolgt. Bei Unterschalen mit gleichem $n+l$ werden die mit kleinerem $n$ zuerst aufgefüllt. Dies ist in Abbildung  \ref{fig:6_state_3d}. Man erkennt auch, dass sich die Reihenfolge der Unterschalen mit der Kernladungszahl ändert, unsere einfachen Regeln also nicht alles erfassen.
 
-XXX Merkschema Schachbrett Demtröder Fig. 6.16 für schwere Atome, also nach allem Umsortieren
+XXX mark filled states in fig states-3d ?
 
 \begin{marginfigure}
     \inputtikz{\currfiledir state_3d}
     \caption{Schematische Verschiebung der Zustände mit steigender Kernladungszahl. Zwischen der 4s und 4p-Schale wird bei den Elementen  \ch{Sc} ($Z=21$) bis \ch{Zn} ($Z=30$) die 3d-Schale gefüllt.}
+    \label{fig:6_state_3d}
 \end{marginfigure}
 
 \section{Das Periodensystem der Elemente}
 
-Die chemischen Eigenschaften der Elemente werden wesentlich durch die Anzahl und die Bindungsenergie der Elektronen in der noch nicht vollständig gefüllten Schale bestimmt. Diese Elektronen werden als Valenzelektronen bezeichnet, da sie die Wertigkeit des Elements bestimmen. Sehr häufig ist dies auch die äußerste, also die energiereichste Schale. Da jede Unterschale nur $2 (2l +1)$ Elektronen aufnehmen kann, sind die chemischen Eigenschaften periodisch in der Kernladungszahl $Z$. Daraus ergibt sich das Periodensystem der Elemente. Abbildung XXX zeigt die experimentell bestimmte energetische Lage und Besetzung der Zustände der ersten Elemente des Periodensystems. Die Energie besetzter Zustände wird bestimmt, indem ein Elektron durch ein Röntgenphoton aus einem solchen Zustand herausgeschlagen wird (XPS). Die Energie unbesetzter Zustände kann bestimmt werden, indem ein Valenzelektron zu einem solchen Zustand angeregt und die Übergangsenergie bestimmt wird.
+Die chemischen Eigenschaften der Elemente werden wesentlich durch die Anzahl und die Bindungsenergie der Elektronen in der noch nicht vollständig gefüllten Schale bestimmt. Diese Elektronen werden als Valenzelektronen bezeichnet, da sie die Wertigkeit des Elements bestimmen. Sehr häufig ist dies auch die äußerste, also die energiereichste Schale. Da jede Unterschale nur $2 (2l +1)$ Elektronen aufnehmen kann, sind die chemischen Eigenschaften periodisch in der Kernladungszahl $Z$. Daraus ergibt sich das Periodensystem der Elemente. Abbildung \ref{fig:6:_PSE_states} zeigt die experimentell bestimmte energetische Lage und Besetzung der Zustände der ersten Elemente des Periodensystems. Die Energie besetzter Zustände wird bestimmt, indem ein Elektron durch ein Röntgenphoton aus einem solchen Zustand herausgeschlagen wird (XPS). Die Energie unbesetzter Zustände kann bestimmt werden, indem ein Valenzelektron zu einem solchen Zustand angeregt und die Übergangsenergie bestimmt wird.
 
 \begin{figure}
     \inputtikz{\currfiledir PSE_states}
     \caption{Verlauf der Zustände und deren Besetzung.}
+    \label{fig:6:_PSE_states}
 \end{figure}
 
 \begin{description}
@@ -232,7 +214,7 @@ Diese Periodizität findet sich in vielen chemischen Eigenschaften wieder. Abbil
 
 \begin{marginfigure}
     \inputtikz{\currfiledir E_ionisation}
-    \caption{Ionisationsenergie der ersten Elemente (Daten aus dem Paket Mendeleev.jl). Die gefüllten Schalen der Edelgase sind besonders stabil.}
+    \caption{Ionisationsenergie der ersten Elemente (Daten aus dem Julia-Paket Mendeleev.jl). Die gefüllten Schalen der Edelgase sind besonders stabil.}
 \end{marginfigure}
 
 
@@ -244,11 +226,160 @@ Für das Wasserstoffatom haben wir die Spin-Bahn-Kopplung besprochen, d.h. den E
 
 \section{Addition von Drehimpulsen}
 
-Schon im letzten Kapitel hatten wir den Drehimpuls $\bj$ eingeführt als $\bj = \bl + \bs$ und die Eigenschaften von $\bj$ besrpcohen. Dabei hat geholfen, dass der Spin eines einzelnen Elektrons nur in zwei versciednee Reichtungen zeigen kann, up oder down. Der (bald eingeführte) Gesamtspin $\bS$ kann größer sein und damit megr Orientungen haben. Daher müssen wir das noch eteas genauer besprechen. Ich benutze hier die Variablen $\bJ = \bL + \bS$, also die große Buchgstaben der demnäcsht eingeführten Gesamt-Dreshimpulse. Das funktionoert so aber mit jeglicher zwei drehimpulsartigen Vektoren.
+Im letzten Kapitel haben wir den Drehimpuls $\bj$ als $\bj = \bl + \bs$ eingeführt und die Eigenschaften von $\bj$ beschrieben. Hilfreich war dabei, dass der Spin eines einzelnen Elektrons nur in zwei Richtungen zeigen kann, nach oben oder nach unten. Der (bald eingeführte) Gesamtspin $\bS$ kann größer sein und damit verschiedenere Richtungen einnehmen. Deshalb müssen wir ihn etwas genauer betrachten. Ich verwende hier die Variablen $\bJ = \bL + \bS$, also die Großbuchstaben des bald eingeführten Gesamtspins. Das funktioniert aber auch mit zwei beliebigen Drehimpulsvektoren.
 
-Nehmen wir an, dass wir von den beiden Vektoren $\bS$ und $\bL$ die Länge (quantenzahl $S$ und $L$) und die z-Kompinente (Quantenzahl $m_S$ und $m_L$) kennen. Was können wir damit über den Vektor $\bJ$ und seine Quantenzahlen $J$ und $m_J$ aussagen? Der Anhang XXX gibt die Antwort im Fiormualsimis der Quantenmechanil
+Angenommen, wir kennen von zwei Vektoren $\bS$ und $\bL$ die Länge (Quantenzahl $S$ und $L$) und die z-Komponente (Quantenzahl $m_S$ und $m_L$). Was können wir damit über den Vektor $\bJ$ und seine Quantenzahlen $J$ und $m_J$ aussagen? Anhang \ref{chap:anhang_drehimpuls}
+gibt die Antwort etwas detaillierter im Formalismus der Quantenmechanik. Hier die Kurzfassung:
+
+Die Längen aller drei Vektoren $\bS$, $\bL$ und $\bJ$ sind gleichzeitig ohne Unschärfe messbar, zusammen mit aber nur der Oriientungs.-Quantenzahl $m_J$ des Summen-Vektors. Die Orientungs-Quanzenzahlen $m_S$ und $m_L$ unterliegen einer Unschräfe, sobald man $J$ gemessen hat, ähnliche wie im letzten Kapitel die x- und y- Kompiennte des Bahndrehgompulses $l_x$ ud $l_y$.
+
+Die neue Orientierungs-Quantenzahl $m_J$ ist gerade die Summe der Einzeln-Orientierungs-Quantenzahlen
+\begin{equation}
+ m_J  = m_L + m_S
+\end{equation}
+Wenn man $m_L$ udn $m_S$ kennt, dann kann man $m_J$ bestimme. Wenn man aber nur $m_J$ kennt, dann ist die Aufteilung in $m_L$ udn $m_S$  unbestiimt.  Für die  neue Gesamt-Längen-Quantenzahl $J$ gilt
+\begin{equation}
+ | L - S | \le J \le  L + S
+\end{equation}
+Mehr lässt sich dazu leider nicht sagen. Es ist etwas unbefriedigend, die Summe von zwei Vektoren nicht nennen zu können, obwohl man beide Summanden kennt. Allerdings kennt man die Ausgangs-Vektoren nicht vollständig. Die unbekannte xy-Komponenten sind gerade der Ursprung dieses Spielraums im Wert von $J$.
+
+\subsection{'Gute' Quantenzahlen}
+
+Eine Quantenzahl wird als 'gute' Quantenzahl bezeichnet, wenn sie eine Konstante der Bewegung ist, also erhalten bleibt. Im Fall der Drehimpulsaddition sind dies $L$, $S$, $J$ und $m_J$, aber nicht mehr $m_S$ und $m_L$. Diese waren früher gute Quantenzahlen, bevor wir einen Energiebeitrag proportional zu $\bS \cdot \bL$ erlaubten. Wenn wir das zulassen, dann ist die Aufteilung zwischen $m_S$ und $m_L$§ nicht mehr zeitlich konstant, und diese Quantenzahlen sind nicht mehr 'gut', sie helfen nicht mehr, das System zu beschreiben. Die Gesamtzahl der guten Quantenzahlen bleibt jedoch erhalten. Vor der Kopplung waren es noch $m_S$ und $m_L$, nachher $J$ und $m_J$, jeweils zusätzlich zu $L$ udn $S$. Ebenso muss durch die Kopplung die Anzahl der Zustände, d.h. die Anzahl der möglichen Kombinationen von Quantenzahlen, erhalten bleiben.
 
 
+
+\subsection{Geometrische Interpretation}
+
+Bei der Kopplung von Spin und Bahndrehimpuls gibt es einen Energiebeitrag des Spins im Magnetfeld der Bahnbewegung. Klassisch würde dieser vom Winkel zwischen den beiden abhängen. Dieser Winkel ist aber nicht die Quantenzahl, sondern das sich aus $\bS$, $\bL$ und $\bJ$ bildende Dreieck wird vollständig durch die Längen der Seiten bestimmt. Das beinhaltet den Winkel zwischen $\bS$ und $\bL$, aber auch deren Amplitude. Gleichzeitig ist nur $m_J$ eine gute Quantenzahl. Bei einer Messung wie im Stern-Gerlach-Experiment spielt also nur die Orientierung von $\bJ$ eine Rolle. Die Spitze von $\bJ$ kann wieder auf einem Kreis in der xy-Ebene liegen, solange die Länge von $\bJ$ erhalten bleibt. Bei $\bS$ und $\bL$ ist nun aber \emph{nur} die Länge eine gute Quantenzahl, die z-Komponenten nicht mehr. Die Spitze von $\bS$ kann damit auf einem Kreis liegen, dessen Symmetrieachse durch $\bJ$ gegeben ist. Alles andere ist unbekannt, kann nicht gleichzeitig gemessen werden. %Insbesondere ist die Aufteilung zwischen $m_S$ und $m_L$ nicht fix, nur die Summe, also $m_J$.
+
+XXX skizze Kegel L+S
+
+
+
+
+\section{Gesamtspin}
+
+Nun soll endlich der Gesamtspin $\bS$ eingeführt werden. Er ist die Summe der Spins aller Elektronen eines Atoms
+\begin{equation}
+    \bS = \sum_{i=1}^Z \, \bs_i \label{eq:6_S_sum}
+\end{equation}
+Analog gilt das auch für den Gesamt-Bahndrehimpuls $\bL$. Betrachten wir hier zunächst einmal nur zwei Elektronen $i =1, 2$. Es ist 
+\begin{equation}
+s_{1,2} = \frac{1}{2} \quad \text{und} \quad m_{s,1,2} = \pm \frac{1}{2} 
+\end{equation}
+Welche Werte können nun die Quantenzahlen  $S$ und $m_S$ der Summe annehmen? Die magnetische Quantenzahl $m_S  = m_{s,1} + m_{s,2}$ ist einfach und in nebenstehender Tabelle skizziert.
+%
+\begin{marginfigure}
+\begin{tabular}{r|rr}
+                           & $-\frac{1}{2} $  & $+\frac{1}{2} $ \\
+                           \hline
+ $+\frac{1}{2} $    &     $0$              & $1$ \\
+ $-\frac{1}{2} $    &     $-1$              & $0$ 
+\end{tabular}
+\caption{Die möglichen Kombinationen von $m_{s,1}$ und $m_{s,2}$ zu $m_S  = m_{s,1} + m_{s,2}$.}
+\end{marginfigure}
+%
+Falls $m_{s,1} = m_{s,2}$, also $|m_S| = 1$, dann muss auch $S = 1$ sein, da $S$ nie kleiner als $m_S$ sein kann. Dies sind die Zustände  $(S, m_S) = (1,1) = \uparrow\uparrow$ und  $(S, m_S) = (1,-1) = \downarrow\downarrow$. Die Pfeile zeigen in dieser Darstellung die  $m_{s,i}$-Quantenzahlen als up oder down an.
+
+Damit verbleiben noch die beiden Fälle $m_{s,1} = - m_{s,2}$, also die Diagonale in der Tabelle. Daraus müssen sich die verbleibenden Kombinationen von $S$ und $m_S$ ergeben, nämlich $(S, m_S) = (0,0)$ und $(1,0)$. Die Gesamtzahl der Zustände passt schon einmal. Wie oft in der Quantenmechanik, wenn die Zuordnung nicht einfach entschieden werden kann, werden hier wieder die symmetrische und antisymmetrische Superposition der Ausgangszustände, also der Einträge in der Matrix, gebildet. Welche davon wird  $(S, m_S) = (1,0)$? Die schon gefundenen Zustände $(S, m_S) = (1,\pm1) $ sind symmetrisch bei Vertauschen $1 \leftrightarrow 2$, also wird auch$(S, m_S) = (1,0)$ symmetrisch sein, also 
+\begin{equation}
+   \frac{1}{\sqrt{2}} \left(  \uparrow \downarrow  +  \downarrow \uparrow \right)
+\end{equation}
+Damit gibt es einen anti-symmetrischen Zustand mit $S = 0$, 
+\begin{align}
+    (S, m_S) = (0, 0)  = & \frac{1}{\sqrt{2}} \left(  \uparrow \downarrow -  \downarrow \uparrow \right) 
+\end{align}
+und drei symmetrische mit $S=1$
+\begin{align}
+    (S, m_S) =  (1, +1) =& \uparrow \uparrow  \\
+  (1, 0) = & \frac{1}{\sqrt{2}} \left( \uparrow \downarrow +  \downarrow \uparrow \right) \\
+  (1, -1) = &\downarrow \downarrow  
+\end{align}
+Da es nur einen anti-symmetrischen Zustand gibt, wird dieser als \emph{Singulett} und die anderen als \emph{Triplett} bezeichnet. Generell gibt es, wie immer bei Drehimpulsen, bei einer Quantenzahl $S$ insgesamt $2S+1$ mögliche Werte von $m_S$, also mögliche Zustände.
+
+\subsection{Geometrische Interpretation}
+
+Wie kann man sich vorstellen, dass die Addition von zwei Vektoren gleicher Länge aber unterschiedlicher Orientierungs-Quantenzahl $m_i$ einmal zu einem Vektor der Länge Null und einmal zu einem Vektor der beinahe doppelten Länge führt? Ein Teil der Wahrheit sind die nicht gleichzeitig messbaren anderen Vektor-Komponenten.\sidenote{Ein anderer Teil ist 'so ist die QM eben'.} Die Spitze beider Vektoren liegt auf eine Kreis. Wenn die Position 'in Phase' ist, dann addieren sie sich zu einem Vektor mit verschwindender z-Komponente und der Länge $\hbar \sqrt{2}$, was in diesem Bild dem Zustand $(S, m_S) = (1,0)$ entspricht. Wenn die beiden Ausgangs-Vektoren 'außer Phase' sind, dann addieren sie sich zu Null, ergeben also  $(S, m_S) = (0,0)$. Bei bekannten, aber unterschiedlichen $m_i$, also beispielsweise $\uparrow \downarrow$ ist also nicht eindeutig, welcher Summenvektor sich ergibt. Die Eigenfunktionen des Summen-Operators $\hat{S}$ sind nur Linearkombinationen aus $\uparrow \downarrow$ und $\downarrow \uparrow$.
+
+\begin{marginfigure}
+\inputtikz{\currfiledir vector3d_summe}
+
+\caption{Die Addition von zwei Vektoren $s=1/2, m_s = 1/2$ und  $s=1/2, m_s = -1/2$ kann sowohl einen Vektor   $S=1, m_S = 0$ ergeben (links) als auch $S=0, m_S = 0$ (rechts).}
+\end{marginfigure}
+
+\subsection{Volle Schalen}
+
+In der Gleichung \ref{eq:6_S_sum} hatte ich für den Gesamtspin die Summe über alle Elektronen des Atoms gebildet. Das ist zwar richtig, aber unnötig. Zum Glück ist der Gesamtspin bei vollständig gefüllten Schalen gleich Null. Der Gesamtdrehimpuls ist ebenfalls Null. Das liegt daran, dass die möglichen Werte von $m_S$ und $m_L$ immer symmetrisch um Null sind. Wenn alle beitragen, heben sich die beiden Vorzeichen gegenseitig auf und die Summe ist Null. Daher müssen zur Berechnung des Gesamtspins $\bS$ und des Gesamtbahndrehimpulses $\bL$ nur die Valenzelektonen, also nur die teilweise gefüllten Schalen, betrachtet werden. Die Edelgase haben also im Grundzustand $S=L=0$.
+
+
+\section{LS-Kopplung und Hund'sche Regeln}
+
+Nun haben wir alle Bausteine beisammen und können diskutieren, wie die vielen Spin- und Bahndrehimpulse eines Mehrelementkerns miteinander wechselwirken. Bei 'leichten' Atomkernen folgt dies meist der LS-Kopplung. Die Hierarchie der Wechselwirkungsenergien ist dabei so, dass zunächst alle Valenzelektronen einen Gesamtspin $\bS$ und einen Gesamtbahndrehimpuls $\bL$ bilden. Die Wechselwirkung zwischen den Spins ist am stärksten. Das Atom versucht, den Gesamtspin zu maximieren, d.h. möglichst viele Elektronen in den gleichen Spinzustand zu bringen, z.B. $\uparrow$. Erst wenn es keine weiteren Zustände mit $m_s = +1/2$ mehr gibt, werden die Zustände mit $m_s = -1/2$ besetzt, wodurch $S$ wieder kleiner wird. Dies ist die \emph{erste Hundsche Regel}, aber eigentlich eine Folge der Columb-Abstoßung der Elektronen. Wenn die Spins gleich sind, ist die Wellenfunktion so, dass die Elektronen sich an Orten befinden, die weiter voneinander entfernt sind.
+
+Der nächste Schritt in der Energiehierarchie ist die Wechselwirkung der Bahndrehimpulse. Die zweite Hundsche Regel fordert ein maximales $L$. Dies ist wiederum auf die Coulomb-Abstoßung der Elektronen zurückzuführen. Wenn sich die $m_l$ der Wellenfunktionen unterscheiden, dann tendieren die Elektronen dazu, weiter voneinander entfernt zu sein, wie z.B. bei den 3D-Isoflächen im letzten Kapitel.
+
+Erst danach folgt die Spin-Bahn-Kopplung mit dem kleinsten Energiebeitrag. Hier orientiert sich der Gesamtspin $\bS$ relativ zum Gesamtbahndrehimpuls $\bL$. Deshalb wird die LS-Kopplung mit Großbuchstaben geschrieben. Die Spin-Bahn-Kopplung bevorzugt ein kleines $J$, wenn die Schale weniger als halb gefüllt ist. Wenn die Schale mehr als halb gefüllt ist, wird ein möglichst großes $J$ bevorzugt. Dies ist die dritte Hund'sche Regel und stammt aus der Energie  proportional zu $\bS \cdot \bL$.
+
+\section{jj-Kopplung}
+
+Der Vollständigkeit halber sei hier noch die jj-Kopplung erwähnt. Sie tritt bei 'schweren' Atomen auf. Mit zunehmender Kernladungszahl $Z$ nimmt das Magnetfeld am Ort des Elektrons zu, das durch die scheinbare Kernbewegung verursacht wird. Damit gewinnt die Spin-Bahn-Kopplung in der Energiehierarchie an Bedeutung. In diesem Fall ist die Kopplung zwischen dem Spin $\bs$ eines einzelnen Elektrons und seinem Bahndrehimpuls $\bl$ der wichtigste Energiebeitrag. Diese beiden koppeln für jedes Elektron zu einem Einzel-Elektron-$\bj$. Erst danach koppeln die vielen $j$ der Elektronen zu einem Gesamt-$J$, um die Abstoßung der Elektronen zu verringern. Deshalb schreibt man jj-Kopplung klein.
+
+
+\section{Beispiel: Helium}
+
+Helium hat zwei Elektronen, die sich im Grundzustand beide im Ein-Teilchen-Zustand 1s befinden. Der Gesamtdrehimpuls ist $L=0$, da beide $l=0$ sind.
+
+Wie groß ist hier der Gesamtspin $\bS$? Ein Argument ist, dass volle Schalen nichts beitragen, also ist $S=0$. Das andere ist, dass die Gesamtwellenfunktion wegen des Pauli-Prinzips anti-symmetrisch sein muss. Da der Ortsanteil für beide Elektronen gleich ist, nämlich die 1s-Wellenfunktion, muss der Spinanteil zur Antisymmetrie beitragen. Der antisymmetrische Spinzustand ist also der Singulettzustand mit $S=0$.
+
+Das Gesamt-$J$ kann dann nur noch $J  = L + S = 0$ sein.  Analog zu den Ein-Elektron-Zuständen, die als '1s' usw. geschrieben werden, schreibt man die Mehrelektronenzustände als Termsymbol
+\begin{equation}
+    n^{2S + 1}L_{J}
+\end{equation}
+wobei für $L$ die gleichen Buchstaben wie für $L$ verwendet werden, jedoch in Großbuchstaben. Man gibt nicht $S$ an, sondern die Multiplizität $2S+1$. Daher auch die Bezeichnungen Singulett (1) und Triplett (3). Der Grundzustand von Helium ist\sidenote{sprich 1-Singulett-S-0} also $1^1S_0$. Einen Triplett-Grundzustand $1^3S_0$ kann es nicht geben.
+
+In den energetisch niedrigsten angeregten Zuständen ändert nur ein Elektron seine Quantenzahl, was auf die sehr große Energielücke von 1s bis 2s zurückzuführen ist. Um zwei Elektronen nach 2s anzuregen, muss wesentlich mehr Energie aufgewendet werden, als um ein Elektron zu ionisieren.
+
+Betrachten wir den Zustand, in dem ein Elektron in 1s bleibt und das zweite nach 2p angeregt ist. Dann muss $L=1$ sein. Da sich die Elektronen nun in zwei verschiedenen Ortswellenfunktionen befinden, können die Spins sowohl symmetrisch (Triplett) als auch antisymmetrisch (Singulett) angeordnet sein, also $S=0$ oder $S=1$. Die Spin-Bahn-Wechselwirkung führt dann zu einem $J$, das in Einerschritten zwischen $|L - S|$ und $L+S$ liegen muss. Die Tabelle zeugt die sich daraus ergebenden Termsymbole.
+
+\begin{marginfigure}
+   \begin{tabular}{llll}
+    $L$ & $S$ & $J$ & Symbol \\
+    1   & 0  &  1 & $2^1P_1$ \\
+    1   & 1 &  0 & $2^3P_0$ \\
+    1   & 1  &  1 & $2^3P_1$ \\
+    1   & 1  &  2 & $2^3P_2$ \\
+\end{tabular} 
+\caption{Mögliche Zustände ausgehend von Einteilchenzustand 1s2p.}
+\end{marginfigure}
+
+Wie wir später sehen werden, können optische Übergänge nur zwischen zwei Zuständen gleicher Multiplizität stattfinden. Der Gesamtspin $S$ darf sich dabei nicht ändern. Da der Grundzustand ein Singulett-Zustand ist, können die Zustände $2^3P_J$ noch in den tieferen $2^3S_1$ übergehen, aber nicht weiter. Dieser untere Triplettzustand $2^3S_1$ ist also metastabil, d.h. über einen längeren, aber nicht unendlich langen Zeitraum stabil.
+
+
+\section{Weitere Beispiele}
+
+Betrachten wir einige weitere Beispiele für die Anwendung der Hundschen Regel und der zugehörigen Termsymbole. Wie wir im Kapitel über die Wechselwirkung mit Licht sehen werden, sind die Symbole so gewählt, dass sie die spektroskopisch relevanten Informationen enthalten, also gut anwendbar sind.
+
+\begin{description}\setlength{\itemsep}{0pt}
+
+    \item[Lithium] Die Elektronenkonfiguration ist [He]2s$^1$. Es gibt nur ein Valenzelektron, also $L=0$ und $S=J=1/2$. Das Termsymbol des Grundzustandes ist daher $2^2S_{1/2}$.
+    
+    \item[Berillim] Das hinzukommende Elektron muss den entgegengesetzten Spin haben, um noch in die 2s-Unterschale zu passen. Insgesamt muss dies ein Singulett-Zustand werden, um die Antisymmetrie zu erhalten. Also $L=0$ und $S=J=0$ und somit $2^1S_0$.
+    
+    \item[Bor] Mit Bor beginnt die 2p-Unterschale. Dieses neue Elektron hat $S=1/2$ und $L=1$. Da die Schale weniger als halb voll ist, wird das niedrigere $J$ bevorzugt, also $J=L-S = 1/2$. Insgesamt ist das Termsymbol $2^2P_{1/2}$.
+    
+    \item[Kohelnstoff] Kohlenstoff hat zwei Elektronen in 2p. Beide Elektronen haben die gleiche Spinausrichtung, um $S$ auf $S=1$ zu maximieren. Beide Elektronen haben $l=1$, aber die $m_l$ sind unterschiedlich (sonst würde das Pauli-Prinzip verletzt). Die $m_l$ sind so gewählt, dass $L$ maximal wird, d.h. ein Elektron mit $m_l=1$ und eines mit $m_l=0$. Damit ist der Gesamtbahndrehimpuls $L=1$. (Für $L=2$ müssten sich beide Elektronen im Zustand $m_l = 1$ befinden). $J$ wird minimal mit $J=L-S =0$. Das Termsymbol lautet daher $2^3P_0$.
+    
+    \item[Stickstoff] Jetzt sind 3 Elektronen in 2p. Alle haben die gleiche Spinausrichtung, um $S$ zu maximieren, also $S=3/2$. Die $m_l$ decken den ganzen Bereich $m_l = -1, 0, 1$ ab, so dass die Summe $L= 0$ ist. Damit ist auch $J = S \pm L = 3/2$ und das Termsymbol $2^4S_{3/2}$.
+    
+    \item[Sauerstoff] Das vierte Elektron muss einen anderen Spin haben, sonst passt es nicht mehr in die 2p-Unterschale. Damit heben sich zwei Spins auf und es bleibt nur $S=1$. Das vierte Elektron liefert aber einen Beitrag zum Bahndrehimpuls, der dann $L=1$ ist. Die Schale ist nun mehr als halb voll, und $J$ will mit $J=L+S=2$ maximal werden. Das Termsymbol ist $2^3P_2$.
+    
+    \item[Fluor] Ein weiteres Elektron in 2p. Nur ein Spin bleibt ungepaart, $S=1/2$. Das letzte Elektron hat $m_l = 0$, also bleibt $L=1$. Das maximale $J$ ist $J=L+S = 3/2$, zusammen also $2^2P_{3/2}$.
+    
+    \item[Neon] Das Edelgas Neon ist in dieser Hinsicht langweilig. Die 2p-Schale ist voll besetzt und $S = L = J = 0$ bzw. $2^1S_0$.   
+\end{description}
+
+\newpage
 
 \section{Zusammenfassung}
 
