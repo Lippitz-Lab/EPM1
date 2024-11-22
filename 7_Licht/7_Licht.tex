@@ -213,25 +213,27 @@ Dabei nennt man $\tau$ die Lebensdauer des angeregten Zustands und $k = 1 / \tau
 
 Im Jahre 1917, also noch vor dem Bohrschen Atommodell und der de Broglie-Wellenlänge, erkannte A. Einstein, dass es neben den oben besprochenen Absorptions- und Emissionsprozessen noch einen weiteren Prozess geben muss, damit ein Atom im thermischen Gleichgewicht mit dem umgebenden (Schwarzkörper-) Licht sein kann. Betrachten wir dazu noch einmal Absorption und Emission.
 
-Wir vereinfachen das Atom auf zwei Niveaus, 1 und 2, mit den Besetzungen $N_1$ und $N_2$. Die oben beschriebene Emission nennen wir \emph{spontane Emission}, da sie ohne äußere Einwirkung erfolgt. Die Übergangsrate ist proportional zur Besetzung des angeregten Zustands
+Wir vereinfachen das Atom auf zwei Niveaus mit den Besetzungen $N_1$ und $N_2$. Die oben beschriebene Emission nennen wir \emph{spontane Emission}, da sie ohne äußere Einwirkung erfolgt. Die Übergangsrate\sidenote{hier $ k_\text{spontan}$ mit $ keinen_\text{spontan} = k = 1/ \tau$ von oben } ist proportional zur Besetzung des angeregten Zustands
 \begin{equation}
-    R_\text{spontan} = A_{21} \, N_2
+    k_\text{spontan} = A_{21} \, N_2 \label{eq:7_k_spontan}
 \end{equation}
-$A_{21}$ ist der Einsteinkoeffizient der spontanen Emission.
-Damit eine Absorption stattfinden kann, unser Atom also vom Zustand 1 in den Zustand 2 übergehen kann, muss ein Lichtfeld vorhanden sein. Dieses Feld hat die spektrale Energiedichte $u(E)$. Die Übergangsenergie ist dann
-\begin{equation}
-    R_\text{absorption} = B_{12} \, N_1 \, u(E_2 - E_1)
-\end{equation}
-$B_{12}$ ist der Einstein-Koeffizient der Absorption.
-
-Im thermodynamischen Gleichgewicht muss die Besetzung $N_i$ der Zustände über die Zeit konstant sein und das Verhältnis $N_2 / N_1$ muss der Boltzmann-Statistik entsprechen. Dies kann nur erreicht werden, wenn der Prozess der stimulierten Emission vorliegt. Ein einfallendes Photon stimuliert (oder induziert) den Zerfall eines angeregten Atoms. Danach gibt es zwei Photonen und ein Atom im Grundzustand. Die Übergangsrate ist 
-\begin{equation}
-    R_\text{stimuliert} = B_{21} \, N_2 \, u(E_2 - E_1)
-\end{equation}
-mit $B_{21}$ dem  Einstein-Koeffizienten der stimulierten Emission.
+$A_{21}$ ist der \emph{Einsteinkoeffizient der spontanen Emission}.
 
 
-Die Rate aus Zustand 1 heraus muss also der Summe der Raten aus Zustand 2 heraus entsprechen, 
+Damit eine Absorption stattfinden kann, das Atom also vom Zustand 1 in den Zustand 2 übergehen kann, muss ein Lichtfeld vorhanden sein. Dieses Feld habe die spektrale Energiedichte $u(E)$. Die Übergangsrate ist dann
+\begin{equation}
+    k_\text{absorption} = B_{12} \, N_1 \, u(E_2 - E_1) \label{eq:7_k_abs}
+\end{equation}
+$B_{12}$ ist der \emph{Einstein-Koeffizient der Absorption}.
+
+Im thermodynamischen Gleichgewicht muss die Besetzung $N_i$ der Zustände über die Zeit konstant sein und das Verhältnis $N_2 / N_1$ muss der Boltzmann-Statistik entsprechen. Dies kann nur erreicht werden, wenn es auch den  Prozess der stimulierten Emission gibt. Dabei stimuliert  (oder induziert) ein einfallendes Photon den Zerfall eines angeregten Atoms, inklusive der Emission eines weiteren Photons. Vorher gibt es ein Photon udn ein Atom im angeregten Zustand, nachher  zwei Photonen und ein Atom im Grundzustand. Das zweite Photon ist dabei eine exakte Kopie des ersten. Die Übergangsrate ist 
+\begin{equation}
+    k_\text{stimuliert} = B_{21} \, N_2 \, u(E_2 - E_1) \label{eq:7_k_stim}
+\end{equation}
+mit $B_{21}$ dem  \emph{Einstein-Koeffizienten der stimulierten Emission}.
+
+
+Im thermischen Gleichgewicht muss die Rate aus Zustand 1 heraus  der Summe der Raten aus Zustand 2 heraus entsprechen, 
 oder 
 \begin{equation}
     B_{12} \, N_1 \, u(E_2 - E_1) =   A_{21} \, N_2 + B_{21} \, N_2 \, u(E_2 - E_1) 
@@ -242,17 +244,97 @@ Und das Verhältnis der Besetzung muss der Boltzmann-Verteilung gehorchen
 \end{equation}
 mit $h \nu = E_2 - E_1$ und $g_i = 2J +1$ der Entartung des Zustands $i$. Mit der spektralen Energiedichte des Schwarzkörpers 
 \begin{equation}
-    U(\nu) = \frac{8 \pi h \nu^3}{c^3} \, 
-    \frac{1}{e^{h\nu/k_B T} -1}
+    u(\nu) = \frac{8 \pi h \nu^3}{c^3} \,  \frac{1}{e^{h\nu/k_B T} -1}
 \end{equation}
 findet man folgende Zusammenhänge zwischen den drei Einstein-Koeffizienten
 \begin{equation}
    g_1 B_{12}  = g_2 B_{21} \quad \text{und} \quad
    A_{21} = \frac{8 \pi h \nu^3}{c^3}\, B_{21} 
 \end{equation}
-Es gibt also nur einen freien Parameter, der direkt mit dem Übergangsdipolmoment $|\bM_{EA}|^2$ zusammenhängt.
+Es gibt also nur einen freien Parameter, der direkt mit dem Übergangsdipolmoment $|\bM_{21}|^2$ zusammenhängt.
 
 
+\section{Der Laser}
+
+Stimulierte Emission spielt unter normalen Bedingungen praktisch keine Rolle. Ein Atom befindet sich nur für sehr kurze Zeit im angeregten Zustand. Genau in diesem Moment müsste ein geeignetes stimulierendes Photon vorhanden sein. Das ist selten. Oder umgekehrt: In den allermeisten Situationen ist die stimulierte Rate viel kleiner als die spontane, also 
+\begin{equation}
+    u(h\nu)  B_{21}  \ll A_{21} = \frac{8 \pi h \nu^3}{c^3} \, B_{21} 
+\end{equation}
+weil 
+\begin{equation}
+    \frac{1}{e^{h\nu/k_B T} -1} \ll 1
+\end{equation}
+
+Niemand zweifelte an der von Einstein eingeführten stimulierten Emission, aber es dauerte bis in die 1950er Jahre, bis sie sinnvoll genutzt wurde. 1960 demonstrierte Theodore Maiman den ersten 'Laser'. Die Abkürzung steht für 'light amplification by stimulated emission of radiation' (Lichtverstärkung durch stimulierte Emission von Strahlung). Das Konzept geht zurück auf den von Charles H. Townes\sidenote{dafür Nobelpreis 1963} 1954 demonstrierten 'Maser' (microwave amplification by...), der von Arthur L. Schawlow\sidenote{Nobelpreis 1981 für Laserspektroskopie} weiterentwickelt wurde.
+
+
+Die stimulierte Emission sollte also der dominierende Prozess sein, wenn ein Photon mit einem Atom wechselwirkt. Wenn wir aber der Einfachheit halber Entartung gleichsetzen ($g_1 = g_2$), dann muss wegen der Ähnlichkeit von Gl \ref{eq:7_k_abs} und \ref{eq:7_k_stim} die Besetzung im oberen Zustand größer sein als die im unteren Zustand, im Idealfall viel größer: $N_2 \gg N_1$. Andernfalls würde ein einfallendes Photon einfach absorbiert und nicht durch stimulierte Emission kopiert. Der Fall $N_2 > N_1$ wird als \emph{Besetzungsinversion} bezeichnet. Er ist nicht im thermischen Gleichgewicht. Für keine Temperatur $T$ liefert die Boltzmannverteilung eine solche Besetzung.
+
+Wie erreichen wir die Besetzungsinversion? Wir müssen den Atomen Energie zuführen. Wir nehmen hier einmal an, dass dies durch Licht geeigneter Wellenlänge geschieht. Das nennt man \emph{optisches Pumpen}. So hat es Maiman in seinem Rubin-Laser gemacht. Heute kann man die Energie auch anders zuführen, zum Beispiel elektrisch. Es hilft nicht, wenn das Pumplicht den Übergang $1 \rightarrow 2$ pumpt. Zunächst nimmt zwar die Besetzung des Zustands 1 mit steigender Pumpintensität zu. Wenn wir aber die Gleichbesetzung erreichen ($N_1 = N_2$), dann wird ein einfallendes Pumpphoton mit der gleichen Wahrscheinlichkeit absorbiert, wie es stimulierte Emission verursacht. Diese Grenze kann nicht überschritten werden, und $N_2 > N_1$ wird nie erreicht.
+
+Der Ausweg ist ein System, das aus mehr als zwei Niveaus besteht, z.B. drei oder vier (siehe Abbildung XXX). Wir pumpen den Übergang $1 \rightarrow 3$. Der Zustand 3 ist kurzlebig und geht schnell in den Zustand 2 über, möglicherweise unter Aussendung eines Photons, das uns hier nicht interessiert. Damit ist die Besetzung $N_3 \ll N_1$ zu jedem Zeitpunkt, so dass dieser Übergang gut gepumpt werden kann. Gleichzeitig können wir  Besetzung im Zustand 2 akkumulieren und so $N_2 > N_1$ erreichen.
+
+
+Neben der Energiequelle zum Pumpen und dem atomaren Gas als Verstärkungsmedium benötigt man einen Resonator, d.h. zwei Spiegel, die das Verstärkungsmedium umschließen. Die stimulierte Emission findet nicht bei jedem Durchgang eines Photons durch das Medium statt.  Der Resonator sorgt dafür, dass jedes Photon viele Chancen hat, einmal kopiert zu werden. Ist dies einmal geschehen, entsteht eine Art Lawine identischer Photonen, bis die stimulierte Emission ausreicht, um die Besetzungsinversion abzubauen und den Zustand $N_2 = N_1$ zu erreichen. Der Laser ist also eine Quelle identischer Photonen. Dies entspricht klassischerweise kohärentem Licht.
+
+
+\section{Beispiel: Rubin-Laser}
+
+Der historisch erste Laser verwendet Rubin als aktives Medium. Rubin ist ein Korund-Mineral, Chromaluminiumoxid, d.h. Chromionen in einer Aluminiumoxidmatrix (\ch{Al2O3}). Aluminiumoxid ist durchsichtig wie Glas. Ein Stab aus diesem Material ist an den Enden poliert und verspiegelt. Chrom ist in sehr geringer Menge (0,05\%) eingelagert. Die \ch{Cr^{3+}}-Ionen werden durch eine Blitzlampe in hoch angeregte Zustände gepumpt. Von dort zerfallen sie in einen tieferliegenden angeregten Zustand. Die überschüssige Energie wird in Form von Wärme an den Stab abgegeben. Der Rubinlaser ist somit ein Festkörperlaser und arbeitet bei einer Wellenlänge von 694.3~nm, an der Grenze zum nahen Infrarot. 
+
+\section{Helium-Neon-Laser}
+
+Der \ch{He:Ne}-Laser verwendet Neon als aktives Medium und Helium zur Anregung in einer Gasentladungsröhre. Die beschleunigten Elektronen regen das Helium durch Stöße vom Zustand 1s$^2$ in den Zustand 1s~2s an. Dieser Zustand kann wegen der Auswahlregel $\Delta l = \pm1$ nicht (schnell) in den Grundzustand zerfallen und lebt daher relativ lange. 
+
+Der \ch{He}-2s-Zustand ist resonant mit dem angeregten 5s-Zustand von Neon (Neon-Grundzustand 1s$^2$ 2s$^22$ 2p$^6$). 'Resonant' bedeutet, dass beide Zustände die gleiche Energie von 20,6~eV haben.  Bei der Kollision eines Neon-Atoms mit einem Helium-Atom kann daher die Anregung sehr effizient übertragen werden. Dieser 5s-Zustand dient dann als oberer Zustand im Laser. Der Übergang zum 3p-Zustand bei 632,8~nm erfolgt durch stimulierte Emission. Der untere 3p-Zustand zerfällt sehr schnell weiter in den Grundzustand. Obwohl die Besetzung in 5s niedrig ist, ist sie höher als in 3p, so dass auch hier eine Besetzungsinversion vorliegt. Es handelt sich also auch hier um einen Drei-Niveau-Laser.
+
+
+\section{Linienbreiten}
+
+Bisher haben wir nur die Lage der Linien im Atomspektrum diskutiert, wobei wir immer davon ausgegangen sind, dass sie deltaförmig sind. Das ist nicht der Fall. Wenn man hochauflösende Spektroskopie betreibt, beobachtet man eine Linienbreite, die größer ist als die experimentelle Auflösung. Drei Ursachen werden hier diskutiert.
+
+\subsection{Natürliche Linienbreite} 
+
+Selbst bei einem idealen Atom muss aufgrund der Energie-Zeit-Unschärfe (oder der Fourier-Transformation) ein Zusammenhang zwischen der Lebensdauer des angeregten Zustands und der spektralen Breite des Übergangs bestehen. Je länger ich eine Frequenz messen kann, desto genauer kann ich sie bestimmen. Die resultierende Linienbreite wird als 'natürlich' bezeichnet, da sie die fundamentale Grenze darstellt. Für sie gilt
+\begin{equation}
+    \delta \nu_\text{nat} = \frac{1}{2\pi \, \tau}
+\end{equation}
+mit der Lebensdauer $\tau$ des angeregten Zustands. Für die Natrium-D-Linie aus dem Zustand 3D$_{1/2}$ ergibt sich bei einer Lebensdauer von $\tau = 16$~ns eine Linienbreite von $\delta \nu_\text{nat} = 10$~MHz.
+
+\paragraph{Nebenbemerkung} Wenn Sie es merkwürdig finden, dass hier die Lebensdauer des Zustands eingeht, während das Atom nur darauf wartet, dass es endlich emittiert, dann liegt das an all den Dingen, die wir weggelassen haben. Lesen Sie dann über  'Rabi-Oszillationen' und stellen fest, dass Quantensprünge manchmal doch nicht instantan sind.
+
+
+\subsection{Doppler-Verbreiterung}
+
+
+Bewegt sich eine Atom mit der Geschwindigkeit  $v$ in Strahlrichtung, so ändert sich seine Absorptions-Frequenz aufgrund der Doppler-Verschiebung um $\Delta \nu$.
+\begin{equation}
+	\Delta \nu = \frac{v}{c_0} \, \nu_0
+\end{equation}
+mit der Ruhe-Frequenz $\nu_0$. Die Geschwindigkeit kommt  aus der  Maxwell-Boltzmann-Geschwindigkeitsverteilung $\mathcal{P}(v)$
+\begin{equation}
+	\mathcal{P}(v) = \sqrt{\frac{m}{2 \pi k_B T}} \, \exp \left (
+	- \frac{m v^2}{2  k_B T}	
+	\right) \quad .
+\end{equation}
+mit der Masse $m$ des Atoms.
+Insgesamt ergibt sich damit eine Gaußförmige  Linie der Halbwertsbreite 
+\begin{equation}
+	 \delta \nu_{doppler} = \nu_0 \, \sqrt{\frac{8 k_B T \ln 2} {m c^2}} \quad .
+\end{equation}
+Für die Natrum-D-Linie ergibt sich  $\delta \nu_{doppler} = 1 700$~MHz. Sie übertrifft damit die natürliche Linienbreite bei weitem.
+
+\subsection{Stoß-Verbreiterung}
+
+Stößt ein Atom mit einem anderen zusammen, während es sich im angeregten Zustand befindet, so wird die Lebensdauer des angeregten Zustandes effektiv verkürzt, $\tau$ wird kürzer und damit wie oben $\delta \nu$ breiter. Die mittlere Zeit $\delta t$ zwischen den Stößen kann aus der mittleren freien Weglänge $l$ eines Gases der mittleren Geschwindigkeit $v$ abgeschätzt werden (\cite{Demtroeder_laser}) % eq. 3.52, demtröder laser spectrsocpy I
+\begin{equation}
+    \Delta t = \frac{l}{v} = \frac{1}{n \sigma} \, \sqrt{ \frac{\pi \mu}{8 k_B T}}
+\end{equation}
+Dabei ist $n$ die Teilchendichte (proportional zum Druck $p$) des Stoßpartners, $\sigma$ ein Streuquerschnitt, der die effektive Größe des Atoms beschreibt, und $\mu$ die reduzierte  Masse aus Atom und (ggf. anderem) Stoßpartner. Für die Liniebreite gilt dann wieder
+\begin{equation}
+    \delta \nu_\text{stoss} = \frac{1}{2\pi \, \Delta t} = p \, \sigma \sqrt{ \frac{8}{\pi \mu k_B T}}
+\end{equation}
+Bei spektroskopischen Experimenten kann man hier den Druck und damit die Teilchendichte $n$ verringern und diesen Verbreitungsmechanismus ausschalten. 
 
 \newpage
 
