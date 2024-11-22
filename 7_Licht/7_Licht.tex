@@ -1,46 +1,16 @@
-\renewcommand{\lastmod}{10. September 2024}
+\renewcommand{\lastmod}{22. November 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Licht-Materie-Wechselwirkung}
 
 
 
-\goal{By the end of this chapter, you should be able to draw, calculate and align a ray's path through an optical system.}
-
-Ich kann stimulierte Emission und die Funktionsweise eines Lasers erklären.
-
-Ich kann das Röntgenspektrum einer Anode erklären und relevante Größen berechnen.
 
 
-\section{Overview}
-
-s.a. Demtröder 3, Kap. 7
-
-7.3* Quantenmechanik optischer Übergänge 3	Wdh (41.6 Excited States and Spectra
-
-Auswahlregeln
-
-Helium
-
-8.5 Natrium D Linien [2] 5
-
-Rubidium Experiment
-
-7.1 Einstein-Koeffizienten 1	** (41.8 Stimulated Emission and Lasers 1252)
-
-
-7.2 Laser 2	** (41.8 Stimulated Emission and Lasers 1252)
-
-
-7.4 Linienbreite 4	*	4 
-
-7.6 Röntgenstrahlung 6	***	
-
-9.5 Moseley’sches Gesetz 5	
+\section{Überblick}
 
 
 
-\phet{Lasers}
 
 
 % 6. Lasers
@@ -149,7 +119,7 @@ Hier nun ein Überblick über die Auswahlregeln
 \end{itemize}
 \end{description}
 
-Es gibt keine Auswahlregel, die eine Änderung der Hauptquantenzahl $n$ verlangt! Insbesondere bei schweren Atomen sind die Energien zwischen den Zuständen gleicher Hauptquantenzahl so verschieden, dass relevante optische Übergänge auftreten, wie wir unten am Beispiel von XXX sehen werden.
+Es gibt keine Auswahlregel, die eine Änderung der Hauptquantenzahl $n$ verlangt! Insbesondere bei schweren Atomen sind die Energien zwischen den Zuständen gleicher Hauptquantenzahl so verschieden, dass relevante optische Übergänge auftreten, wie wir unten am Beispiel von Natrium sehen werden.
 
 \subsection{Drehimpuls und Polarisation}
 
@@ -185,6 +155,8 @@ Neben den oben besprochenen elektrischen Dipolübergängen gibt es auch magnetis
 
 \section{Beispiel: Helium}
 
+XXX FIG He
+
 %Harris fig 8.30
 
 Abbildung XXX zeigt die niedrigsten Zustände von Helium. Diese wurden bereits am Ende des letzten Kapitels besprochen. Die Pfeile zeigen alle zulässigen Übergänge als Emission an. Zunächst fällt auf, dass die Übergänge innerhalb ihrer Multiplizität bleiben. Es gibt keinen erlaubten Übergang vom Singulett zum Triplett und umgekehrt, was eine Folge der Regel $\Delta S = 0$ ist. Dann ändern alle Pfeile die 'Spalte' im Diagramm, d.h. $\Delta L = \pm 1$. Bei Helium wird in diesen Zuständen nur ein Elektron angeregt. Der Sonderfall $\Delta L = 0$ tritt daher nicht auf. Es gibt zwei metastabile Zustände, $2^1S_0$ und $2^3S_1$, die keinen erlaubten Zerfallskanal besitzen. Die Spin-Bahn-Kopplung und Wechselwirkungen jenseits der hier beschriebenen Dipolstrahlung führen aber auch diese Zustände wieder in den Grundzustand zurück.
@@ -192,6 +164,9 @@ Abbildung XXX zeigt die niedrigsten Zustände von Helium. Diese wurden bereits a
 
 
 \section{Beispiel: Natrium}
+
+
+XXX FIG Natrium
 
 % Demtröder fig 6.22
 
@@ -210,6 +185,9 @@ Dabei nennt man $\tau$ die Lebensdauer des angeregten Zustands und $k = 1 / \tau
 
 
 \section{Einstein-Koeffizienten}
+
+
+XXX sketch Eionstein Koeffizient
 
 Im Jahre 1917, also noch vor dem Bohrschen Atommodell und der de Broglie-Wellenlänge, erkannte A. Einstein, dass es neben den oben besprochenen Absorptions- und Emissionsprozessen noch einen weiteren Prozess geben muss, damit ein Atom im thermischen Gleichgewicht mit dem umgebenden (Schwarzkörper-) Licht sein kann. Betrachten wir dazu noch einmal Absorption und Emission.
 
@@ -255,6 +233,7 @@ Es gibt also nur einen freien Parameter, der direkt mit dem Übergangsdipolmomen
 
 
 \section{Der Laser}
+%\phet{Lasers}
 
 Stimulierte Emission spielt unter normalen Bedingungen praktisch keine Rolle. Ein Atom befindet sich nur für sehr kurze Zeit im angeregten Zustand. Genau in diesem Moment müsste ein geeignetes stimulierendes Photon vorhanden sein. Das ist selten. Oder umgekehrt: In den allermeisten Situationen ist die stimulierte Rate viel kleiner als die spontane, also 
 \begin{equation}
@@ -272,6 +251,8 @@ Die stimulierte Emission sollte also der dominierende Prozess sein, wenn ein Pho
 
 Wie erreichen wir die Besetzungsinversion? Wir müssen den Atomen Energie zuführen. Wir nehmen hier einmal an, dass dies durch Licht geeigneter Wellenlänge geschieht. Das nennt man \emph{optisches Pumpen}. So hat es Maiman in seinem Rubin-Laser gemacht. Heute kann man die Energie auch anders zuführen, zum Beispiel elektrisch. Es hilft nicht, wenn das Pumplicht den Übergang $1 \rightarrow 2$ pumpt. Zunächst nimmt zwar die Besetzung des Zustands 1 mit steigender Pumpintensität zu. Wenn wir aber die Gleichbesetzung erreichen ($N_1 = N_2$), dann wird ein einfallendes Pumpphoton mit der gleichen Wahrscheinlichkeit absorbiert, wie es stimulierte Emission verursacht. Diese Grenze kann nicht überschritten werden, und $N_2 > N_1$ wird nie erreicht.
 
+xxx sketch 3 level system
+
 Der Ausweg ist ein System, das aus mehr als zwei Niveaus besteht, z.B. drei oder vier (siehe Abbildung XXX). Wir pumpen den Übergang $1 \rightarrow 3$. Der Zustand 3 ist kurzlebig und geht schnell in den Zustand 2 über, möglicherweise unter Aussendung eines Photons, das uns hier nicht interessiert. Damit ist die Besetzung $N_3 \ll N_1$ zu jedem Zeitpunkt, so dass dieser Übergang gut gepumpt werden kann. Gleichzeitig können wir  Besetzung im Zustand 2 akkumulieren und so $N_2 > N_1$ erreichen.
 
 
@@ -282,11 +263,15 @@ Neben der Energiequelle zum Pumpen und dem atomaren Gas als Verstärkungsmedium 
 
 Der historisch erste Laser verwendet Rubin als aktives Medium. Rubin ist ein Korund-Mineral, Chromaluminiumoxid, d.h. Chromionen in einer Aluminiumoxidmatrix (\ch{Al2O3}). Aluminiumoxid ist durchsichtig wie Glas. Ein Stab aus diesem Material ist an den Enden poliert und verspiegelt. Chrom ist in sehr geringer Menge (0,05\%) eingelagert. Die \ch{Cr^{3+}}-Ionen werden durch eine Blitzlampe in hoch angeregte Zustände gepumpt. Von dort zerfallen sie in einen tieferliegenden angeregten Zustand. Die überschüssige Energie wird in Form von Wärme an den Stab abgegeben. Der Rubinlaser ist somit ein Festkörperlaser und arbeitet bei einer Wellenlänge von 694.3~nm, an der Grenze zum nahen Infrarot. 
 
+xxx sketchj states ruby
+
 \section{Helium-Neon-Laser}
 
 Der \ch{He:Ne}-Laser verwendet Neon als aktives Medium und Helium zur Anregung in einer Gasentladungsröhre. Die beschleunigten Elektronen regen das Helium durch Stöße vom Zustand 1s$^2$ in den Zustand 1s~2s an. Dieser Zustand kann wegen der Auswahlregel $\Delta l = \pm1$ nicht (schnell) in den Grundzustand zerfallen und lebt daher relativ lange. 
 
 Der \ch{He}-2s-Zustand ist resonant mit dem angeregten 5s-Zustand von Neon (Neon-Grundzustand 1s$^2$ 2s$^22$ 2p$^6$). 'Resonant' bedeutet, dass beide Zustände die gleiche Energie von 20,6~eV haben.  Bei der Kollision eines Neon-Atoms mit einem Helium-Atom kann daher die Anregung sehr effizient übertragen werden. Dieser 5s-Zustand dient dann als oberer Zustand im Laser. Der Übergang zum 3p-Zustand bei 632,8~nm erfolgt durch stimulierte Emission. Der untere 3p-Zustand zerfällt sehr schnell weiter in den Grundzustand. Obwohl die Besetzung in 5s niedrig ist, ist sie höher als in 3p, so dass auch hier eine Besetzungsinversion vorliegt. Es handelt sich also auch hier um einen Drei-Niveau-Laser.
+
+xxx sketchj states He Ne
 
 
 \section{Linienbreiten}
@@ -336,7 +321,66 @@ Dabei ist $n$ die Teilchendichte (proportional zum Druck $p$) des Stoßpartners,
 \end{equation}
 Bei spektroskopischen Experimenten kann man hier den Druck und damit die Teilchendichte $n$ verringern und diesen Verbreitungsmechanismus ausschalten. 
 
-\newpage
+
+% XXX Rubidium Experiment ???
+
+\section{Röntgenstrahlung}
+
+In den einleitenden Kapiteln wurde bereits kurz über Röntgenstrahlung gesprochen. Röntgenstrahlung ist wie das sichtbare Licht eine elektromagnetische Welle. Der Unterschied besteht darin, dass die Energie pro Photon wesentlich höher ist. In diesem Kapitel wurde bisher nur ein Valenzelektron angeregt. In Abbildung XXX des letzten Kapitels sieht man jedoch, dass die tiefer gelegenen gebundenen Elektronen deutlich stärker gebunden sind als das Valenzelektron und ihre Übergänge daher mit sehr energiereichen Photonen verbunden sind. Wir betrachten nun also die Spektroskopie der inneren Elektronen.
+
+\subsection{Bremsstrahlung}
+
+Bevor wir zu diesem Punkt kommen, müssen wir kurz auf die Bremsstrahlung eingehen. Darunter versteht man ein breites Kontinuum im Röntgenspektrum,  das nicht vom Kathodenmaterial abhängt. Die durch die Spannung $U$ beschleunigten Elektronen werden an den Kernen des Kathodenmaterials abgelenkt, ohne dass die Kerne oder die Elektronen des Kathodenmaterials Energie aufnehmen. Ablenkung bedeutet Beschleunigung, und die beschleunigten Elektronen sind die Quelle  elektromagnetischer Strahlung.  Das Kontiunium hat eine maximale Frequenz bzw. eine minimale Wellenlänge, die von der Beschleunigungsspannung $U$ abhängt: Maximal kann die gesamte Energie $e \, U$ auf ein Photon übertragen werden.
+\begin{equation}
+    h \nu_\text{grenz} = e \, U \quad \text{oder} \quad
+    \lambda_\text{grenz} = \frac{h c}{e U}
+\end{equation}
+Beschleunigungsspannungen im Bereich von einigen 10~kV ergeben Wellenlängen von 0.1--1~nm (und natürlich Photonenenergien von einigen 10~keV).
+
+Das Spektrum der Bremsstrahlung ist linear in $\nu$, also 
+\begin{equation}
+    I(\nu) d\nu \propto \nu_\text{grenz} - \nu \quad \text{für} \quad  \nu < \nu_\text{grenz}
+\end{equation}
+Nach Umrechnung auf eine Wellenlängenskala ergibt sich
+\begin{equation}
+    I(\lambda) d\lambda \propto \left( \frac{\lambda}{\lambda_\text{grenz}} - 1 \right) \frac{1}{\lambda^2} 
+    \quad \text{für} \quad  \lambda > \lambda_\text{grenz}
+\end{equation}
+
+xxx sketchj spektrum
+
+
+\subsection{Charakteristisches Linienspektrum}
+Experimentell findet man neben dem Kontinuum der Bremsstrahlung eine für das Kathodenmaterial charakteristische Abfolge von scharfen Linien. Hier wird ein inneres Elektron des Kathodenmaterials aus dem Atom herausgeschlagen. Eines der verbleibenden, energetisch höheren Elektronen fällt unter Aussendung eines Röntgenphotons in diese Lücke zurück. Die Lage der Linien hängt also von zwei Zuständen ab: dem des herausgeschlagenen Elektrons und dem des auffüllenden Elektrons.
+
+Ein einfaches Modell, das Moseley-Gesetz, ignoriert alle Details auf atomarer Ebene und geht einfach von einem wasserstoffähnlichen System aus. In diesem Fall wird die Energie eines Zustands nur durch seine Hauptquantenzahl $n$ beschrieben. Die Energie des emittierten Röntgenphotons ist dann 
+\begin{equation}
+    h \nu = (Z - S_n)^2 \, R_H \, hc \, \left(  \frac{1}{n^2} - \frac{1}{m^2} \right)
+\end{equation}
+Dabei ist $n$ die Quantenzahl des herausgeschlagenen Elektrons und $m$ die des auffüllenden. Der Parameter $S_n$ korrigiert die Kernladung $Z$ um die weiter innen liegenden Elektronen und ist daher von $n$ abhängig. Für $n=1$ ist $S \approx. 1$, für $n=2$ ist $S \approx. 7,8$.
+Wie bei den Schalen der Mehrelektronenatome werden die Linien(gruppen) entsprechend der Quantenzahl $n = 1, 2, 3$ mit den Buchstaben K, L, M bezeichnet. Die Quantenzahl $m$ wird in ihrem Abstand von $n$ durch griechische Buchstaben kodiert: $\alpha, \beta, \gamma$ bedeutet also $m=n + 1,2,3$. Die Linie K$_\alpha$ entspricht einem Übergang von $m=2$ nach $n=1$, die Linie L$_\gamma$ einem Übergang von $m=5$ nach $n=2$.
+
+\subsection{Absorption}
+
+Absorptionsspektren können auch mit Röntgenstrahlen gemessen werden. Wie immer nimmt die transmittierte Leistung $P$ exponentiell mit der Dicke des Materials ab.
+\begin{eqnarray}
+    P(x)  = P_0 e^{- \alpha x} = P_0 \, e^{- n \sigma  x}
+\end{eqnarray}
+mit dem Absorptionskoeffizienten $\alpha$. Dieser ist das Produkt aus der Teilchenzahldichte $n$ und dem Absorptionskoeffizienten $\sigma$ ab. Der Absorptionskoeffizienten beschreibt dem Effekt jedes einzelnen Atoms auf die Röntehstarhlung.
+
+Drei Effekte tragen zur Absorption von Röntgenphotonen bei
+\begin{description}
+    \item[Photoeffekt] Das Röntgenphoton wird vom Atom absorbiert. Dabei wird ein stark gebundenes Elektron ionisiert und das Atom erhält noch kinetische Energie.
+    \item[Compton-Effekt] Das Röntgenphoton stößt mit einem fast freien Elektron einer der äußeren Schalen des Atoms. Dabei übernimmt das Elektron kinetische Energie und die Wellenlänge des Röntgenphotons ändert sich.
+    \item[Paarerzeugung] Bei ausreichend hohen Energien des Röntgenphotons ($E > 1$MeV) kann ein Elektron-Positron-Paar erzeugt werden. Hier wird Energie in Materie umgewandelt! Die restliche Energie geht in die kinetische Energie der neuen Teilchen.
+\end{description}
+
+Solange die Energie noch nicht für Paarerzeugung ausreicht, findet man
+\begin{equation}
+    \sigma \approx C \, Z^4 \, \lambda^3
+\end{equation}
+Die Absorption nimmt also mit der Kernladungszahl und der Wellenlänge stark zu. Die Konstante $C$ hängt von der Quantenzahl $n$ bzw. der beteiligten Schale ab: Mit zunehmender Wellenlänge reicht die Energie des Röntgenphotons irgendwann nicht mehr aus, um Elektronen einer Schale zu ionisieren. Die K-Kante im Absorptionsspektrum fällt daher mit der Grenze der K-Serie im Emissionsspektrum zusammen.
+
 
 
 \section{Zusammenfassung}
