@@ -64,7 +64,7 @@ Rubidium Experiment
 
 Bisher haben wir die Wellenfunktion eines Elektrons im Atom immer als $\Psi(\br)$ geschrieben, also nur eine Ortsabhängigkeit, aber keine Zeitabhängigkeit berücksichtigt. Es sind aber beschleunigte Ladungen, die elektromagnetische Wellen aussenden. Wir brauchen also auch die Zeitabhängigkeit der Wellenfunktion. Dies ist einfach für Wellenfunktionen, die zu einem Energieeigenwert $E$ gehören. In diesem Fall ist die Zeitkomponente einfach 
 \begin{equation}
-    \Psi(\br, t) = \Psi(\br) \, e^{- \frac{E}{\hbar} \, t}
+    \Psi(\br, t) = \Psi(\br) \, e^{- i \frac{E}{\hbar} \, t}
 \end{equation}
 Das ist wie bei einer ebenen Welle, die die Form 
 \begin{equation}
@@ -77,18 +77,18 @@ Soll nun ein Atom von einem Zustand $\Psi_A$ in einen Zustand $\Psi_E$ übergehe
     \Psi_\text{Übergang} (\br, t) = \Psi_A(\br, t) + \Psi_E(\br, t) = 
     \Psi_A(\br) \, e^{-i E_A t / \hbar} +  \Psi_E(\br) \, e^{-i E_E t / \hbar}
 \end{equation}
-befindet. Da es hier nur um das Prinzip geht, werden alle Vorfaktoren für die zeitliche Entwicklung der Zustandsgewichte und für die Normierung weggelassen. Die Wahrscheinlichkeitsdichte ist dann
+befindet. Da es hier nur um das Prinzip geht, werden alle Vorfaktoren und deren zeitliche Entwicklung\sidenote{Die Gewichtung zwischen Anfangs- und Endzustand sollte sich bei einem Übergang ja ändern.} weggelassen. Die Wahrscheinlichkeitsdichte ist dann
 \begin{align}
     & \left| \Psi_\text{Übergang} (\br, t)  \right|^2 =  \Psi_\text{Übergang}^\star (\br, t) \Psi_\text{Übergang} (\br, t)  \\
    & =  \left(  \Psi_A^\star(\br) \, e^{+i E_A t / \hbar} +  \Psi_E^\star(\br) \, e^{+i E_E t / \hbar} \right)
     \left(  \Psi_A(\br) \, e^{-i E_A t / \hbar} +  \Psi_E(\br) \, e^{-i E_E t / \hbar} \right) \\
-    & = | \Psi_A(\br)|^2 + | \Psi_E(\br)|^2  +\Re \left\{ \Psi_A(\br)\Psi_E^\star(\br)  \, e^{-i (E_A - E_E) t / \hbar}  \right\} 
+    & = | \Psi_A(\br)|^2 + | \Psi_E(\br)|^2  + 2 \Re \left\{ \Psi_A(\br)\Psi_E^\star(\br)  \, e^{-i (E_A - E_E) t / \hbar}  \right\} 
 \end{align}
 Wasserstoff-Wellenfunktionen sind reellwertig, so dass in der letzten Zeile auch der Konjugiert-Komplex weggelassen und die Exponentialfunktion durch einen Cosinus ersetzt werden kann.
 
 Was passiert hier? Befindet sich ein Atom in einem Überlagerungszustand, so schwingt die Aufenthaltswahrscheinlichkeit des Elektrons und damit die Ladungsdichte mit der Kreisfrequenz $\omega_{AE} = (E_A - E_E) / \hbar $. Diese oszillierende Ladung sendet dann entweder elektromagnetische Wellen mit der Frequenz $\omega_{AE}$ aus oder wird, wie beim getriebenen Oszillator, von einer einfallenden elektromagnetischen Welle mit dieser Frequenz getrieben. Im ersten Fall wird Licht emittiert, im zweiten Fall absorbiert.
 
-In der klassischen Elektronendynamik besteht ein Dipol aus einer positiven Ladung $q=+e$ am Ursprung und einer negativen Ladung $q=-e$ am Ort $\br$. Diese Ladungsverteilung hat das Dipolmoment $\bp = -e \br$. Für die Verteilung der Elektronen um einen positiven Kern in der Lösung integriert man über den Raum, d.h. 
+In der klassischen Elektronendynamik besteht ein Dipol aus einer positiven Ladung $q=+e$ am Ursprung und einer negativen Ladung $q=-e$ am Ort $\br$. Diese Ladungsverteilung hat das Dipolmoment $\bp = -e \br$. Für die Verteilung der Elektronen um einen positiven Kern im Ursprung integriert man über den Raum, d.h. 
 \begin{equation}
     \bp = - \int_\text{Raum} e\br \,  | \Psi(\br, t) |^2 \, d \br 
 \end{equation}
@@ -99,6 +99,7 @@ Die Wasserstoffwellenfunktionen sind alle punktsymmetrisch um den Ursprung. Dahe
 Das räumliche Integral bestimmt vollständig, wie gut der Übergang $A \rightarrow E$ mit Licht möglich ist. Man nennt diesen Term \emph{Übergangs-Dipolmoment} oder Dipol-Matrixelement $\bM_{EA}$.
 \begin{equation}
     \bM_{EA} = \int_\text{Raum} e\br \,  \Psi_A(\br)\Psi_E^\star(\br)  \, d \br 
+    \label{eq:7_Matrix_element}
 \end{equation}
 Es handelt sich um einen Vektor, da das Integral als gewichtete Summe der Vektoren $\br$ aufgefasst werden kann.
 
@@ -110,25 +111,34 @@ für eine gegebene Kombination der Zustände $A$ und $E$ sein Betrag $|\bM_{EA}|
 
 Wir suchen nun nach Regeln, die diese erlaubten Übergänge identifizieren. Dies sind die Auswahlregeln. Tatsächlich ist $|\bM_{EA}|$ für die meisten Kombinationen gleich Null. Das liegt an der Symmetrie der Wellenfunktionen. Wäre $\br$ nicht im Integral, dann wäre das Integral für alle $A \neq E$ Null, da die Wellenfunktionen orthonormiert sind.
 
-Auf die Herleitung der Auswahlregeln soll hier nicht weiter eingegangen werden. Sie findet sich z.B. in \cite{Demtröder_ep3}. Sie beschreiben Bedingungen für die Änderung $\Delta Q$ einer Quantenzahl $Q$ beim Übergang vom Zustand $A$ nach $E$.
+Sehr viel erreicht man schon bei der Betrachtung der  \emph{Parität}. Die Parität einer Funktion $f$ beschreibt, wie sie sich unter Spiegelung aller Koordinaten verhält. Man bezeichnet sie als gerade oder ungerade, je nachdem ob das $n$ in 
+\begin{equation}
+    f(\br) = (-1)^n f(- \br)
+\end{equation}
+gerade oder ungerade ist. Bei gerader Parität ist also $f(\br) = + f(- \br) $.
+Eine Funktion kann auch keine Parität haben, z. B. $f(x) = 1 + x$. Für Wasserstoffwellenfunktionen ist die Parität $(-1)^l$, d.h. gerade für gerade $l$. Das $\br$ in Gl. \ref{eq:7_Matrix_element} hat eine ungerade Parität und das Integral verschwindet, wenn die Parität insgesamt ungerade ist. Daher muss sich die Parität von $\Psi_A$ von der Parität von $\Psi_B$ unterscheiden, d.h. sie muss sich beim Übergang ändern. Dies ist die erste Auswahlregel, die immer gültig ist.
 
+Der Spin in den Zuständen $A$ und $E$ ist ortsunabhängig. Der Spinanteil der Wellenfunktionen\sidenote{den wir bisher nie explizit geschrieben haben} kann also vor das Integral gezogen werden. Da auch die Spin-Wellenfunktionen orthonormal sind, kann sich der (Gesamt-)Spin bei einem Übergang nicht ändern. Allerdings gibt es die Spin-Bahn-Kopplung. Diese führt zu einem Einfluss des Spins auf den räumlichen Teil der Wellenfunktion, so dass nicht mehr alles vor das Integral gezogen werden kann. Die Spin-Erhaltung gilt also nicht strickt und immer weniger, je mehr die Spin-Bahn-Kopplung mit steigender Kernladung zunimmt.
+
+
+Hier nun ein Überblick über die Auswahlregeln
 \begin{description}
     \item[Es gilt immer] \ \\
 \begin{itemize}\setlength{\itemsep}{0pt}
+    \item Die Parität muss sich ändern.
     \item $\Delta J = 0, \pm 1$, aber der Übergang $J=0$ nach $J=0$ ist verboten.
     \item $\Delta m_J = 0, \pm 1$, aber der Übergang $m_J=0$ nach $m_J=0$ ist verboten, falls $\Delta J = 0$.
-    \item Die Parität muss sich ändern (s.u.).
 \end{itemize}
 
 \item[Für Einelektron-Atome]  gilt immer  \ \\
 \begin{itemize}\setlength{\itemsep}{0pt}
     \item  $\Delta l = \pm 1$ (aber  $\Delta l = 0$ ist verboten)
-    \item $\Delta s = 0$ weil alle Elektronen $s=1/2$ besitzen.
+    \item $\Delta s = 0$, weil alle Elektronen $s=1/2$ besitzen.
 \end{itemize}
 
 \item[Für Mehrelektron-Atome] gilt im Bereich der LS-Kopplung   \ \\  
 \begin{itemize}\setlength{\itemsep}{0pt}
-    \item $\Delta S = 0$
+    \item $\Delta S = 0$, gilt durch die LS-Kopplung aber nur schwach.
     \item $\Delta L = \pm 1$. In Spezialfällen (mehr als ein Elektron verändert seine Wellenfunktion) ist auch $\Delta L = 0$ erlaubt. Dann ist immer noch der Übergang $L=0$ nach $L=0$  verboten.
 \end{itemize}
 
@@ -141,23 +151,10 @@ Auf die Herleitung der Auswahlregeln soll hier nicht weiter eingegangen werden. 
 
 Es gibt keine Auswahlregel, die eine Änderung der Hauptquantenzahl $n$ verlangt! Insbesondere bei schweren Atomen sind die Energien zwischen den Zuständen gleicher Hauptquantenzahl so verschieden, dass relevante optische Übergänge auftreten, wie wir unten am Beispiel von XXX sehen werden.
 
-%see also https://web1.eng.famu.fsu.edu/~dommelen/quantum/style_a/consem.html
-% https://web1.eng.famu.fsu.edu/~dommelen/quantum/index.html
-
-
-\subsection{Parität}
-
-Die \emph{Parität} einer Funktion $f$ beschreibt, wie sie sich unter Spiegelung aller Koordinaten verhält:
-\begin{align}
-    f(\br) = + f(- \br) & \quad \text{gerade Parität} \\
-    f(\br) = - f(- \br) & \quad \text{ungerade Parität}
-\end{align} 
-Eine Funktion kann auch keine Parität haben, z. B. $f(x) = 1 + x$. Für Wasserstoffwellenfunktionen ist die Parität $(-1)^l$. Eine Änderung der Parität erfordert daher eine Änderung von $l$ um eine ungerade ganze Zahl. Für ein Ein-Elektronen-Atom wird dies automatisch durch die $\Delta l$-Regel erfüllt. Bei Mehrelektronen-Atomen gibt es kompliziertere Sonderfälle, aber in den allermeisten Fällen ändert auch hier ein Elektron seinen Bahndrehimpuls um $\pm 1$.
-
-
 \subsection{Drehimpuls und Polarisation}
 
-Die Drehimpulserhaltung wird bei optischen Übergängen nicht verletzt, da auch das Photon einen intrinsischen Drehimpuls, den Spin $\bS_\gamma$, besitzt. Wir haben bereits in Tabelle XXX gesehen, dass dieser Spin 1 ist, also ganzzahlig, und dass Photonen daher Bosonen sind. Es gibt auch eine Orientierungsquantenzahl $m_\gamma$. Die Orientierungsquantenzahl kann für Photonen nur die Werte $m_\gamma = \pm 1$ annehmen. Diese entsprechen links- bzw. rechtsgerichtetem Licht, oft auch als $\sigma^+$ bzw. $\sigma^-$ Licht bezeichnet. Eine elektromagnetische Welle hat eine eingebaute Vorzugsrichtung, die Richtung des Wellenvektors $\bk$. Entlang dieser Richtung wird daher die quantisierte Komponente des Drehimpulses angegeben. Den Fall $m_\gamma = 0$ gibt es nicht, da Licht eine Transversalwelle ist. Zirkulare Polarisationen sind daher Eigenzustände von Photonen. Linear polarisiertes Licht ist eine Überlagerung der beiden zirkularen Polarisationen.
+Neben Parität und Spin ist es die Drehimpulserhaltung, die die Auswahlregeln bestimmt.
+Die Drehimpulserhaltung wird bei optischen Übergängen nicht verletzt, da auch das Photon einen intrinsischen Drehimpuls, den Spin $\bS_\gamma$, besitzt. Wir haben bereits in Tabelle XXX gesehen, dass dieser Spin 1 ist, also ganzzahlig, und dass Photonen daher Bosonen sind. Es gibt auch eine Orientierungsquantenzahl $m_\gamma$. Die Orientierungsquantenzahl kann für Photonen nur die Werte $m_\gamma = \pm 1$ annehmen. Diese entsprechen links- bzw. rechts zirkular polarisiertem Licht, oft auch als $\sigma^+$ bzw. $\sigma^-$ Licht bezeichnet. Eine elektromagnetische Welle hat eine eingebaute Vorzugsrichtung, die Richtung des Wellenvektors $\bk$. Entlang dieser Richtung wird daher die quantisierte Komponente $m_\gamma$ des Drehimpulses angegeben. Den Fall $m_\gamma = 0$ gibt es nicht, da Licht eine Transversalwelle ist. Zirkulare Polarisationen sind die Eigenzustände von Photonen. Linear polarisiertes Licht ist eine Überlagerung der beiden zirkularen Polarisationen.
 
 Es muss also insgesamt die Drehimpulserhaltung gelten:
 \begin{align}
@@ -175,6 +172,10 @@ mit $S_\gamma = 1$. Dies beschreibt also $\Delta J = 0, \pm 1$. Die Orientierung
 $\Delta m_J = \pm 1$ entspricht also $ m_\gamma = \pm 1$ bei Absorption (bei Emission ändert sich das Vorzeichen). Diese Übergänge sind also selektiv für die jeweiligen zirkularen Polarisationen. Der Übergang $\Delta m_J = 0$ erfordert linear polarisiertes Licht, also eine Überlagerung der beiden zirkularen Polarisationen.
 
 
+Für das Ein-Elektronen-Atom lässt die Drehimpulserhaltung eigentlich auch $\Delta l = 0$ zu. Dieser Fall ist jedoch verboten, da sich die Parität bei $\Delta l = 0$ nicht ändert. Übergänge in Mehrelektronenatome sind sehr häufig von der Art, dass nur ein Elektron seine Quantenzahl ändert. In diesem Fall sind die Auswahlregeln im Grunde die gleichen wie für das Ein-Elektronen-Atom. Nur in seltenen Fällen führt die Absorption eines Photons zu einer Änderung bei zwei Elektronen. Diese Übergänge können dann auch $\Delta L = 0$ zeigen.
+
+
+
 \subsection{Höhere Ordnungen}
 
 
@@ -184,7 +185,73 @@ Neben den oben besprochenen elektrischen Dipolübergängen gibt es auch magnetis
 
 \section{Beispiel: Helium}
 
-Abbildung XXX zeigt die niedrigsten Zustände von Helium. Diese wurden bereits am Ende des letzten Kapitels besprochen. Die Pfeile geben alle zulässigen Übergänge als Emission an. Zunächst fällt auf, dass die Übergänge innerhalb ihrer Multiplizität bleiben. Es gibt keinen erlaubten Übergang vom Singulett zum Triplett und umgekehrt, was eine Folge der Regel $\Delta S = 0$ ist. Dann ändern alle Pfeile die 'Spalte' im Diagrmm, also $\Delta L = \pm 1$. Bei Helium ist in diesen Zuständen nur ein Eleltkron angeregt. Der Spezialfall $\Delta L = 0$ trifft also nicht zu. Es gibt zwei metastabile Zustände, $2^1S_0$ und $2^3S_1$, die keinen erlaubten Zerfallskanäle haben. Wechsekwirkungen jenseits der hier besrpcihennen Dipolstarhlung führen aber auch diese Zustände woeder zum Grundzustand zurpck.
+%Harris fig 8.30
+
+Abbildung XXX zeigt die niedrigsten Zustände von Helium. Diese wurden bereits am Ende des letzten Kapitels besprochen. Die Pfeile zeigen alle zulässigen Übergänge als Emission an. Zunächst fällt auf, dass die Übergänge innerhalb ihrer Multiplizität bleiben. Es gibt keinen erlaubten Übergang vom Singulett zum Triplett und umgekehrt, was eine Folge der Regel $\Delta S = 0$ ist. Dann ändern alle Pfeile die 'Spalte' im Diagramm, d.h. $\Delta L = \pm 1$. Bei Helium wird in diesen Zuständen nur ein Elektron angeregt. Der Sonderfall $\Delta L = 0$ tritt daher nicht auf. Es gibt zwei metastabile Zustände, $2^1S_0$ und $2^3S_1$, die keinen erlaubten Zerfallskanal besitzen. Die Spin-Bahn-Kopplung und Wechselwirkungen jenseits der hier beschriebenen Dipolstrahlung führen aber auch diese Zustände wieder in den Grundzustand zurück.
+
+
+
+\section{Beispiel: Natrium}
+
+% Demtröder fig 6.22
+
+Natrium ähnelt Wasserstoff in dem Sinne, dass ein einziges Valenzelektron seine Eigenschaften bestimmt. Die Elektronenkonfiguration ist [Ne]3s$^1$. Abbildung XXX zeigt die niedrigsten angeregten Zustände und die Übergänge zwischen ihnen. Der Grundzustand hat das Termsymbol 3$^2$S$_{1/2}$, also ein Doublet. Charakteristisch sind die \emph{Natrium-D-Linien} bei 589,5 nm bzw. 588,9 nm Wellenlänge, die z.B. im gelben Licht einiger Straßenlaternen zu sehen sind.
+Dies sind Übergänge aus den Zuständen 3$^2$P$_{1/2}$ und 3$^2$P$_{3/2}$. Dabei ist $\Delta S = 0$, $\Delta L = 1$ und $\Delta J = 0$ bzw. $1$. Die Hauptquantenzahl $n$ ändert sich also nicht. Die Feinstrukturaufspaltung $J = 1/2$ und $J=3/2$ führt zum Doublet der Linien.
+
+\section{Lebensdauer angeregter Zustände}
+
+Nachdem ein Atom durch die Absorption eines Photons oder durch einen Stoß in einen angeregten Zustand versetzt wurde, fällt es früher oder später wieder in den Grundzustand zurück. Dabei gibt es zwei Zeitspannen: Die Lebensdauer des angeregten Zustandes, also die Zeit, die das Atom in diesem Zustand bleibt, bevor es wieder zurückfällt, und die Dauer des Quantensprungs selbst. Der Quantensprung ist instantan. Das Atom verbringt also keine Zeit im Übergang selbst. Die Zeit bis zum Übergang lässt sich aber leicht messen: Man regt ein Gas von Atomen mit einem kurzen Lichtblitz an und misst die Helligkeit des abgestrahlten Lichts als Funktion der Zeit. Man findet einen exponentiellen Zerfall mit einer Zeitkonstante von etwa 10~ns.
+
+Was bedeutet das? Die Wahrscheinlichkeit, dass ein gegebenes angeregtes Atom ein Photon emittiert, ist unabhängig vom zeitlichen Abstand $t$ zwischen Anregungspuls und Detektionszeitfenster. Wie beim Würfeln ist die Wahrscheinlichkeit, eine Sechs zu würfeln, unabhängig von der Anzahl der bisherigen Würfe. Je öfter man würfelt, desto wahrscheinlicher ist es, dass es einmal passiert. Für jedes einzelne geworfene Atom kann man also nicht sagen, wann es das Photon aussenden wird. Für alle Atome zusammen kann man jedoch die Anzahl $N$ der Atome in angeregten Zuständen angeben, und diese Anzahl nimmt mit einem Exponentialgesetz ab: 
+\begin{equation}
+    \frac{d N}{dt} = - \frac{N}{\tau} \quad \text{und also} \quad N(t) = N_0 \, e^{- t / \tau}
+\end{equation} 
+Dabei nennt man $\tau$ die Lebensdauer des angeregten Zustands und $k = 1 / \tau$ die Zerfallsrate.
+
+
+\section{Einstein-Koeffizienten}
+
+Im Jahre 1917, also noch vor dem Bohrschen Atommodell und der de Broglie-Wellenlänge, erkannte A. Einstein, dass es neben den oben besprochenen Absorptions- und Emissionsprozessen noch einen weiteren Prozess geben muss, damit ein Atom im thermischen Gleichgewicht mit dem umgebenden (Schwarzkörper-) Licht sein kann. Betrachten wir dazu noch einmal Absorption und Emission.
+
+Wir vereinfachen das Atom auf zwei Niveaus, 1 und 2, mit den Besetzungen $N_1$ und $N_2$. Die oben beschriebene Emission nennen wir \emph{spontane Emission}, da sie ohne äußere Einwirkung erfolgt. Die Übergangsrate ist proportional zur Besetzung des angeregten Zustands
+\begin{equation}
+    R_\text{spontan} = A_{21} \, N_2
+\end{equation}
+$A_{21}$ ist der Einsteinkoeffizient der spontanen Emission.
+Damit eine Absorption stattfinden kann, unser Atom also vom Zustand 1 in den Zustand 2 übergehen kann, muss ein Lichtfeld vorhanden sein. Dieses Feld hat die spektrale Energiedichte $u(E)$. Die Übergangsenergie ist dann
+\begin{equation}
+    R_\text{absorption} = B_{12} \, N_1 \, u(E_2 - E_1)
+\end{equation}
+$B_{12}$ ist der Einstein-Koeffizient der Absorption.
+
+Im thermodynamischen Gleichgewicht muss die Besetzung $N_i$ der Zustände über die Zeit konstant sein und das Verhältnis $N_2 / N_1$ muss der Boltzmann-Statistik entsprechen. Dies kann nur erreicht werden, wenn der Prozess der stimulierten Emission vorliegt. Ein einfallendes Photon stimuliert (oder induziert) den Zerfall eines angeregten Atoms. Danach gibt es zwei Photonen und ein Atom im Grundzustand. Die Übergangsrate ist 
+\begin{equation}
+    R_\text{stimuliert} = B_{21} \, N_2 \, u(E_2 - E_1)
+\end{equation}
+mit $B_{21}$ dem  Einstein-Koeffizienten der stimulierten Emission.
+
+
+Die Rate aus Zustand 1 heraus muss also der Summe der Raten aus Zustand 2 heraus entsprechen, 
+oder 
+\begin{equation}
+    B_{12} \, N_1 \, u(E_2 - E_1) =   A_{21} \, N_2 + B_{21} \, N_2 \, u(E_2 - E_1) 
+\end{equation}
+Und das Verhältnis der Besetzung muss der Boltzmann-Verteilung gehorchen
+\begin{equation}
+    \frac{N_2}{N_1} = \frac{g_2}{g_1} \, e^{- h \nu / (k_B T)}
+\end{equation}
+mit $h \nu = E_2 - E_1$ und $g_i = 2J +1$ der Entartung des Zustands $i$. Mit der spektralen Energiedichte des Schwarzkörpers 
+\begin{equation}
+    U(\nu) = \frac{8 \pi h \nu^3}{c^3} \, 
+    \frac{1}{e^{h\nu/k_B T} -1}
+\end{equation}
+findet man folgende Zusammenhänge zwischen den drei Einstein-Koeffizienten
+\begin{equation}
+   g_1 B_{12}  = g_2 B_{21} \quad \text{und} \quad
+   A_{21} = \frac{8 \pi h \nu^3}{c^3}\, B_{21} 
+\end{equation}
+Es gibt also nur einen freien Parameter, der direkt mit dem Übergangsdipolmoment $|\bM_{EA}|^2$ zusammenhängt.
+
 
 
 \newpage
