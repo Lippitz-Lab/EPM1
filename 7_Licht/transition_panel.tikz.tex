@@ -1,0 +1,56 @@
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+\newcommand{\myelem}[3]{%
+    \node[inner sep=0pt]  at ({#1*1.2},{#2*1.5}) {\includegraphics[width=1.9cm] {\currfiledir pluto/transition_#2_#3.png}};
+  %\begin{pgfonlayer}{foreground}
+  %  \node at ({#1*2.2}, {#2*-2.2 + 0.9}) {(#3,#4,#5)};
+  %\end{pgfonlayer}
+}
+    
+
+% \pgfdeclarelayer{foreground}
+% \pgfsetlayers{main,foreground}
+
+\begin{tikzpicture}[font=\footnotesize]
+
+
+% 1s 2p    
+\myelem{0}{0}{0};
+\myelem{1}{0}{1};
+\myelem{2}{0}{2};
+\myelem{3}{0}{3};
+\myelem{4}{0}{4};
+\myelem{5}{0}{5};
+\myelem{6}{0}{6};
+\myelem{7}{0}{7};
+\myelem{8}{0}{0};
+
+
+
+% 1s - 1s 
+\myelem{0}{1}{0};
+\myelem{1}{1}{1};
+\myelem{2}{1}{2};
+\myelem{3}{1}{3};
+\myelem{4}{1}{4};
+\myelem{5}{1}{5};
+\myelem{6}{1}{6};
+\myelem{7}{1}{7};
+\myelem{8}{1}{0};
+
+
+\draw[->] (-0.7,0.75) -- ++ (10.9,0) node[anchor=north east] {Zeit $t$};
+
+\node[rotate=90] at (-0.7, 1.5) {1s--2p};
+\node[rotate=90]  at (-0.7, 0) {1s--2s};
+
+
+%\draw (0,0) rectangle (12,3); 
+
+
+\end{tikzpicture}
+
+%\end{document}
