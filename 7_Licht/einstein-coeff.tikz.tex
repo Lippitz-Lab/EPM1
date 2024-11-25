@@ -1,0 +1,27 @@
+
+
+\begin{tikzpicture} 
+
+\tikzstyle{spring}=[thick,decorate,decoration={zigzag,pre length=0.3cm,post length=0.3cm,segment length=6}]
+
+\tikzstyle{photon}=[decorate,decoration={snake,pre length=0.15cm,post length=0.15cm,segment length=5}]
+
+
+
+\draw [thick] (0.1,0) -- +(4.8cm, 0) node [right] {  $\ket{1}$};
+\draw [thick] (.10,2cm) -- +(4.8cm, 0) node [right] {  $\ket{2}$};
+
+\draw [<-] (0.3,0.1) -- (0.3,1.9);
+\draw  [->, photon] (0.35, 1.2) -- node [below] {$A_{21}$} +(+0.95,0);
+
+\draw [->] (2.5,0.1) -- (2.5,1.9);
+\draw  [<-, photon] (2.45, 0.8) -- node [below] {$B_{12}$} +(-0.95,0);
+
+\draw [<-] (3.8,0.1) -- (3.8,1.9);
+\draw  [<-, photon] (3.75, 1.2) -- +(-0.95,0);
+\draw  [->, photon] (3.85, 1.2) -- +(0.95,0);
+\draw  [->, photon] (3.85, 0.9) -- node [below] {$B_{21}$}  +(0.95,0);
+
+ 
+\end{tikzpicture}
+
