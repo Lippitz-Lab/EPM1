@@ -1,0 +1,203 @@
+
+\documentclass{standalone}
+\input{../tikz_header}
+
+\begin{document}
+
+\newcommand{\xpstate}[1]{\draw[thick] (#1)    ++ (-0.2, 0) -- ++ (0.4, 0);
+}
+
+\begin{tikzpicture}[font=\scriptsize]
+  
+
+\tikzmath{
+    \singS0 = 0.5; \singP1 = 1.2; \singD2 = 1.9; \tripS1 = 3.0; \tripP =3.7; \tripD =4.4;
+}
+
+\node at (\singP1, 3) {Singulett};
+\node at (\tripP, 3) {Triplett};
+
+\draw[|-|] (2.45, -1.5) -- node[left] {$\approx 2$ eV} ++ (0, 2);
+
+\draw[|-|] ( \tripD, -4.2891) -- node[left] {$\approx 21$ eV}  (\tripD, -0.6613);
+
+
+% 1S0 
+\coordinate (s_s_1)   at (\singS0, -4.2891); % faked energy
+\coordinate (s_s_2)   at (\singS0, 0.3912);
+\coordinate (s_s_3)   at (\singS0, 2.1621);
+
+
+
+% 1P1
+\coordinate (s_p_2)   at (\singP1, 0.783);
+\coordinate (s_p_3)   at (\singP1, 2.3243);
+
+
+% 1D2
+\coordinate (s_d_3)   at (\singD2, 2.2349);
+
+
+
+% 3S1
+\coordinate (t_s_2)   at (\tripS1 , -0.6613);
+\coordinate (t_s_3)   at (\tripS1 , 1.7571);
+
+
+
+%3P
+\coordinate (t_p_2_0)   at (\tripP, 0.0312);
+\coordinate (t_p_2_1)   at (\tripP, 0.1518);
+\coordinate (t_p_2_2)   at (\tripP, 0.2654);
+\coordinate (t_p_3_0)   at (\tripP, 1.828);
+\coordinate (t_p_3_1)   at (\tripP, 1.9129);
+\coordinate (t_p_3_2)   at (\tripP, 2.0017);
+
+% 3D wie 3P
+\coordinate (t_d_3_1)   at (\tripD, 1.828);
+\coordinate (t_d_3_2)   at (\tripD, 1.9129);
+\coordinate (t_d_3_3)   at (\tripD, 2.0017);
+
+
+
+ 
+\xpstate{s_s_1}  \node[below] at (s_s_1) {$1^1\kern-0.14em S_0$};
+\xpstate{s_s_2} \node[below] at (s_s_2) {$2^1\kern-0.14em S_0$};
+\xpstate{s_s_3} \node[above] at (s_s_3) {$3^1\kern-0.14em S_0$};
+
+\xpstate{s_p_2}  \node[yshift=-2mm,xshift=+4mm] at (s_p_2) {$2^1\kern-0.14em P_1$};
+\xpstate{s_p_3}  \node[above] at (s_p_3) {$3^1\kern-0.14em P_1$};
+
+\xpstate{s_d_3}  \node[above] at (s_d_3) {$3^1\kern-0.14em D_2$};
+
+
+\xpstate{t_s_2} \node[below] at (t_s_2) {$2^3\kern-0.14em S_1$};
+\xpstate{t_s_3} \node[above] at (t_s_3) {$3^3\kern-0.14em S_1$};
+
+   
+\xpstate{t_p_2_0} \node[yshift=-2mm,xshift=+2mm] at (t_p_2_0) {$2^3\kern-0.14em P_J$};
+\xpstate{t_p_2_1} 
+\xpstate{t_p_2_2} 
+
+\node[xshift=+2.7mm] at (t_p_2_0) {\tiny 0};
+\node[xshift=+3.7mm] at (t_p_2_1) {\tiny 1};
+\node[xshift=+2.7mm] at (t_p_2_2) {\tiny 2};
+
+\xpstate{t_p_3_0} 
+\xpstate{t_p_3_1} 
+\xpstate{t_p_3_2}  \node[above] at (t_p_3_2) {$3^3\kern-0.14em P_J$};
+
+\node[xshift=+2.7mm] at (t_p_3_0) {\tiny 0};
+\node[xshift=+3.7mm] at (t_p_3_1) {\tiny 1};
+\node[xshift=+2.7mm] at (t_p_3_2) {\tiny 2};
+
+
+
+\xpstate{t_d_3_1} 
+\xpstate{t_d_3_2} 
+\xpstate{t_d_3_3} \node[above] at (t_d_3_3) {$3^3\kern-0.14em D_J$};
+
+\node[xshift=+2.7mm] at (t_d_3_1) {\tiny 1};
+\node[xshift=+3.7mm] at (t_d_3_2) {\tiny 2};
+\node[xshift=+2.7mm] at (t_d_3_3) {\tiny 3};
+
+
+
+% \tikzmath{\xpdx = -0.4;}
+% \node at  ($(s_12_3) + (\xpdx,0)$) {3};
+% \node at  ($(s_12_4) + (\xpdx,0)$) {4};
+% \node at  ($(s_12_5) + (\xpdx,0)$) {5};
+   
+% \node at  ($(p_12_3) + (\xpdx,0)$) {3};
+% \node at  ($(p_12_4) + (\xpdx,0)$) {4};
+% \node at  ($(p_12_5) + (\xpdx,0)$) {5};
+
+% \node at  ($(p_32_3) + (\xpdx,0)$) {3};
+% \node at  ($(p_32_4) + (\xpdx,0)$) {4};
+% \node at  ($(p_32_5) + (\xpdx,0)$) {5};
+
+% \node at  ($(d_32_3) + (\xpdx,0)$) {3};
+% \node at  ($(d_32_4) + (\xpdx,0)$) {4};
+% \node at  ($(d_32_5) + (\xpdx,0)$) {5};
+
+% \node at  ($(f_52_4) + (\xpdx,0)$) {4};
+% \node at  ($(f_52_5) + (\xpdx,0)$) {5};
+
+
+
+\tikzstyle{transition}=[gray];
+
+% Singulett
+\draw[transition] (s_p_2) -- ($(s_s_1) + (+0.1,0)$);
+\draw[transition] (s_p_3) -- ($(s_s_1) + (-0.1,0)$);
+
+\draw[transition] (s_p_2) -- ($(s_s_2) + (+0.1,0)$);
+\draw[transition] (s_p_3) -- ($(s_s_2) + (-0.1,0)$);
+
+\draw[transition] (s_s_3) -- ($(s_p_2) + (-0.1,0)$);
+\draw[transition] (s_d_3) -- ($(s_p_2) + (+0.1,0)$);
+
+\draw[transition] (s_p_3) -- ($(s_s_3) + (0,0)$);
+
+% Triplett
+\draw[transition] (t_p_2_0) -- ($(t_s_2) + (0.1,0)$);
+\draw[transition] (t_p_2_1) -- ($(t_s_2) + (0.1,0)$);
+\draw[transition] (t_p_2_2) -- ($(t_s_2) + (0.1,0)$);
+
+\draw[transition] (t_p_3_0) -- ($(t_s_2) + (-0.1,0)$);
+\draw[transition] (t_p_3_1) -- ($(t_s_2) + (-0.1,0)$);
+\draw[transition] (t_p_3_2) -- ($(t_s_2) + (-0.1,0)$);
+
+
+\draw[transition] (t_p_3_0) -- ($(t_s_3) + (0.1,0)$);
+\draw[transition] (t_p_3_1) -- ($(t_s_3) + (0.1,0)$);
+\draw[transition] (t_p_3_2) -- ($(t_s_3) + (0.1,0)$);
+
+\draw[transition] (t_s_3) -- ($(t_p_2_1) + (-0.2,0)$);
+
+\draw[transition] ( $(t_d_3_1) + (0.1,0)$)  -- ($(t_p_2_0) + (0.1,0)$);
+
+\draw[transition] (t_d_3_1) -- ($(t_p_2_1) + (0,0)$);
+\draw[transition] (t_d_3_2) -- ($(t_p_2_1) + (0.,0)$);
+
+\draw[transition]  ( $(t_d_3_1) + (-0.1,0)$)  -- ($(t_p_2_2) + (-0.1,0)$);
+\draw[transition] ( $(t_d_3_2) + (-0.1,0)$) -- ($(t_p_2_2) + (-0.1,0)$);
+\draw[transition] ( $(t_d_3_3) + (-0.1,0)$)-- ($(t_p_2_2) + (-0.1,0)$);
+
+%\draw[transition] (p_12_5) -- ($(s_12_3) + (-0.1,0)$);
+
+% \draw[transition, red, thick] (p_32_3) --  ($(s_12_3) + (-0.,0)$); %d2
+
+% \draw[transition] (p_12_4) -- ($(s_12_3) + (0.1,0)$);
+% \draw[transition, red, thick] (p_12_3) -- node[right] {D1} ($(s_12_3) + (0.2,0)$);  % D1
+ 
+
+% \draw[transition] (s_12_4) -- ($(p_32_3) + (-0.1,0)$);
+% \draw[transition] (s_12_4) -- ($(p_12_3) + (-0.1,0)$);
+
+ 
+% \draw[transition] (p_32_4) -- ($(s_12_4) + (-0.1,0)$);
+% \draw[transition] (p_12_4) -- ($(s_12_4) + (+0.1,0)$);
+
+% \draw[transition] (d_32_3) -- ($(p_12_3) + (0.1,0)$);
+% \draw[transition] (d_32_3) -- ($(p_32_3) + (0.1,0)$);
+
+% \draw[transition] (s_12_5) -- ($(p_32_3) + (+0.,0)$);
+% \draw[transition] (s_12_5) -- ($(p_12_3) + (0,0)$);
+
+% \draw[transition] (f_52_5) -- ($(d_32_3) + (0,0)$);
+% \draw[transition] (f_52_4) -- ($(d_32_3) + (0.1,0)$);
+
+% \draw[->] (-0.2,-5.5) -- (-0.2,0.5);
+% \node[rotate=90] at (-0.7, -2.5) {Energie (eV)};
+
+% \draw  (-0.2,-5) node[left] {-5} -- ++ (0.2, 0);
+% \draw  (-0.2,-4) node[left] {-4} -- ++ (0.2, 0);
+% \draw  (-0.2,-3) node[left] {-3} -- ++ (0.2, 0);
+% \draw  (-0.2,-2) node[left] {-2} -- ++ (0.2, 0);
+% \draw  (-0.2,-1) node[left] {-1} -- ++ (0.2, 0);
+% \draw  (-0.2,0) node[left] {0} -- ++ (0.2, 0);
+
+\end{tikzpicture}
+
+\end{document}

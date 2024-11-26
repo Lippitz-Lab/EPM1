@@ -1,0 +1,187 @@
+
+% \xpdocumentclass{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+\newcommand{\xpstate}[1]{\draw[thick] (#1)    ++ (-0.3, 0) -- ++ (0.6, 0);
+}
+
+\begin{tikzpicture}[font=\footnotesize]
+  
+
+\tikzmath{
+    \xps = 0.5; \xpp1 = 1.4; \xpp2 = 2.3; \xpd = 3.2; \xpf=4.1;
+}
+
+% 2 S 1/2
+\coordinate (s_12_3)   at (\xps, -5.1036);
+\coordinate (s_12_4)   at (\xps, -1.9241);
+\coordinate (s_12_5)   at (\xps, -1.0415);
+\coordinate (s_12_6)   at (\xps,  -0.5975);
+\coordinate (s_12_7)   at (\xps,  -0.4276);
+\coordinate (s_12_8)   at (\xps,  -0.2631  );
+\coordinate (s_12_9)   at (\xps,  -0.1919);
+\coordinate (s_12_10)   at (\xps,  -0.148);
+
+
+\coordinate (p_32_3)   at (\xpp1, -2.9766);
+\coordinate (p_32_4)   at (\xpp1, -1.3869);
+\coordinate (p_32_5)   at (\xpp1, -0.7894);
+\coordinate (p_32_6)   at (\xpp1, -0.4769);
+\coordinate (p_32_7)   at (\xpp1, -0.3344);
+\coordinate (p_32_8)   at (\xpp1, -0.2357);
+\coordinate (p_32_9)   at (\xpp1, -0.1919);
+\coordinate (p_32_10)   at (\xpp1, -0.148);
+
+
+\coordinate (p_12_3)   at (\xpp2, -2.9766);
+\coordinate (p_12_4)   at (\xpp2, -1.3869);
+\coordinate (p_12_5)   at (\xpp2, -0.7894);
+\coordinate (p_12_6)   at (\xpp2, -0.4769);
+\coordinate (p_12_7)   at (\xpp2, -0.3344);
+\coordinate (p_12_8)   at (\xpp2, -0.2357);
+\coordinate (p_12_9)   at (\xpp2, -0.1919);
+\coordinate (p_12_10)   at (\xpp2, -0.148);
+
+\coordinate (d_32_3)   at (\xpd,-1.4965 );
+\coordinate (d_32_4)   at (\xpd, -0.8497);
+\coordinate (d_32_5)   at (\xpd, -0.4988);
+\coordinate (d_32_6)   at (\xpd, -0.3728);
+\coordinate (d_32_7)   at (\xpd, -0.2576);
+\coordinate (d_32_8)   at (\xpd, -0.1919);
+\coordinate (d_32_9)   at (\xpd,-0.148  );
+
+
+\coordinate (f_52_4)   at (\xpf, -0.8497);
+\coordinate (f_52_5)   at (\xpf,  -0.4988);
+\coordinate (f_52_6)   at (\xpf, -0.3728);
+\coordinate (f_52_7)   at (\xpf,-0.2522 );
+\coordinate (f_52_8)   at (\xpf, -0.1809);
+\coordinate (f_52_9)   at (\xpf, -0.137);
+
+
+\draw[gray] (0,0) -- ++ (4.5,0);
+\draw[gray, dashed] (0,-13.6/4) --  ++ (4.5,0) node[yshift=-2] {$n=2$} ;
+\draw[gray, dashed] (0,-13.6/9) -- ++ (4.5,0) node[yshift=-2] {$n=3$} ;
+\draw[gray, dashed] (0,-13.6/16) -- ++ (4.5,0) node[yshift=-2] {$n=4$} ;
+\draw[gray, dashed] (0,-13.6/25) -- ++ (4.5,0) node[yshift=-2] {$n=5$} ;
+
+
+\node at (\xps, 0.3) {$^2S_{1/2}$};
+\node at (\xpp1, 0.3) {$^2P_{3/2}$};
+\node at (\xpp2, 0.3) {$^2P_{1/2}$};
+\node at (\xpd, 0.3) {$^2D_{J}$};
+\node at (\xpf, 0.3) {$^2F_{J}$};
+
+
+
+ 
+\xpstate{s_12_3} 
+\xpstate{s_12_4} 
+\xpstate{s_12_5} 
+\xpstate{s_12_6} 
+\xpstate{s_12_7} 
+\xpstate{s_12_8} 
+\xpstate{s_12_9} 
+\xpstate{s_12_10} 
+
+
+  
+   
+\xpstate{p_32_3} 
+\xpstate{p_32_4} 
+\xpstate{p_32_5} 
+\xpstate{p_32_6} 
+\xpstate{p_32_7} 
+\xpstate{p_32_8} 
+\xpstate{p_32_9} 
+\xpstate{p_32_10} 
+
+\tikzmath{\xpdx = -0.4;}
+\node at  ($(s_12_3) + (\xpdx,0)$) {3};
+\node at  ($(s_12_4) + (\xpdx,0)$) {4};
+\node at  ($(s_12_5) + (\xpdx,0)$) {5};
+   
+\node at  ($(p_12_3) + (\xpdx,0)$) {3};
+\node at  ($(p_12_4) + (\xpdx,0)$) {4};
+\node at  ($(p_12_5) + (\xpdx,0)$) {5};
+
+\node at  ($(p_32_3) + (\xpdx,0)$) {3};
+\node at  ($(p_32_4) + (\xpdx,0)$) {4};
+\node at  ($(p_32_5) + (\xpdx,0)$) {5};
+
+\node at  ($(d_32_3) + (\xpdx,0)$) {3};
+\node at  ($(d_32_4) + (\xpdx,0)$) {4};
+\node at  ($(d_32_5) + (\xpdx,0)$) {5};
+
+\node at  ($(f_52_4) + (\xpdx,0)$) {4};
+\node at  ($(f_52_5) + (\xpdx,0)$) {5};
+
+\xpstate{p_12_3} 
+\xpstate{p_12_4} 
+\xpstate{p_12_5} 
+\xpstate{p_12_6} 
+\xpstate{p_12_7} 
+\xpstate{p_12_8} 
+\xpstate{p_12_9} 
+\xpstate{p_12_10} 
+
+\xpstate{d_32_3} 
+\xpstate{d_32_4} 
+\xpstate{d_32_5} 
+\xpstate{d_32_6} 
+\xpstate{d_32_7} 
+\xpstate{d_32_8} 
+\xpstate{d_32_9} 
+
+\xpstate{f_52_4} 
+\xpstate{f_52_5} 
+\xpstate{f_52_6} 
+\xpstate{f_52_7} 
+\xpstate{f_52_8} 
+\xpstate{f_52_9} 
+
+
+\tikzstyle{transition}=[gray];
+
+\draw[transition] (p_32_5) -- ($(s_12_3) + (-0.3,0)$);
+\draw[transition] (p_32_4) -- ($(s_12_3) + (-0.2,0)$);
+
+\draw[transition] (p_12_5) -- ($(s_12_3) + (-0.1,0)$);
+
+\draw[transition, red, thick] (p_32_3) --  ($(s_12_3) + (-0.,0)$); %d2
+
+\draw[transition] (p_12_4) -- ($(s_12_3) + (0.1,0)$);
+\draw[transition, red, thick] (p_12_3) -- node[right] {D1} ($(s_12_3) + (0.2,0)$);  % D1
+ 
+
+\draw[transition] (s_12_4) -- ($(p_32_3) + (-0.1,0)$);
+\draw[transition] (s_12_4) -- ($(p_12_3) + (-0.1,0)$);
+
+ 
+\draw[transition] (p_32_4) -- ($(s_12_4) + (-0.1,0)$);
+\draw[transition] (p_12_4) -- ($(s_12_4) + (+0.1,0)$);
+
+\draw[transition] (d_32_3) -- ($(p_12_3) + (0.1,0)$);
+\draw[transition] (d_32_3) -- ($(p_32_3) + (0.1,0)$);
+
+\draw[transition] (s_12_5) -- ($(p_32_3) + (+0.,0)$);
+\draw[transition] (s_12_5) -- ($(p_12_3) + (0,0)$);
+
+\draw[transition] (f_52_5) -- ($(d_32_3) + (0,0)$);
+\draw[transition] (f_52_4) -- ($(d_32_3) + (0.1,0)$);
+
+\draw[->] (-0.2,-5.5) -- (-0.2,0.5);
+\node[rotate=90] at (-0.7, -2.5) {Energie (eV)};
+
+\draw  (-0.2,-5) node[left] {-5} -- ++ (0.2, 0);
+\draw  (-0.2,-4) node[left] {-4} -- ++ (0.2, 0);
+\draw  (-0.2,-3) node[left] {-3} -- ++ (0.2, 0);
+\draw  (-0.2,-2) node[left] {-2} -- ++ (0.2, 0);
+\draw  (-0.2,-1) node[left] {-1} -- ++ (0.2, 0);
+\draw  (-0.2,0) node[left] {0} -- ++ (0.2, 0);
+
+\end{tikzpicture}
+
+%\end{document}
