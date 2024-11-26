@@ -34,7 +34,7 @@
 
 Bisher haben wir die Wellenfunktion eines Elektrons im Atom immer als $\Psi(\br)$ geschrieben, also nur eine Ortsabhängigkeit, aber keine Zeitabhängigkeit berücksichtigt. Es sind aber beschleunigte Ladungen, die elektromagnetische Wellen aussenden. Wir brauchen also auch die Zeitabhängigkeit der Wellenfunktion. Dies ist einfach für Wellenfunktionen, die zu einem Energieeigenwert $E$ gehören. In diesem Fall ist die Zeitkomponente einfach 
 \begin{equation}
-    \Psi(\br, t) = \Psi(\br) \, e^{- i \frac{E}{\hbar} \, t}
+    \Psi(\br, t) = \Psi(\br) \, e^{- i \frac{E}{\hbar} \, t} \quad .
 \end{equation}
 Das ist wie bei einer ebenen Welle, die die Form 
 \begin{equation}
@@ -52,37 +52,40 @@ befindet. Da es hier nur um das Prinzip geht, werden alle Vorfaktoren und deren 
     & \left| \Psi_\text{Übergang} (\br, t)  \right|^2 =  \Psi_\text{Übergang}^\star (\br, t) \Psi_\text{Übergang} (\br, t)  \\
    & =  \left(  \Psi_A^\star(\br) \, e^{+i E_A t / \hbar} +  \Psi_E^\star(\br) \, e^{+i E_E t / \hbar} \right)
     \left(  \Psi_A(\br) \, e^{-i E_A t / \hbar} +  \Psi_E(\br) \, e^{-i E_E t / \hbar} \right) \\
-    & = | \Psi_A(\br)|^2 + | \Psi_E(\br)|^2  + 2 \Re \left\{ \Psi_A(\br)\Psi_E^\star(\br)  \, e^{-i (E_A - E_E) t / \hbar}  \right\} 
+    & = | \Psi_A(\br)|^2 + | \Psi_E(\br)|^2  + 2 \Re \left\{ \Psi_A(\br)\Psi_E^\star(\br)  \, e^{-i (E_A - E_E) t / \hbar}  \right\}   \quad .
 \end{align}
-Wasserstoff-Wellenfunktionen sind reellwertig, so dass in der letzten Zeile auch der Konjugiert-Komplex weggelassen und die Exponentialfunktion durch einen Cosinus ersetzt werden kann.
+Wasserstoff-Wellenfunktionen sind reellwertig, so dass in der letzten Zeile auch das Konjugiert-Komplex weggelassen und die Exponentialfunktion durch einen Cosinus ersetzt werden kann.
 
-Was passiert hier? Befindet sich ein Atom in einem Überlagerungszustand, so schwingt die Aufenthaltswahrscheinlichkeit des Elektrons und damit die Ladungsdichte mit der Kreisfrequenz $\omega_{AE} = (E_A - E_E) / \hbar $. Diese oszillierende Ladung sendet dann entweder elektromagnetische Wellen mit der Frequenz $\omega_{AE}$ aus oder wird, wie beim getriebenen Oszillator, von einer einfallenden elektromagnetischen Welle mit dieser Frequenz getrieben. Im ersten Fall wird Licht emittiert, im zweiten Fall absorbiert.
+Was passiert hier? Befindet sich ein Atom in einem Überlagerungszustand, so schwingt die Aufenthaltswahrscheinlichkeit des Elektrons und damit die Ladungsdichte mit der Kreisfrequenz $\omega_{AE} = (E_A - E_E) / \hbar $. Dies ist in Abbildung  \ref{fig:7_transition_panel} gezeigt. Die oszillierende Ladung sendet dann entweder elektromagnetische Wellen mit der Frequenz $\omega_{AE}$ aus oder wird, wie beim getriebenen Oszillator, von einer einfallenden elektromagnetischen Welle mit dieser Frequenz getrieben. Im ersten Fall wird Licht emittiert, im zweiten Fall absorbiert.
+
+\begin{figure}    
+    \inputtikz{\currfiledir transition_panel}
+    \caption{ $| \eta \Psi_{1s} + \Psi_{2l} e^{i \omega t}|^2$ für $l= 0,1$. Nur im Fall $\Delta l = 1$ findet man eine oszillierende Ladungsverteilung. Hier ist $\eta < 1$ gewählt, um den Effekt besser sichtbar zu machen. Abbildung inspiriert von \cite{Reider_photonik}.}
+    \label{fig:7_transition_panel}
+\end{figure}
+
 
 In der klassischen Elektronendynamik besteht ein Dipol aus einer positiven Ladung $q=+e$ am Ursprung und einer negativen Ladung $q=-e$ am Ort $\br$. Diese Ladungsverteilung hat das Dipolmoment $\bp = -e \br$. Für die Verteilung der Elektronen um einen positiven Kern im Ursprung integriert man über den Raum, d.h. 
 \begin{equation}
-    \bp = - \int_\text{Raum} e\br \,  | \Psi(\br, t) |^2 \, d \br 
+    \bp = - \int_\text{Raum} e\br \,  | \Psi(\br, t) |^2 \, d \br   \quad .
 \end{equation}
 Die Wasserstoffwellenfunktionen sind alle punktsymmetrisch um den Ursprung. Daher tragen die Terme $ | \Psi_{A,E}(\br)|^2$ von $| \Psi_\text{Übergang}(\br,t)|^2$ nichts bei. Es bleibt 
 \begin{equation}
-    \bp =  - \Re \left \{ e^{-i (E_A - E_E) t / \hbar}  \, \int_\text{Raum} e\br \,  \Psi_A(\br)\Psi_E^\star(\br)  \, d \br \right \}
+    \bp =  - \Re \left \{ e^{-i (E_A - E_E) t / \hbar}  \, \int_\text{Raum} e\br \,  \Psi_A(\br)\Psi_E^\star(\br)  \, d \br \right \} \quad .
 \end{equation}
 Das räumliche Integral bestimmt vollständig, wie gut der Übergang $A \rightarrow E$ mit Licht möglich ist. Man nennt diesen Term \emph{Übergangs-Dipolmoment} oder Dipol-Matrixelement $\bM_{EA}$.
 \begin{equation}
-    \bM_{EA} = \int_\text{Raum} e\br \,  \Psi_A(\br)\Psi_E^\star(\br)  \, d \br 
+    \bM_{EA} = \int_\text{Raum} e\br \,  \Psi_A(\br)\Psi_E^\star(\br)  \, d \br  \quad .
     \label{eq:7_Matrix_element}
 \end{equation}
 Es handelt sich um einen Vektor, da das Integral als gewichtete Summe der Vektoren $\br$ aufgefasst werden kann.
 
-\begin{figure}    
-    \inputtikz{\currfiledir transition_panel}
-    \caption{ $| \eta \Psi_{1s} + \Psi_{2l} e^{i \omega t}|^2$ für $l= 0,1$. Nur im Fall $\Delta l = 1$ findet man eine oszillierende Ladungsverteilung. Hier ist $\eta < 1$ gewählt, um den Effekt besser sichtbar zu machen. Abbildung inspiriert von Reidel, Photonik XXX}
-\end{figure}
+
 
 
 \section{Auswahlregeln für Dipolübergänge}
 
-In den meisten Fällen ist der genaue Wert des Übergangs-Dipolmoments $\bM_{EA}$ nicht von Bedeutung. Von Interesse ist vielmehr, ob 
-für eine gegebene Kombination der Zustände $A$ und $E$ sein Betrag $|\bM_{EA}|$ von Null verschieden ist oder nicht. Ist er ungleich Null, so wird dieser Übergang als erlaubt bezeichnet, andernfalls als verboten. 
+In den meisten Fällen ist der genaue Wert des Übergangs-Dipolmoments $\bM_{EA}$ nicht von Bedeutung. Von Interesse ist vielmehr, ob für eine gegebene Kombination der Zustände $A$ und $E$ sein Betrag $|\bM_{EA}|$ von Null verschieden ist oder nicht. Ist er ungleich Null, so wird dieser Übergang als erlaubt bezeichnet, andernfalls als verboten. 
 
 Wir suchen nun nach Regeln, die diese erlaubten Übergänge identifizieren. Dies sind die Auswahlregeln. Tatsächlich ist $|\bM_{EA}|$ für die meisten Kombinationen gleich Null. Das liegt an der Symmetrie der Wellenfunktionen. Wäre $\br$ nicht im Integral, dann wäre das Integral für alle $A \neq E$ Null, da die Wellenfunktionen orthonormiert sind.
 
@@ -93,11 +96,11 @@ Sehr viel erreicht man schon bei der Betrachtung der  \emph{Parität}. Die Parit
 gerade oder ungerade ist. Bei gerader Parität ist also $f(\br) = + f(- \br) $.
 Eine Funktion kann auch keine Parität haben, z. B. $f(x) = 1 + x$. Für Wasserstoffwellenfunktionen ist die Parität $(-1)^l$, d.h. gerade für gerade $l$. Das $\br$ in Gl. \ref{eq:7_Matrix_element} hat eine ungerade Parität und das Integral verschwindet, wenn die Parität insgesamt ungerade ist. Daher muss sich die Parität von $\Psi_A$ von der Parität von $\Psi_B$ unterscheiden, d.h. sie muss sich beim Übergang ändern. Dies ist die erste Auswahlregel, die immer gültig ist.
 
-Der Spin in den Zuständen $A$ und $E$ ist ortsunabhängig. Der Spinanteil der Wellenfunktionen\sidenote{den wir bisher nie explizit geschrieben haben} kann also vor das Integral gezogen werden. Da auch die Spin-Wellenfunktionen orthonormal sind, kann sich der (Gesamt-)Spin bei einem Übergang nicht ändern. Allerdings gibt es die Spin-Bahn-Kopplung. Diese führt zu einem Einfluss des Spins auf den räumlichen Teil der Wellenfunktion, so dass nicht mehr alles vor das Integral gezogen werden kann. Die Spin-Erhaltung gilt also nicht strickt und immer weniger, je mehr die Spin-Bahn-Kopplung mit steigender Kernladung zunimmt.
+Der Spin in den Zuständen $A$ und $E$ ist ortsunabhängig. Der Spinanteil der Wellenfunktionen\sidenote{den wir bisher nie explizit geschrieben haben} kann also vor das Integral gezogen werden. Da auch die Spin-Wellenfunktionen orthonormal sind, kann sich der (Gesamt-)Spin bei einem Übergang nicht ändern. Allerdings gibt es die Spin-Bahn-Kopplung. Diese führt zu einem Einfluss des Spins auf den räumlichen Teil der Wellenfunktion, so dass nicht mehr alles vor das Integral gezogen werden kann. Die Spin-Erhaltung gilt also nicht strikt und immer weniger, je mehr die Spin-Bahn-Kopplung mit steigender Kernladung zunimmt.
 
 
 Hier nun ein Überblick über die Auswahlregeln
-\begin{description}
+\begin{description}\setlength{\itemsep}{0pt}
     \item[Es gilt immer] \ \\
 \begin{itemize}\setlength{\itemsep}{0pt}
     \item Die Parität muss sich ändern.
@@ -108,7 +111,7 @@ Hier nun ein Überblick über die Auswahlregeln
 \item[Für Einelektron-Atome]  gilt immer  \ \\
 \begin{itemize}\setlength{\itemsep}{0pt}
     \item  $\Delta l = \pm 1$ (aber  $\Delta l = 0$ ist verboten)
-    \item $\Delta s = 0$, weil alle Elektronen $s=1/2$ besitzen.
+    \item $\Delta s = 0$, weil ein Elektron immer $s=1/2$ besitzt.
 \end{itemize}
 
 \item[Für Mehrelektron-Atome] gilt im Bereich der LS-Kopplung   \ \\  
@@ -129,12 +132,12 @@ Es gibt keine Auswahlregel, die eine Änderung der Hauptquantenzahl $n$ verlangt
 \subsection{Drehimpuls und Polarisation}
 
 Neben Parität und Spin ist es die Drehimpulserhaltung, die die Auswahlregeln bestimmt.
-Die Drehimpulserhaltung wird bei optischen Übergängen nicht verletzt, da auch das Photon einen intrinsischen Drehimpuls, den Spin $\bS_\gamma$, besitzt. Wir haben bereits in Tabelle XXX gesehen, dass dieser Spin 1 ist, also ganzzahlig, und dass Photonen daher Bosonen sind. Es gibt auch eine Orientierungsquantenzahl $m_\gamma$. Die Orientierungsquantenzahl kann für Photonen nur die Werte $m_\gamma = \pm 1$ annehmen. Diese entsprechen links- bzw. rechts zirkular polarisiertem Licht, oft auch als $\sigma^+$ bzw. $\sigma^-$ Licht bezeichnet. Eine elektromagnetische Welle hat eine eingebaute Vorzugsrichtung, die Richtung des Wellenvektors $\bk$. Entlang dieser Richtung wird daher die quantisierte Komponente $m_\gamma$ des Drehimpulses angegeben. Den Fall $m_\gamma = 0$ gibt es nicht, da Licht eine Transversalwelle ist. Zirkulare Polarisationen sind die Eigenzustände von Photonen. Linear polarisiertes Licht ist eine Überlagerung der beiden zirkularen Polarisationen.
+Die Drehimpulserhaltung wird bei optischen Übergängen nicht verletzt, da auch das Photon einen intrinsischen Drehimpuls, den Spin $\bS_\gamma$, besitzt. Wir haben bereits in Tabelle \ref{tab:6_bosonen_fermionen} gesehen, dass dieser Spin 1 ist, also ganzzahlig, und dass Photonen daher Bosonen sind. Es gibt auch eine Orientierungsquantenzahl $m_\gamma$. Die Orientierungsquantenzahl kann für Photonen nur die Werte $m_\gamma = \pm 1$ annehmen. Diese entsprechen links- bzw. rechts zirkular polarisiertem Licht, oft auch als $\sigma^+$ bzw. $\sigma^-$ Licht bezeichnet. Eine elektromagnetische Welle hat eine eingebaute Vorzugsrichtung, die Richtung des Wellenvektors $\bk$. Entlang dieser Richtung wird daher die quantisierte Komponente $m_\gamma$ des Drehimpulses angegeben. Den Fall $m_\gamma = 0$ gibt es nicht, da Licht eine Transversalwelle ist. Zirkulare Polarisationen sind die Eigenzustände von Photonen. Linear polarisiertes Licht ist eine Überlagerung der beiden zirkularen Polarisationen.
 
 Es muss also insgesamt die Drehimpulserhaltung gelten:
 \begin{align}
     \bJ_A = \bJ_E + \bS_\gamma  & \quad \text{Emission} \\
-    \bJ_A + \bS_\gamma = \bJ_E & \quad \text{Absorption}
+    \bJ_A + \bS_\gamma = \bJ_E & \quad \text{Absorption} \quad .
 \end{align}
 Bleiben wir der Einfachheit halber bei den Absorptionsvorgängen. Für die Quantenzahl $J_E$ des Drehimpulses $\bJ_E$ am Ende des Prozesses gilt aus der Drehimpulsaddition
 \begin{equation}
@@ -159,13 +162,14 @@ Neben den oben besprochenen elektrischen Dipolübergängen gibt es auch magnetis
 
 
 \section{Beispiel: Helium}
+
 \begin{marginfigure}
     \inputtikz{\currfiledir helium} 
     \caption{Termschema von Helium mit einigen erlaubten Übergängen. Man erkennt die Aufspaltung nach dem Gesamtspin. Grau strichliert die Wasserstoff-Niveaus zum Vergleich. Der 1S-Zustand ist verschoben. Die J-Aufspaltung ist vergrößert.}
     \label{fig:7_helium}
 \end{marginfigure}
 
-Abbildung \ref{fig:7_helium} zeigt die niedrigsten Zustände von Helium. Diese wurden bereits am Ende des letzten Kapitels besprochen. Die Pfeile zeigen alle zulässigen Übergänge als Emission an. Zunächst fällt auf, dass die Übergänge innerhalb ihrer Multiplizität bleiben. Es gibt keinen erlaubten Übergang vom Singulett zum Triplett und umgekehrt, was eine Folge der Regel $\Delta S = 0$ ist. Dann ändern alle Pfeile die 'Spalte' im Diagramm, d.h. $\Delta L = \pm 1$. Bei Helium wird in diesen Zuständen nur ein Elektron angeregt. Der Sonderfall $\Delta L = 0$ tritt daher nicht auf. Es gibt zwei metastabile Zustände, $2^1S_0$ und $2^3S_1$, die keinen erlaubten Zerfallskanal besitzen. Die Spin-Bahn-Kopplung und Wechselwirkungen jenseits der hier beschriebenen Dipolstrahlung führen aber auch diese Zustände wieder in den Grundzustand zurück.
+Abbildung \ref{fig:7_helium} zeigt die niedrigsten Zustände von Helium. Diese wurden bereits am Ende des letzten Kapitels besprochen. Die grauen Linien zeigen  zulässige Übergänge. Zunächst fällt auf, dass die Übergänge innerhalb ihrer Multiplizität bleiben. Es gibt keinen erlaubten Übergang vom Singulett zum Triplett und umgekehrt, was eine Folge der Regel $\Delta S = 0$ ist. Dann ändern alle Übergänge die 'Spalte' im Diagramm, d.h. $\Delta L = \pm 1$. Bei Helium wird in diesen Zuständen nur ein Elektron angeregt. Der Sonderfall $\Delta L = 0$ tritt daher nicht auf. Es gibt zwei metastabile Zustände, $2^1S_0$ und $2^3S_1$, die keinen erlaubten Zerfallskanal besitzen. Die Spin-Bahn-Kopplung und Wechselwirkungen jenseits der hier beschriebenen Dipolstrahlung führen aber auch diese Zustände wieder in den Grundzustand zurück.
 
 
 
@@ -178,15 +182,15 @@ Abbildung \ref{fig:7_helium} zeigt die niedrigsten Zustände von Helium. Diese w
 \end{marginfigure}
 
 Natrium ähnelt Wasserstoff in dem Sinne, dass ein einziges Valenzelektron seine Eigenschaften bestimmt. Die Elektronenkonfiguration ist [Ne]3s$^1$. Abbildung  \ref{fig:7_natrium} zeigt die niedrigsten angeregten Zustände und die Übergänge zwischen ihnen. Der Grundzustand hat das Termsymbol 3$^2$S$_{1/2}$, also ein Doublet. Charakteristisch sind die \emph{Natrium-D-Linien} bei 589,5 nm bzw. 588,9 nm Wellenlänge, die z.B. im gelben Licht einiger Straßenlaternen zu sehen sind.
-Dies sind Übergänge aus den Zuständen 3$^2$P$_{1/2}$ und 3$^2$P$_{3/2}$. Dabei ist $\Delta S = 0$, $\Delta L = 1$ und $\Delta J = 0$ bzw. $1$. Die Hauptquantenzahl $n$ ändert sich also nicht. Die Feinstrukturaufspaltung $J = 1/2$ und $J=3/2$ führt zum Doublet der Linien.
+Dies sind Übergänge aus den Zuständen 3$^2$P$_{1/2}$ und 3$^2$P$_{3/2}$. Dabei ist $\Delta S = 0$, $\Delta L = 1$ und $\Delta J = 0$ bzw. $1$. Die Hauptquantenzahl $n$ ändert sich also nicht. Die Feinstrukturaufspaltung $J = 1/2$ und $J=3/2$ führt zum Doublett der Linien.
 
 \section{Lebensdauer angeregter Zustände}
 
-Nachdem ein Atom durch die Absorption eines Photons oder durch einen Stoß in einen angeregten Zustand versetzt wurde, fällt es früher oder später wieder in den Grundzustand zurück. Dabei gibt es zwei Zeitspannen: Die Lebensdauer des angeregten Zustandes, also die Zeit, die das Atom in diesem Zustand bleibt, bevor es wieder zurückfällt, und die Dauer des Quantensprungs selbst. Der Quantensprung ist instantan. Das Atom verbringt also keine Zeit im Übergang selbst. Die Zeit bis zum Übergang lässt sich aber leicht messen: Man regt ein Gas von Atomen mit einem kurzen Lichtblitz an und misst die Helligkeit des abgestrahlten Lichts als Funktion der Zeit. Man findet einen exponentiellen Zerfall mit einer Zeitkonstante von etwa 10~ns.
+Nachdem ein Atom durch die Absorption eines Photons oder durch einen Stoß in einen angeregten Zustand versetzt wurde, fällt es früher oder später wieder in den Grundzustand zurück. Dabei gibt es zwei Zeitspannen: Die Lebensdauer des angeregten Zustandes, also die Zeit, die das Atom in diesem Zustand bleibt, bevor es wieder zurückfällt, und die Dauer des Quantensprungs selbst. Der Quantensprung ist instantan. Das Atom verbringt also keine Zeit im Übergang selbst. Die Zeit bis zum Übergang lässt sich aber leicht messen: Man regt ein Gas von Atomen mit einem kurzen Lichtblitz an und misst die Helligkeit des abgestrahlten Lichts als Funktion der Zeit. Man findet einen exponentiellen Zerfall mit einer Zeitkonstante von typischerweise etwa 10~ns.
 
-Was bedeutet das? Die Wahrscheinlichkeit, dass ein gegebenes angeregtes Atom ein Photon emittiert, ist unabhängig vom zeitlichen Abstand $t$ zwischen Anregungspuls und Detektionszeitfenster. Wie beim Würfeln ist die Wahrscheinlichkeit, eine Sechs zu würfeln, unabhängig von der Anzahl der bisherigen Würfe. Je öfter man würfelt, desto wahrscheinlicher ist es, dass es einmal passiert. Für jedes einzelne geworfene Atom kann man also nicht sagen, wann es das Photon aussenden wird. Für alle Atome zusammen kann man jedoch die Anzahl $N$ der Atome in angeregten Zuständen angeben, und diese Anzahl nimmt mit einem Exponentialgesetz ab: 
+Was bedeutet das? Die Wahrscheinlichkeit, dass ein gegebenes angeregtes Atom ein Photon emittiert, ist unabhängig vom zeitlichen Abstand $t$ zwischen Anregungspuls und Detektionszeitfenster. Wie beim Würfeln ist die Wahrscheinlichkeit, eine Sechs zu würfeln, unabhängig von der Anzahl der bisherigen Würfe. Je öfter man würfelt, desto wahrscheinlicher ist es, dass es einmal passiert. Für jedes einzelne betrachtete Atom kann man also nicht sagen, wann es das Photon aussenden wird. Für alle Atome zusammen kann man jedoch die Anzahl $N$ der Atome in angeregten Zuständen angeben, und diese Anzahl nimmt mit einem Exponentialgesetz ab: 
 \begin{equation}
-    \frac{d N}{dt} = - \frac{N}{\tau} \quad \text{und also} \quad N(t) = N_0 \, e^{- t / \tau}
+    \frac{d N}{dt} = - \frac{N}{\tau}  = -k \, N \quad \text{und also} \quad N(t) =  N_0 \, e^{- t / \tau}  = N_0 \, e^{- k \, t }  \quad .
 \end{equation} 
 Dabei nennt man $\tau$ die Lebensdauer des angeregten Zustands und $k = 1 / \tau$ die Zerfallsrate.
 
@@ -199,45 +203,43 @@ Dabei nennt man $\tau$ die Lebensdauer des angeregten Zustands und $k = 1 / \tau
     \caption{Die drei Einstein-Koeffizienten.}
 \end{marginfigure}
 
-Im Jahre 1917, also noch vor dem Bohrschen Atommodell und der de Broglie-Wellenlänge, erkannte A. Einstein, dass es neben den oben besprochenen Absorptions- und Emissionsprozessen noch einen weiteren Prozess geben muss, damit ein Atom im thermischen Gleichgewicht mit dem umgebenden (Schwarzkörper-) Licht sein kann. Betrachten wir dazu noch einmal Absorption und Emission.
+Im Jahre 1917, also noch vor dem Bohrschen Atommodell und der de Broglie-Wellenlänge, erkannte A.~Einstein, dass es neben den oben besprochenen Absorptions- und Emissionsprozessen noch einen weiteren Prozess geben muss, damit ein Atom im thermischen Gleichgewicht mit dem umgebenden (Schwarzkörper-) Licht sein kann. Betrachten wir dazu noch einmal Absorption und Emission.
 
-Wir vereinfachen das Atom auf zwei Niveaus mit den Besetzungen $N_1$ und $N_2$. Die oben beschriebene Emission nennen wir \emph{spontane Emission}, da sie ohne äußere Einwirkung erfolgt. Die Übergangsrate\sidenote{hier $ k_\text{spontan}$ mit $ keinen_\text{spontan} = k = 1/ \tau$ von oben } ist proportional zur Besetzung des angeregten Zustands
+Wir vereinfachen das Atom auf zwei Niveaus mit den Besetzungen $N_1$ und $N_2$. Die oben beschriebene Emission nennen wir \emph{spontane Emission}, da sie ohne äußere Einwirkung erfolgt. Die Übergangsrate $A_{21}$ nennt sich \emph{Einsteinkoeffizient der spontanen Emission}:
 \begin{equation}
-    k_\text{spontan} = A_{21} \, N_2 \label{eq:7_k_spontan}
+    \frac{d N_2}{dt} = - A_{21} \, N_2  \quad \text{spontane Emission} \quad . \label{eq:7_k_spontan}
 \end{equation}
-$A_{21}$ ist der \emph{Einsteinkoeffizient der spontanen Emission}.
 
 
 Damit eine Absorption stattfinden kann, das Atom also vom Zustand 1 in den Zustand 2 übergehen kann, muss ein Lichtfeld vorhanden sein. Dieses Feld habe die spektrale Energiedichte $u(E)$. Die Übergangsrate ist dann
 \begin{equation}
-    k_\text{absorption} = B_{12} \, N_1 \, u(E_2 - E_1) \label{eq:7_k_abs}
+    \frac{d N_1}{dt} = - B_{12} \, N_1 \, u(E_2 - E_1) \quad \text{Absorption} \label{eq:7_k_abs}
 \end{equation}
 $B_{12}$ ist der \emph{Einstein-Koeffizient der Absorption}.
 
-Im thermodynamischen Gleichgewicht muss die Besetzung $N_i$ der Zustände über die Zeit konstant sein und das Verhältnis $N_2 / N_1$ muss der Boltzmann-Statistik entsprechen. Dies kann nur erreicht werden, wenn es auch den  Prozess der stimulierten Emission gibt. Dabei stimuliert  (oder induziert) ein einfallendes Photon den Zerfall eines angeregten Atoms, inklusive der Emission eines weiteren Photons. Vorher gibt es ein Photon udn ein Atom im angeregten Zustand, nachher  zwei Photonen und ein Atom im Grundzustand. Das zweite Photon ist dabei eine exakte Kopie des ersten. Die Übergangsrate ist 
+Im thermodynamischen Gleichgewicht muss die Besetzung $N_i$ der Zustände über die Zeit konstant sein und das Verhältnis $N_2 / N_1$ muss der Boltzmann-Statistik entsprechen. Dies kann nur erreicht werden, wenn es auch den  Prozess der stimulierten Emission gibt. Dabei stimuliert  (oder induziert) ein einfallendes Photon den Zerfall eines angeregten Atoms, inklusive der Emission eines weiteren Photons. Vorher gibt es ein Photon udn ein Atom im angeregten Zustand, nachher  zwei Photonen und ein Atom im Grundzustand. Das zweite Photon ist dabei eine exakte Kopie des ersten. Die Übergangsrate ist $B_{21}$, der  \emph{Einstein-Koeffizienten der stimulierten Emission}:
 \begin{equation}
-    k_\text{stimuliert} = B_{21} \, N_2 \, u(E_2 - E_1) \label{eq:7_k_stim}
+    \frac{d N_2}{dt} = - B_{21} \, N_2 \, u(E_2 - E_1)  \quad .\label{eq:7_k_stim}
 \end{equation}
-mit $B_{21}$ dem  \emph{Einstein-Koeffizienten der stimulierten Emission}.
 
 
 Im thermischen Gleichgewicht muss die Rate aus Zustand 1 heraus  der Summe der Raten aus Zustand 2 heraus entsprechen, 
 oder 
 \begin{equation}
-    B_{12} \, N_1 \, u(E_2 - E_1) =   A_{21} \, N_2 + B_{21} \, N_2 \, u(E_2 - E_1) 
+    B_{12} \, N_1 \, u(E_2 - E_1) =   A_{21} \, N_2 + B_{21} \, N_2 \, u(E_2 - E_1)  \quad .
 \end{equation}
 Und das Verhältnis der Besetzung muss der Boltzmann-Verteilung gehorchen
 \begin{equation}
     \frac{N_2}{N_1} = \frac{g_2}{g_1} \, e^{- h \nu / (k_B T)}
 \end{equation}
-mit $h \nu = E_2 - E_1$ und $g_i = 2J +1$ der Entartung des Zustands $i$. Mit der spektralen Energiedichte des Schwarzkörpers 
+mit $h \nu = E_2 - E_1$ und $g_i = 2J +1$ der Entartung des Zustands $i$. Mit der spektralen Energiedichte des Schwarzkörpers (siehe Kapitel 2)
 \begin{equation}
     u(\nu) = \frac{8 \pi h \nu^3}{c^3} \,  \frac{1}{e^{h\nu/k_B T} -1}
 \end{equation}
 findet man folgende Zusammenhänge zwischen den drei Einstein-Koeffizienten
 \begin{equation}
    g_1 B_{12}  = g_2 B_{21} \quad \text{und} \quad
-   A_{21} = \frac{8 \pi h \nu^3}{c^3}\, B_{21} 
+   A_{21} = \frac{8 \pi h \nu^3}{c^3}\, B_{21}  \quad. 
 \end{equation}
 Es gibt also nur einen freien Parameter, der direkt mit dem Übergangsdipolmoment $|\bM_{21}|^2$ zusammenhängt.
 
@@ -251,13 +253,12 @@ Stimulierte Emission spielt unter normalen Bedingungen praktisch keine Rolle. Ei
 \end{equation}
 weil 
 \begin{equation} 
-    \frac{1}{e^{h\nu/k_B T} -1} \ll 1
+    \frac{1}{e^{h\nu/k_B T} -1} \ll 1 \quad .
 \end{equation}
 
-Niemand zweifelte an der von Einstein eingeführten stimulierten Emission, aber es dauerte bis in die 1950er Jahre, bis sie sinnvoll genutzt wurde. 1960 demonstrierte Theodore Maiman den ersten 'Laser'. Die Abkürzung steht für 'light amplification by stimulated emission of radiation' (Lichtverstärkung durch stimulierte Emission von Strahlung). Das Konzept geht zurück auf den von Charles H. Townes\sidenote{dafür Nobelpreis 1963} 1954 demonstrierten 'Maser' (microwave amplification by...), der von Arthur L. Schawlow\sidenote{Nobelpreis 1981 für Laserspektroskopie} weiterentwickelt wurde.
+Niemand zweifelte an der von Einstein eingeführten stimulierten Emission, aber es dauerte bis in die 1950er Jahre, bis sie sinnvoll genutzt wurde. 1960 demonstrierte Theodore Maiman den ersten 'Laser'. Die Abkürzung steht für 'light amplification by stimulated emission of radiation' (Lichtverstärkung durch stimulierte Emission von Strahlung). Das Konzept geht zurück auf den von Charles H. Townes\sidenote{dafür Nobelpreis 1963} 1954 demonstrierten 'Maser' (microwave amplification by...). Die theoretische Beschreibung geht auf Arthur L. Schawlow\sidenote{Nobelpreis 1981 für Laserspektroskopie} zurück.
 
-
-Die stimulierte Emission sollte also der dominierende Prozess sein, wenn ein Photon mit einem Atom wechselwirkt. Wenn wir aber der Einfachheit halber Entartung gleichsetzen ($g_1 = g_2$), dann muss wegen der Ähnlichkeit von Gl \ref{eq:7_k_abs} und \ref{eq:7_k_stim} die Besetzung im oberen Zustand größer sein als die im unteren Zustand, im Idealfall viel größer: $N_2 \gg N_1$. Andernfalls würde ein einfallendes Photon einfach absorbiert und nicht durch stimulierte Emission kopiert. Der Fall $N_2 > N_1$ wird als \emph{Besetzungsinversion} bezeichnet. Er ist nicht im thermischen Gleichgewicht. Für keine Temperatur $T$ liefert die Boltzmannverteilung eine solche Besetzung.
+Die stimulierte Emission sollte also der dominierende Prozess sein, wenn ein Photon mit einem Atom wechselwirkt. Wenn wir aber der Einfachheit halber die Entartung gleichsetzen ($g_1 = g_2$), dann muss wegen der Ähnlichkeit von Gl. \ref{eq:7_k_abs} und \ref{eq:7_k_stim} die Besetzung im oberen Zustand größer sein als die im unteren Zustand, im Idealfall viel größer: $N_2 \gg N_1$. Andernfalls würde ein einfallendes Photon einfach absorbiert und nicht durch stimulierte Emission kopiert. Der Fall $N_2 > N_1$ wird als \emph{Besetzungsinversion} bezeichnet. Er ist nicht im thermischen Gleichgewicht. Für keine Temperatur $T$ liefert die Boltzmannverteilung eine solche Besetzung.
 
 Wie erreichen wir die Besetzungsinversion? Wir müssen den Atomen Energie zuführen. Wir nehmen hier einmal an, dass dies durch Licht geeigneter Wellenlänge geschieht. Das nennt man \emph{optisches Pumpen}. So hat es Maiman in seinem Rubin-Laser gemacht. Heute kann man die Energie auch anders zuführen, zum Beispiel elektrisch. Es hilft nicht, wenn das Pumplicht den Übergang $1 \rightarrow 2$ pumpt. Zunächst nimmt zwar die Besetzung des Zustands 1 mit steigender Pumpintensität zu. Wenn wir aber die Gleichbesetzung erreichen ($N_1 = N_2$), dann wird ein einfallendes Pumpphoton mit der gleichen Wahrscheinlichkeit absorbiert, wie es stimulierte Emission verursacht. Diese Grenze kann nicht überschritten werden, und $N_2 > N_1$ wird nie erreicht.
 
@@ -271,7 +272,7 @@ Neben der Energiequelle zum Pumpen und dem atomaren Gas als Verstärkungsmedium 
 
 \section{Beispiel: Rubin-Laser}
 
-Der historisch erste Laser verwendet Rubin als aktives Medium. Rubin ist ein Korund-Mineral, Chromaluminiumoxid, d.h. Chromionen in einer Aluminiumoxidmatrix (\ch{Al2O3}). Aluminiumoxid ist durchsichtig wie Glas. Ein Stab aus diesem Material ist an den Enden poliert und verspiegelt. Chrom ist in sehr geringer Menge (0,05\%) eingelagert. Die \ch{Cr^{3+}}-Ionen werden durch eine Blitzlampe in hoch angeregte Zustände gepumpt. Von dort zerfallen sie in einen tieferliegenden angeregten Zustand. Die überschüssige Energie wird in Form von Wärme an den Stab abgegeben. Der Rubinlaser ist somit ein Festkörperlaser und arbeitet bei einer Wellenlänge von 694.3~nm, an der Grenze zum nahen Infrarot. 
+Der historisch erste Laser verwendet Rubin als aktives Medium. Rubin ist ein Korund-Mineral, Chromaluminiumoxid, d.h. Chrom-Ionen in einer Aluminiumoxidmatrix (\ch{Al2O3}). Aluminiumoxid ist durchsichtig wie Glas. Ein Stab aus diesem Material ist an den Enden poliert und verspiegelt. Chrom ist in sehr geringer Menge (0,05\%) eingelagert. Die \ch{Cr^{3+}}-Ionen werden durch eine Blitzlampe in hoch angeregte Zustände gepumpt. Von dort zerfallen sie in einen tieferliegenden angeregten Zustand. Die überschüssige Energie wird in Form von Wärme an den Stab abgegeben. Der Rubinlaser ist somit ein Festkörperlaser und arbeitet bei einer Wellenlänge von 694.3~nm, an der Grenze zum nahen Infrarot. 
 
 xxx sketchj states ruby
 
@@ -313,21 +314,21 @@ mit der Ruhe-Frequenz $\nu_0$. Die Geschwindigkeit kommt  aus der  Maxwell-Boltz
 	\right) \quad .
 \end{equation}
 mit der Masse $m$ des Atoms.
-Insgesamt ergibt sich damit eine Gaußförmige  Linie der Halbwertsbreite 
+Insgesamt ergibt sich damit eine gaußförmige  Linie der Halbwertsbreite 
 \begin{equation}
 	 \delta \nu_{doppler} = \nu_0 \, \sqrt{\frac{8 k_B T \ln 2} {m c^2}} \quad .
 \end{equation}
-Für die Natrum-D-Linie ergibt sich  $\delta \nu_{doppler} = 1 700$~MHz. Sie übertrifft damit die natürliche Linienbreite bei weitem.
+Für die Natrum-D-Linie ergibt sich  $\delta \nu_{doppler} = 1 \, 700$~MHz. Sie übertrifft damit die natürliche Linienbreite bei weitem.
 
 \subsection{Stoß-Verbreiterung}
 
 Stößt ein Atom mit einem anderen zusammen, während es sich im angeregten Zustand befindet, so wird die Lebensdauer des angeregten Zustandes effektiv verkürzt, $\tau$ wird kürzer und damit wie oben $\delta \nu$ breiter. Die mittlere Zeit $\delta t$ zwischen den Stößen kann aus der mittleren freien Weglänge $l$ eines Gases der mittleren Geschwindigkeit $v$ abgeschätzt werden (\cite{Demtroeder_laser}) % eq. 3.52, demtröder laser spectrsocpy I
 \begin{equation}
-    \Delta t = \frac{l}{v} = \frac{1}{n \sigma} \, \sqrt{ \frac{\pi \mu}{8 k_B T}}
+    \Delta t = \frac{l}{v} = \frac{1}{n \sigma} \, \sqrt{ \frac{\pi \mu}{8 k_B T}} \quad .
 \end{equation}
-Dabei ist $n$ die Teilchendichte (proportional zum Druck $p$) des Stoßpartners, $\sigma$ ein Streuquerschnitt, der die effektive Größe des Atoms beschreibt, und $\mu$ die reduzierte  Masse aus Atom und (ggf. anderem) Stoßpartner. Für die Liniebreite gilt dann wieder
+Dabei ist $n$ die Teilchendichte (proportional zum Druck\sidenote{daher manchmal auch Druckverbreiterung genannt} $p$) des Stoßpartners, $\sigma$ ein Streuquerschnitt, der die effektive Größe des Atoms beschreibt, und $\mu$ die reduzierte  Masse aus Atom und (ggf. anderem) Stoßpartner. Für die Liniebreite gilt dann wieder
 \begin{equation}
-    \delta \nu_\text{stoss} = \frac{1}{2\pi \, \Delta t} = p \, \sigma \sqrt{ \frac{8}{\pi \mu k_B T}}
+    \delta \nu_\text{stoss} = \frac{1}{2\pi \, \Delta t} = p \, \sigma \sqrt{ \frac{8}{\pi \mu k_B T}} \quad .
 \end{equation}
 Bei spektroskopischen Experimenten kann man hier den Druck und damit die Teilchendichte $n$ verringern und diesen Verbreitungsmechanismus ausschalten. 
 
@@ -336,47 +337,51 @@ Bei spektroskopischen Experimenten kann man hier den Druck und damit die Teilche
 
 \section{Röntgenstrahlung}
 
-In den einleitenden Kapiteln wurde bereits kurz über Röntgenstrahlung gesprochen. Röntgenstrahlung ist wie das sichtbare Licht eine elektromagnetische Welle. Der Unterschied besteht darin, dass die Energie pro Photon wesentlich höher ist. In diesem Kapitel wurde bisher nur ein Valenzelektron angeregt. In Abbildung XXX des letzten Kapitels sieht man jedoch, dass die tiefer gelegenen gebundenen Elektronen deutlich stärker gebunden sind als das Valenzelektron und ihre Übergänge daher mit sehr energiereichen Photonen verbunden sind. Wir betrachten nun also die Spektroskopie der inneren Elektronen.
+In den einleitenden Kapiteln wurde bereits kurz über Röntgenstrahlung gesprochen. Röntgenstrahlung ist wie das sichtbare Licht eine elektromagnetische Welle. Der Unterschied besteht darin, dass die Energie pro Photon wesentlich höher ist. In diesem Kapitel wurde bisher nur ein Valenzelektron angeregt. In Abbildung \ref{fig:6_PSE_states} des letzten Kapitels sieht man jedoch, dass die tiefer gelegenen gebundenen Elektronen deutlich stärker gebunden sind als das Valenzelektron und ihre Übergänge daher mit sehr energiereichen Photonen verbunden sind. Wir betrachten nun also die Spektroskopie der inneren Elektronen.
 
 \subsection{Bremsstrahlung}
 
 
 \begin{marginfigure}
     \inputtikz{\currfiledir bremsstrahlung} 
-    \caption{Röntenspekrtrum einer Wolfram-Anode bei $U= 15, 25, 35, 50$~kV. Daten von \cite{Gilfrich68}.}
+    \caption{Brems-Spektrum einer Wolfram-Anode bei $U= 15, 25, 35, 50$~kV. Daten von \cite{Gilfrich68}.}
     \label{fig:7_bremsstrahlung}
 \end{marginfigure}
 
 Bevor wir zu diesem Punkt kommen, müssen wir kurz auf die Bremsstrahlung eingehen. Darunter versteht man ein breites Kontinuum im Röntgenspektrum,  das nicht vom Kathodenmaterial abhängt. Die durch die Spannung $U$ beschleunigten Elektronen werden an den Kernen des Kathodenmaterials abgelenkt, ohne dass die Kerne oder die Elektronen des Kathodenmaterials Energie aufnehmen. Ablenkung bedeutet Beschleunigung, und die beschleunigten Elektronen sind die Quelle  elektromagnetischer Strahlung.  Das Kontiunium hat eine maximale Frequenz bzw. eine minimale Wellenlänge, die von der Beschleunigungsspannung $U$ abhängt: Maximal kann die gesamte Energie $e \, U$ auf ein Photon übertragen werden.
 \begin{equation}
     h \nu_\text{grenz} = e \, U \quad \text{oder} \quad
-    \lambda_\text{grenz} = \frac{h c}{e U}
+    \lambda_\text{grenz} = \frac{h c}{e U} \quad .
 \end{equation}
 Beschleunigungsspannungen im Bereich von einigen 10~kV ergeben Wellenlängen von 0.1--1~nm (und natürlich Photonenenergien von einigen 10~keV).
 
-Das Spektrum der Bremsstrahlung ist linear in $\nu$, also 
+Das Spektrum der Bremsstrahlung ist in einem einfachen Modell linear in $\nu$, also 
 \begin{equation}
-    I(\nu) d\nu \propto \nu_\text{grenz} - \nu \quad \text{für} \quad  \nu < \nu_\text{grenz}
+    I(\nu) d\nu \propto \nu_\text{grenz} - \nu \quad \text{für} \quad  \nu < \nu_\text{grenz} \quad .
 \end{equation}
 Nach Umrechnung auf eine Wellenlängenskala ergibt sich
 \begin{equation}
     I(\lambda) d\lambda \propto \left( \frac{\lambda}{\lambda_\text{grenz}} - 1 \right) \frac{1}{\lambda^2} 
-    \quad \text{für} \quad  \lambda > \lambda_\text{grenz}
+    \quad \text{für} \quad  \lambda > \lambda_\text{grenz} \quad .
 \end{equation}
 
 
+
+
+\subsection{Charakteristisches Linienspektrum}
+
+Experimentell findet man neben dem Kontinuum der Bremsstrahlung eine für das Kathodenmaterial charakteristische Abfolge von scharfen Linien. Hier wird ein inneres Elektron des Kathodenmaterials aus dem Atom herausgeschlagen. Eines der verbleibenden, energetisch höheren Elektronen fällt unter Aussendung eines Röntgenphotons in diese Lücke zurück. Die Lage der Linien hängt also von zwei Zuständen ab: dem des herausgeschlagenen Elektrons und dem des auffüllenden Elektrons.
+
 \begin{marginfigure}
     \inputtikz{\currfiledir linienspektrum} 
-    \caption{Röntenspekrtrum einer Wolfram-Anode bei 45 kV mit den charakteristischen L-Linien. Daten von \cite{Gilfrich68}.}
+    \caption{Linien-Spektrum einer Wolfram-Anode bei 45 kV mit den charakteristischen L-Linien. Daten von \cite{Gilfrich68}.}
     \label{fig:7_linienspektrum}
 \end{marginfigure}
 
-\subsection{Charakteristisches Linienspektrum}
-Experimentell findet man neben dem Kontinuum der Bremsstrahlung eine für das Kathodenmaterial charakteristische Abfolge von scharfen Linien. Hier wird ein inneres Elektron des Kathodenmaterials aus dem Atom herausgeschlagen. Eines der verbleibenden, energetisch höheren Elektronen fällt unter Aussendung eines Röntgenphotons in diese Lücke zurück. Die Lage der Linien hängt also von zwei Zuständen ab: dem des herausgeschlagenen Elektrons und dem des auffüllenden Elektrons.
 
 Ein einfaches Modell, das Moseley-Gesetz, ignoriert alle Details auf atomarer Ebene und geht einfach von einem wasserstoffähnlichen System aus. In diesem Fall wird die Energie eines Zustands nur durch seine Hauptquantenzahl $n$ beschrieben. Die Energie des emittierten Röntgenphotons ist dann 
 \begin{equation}
-    h \nu = (Z - S_n)^2 \, R_H \, hc \, \left(  \frac{1}{n^2} - \frac{1}{m^2} \right)
+    h \nu = (Z - S_n)^2 \, R_H \, hc \, \left(  \frac{1}{n^2} - \frac{1}{m^2} \right) \quad .
 \end{equation}
 Dabei ist $n$ die Quantenzahl des herausgeschlagenen Elektrons und $m$ die des auffüllenden. Der Parameter $S_n$ korrigiert die Kernladung $Z$ um die weiter innen liegenden Elektronen und ist daher von $n$ abhängig. Für $n=1$ ist $S \approx. 1$, für $n=2$ ist $S \approx. 7,8$.
 Wie bei den Schalen der Mehrelektronenatome werden die Linien(gruppen) entsprechend der Quantenzahl $n = 1, 2, 3$ mit den Buchstaben K, L, M bezeichnet. Die Quantenzahl $m$ wird in ihrem Abstand von $n$ durch griechische Buchstaben kodiert: $\alpha, \beta, \gamma$ bedeutet also $m=n + 1,2,3$. Die Linie K$_\alpha$ entspricht einem Übergang von $m=2$ nach $n=1$, die Linie L$_\gamma$ einem Übergang von $m=5$ nach $n=2$.
@@ -384,21 +389,21 @@ Wie bei den Schalen der Mehrelektronenatome werden die Linien(gruppen) entsprech
 \subsection{Absorption}
 
 Absorptionsspektren können auch mit Röntgenstrahlen gemessen werden. Wie immer nimmt die transmittierte Leistung $P$ exponentiell mit der Dicke des Materials ab.
-\begin{eqnarray}
+\begin{equation}
     P(x)  = P_0 e^{- \alpha x} = P_0 \, e^{- n \sigma  x}
-\end{eqnarray}
+\end{equation}
 mit dem Absorptionskoeffizienten $\alpha$. Dieser ist das Produkt aus der Teilchenzahldichte $n$ und dem Absorptionskoeffizienten $\sigma$ ab. Der Absorptionskoeffizienten beschreibt dem Effekt jedes einzelnen Atoms auf die Röntehstarhlung.
 
 Drei Effekte tragen zur Absorption von Röntgenphotonen bei
 \begin{description}
-    \item[Photoeffekt] Das Röntgenphoton wird vom Atom absorbiert. Dabei wird ein stark gebundenes Elektron ionisiert und das Atom erhält noch kinetische Energie.
+    \item[Photoeffekt] Das Röntgenphoton wird vom Atom absorbiert. Dabei wird ein stark gebundenes Elektron ionisiert und auch das Atom erhält  kinetische Energie.
     \item[Compton-Effekt] Das Röntgenphoton stößt mit einem fast freien Elektron einer der äußeren Schalen des Atoms. Dabei übernimmt das Elektron kinetische Energie und die Wellenlänge des Röntgenphotons ändert sich.
     \item[Paarerzeugung] Bei ausreichend hohen Energien des Röntgenphotons ($E > 1$MeV) kann ein Elektron-Positron-Paar erzeugt werden. Hier wird Energie in Materie umgewandelt! Die restliche Energie geht in die kinetische Energie der neuen Teilchen.
 \end{description}
 
 Solange die Energie noch nicht für Paarerzeugung ausreicht, findet man
 \begin{equation}
-    \sigma \approx C \, Z^4 \, \lambda^3
+    \sigma \approx C \, Z^4 \, \lambda^3 \quad .
 \end{equation}
 Die Absorption nimmt also mit der Kernladungszahl und der Wellenlänge stark zu. Die Konstante $C$ hängt von der Quantenzahl $n$ bzw. der beteiligten Schale ab: Mit zunehmender Wellenlänge reicht die Energie des Röntgenphotons irgendwann nicht mehr aus, um Elektronen einer Schale zu ionisieren. Die K-Kante im Absorptionsspektrum fällt daher mit der Grenze der K-Serie im Emissionsspektrum zusammen.
 
