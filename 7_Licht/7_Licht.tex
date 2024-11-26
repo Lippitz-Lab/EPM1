@@ -219,7 +219,7 @@ $B_{12}$ ist der \emph{Einstein-Koeffizient der Absorption}.
 
 Im thermodynamischen Gleichgewicht muss die Besetzung $N_i$ der Zustände über die Zeit konstant sein und das Verhältnis $N_2 / N_1$ muss der Boltzmann-Statistik entsprechen. Dies kann nur erreicht werden, wenn es auch den  Prozess der stimulierten Emission gibt. Dabei stimuliert  (oder induziert) ein einfallendes Photon den Zerfall eines angeregten Atoms, inklusive der Emission eines weiteren Photons. Vorher gibt es ein Photon udn ein Atom im angeregten Zustand, nachher  zwei Photonen und ein Atom im Grundzustand. Das zweite Photon ist dabei eine exakte Kopie des ersten. Die Übergangsrate ist $B_{21}$, der  \emph{Einstein-Koeffizienten der stimulierten Emission}:
 \begin{equation}
-    \frac{d N_2}{dt} = - B_{21} \, N_2 \, u(E_2 - E_1)  \quad .\label{eq:7_k_stim}
+    \frac{d N_2}{dt} = - B_{21} \, N_2 \, u(E_2 - E_1)  \quad \text{stimulierte Emission}  \quad .\label{eq:7_k_stim}
 \end{equation}
 
 
@@ -262,9 +262,20 @@ Die stimulierte Emission sollte also der dominierende Prozess sein, wenn ein Pho
 
 Wie erreichen wir die Besetzungsinversion? Wir müssen den Atomen Energie zuführen. Wir nehmen hier einmal an, dass dies durch Licht geeigneter Wellenlänge geschieht. Das nennt man \emph{optisches Pumpen}. So hat es Maiman in seinem Rubin-Laser gemacht. Heute kann man die Energie auch anders zuführen, zum Beispiel elektrisch. Es hilft nicht, wenn das Pumplicht den Übergang $1 \rightarrow 2$ pumpt. Zunächst nimmt zwar die Besetzung des Zustands 1 mit steigender Pumpintensität zu. Wenn wir aber die Gleichbesetzung erreichen ($N_1 = N_2$), dann wird ein einfallendes Pumpphoton mit der gleichen Wahrscheinlichkeit absorbiert, wie es stimulierte Emission verursacht. Diese Grenze kann nicht überschritten werden, und $N_2 > N_1$ wird nie erreicht.
 
-xxx sketch 3 level system
 
-Der Ausweg ist ein System, das aus mehr als zwei Niveaus besteht, z.B. drei oder vier (siehe Abbildung XXX). Wir pumpen den Übergang $1 \rightarrow 3$. Der Zustand 3 ist kurzlebig und geht schnell in den Zustand 2 über, möglicherweise unter Aussendung eines Photons, das uns hier nicht interessiert. Damit ist die Besetzung $N_3 \ll N_1$ zu jedem Zeitpunkt, so dass dieser Übergang gut gepumpt werden kann. Gleichzeitig können wir  Besetzung im Zustand 2 akkumulieren und so $N_2 > N_1$ erreichen.
+\begin{marginfigure}
+   \inputtikz{\currfiledir laser_levels_234}
+    \caption{Laser mit 3 oder 4 Niveaus. Ein 2-Niveau-Laser kann nicht optisch gepumpt werden.}
+    \label{fig:7_laser_niveau_34}
+\end{marginfigure}
+
+Der Ausweg ist ein System, das aus mehr als zwei Niveaus besteht, z.B. drei oder vier (siehe Abbildung  \ref{fig:7_laser_niveau_34}). Wir pumpen den Übergang $1 \rightarrow 3$. Der Zustand 3 ist kurzlebig und geht schnell in den Zustand 2 über, möglicherweise unter Aussendung eines Photons, das uns hier nicht interessiert. Damit ist die Besetzung $N_3 \ll N_1$ zu jedem Zeitpunkt, so dass dieser Übergang gut gepumpt werden kann. Gleichzeitig können wir  Besetzung im Zustand 2 akkumulieren und so $N_2 > N_1$ erreichen.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir laser_design}
+    \caption{Ein Laser besteht aus Pump-Quelle, aktivem Medium und zwei Spiegeln als Resonator.}
+    \label{fig:7_laser_design}
+\end{marginfigure}
 
 
 Neben der Energiequelle zum Pumpen und dem atomaren Gas als Verstärkungsmedium benötigt man einen Resonator, d.h. zwei Spiegel, die das Verstärkungsmedium umschließen. Die stimulierte Emission findet nicht bei jedem Durchgang eines Photons durch das Medium statt.  Der Resonator sorgt dafür, dass jedes Photon viele Chancen hat, einmal kopiert zu werden. Ist dies einmal geschehen, entsteht eine Art Lawine identischer Photonen, bis die stimulierte Emission ausreicht, um die Besetzungsinversion abzubauen und den Zustand $N_2 = N_1$ zu erreichen. Der Laser ist also eine Quelle identischer Photonen. Dies entspricht klassischerweise kohärentem Licht.
@@ -274,7 +285,11 @@ Neben der Energiequelle zum Pumpen und dem atomaren Gas als Verstärkungsmedium 
 
 Der historisch erste Laser verwendet Rubin als aktives Medium. Rubin ist ein Korund-Mineral, Chromaluminiumoxid, d.h. Chrom-Ionen in einer Aluminiumoxidmatrix (\ch{Al2O3}). Aluminiumoxid ist durchsichtig wie Glas. Ein Stab aus diesem Material ist an den Enden poliert und verspiegelt. Chrom ist in sehr geringer Menge (0,05\%) eingelagert. Die \ch{Cr^{3+}}-Ionen werden durch eine Blitzlampe in hoch angeregte Zustände gepumpt. Von dort zerfallen sie in einen tieferliegenden angeregten Zustand. Die überschüssige Energie wird in Form von Wärme an den Stab abgegeben. Der Rubinlaser ist somit ein Festkörperlaser und arbeitet bei einer Wellenlänge von 694.3~nm, an der Grenze zum nahen Infrarot. 
 
-xxx sketchj states ruby
+\begin{marginfigure}
+    xxx sketchj states ruby
+    \caption{Rubin-Laser-Zustände.}
+    \label{fig:7_ruby_laser}
+\end{marginfigure}
 
 \section{Helium-Neon-Laser}
 
@@ -282,8 +297,11 @@ Der \ch{He:Ne}-Laser verwendet Neon als aktives Medium und Helium zur Anregung i
 
 Der \ch{He}-2s-Zustand ist resonant mit dem angeregten 5s-Zustand von Neon (Neon-Grundzustand 1s$^2$ 2s$^22$ 2p$^6$). 'Resonant' bedeutet, dass beide Zustände die gleiche Energie von 20,6~eV haben.  Bei der Kollision eines Neon-Atoms mit einem Helium-Atom kann daher die Anregung sehr effizient übertragen werden. Dieser 5s-Zustand dient dann als oberer Zustand im Laser. Der Übergang zum 3p-Zustand bei 632,8~nm erfolgt durch stimulierte Emission. Der untere 3p-Zustand zerfällt sehr schnell weiter in den Grundzustand. Obwohl die Besetzung in 5s niedrig ist, ist sie höher als in 3p, so dass auch hier eine Besetzungsinversion vorliegt. Es handelt sich also auch hier um einen Drei-Niveau-Laser.
 
-xxx sketchj states He Ne
-
+\begin{marginfigure}
+    xxx sketchj states He Ne
+    \caption{hene-Laser-Zustände.}
+    \label{fig:7_hene_laser}
+\end{marginfigure}
 
 \section{Linienbreiten}
 
