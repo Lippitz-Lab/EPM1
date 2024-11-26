@@ -162,9 +162,10 @@ Neben den oben besprochenen elektrischen Dipolübergängen gibt es auch magnetis
 \begin{marginfigure}
     \inputtikz{\currfiledir helium} 
     \caption{Termschema von Helium mit einigen erlaubten Übergängen. Man erkennt die Aufspaltung nach dem Gesamtspin. Grau strichliert die Wasserstoff-Niveaus zum Vergleich. Der 1S-Zustand ist verschoben. Die J-Aufspaltung ist vergrößert.}
+    \label{fig:7_helium}
 \end{marginfigure}
 
-Abbildung XXX zeigt die niedrigsten Zustände von Helium. Diese wurden bereits am Ende des letzten Kapitels besprochen. Die Pfeile zeigen alle zulässigen Übergänge als Emission an. Zunächst fällt auf, dass die Übergänge innerhalb ihrer Multiplizität bleiben. Es gibt keinen erlaubten Übergang vom Singulett zum Triplett und umgekehrt, was eine Folge der Regel $\Delta S = 0$ ist. Dann ändern alle Pfeile die 'Spalte' im Diagramm, d.h. $\Delta L = \pm 1$. Bei Helium wird in diesen Zuständen nur ein Elektron angeregt. Der Sonderfall $\Delta L = 0$ tritt daher nicht auf. Es gibt zwei metastabile Zustände, $2^1S_0$ und $2^3S_1$, die keinen erlaubten Zerfallskanal besitzen. Die Spin-Bahn-Kopplung und Wechselwirkungen jenseits der hier beschriebenen Dipolstrahlung führen aber auch diese Zustände wieder in den Grundzustand zurück.
+Abbildung \ref{fig:7_helium} zeigt die niedrigsten Zustände von Helium. Diese wurden bereits am Ende des letzten Kapitels besprochen. Die Pfeile zeigen alle zulässigen Übergänge als Emission an. Zunächst fällt auf, dass die Übergänge innerhalb ihrer Multiplizität bleiben. Es gibt keinen erlaubten Übergang vom Singulett zum Triplett und umgekehrt, was eine Folge der Regel $\Delta S = 0$ ist. Dann ändern alle Pfeile die 'Spalte' im Diagramm, d.h. $\Delta L = \pm 1$. Bei Helium wird in diesen Zuständen nur ein Elektron angeregt. Der Sonderfall $\Delta L = 0$ tritt daher nicht auf. Es gibt zwei metastabile Zustände, $2^1S_0$ und $2^3S_1$, die keinen erlaubten Zerfallskanal besitzen. Die Spin-Bahn-Kopplung und Wechselwirkungen jenseits der hier beschriebenen Dipolstrahlung führen aber auch diese Zustände wieder in den Grundzustand zurück.
 
 
 
@@ -173,9 +174,10 @@ Abbildung XXX zeigt die niedrigsten Zustände von Helium. Diese wurden bereits a
 \begin{marginfigure}
     \inputtikz{\currfiledir natrium} 
     \caption{Termschema von Natrium mit einigen erlaubten Übergängen. Rot sind die beiden gelben D-Linien. Grau strichliert die Wasserstoff-Niveaus zum Vergleich.}
+    \label{fig:7_natrium}
 \end{marginfigure}
 
-Natrium ähnelt Wasserstoff in dem Sinne, dass ein einziges Valenzelektron seine Eigenschaften bestimmt. Die Elektronenkonfiguration ist [Ne]3s$^1$. Abbildung XXX zeigt die niedrigsten angeregten Zustände und die Übergänge zwischen ihnen. Der Grundzustand hat das Termsymbol 3$^2$S$_{1/2}$, also ein Doublet. Charakteristisch sind die \emph{Natrium-D-Linien} bei 589,5 nm bzw. 588,9 nm Wellenlänge, die z.B. im gelben Licht einiger Straßenlaternen zu sehen sind.
+Natrium ähnelt Wasserstoff in dem Sinne, dass ein einziges Valenzelektron seine Eigenschaften bestimmt. Die Elektronenkonfiguration ist [Ne]3s$^1$. Abbildung  \ref{fig:7_natrium} zeigt die niedrigsten angeregten Zustände und die Übergänge zwischen ihnen. Der Grundzustand hat das Termsymbol 3$^2$S$_{1/2}$, also ein Doublet. Charakteristisch sind die \emph{Natrium-D-Linien} bei 589,5 nm bzw. 588,9 nm Wellenlänge, die z.B. im gelben Licht einiger Straßenlaternen zu sehen sind.
 Dies sind Übergänge aus den Zuständen 3$^2$P$_{1/2}$ und 3$^2$P$_{3/2}$. Dabei ist $\Delta S = 0$, $\Delta L = 1$ und $\Delta J = 0$ bzw. $1$. Die Hauptquantenzahl $n$ ändert sich also nicht. Die Feinstrukturaufspaltung $J = 1/2$ und $J=3/2$ führt zum Doublet der Linien.
 
 \section{Lebensdauer angeregter Zustände}
@@ -338,6 +340,13 @@ In den einleitenden Kapiteln wurde bereits kurz über Röntgenstrahlung gesproch
 
 \subsection{Bremsstrahlung}
 
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir bremsstrahlung} 
+    \caption{Röntenspekrtrum einer Wolfram-Anode bei $U= 15, 25, 35, 50$~kV. Daten von \cite{Gilfrich68}.}
+    \label{fig:7_bremsstrahlung}
+\end{marginfigure}
+
 Bevor wir zu diesem Punkt kommen, müssen wir kurz auf die Bremsstrahlung eingehen. Darunter versteht man ein breites Kontinuum im Röntgenspektrum,  das nicht vom Kathodenmaterial abhängt. Die durch die Spannung $U$ beschleunigten Elektronen werden an den Kernen des Kathodenmaterials abgelenkt, ohne dass die Kerne oder die Elektronen des Kathodenmaterials Energie aufnehmen. Ablenkung bedeutet Beschleunigung, und die beschleunigten Elektronen sind die Quelle  elektromagnetischer Strahlung.  Das Kontiunium hat eine maximale Frequenz bzw. eine minimale Wellenlänge, die von der Beschleunigungsspannung $U$ abhängt: Maximal kann die gesamte Energie $e \, U$ auf ein Photon übertragen werden.
 \begin{equation}
     h \nu_\text{grenz} = e \, U \quad \text{oder} \quad
@@ -355,8 +364,12 @@ Nach Umrechnung auf eine Wellenlängenskala ergibt sich
     \quad \text{für} \quad  \lambda > \lambda_\text{grenz}
 \end{equation}
 
-xxx sketchj spektrum
 
+\begin{marginfigure}
+    \inputtikz{\currfiledir linienspektrum} 
+    \caption{Röntenspekrtrum einer Wolfram-Anode bei 45 kV mit den charakteristischen L-Linien. Daten von \cite{Gilfrich68}.}
+    \label{fig:7_linienspektrum}
+\end{marginfigure}
 
 \subsection{Charakteristisches Linienspektrum}
 Experimentell findet man neben dem Kontinuum der Bremsstrahlung eine für das Kathodenmaterial charakteristische Abfolge von scharfen Linien. Hier wird ein inneres Elektron des Kathodenmaterials aus dem Atom herausgeschlagen. Eines der verbleibenden, energetisch höheren Elektronen fällt unter Aussendung eines Röntgenphotons in diese Lücke zurück. Die Lage der Linien hängt also von zwei Zuständen ab: dem des herausgeschlagenen Elektrons und dem des auffüllenden Elektrons.
@@ -390,6 +403,7 @@ Solange die Energie noch nicht für Paarerzeugung ausreicht, findet man
 Die Absorption nimmt also mit der Kernladungszahl und der Wellenlänge stark zu. Die Konstante $C$ hängt von der Quantenzahl $n$ bzw. der beteiligten Schale ab: Mit zunehmender Wellenlänge reicht die Energie des Röntgenphotons irgendwann nicht mehr aus, um Elektronen einer Schale zu ionisieren. Die K-Kante im Absorptionsspektrum fällt daher mit der Grenze der K-Serie im Emissionsspektrum zusammen.
 
 
+\newpage
 
 \section{Zusammenfassung}
 

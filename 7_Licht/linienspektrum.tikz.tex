@@ -1,0 +1,52 @@
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+ 
+ 
+\begin{tikzpicture}[font=\footnotesize]
+
+  \begin{axis}[
+    xmin =0,
+    xmax =2.5,
+%    ymax = 1,
+    ymin = 0,
+    xlabel =  Wellenlänge $\lambda$ (\AA),
+    ylabel =   Intensität,
+     ytick = {0,1, 2, 3},
+    % xticklabels = { $0$, $L$},
+     yticklabels = { $10^1$, $10^2$, $10^3$, $10^4$},
+    % ytick = {0},
+    % xtick = {0, 1, 2},
+    %  axis y line = left,
+    %  axis x line = center,
+    width = 50mm,
+    height=40mm,
+    extra x ticks={0.29},
+    extra x tick labels={\scriptsize $\lambda_g$},
+    ]
+
+    \addplot[no marks] table[x index=0,y index=1,col sep = semicolon, ] {\currfiledir data/xray_brems.csv};
+    \addplot[no marks, blue] table[x index=0,y index=1,col sep = semicolon, ] {\currfiledir data/xray_lines.csv};
+
+
+   % \draw (12400 / 8397.6, 0) -- ++ (0, 1);  % L alpha 1
+    \node[xshift=2mm] at (12400 / 8397.6, 3) {\scriptsize $L_\alpha$};
+   % \draw (12400 / 8335.2, 0) -- ++ (0, 1); % L alpha 2
+   % \draw (12400 / 9672.35, 0) -- ++ (0, 1);  % L beta 1
+    \node[xshift=-2mm] at (12400 / 9672.35, 3) {\scriptsize $L_\beta$};
+
+  %  \draw (12400 / 9961.5, 0) -- ++ (0, 1);  % L beta 2
+   % \draw (12400 / 11285.9, 0) -- ++ (0, 1);  % L gamma 1 
+    \node[xshift=-2mm] at (12400 /  11285.9, 2.5) {\scriptsize $L_\gamma$};
+
+\end{axis}
+
+
+\end{tikzpicture}
+
+
+%\end{document}
+
+
