@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{22. November 2024}
+\renewcommand{\lastmod}{27. November 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Licht-Materie-Wechselwirkung}
@@ -7,7 +7,7 @@
 
 
 
-\section{Überblick}
+
 
 
 
@@ -27,6 +27,19 @@
 % laser, and ends with essays on why a population inversion is necessary to build a laser and
 % why this requires atoms with three energy levels instead of two. Most students are able to
 % give coherent explanations in these es
+
+
+\section{Überblick}
+Die Spektroskopie atomarer Übergänge hat uns bereits in den ersten Kapiteln beschäftigt. Hier wollen wir sie etwas genauer betrachten und die Quantenmechanik nutzen, um \emph{Auswahlregeln} aufzustellen. Nicht zwischen allen Zuständen gibt es Übergänge, bei denen Licht absorbiert oder emittiert wird. Dies hängt mit der Symmetrie der Wellenfunktion und der Drehimpulserhaltung zusammen und wird im \emph{Übergangsdipolmonent} formalisiert.
+
+
+
+Neben der 'gewöhnlichen' spontanen Emission gibt es den von A. Einstein postulierten Prozess der \emph{stimulierten Emission}. Einstein zeigte, dass sich ein Atom nur dann im thermischen Gleichgewicht mit dem umgebenden Strahlungsfeld befinden kann, wenn dieser Prozess existiert. Diese stimulierte Emission ist die Grundlage des Lasers. Dieser wurde 1960 zunächst als Effekt ohne wirkliche Anwendung demonstriert, ist aber aus der heutigen Technologie nicht mehr wegzudenken.
+
+Schließlich betrachten wir noch einen ganz anderen Wellenlängenbereich: Die sehr kurzwellige Röntgenstrahlung entsteht ebenfalls durch atomare Übergänge, allerdings durch tief gebundene Elektronen und nicht durch Valenzelektronen wie beim sichtbaren Licht. Neben dem breiten \emph{Bremsspektrum} finden sich charakteristische Linien, die den atomaren Übergängen entsprechen. Dies wird im Moseley-Gesetz durch ein wasserstoffähnliches System modelliert, dessen Kernladung teilweise abgeschirmt ist.
+
+Dieses Kapitel folgt \cite{Harris_moderne_Physik} mit großen Anteilen von \cite{Demtröder_ep3}.
+
 
 
 
@@ -98,6 +111,7 @@ Eine Funktion kann auch keine Parität haben, z. B. $f(x) = 1 + x$. Für Wassers
 
 Der Spin in den Zuständen $A$ und $E$ ist ortsunabhängig. Der Spinanteil der Wellenfunktionen\sidenote{den wir bisher nie explizit geschrieben haben} kann also vor das Integral gezogen werden. Da auch die Spin-Wellenfunktionen orthonormal sind, kann sich der (Gesamt-)Spin bei einem Übergang nicht ändern. Allerdings gibt es die Spin-Bahn-Kopplung. Diese führt zu einem Einfluss des Spins auf den räumlichen Teil der Wellenfunktion, so dass nicht mehr alles vor das Integral gezogen werden kann. Die Spin-Erhaltung gilt also nicht strikt und immer weniger, je mehr die Spin-Bahn-Kopplung mit steigender Kernladung zunimmt.
 
+\newpage
 
 Hier nun ein Überblick über die Auswahlregeln
 \begin{description}\setlength{\itemsep}{0pt}
@@ -198,10 +212,6 @@ Dabei nennt man $\tau$ die Lebensdauer des angeregten Zustands und $k = 1 / \tau
 \section{Einstein-Koeffizienten}
 
 
-\begin{marginfigure}
-    \inputtikz{\currfiledir einstein-coeff}
-    \caption{Die drei Einstein-Koeffizienten.}
-\end{marginfigure}
 
 Im Jahre 1917, also noch vor dem Bohrschen Atommodell und der de Broglie-Wellenlänge, erkannte A.~Einstein, dass es neben den oben besprochenen Absorptions- und Emissionsprozessen noch einen weiteren Prozess geben muss, damit ein Atom im thermischen Gleichgewicht mit dem umgebenden (Schwarzkörper-) Licht sein kann. Betrachten wir dazu noch einmal Absorption und Emission.
 
@@ -216,6 +226,12 @@ Damit eine Absorption stattfinden kann, das Atom also vom Zustand 1 in den Zusta
     \frac{d N_1}{dt} = - B_{12} \, N_1 \, u(E_2 - E_1) \quad \text{Absorption} \label{eq:7_k_abs}
 \end{equation}
 $B_{12}$ ist der \emph{Einstein-Koeffizient der Absorption}.
+
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir einstein-coeff}
+    \caption{Die drei Einstein-Koeffizienten.}
+\end{marginfigure}
 
 Im thermodynamischen Gleichgewicht muss die Besetzung $N_i$ der Zustände über die Zeit konstant sein und das Verhältnis $N_2 / N_1$ muss der Boltzmann-Statistik entsprechen. Dies kann nur erreicht werden, wenn es auch den  Prozess der stimulierten Emission gibt. Dabei stimuliert  (oder induziert) ein einfallendes Photon den Zerfall eines angeregten Atoms, inklusive der Emission eines weiteren Photons. Vorher gibt es ein Photon udn ein Atom im angeregten Zustand, nachher  zwei Photonen und ein Atom im Grundzustand. Das zweite Photon ist dabei eine exakte Kopie des ersten. Die Übergangsrate ist $B_{21}$, der  \emph{Einstein-Koeffizienten der stimulierten Emission}:
 \begin{equation}
@@ -286,8 +302,8 @@ Neben der Energiequelle zum Pumpen und dem atomaren Gas als Verstärkungsmedium 
 Der historisch erste Laser verwendet Rubin als aktives Medium. Rubin ist ein Korund-Mineral, Chromaluminiumoxid, d.h. Chrom-Ionen in einer Aluminiumoxidmatrix (\ch{Al2O3}). Aluminiumoxid ist durchsichtig wie Glas. Ein Stab aus diesem Material ist an den Enden poliert und verspiegelt. Chrom ist in sehr geringer Menge (0,05\%) eingelagert. Die \ch{Cr^{3+}}-Ionen werden durch eine Blitzlampe in hoch angeregte Zustände gepumpt. Von dort zerfallen sie in einen tieferliegenden angeregten Zustand. Die überschüssige Energie wird in Form von Wärme an den Stab abgegeben. Der Rubinlaser ist somit ein Festkörperlaser und arbeitet bei einer Wellenlänge von 694.3~nm, an der Grenze zum nahen Infrarot. 
 
 \begin{marginfigure}
-    xxx sketchj states ruby
-    \caption{Rubin-Laser-Zustände.}
+    \includegraphics[width=\textwidth]{\currfiledir png/ruby.png}
+    \caption{Die relevanten Zustände des Rubin-Lasers.}
     \label{fig:7_ruby_laser}
 \end{marginfigure}
 
@@ -298,8 +314,8 @@ Der \ch{He:Ne}-Laser verwendet Neon als aktives Medium und Helium zur Anregung i
 Der \ch{He}-2s-Zustand ist resonant mit dem angeregten 5s-Zustand von Neon (Neon-Grundzustand 1s$^2$ 2s$^22$ 2p$^6$). 'Resonant' bedeutet, dass beide Zustände die gleiche Energie von 20,6~eV haben.  Bei der Kollision eines Neon-Atoms mit einem Helium-Atom kann daher die Anregung sehr effizient übertragen werden. Dieser 5s-Zustand dient dann als oberer Zustand im Laser. Der Übergang zum 3p-Zustand bei 632,8~nm erfolgt durch stimulierte Emission. Der untere 3p-Zustand zerfällt sehr schnell weiter in den Grundzustand. Obwohl die Besetzung in 5s niedrig ist, ist sie höher als in 3p, so dass auch hier eine Besetzungsinversion vorliegt. Es handelt sich also auch hier um einen Drei-Niveau-Laser.
 
 \begin{marginfigure}
-    xxx sketchj states He Ne
-    \caption{hene-Laser-Zustände.}
+    \includegraphics[width=\textwidth]{\currfiledir png/hene.png}
+    \caption{Die relevanten Zustände des He-Ne-Lasers.}
     \label{fig:7_hene_laser}
 \end{marginfigure}
 
