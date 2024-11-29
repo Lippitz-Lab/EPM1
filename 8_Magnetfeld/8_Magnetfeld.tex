@@ -1,30 +1,16 @@
 \renewcommand{\lastmod}{29. November 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
-\chapter{Atome in externen Feldern}
+\chapter{Atome im Magnetfeld}
 
 
 
 
 
 
-\section{Overview}
+\section{Überblick}
 
-Einstein de Haas: Spin gibt es wirklich
 
-Normaler Zeeman-Effekt
-
-8.1 Landé-g-Faktor 1	*	1 
-
-8.2* Anormaler Zeeman-Effekt 2	***
-
-8.3 Paschen-Back-Effekt 3	*	3 
-
-8.4 Stark-Effekt 4	*	4 
-
-8.5 Kern-Spin-Resonanz (NMR) 5	Anw	5 
-
-Hyperfeinstruktur , wirklich ?
 
 
 
@@ -40,7 +26,7 @@ Stellen wir uns zunächst ein Elektron auf einer klassischen Kreisbahn vor. Die 
 \end{equation}
 wobei in den Zwischenschritten die Richtung des Vektors weggelassen wurde. Ein klassischer Drehimpuls aufgrund einer Bahnbewegung ist also mit einem magnetischen Dipolmoment verbunden. Die Proportionalitätskonstante zwischen dem magnetischen Moment und dem Drehimpuls wird \emph{gyromagnetisches Verhältnis} $\gamma$ genannt
 \begin{equation}
-    \gamma  = \frac{|\bmu|}{|\bl|} = g \, \frac{e}{2m} = g \frac{\mu_B}{\hbar}
+    \gamma  = \frac{|\bmu|}{|\bl|} = g \, \frac{e}{2m} = g \frac{\mu_B}{\hbar} \quad .
 \end{equation}
 Dabei haben wir schon mal den Landé-g-Faktor eingeführt, der hier für den Bahndrehimpuls natürlich $g=1$ ist, und das \emph{Bohr'sche Magenton} 
 \begin{equation}
@@ -51,7 +37,7 @@ Dabei haben wir schon mal den Landé-g-Faktor eingeführt, der hier für den Bah
 
 In einem äußeren Magnetfeld $\bB$ führt ein Drehimpuls eine Präzessionsbewegung aus. Es wirkt ein Drehimpuls $\btau = \bmu \times \bB$, der immer senkrecht zum Dipolmoment $\bmu$ und damit auch senkrecht zum Drehimpuls $\bl$ steht. Das ist genau wie bei einem Kreisel im Gravitationsfeld der Erde. Die Spitze des Drehimpulsvektors beschreibt also eine Kreisbahn senkrecht zu $\bB$:
 \begin{equation}
-    \frac{d \bl}{dt} = - \frac{e}{2m} \, \bL \times \bB
+    \frac{d \bl}{dt} = - \frac{e}{2m} \, \bL \times \bB  \quad .
 \end{equation}
 Die Frequenz der Kreisbewegung nennt man \emph{Lamor-Frequenz}\sidenote{nach Joseph Larmor, irischer Physiker und Mathematiker, 1857--1942}
 \begin{equation}
@@ -64,6 +50,10 @@ Die Frequenz der Kreisbewegung nennt man \emph{Lamor-Frequenz}\sidenote{nach Jos
 
 Bei der Einführung des Elektronenspins habe ich bisher nur behauptet, dass dieser auch mit einem Drehimpuls verbunden ist. Das Einstein-de Haas-Experiment beweist, dass der Drehimpuls des Elektronenspins tatsächlich existiert.
 
+\begin{marginfigure}
+    \caption{XXX Sketch E-dH}
+\end{marginfigure}
+
 Ein Eisenzylinder bekannter Größe und Masse ($m$, $R$, $V$) ist an einem Torsionspendel der Federkonstante $k$ aufgehängt. Der Zylinder hängt in einer Spule, mit der ein äußeres Magnetfeld (anti)parallel zum Zylinder erzeugt werden kann. Zunächst wird die statische Sättigungsmagnetisierung $M_+$ und $M_-$ für beide Feldrichtungen gemessen. In der dynamischen Messung wird das Drehmoment aus der Umkehrung der Drehimpulse gemessen. Der Zylinder dreht sich und ein Lichtzeiger ermöglicht die Bestimmung der maximalen Auslenkung $\phi$. In der Praxis ist der Effekt so klein, dass $\phi$ nicht direkt gemessen werden kann, sondern eine getriebene Oszillation auf der Resonanz des Pendels verwendet wird. Dies wird hier vernachlässigt. 
 
 Durch die Umkehrung des Magenfeldes ändert sich die z-Komponente des Drehimpulses von $l_z$ zu $-l_z$. Die Änderung des Zylinder-Drehimpulses ist also 
@@ -72,7 +62,7 @@ Durch die Umkehrung des Magenfeldes ändert sich die z-Komponente des Drehimpuls
 \end{equation}
 mit der Anzahl $N$ der Atome im Zylinder. Aus der Energieerhaltung (Federpotential gleich kinetische Energie in der Drehbewegung) ergibt sich eine Beziehung zwischen $\phi$ und $\Delta L$.
 \begin{equation}
-\frac{\Delta L ^2}{2 (mR^2/2)} = \frac{k \phi^2}{2}    
+\frac{\Delta L ^2}{2 (mR^2/2)} = \frac{k \phi^2}{2}    \quad .  
 \end{equation}
 Die Änderung des magnetischen  Moments des Zylinder $\mu_\text{Zyl}$ ist
 \begin{equation}
@@ -81,7 +71,7 @@ Die Änderung des magnetischen  Moments des Zylinder $\mu_\text{Zyl}$ ist
 mit $\mu_z$ der z-Komponente des atomaren magnetischen Moments. Das gyromagnetische Verhältnis ist
 \begin{equation}
     \frac{ \Delta  \mu_\text{Zyl}}{\Delta L}
-    = \frac{|\mu_z|}{|l_z|} = \gamma = g \frac{\mu_B}{\hbar}
+    = \frac{|\mu_z|}{|l_z|} = \gamma = g \frac{\mu_B}{\hbar}  \quad .
 \end{equation}
 Das Einstein-de Haas-Experiment bestimmt also den Landé g-Faktor. Bei Eisen tragen die Bahndrehimpulse der Elektronen nur wenig zum Magnetismus bei, da die 6 Valenz-Elektronen in der  3d-Schale beinahe alle 7 $m_l$-Werte besetzen. 
 Der Magnetismus wird hauptsächlich durch die Elektronenspins verursacht. Die Bewegung des Zylinders demonstriert also, dass der Elektronenspin tatsächlich mit einem Drehimpuls verbunden ist! 
@@ -97,9 +87,9 @@ Die Energie eines magnetischen Moments $\bmu$ im Magnetfeld $\bB$ ist $E = - \bm
 
 Wir beginnen mit dem 'normalen' Zeeman-Effekt. Aus heutiger Sicht ist das eher ein Spezialfall. Historisch gesehen war er aber derjenige, den man gut verstehen konnte. Hier spielt der Spin der Elektronen keine Rolle. Dies ist immer dann der Fall, wenn der atomare Zustand die Quantenzahl $S=0$ hat. Wie wir wissen, kommt das manchmal vor, aber es ist nicht der Normalfall.
 
-Sei also $S=0$. Damit ist das magentische Moment nur noch durch $L$ gegeben und $\mu = - \bL \mu_B / \hbar$ bzw. $\mu_z = - \mu_B  m_L$. Die Energie ist
+Sei also $S=0$. Damit ist das magentische Moment nur noch durch $L$ gegeben und $\mu = - \bL \mu_B / \hbar$ bzw. $\mu_z = - \mu_B  m_L$. Die Energieänderung $\Delta E$ ist
 \begin{equation}
-    E = - \mu \cdot \bB =- \mu_z B =  \mu_B \, m_L \, B
+    \Delta E = - \mu \cdot \bB =- \mu_z B =  \mu_B \, m_L \, B  \quad .
 \end{equation}
 Jeder Zustand spaltet also in $2L + 1$ Niveaus auf, die voneinander dem Abstand $\mu_B B$ haben.
 
@@ -115,48 +105,104 @@ In beiden Fällen spielt auch der Zusammenhang zwischen $\Delta m_J = 0, \pm1$ u
 
 Cadmium hat die Elektronenkonfiguration [Kr]4d$^{10}$ 5s$^2$. Dies ist ein $^1S_0$-Zustand. Wir betrachten hier den Übergang ($\lambda \approx 643.8$~nm) zwischen den beiden angeregten Zuständen $^1D_2$ und $^1P1$. Dabei ändert sich nur die Wellenfunktion des Leuchtelektrons von 5d nach 5p. Alle beteiligten Zustände sind Singulett-Zustände mit $S=0$, der Spin spielt keine Rolle und es tritt der Normale Zeeman-Effekt auf. Beide Zustände spalten sich im Magnetfeld in $2J+1$ Zeeman-Niveaus auf, also in 5 bzw. 3 Niveaus. Alle Abstände sind gleich $\Delta E = \mu_B B$. Aufgrund der Auswahlregel $\Delta m_J = 0, \pm1$ gibt es im Spektrum nur drei Linien mit jeweils gleichem $\Delta m_J$.
 
-% XXX FIG analog zu HAken WOlf 1 Fig.13.10
+\begin{marginfigure} 
+    \inputtikz{\currfiledir cadmium_Bfeld}
+    \caption{Normaler Zeeman-Effekt in \ch{Cd}.}
+\end{marginfigure}
 
-\section{Anormaler Zeeman-Effekt}
 
-Nun kommen wir zun 'anormalen' Zeeman-Effekt. Bevor man den Eleltkronnespin entdekct und vertsandne hatte, waren die Spektren von vielen Atomen im Magentfeld unverständlich. Die Anzhald er Linien war nicht gleich drei, wie man beim Nornamenl Zeeman-Effekt erwarten würde. Daher nannte man das damals 'anormal'. Aus heutiger sicht ist das nicht mehr ungewöhlich. s gibt nur eine kleine Rechen-Hürde, über die wier hinweg müssen.
+\section{Anomaler Zeeman-Effekt}
 
-Wenn nun also $S \neq 0$, dann ist der Zusammenhang zwsichen Drehimpuls und magnetsicehgm Omnet rekevant
+Nun kommen wir zum 'anomalen' Zeeman-Effekt. Bevor der Elektronenspin entdeckt und verstanden wurde, waren die Spektren vieler Atome im Magnetfeld unverständlich. Die Anzahl der Linien war nicht gleich drei, wie man es beim normalen Zeeman-Effekt erwarten würde. Deshalb nannte man das damals 'anomal'. Aus heutiger Sicht ist das nicht mehr ungewöhnlich, sondern nur noch eine kleine Rechenhürde.
+
+Wenn also $S \neq 0$ ist, dann ist die Beziehung zwischen Drehimpuls und magnetischem Moment relevant.
 \begin{equation}
-    \bmu_L = - g_L \frac{\mu_B}{\hbar} \, \bL \quad \text{und} \quad  \bmu_S = - g_S \frac{\mu_B}{\hbar} \, \bS
+    \bmu_L = - g_l \frac{\mu_B}{\hbar} \, \bL \quad \text{und} \quad  \bmu_S = - g_s \frac{\mu_B}{\hbar} \, \bS
 \end{equation}
-mit $g_L = 1$ und $g_S \approx 2$. Das gesamte Magentsiche Moment ist die Summe
+mit $g_l = 1$ und $g_s \approx 2$. Das gesamte Magnetische Moment ist die Summe
 \begin{equation}
-    \bmu_J =  \bmu_L +  \bmu_S = - \frac{\mu_B}{\hbar} \left( \bL + g_s \bS \right)
+    \bmu_J =  \bmu_L +  \bmu_S = - \frac{\mu_B}{\hbar} \left( \bL + g_s \bS \right)  \quad .
 \end{equation}
-Wenn $g_s = g_L$ wäre, dann wäre  $ \bmu_J $ proptrotinal zu $\bJ$ und zeigte inbesodnere  exakt entgegengesetz zu $\bJ$. Das ist nicht der Fall und dieser verursucht die folgende Rechnung.
+Wenn $g_s = g_l$ wäre, dann wäre $\bmu_J$ proportional zu $\bJ$ und insbesondere genau entgegengesetzt zu $\bJ$. Dies ist nicht der Fall, und dies ist der Grund für die folgende Rechnung.
 
-Nehmen wir zunäcsht einmal an, dass es kein äu0res Magnetfeld $\bB$ gibt. Dann sind die Längen $S$, $L$ und $J$ zetilich konstant und die z-Komponntenet $m_J$, aber nicht $m_S$ und $m_L$. Das bedeutet, dass die Spitze von $\bS$ einen Kreisbahn in einer Ebene seklnrecht auf $\bJ$ beschreibt. Da das magentsiche Moment die oben genanntre Summe aus $\bS$ und $\bL$ enthälkt, beschriebt auch die Spitze von $\bmu_J $ eine Kresibahn um die durch $\bJ$ definierte Achse.
+Nehmen wir zunächst an, dass es kein äußeres Magnetfeld $\bB$ gibt. Dann sind die Längen $S$, $L$ und $J$ zeitlich konstant und die z-Komponente  $m_J$, nicht aber $m_S$ und $m_L$. Das bedeutet, dass die Spitze von $\bS$ eine Kreisbahn in einer Ebene senkrecht zu $\bJ$ beschreibt. Da das magnetische Moment die oben genannte Summe aus $\bS$ und $\bL$ enthält, beschreibt die Spitze von $\bmu_J$ ebenfalls eine Kreisbahn um die durch $\bJ$ definierte Achse.
 
-Relevant ist dann nur der Mittelwert von  $\bmu_J $ pojeziert auf die durch $\bJ$ definierte Achse. Diese Länge nennen wir $(\bmu_J)_J$ und die rechnen wir aus
+Relevant ist dann nur der Mittelwert von  $\bmu_J $ projiziert auf die durch $\bJ$ definierte Achse.  Diese Länge nennen wir $(\bmu_J)_J$ und berechnen sie wie folgt
 \begin{equation}
     (\bmu_J)_J = \frac{\bmu_J \cdot \bJ}{|\bJ|}
     = - \frac{\mu_B}{\hbar} \left(
         \frac{\bL \cdot \bJ}{|\bJ|}
-        +  g_S \,\frac{\S \cdot \bJ}{|\bJ|}
-    \right)
+        +  g_s \,\frac{\bS \cdot \bJ}{|\bJ|}
+    \right)  \quad .
 \end{equation}
-Wie bei der Spin-Bahn-Kopplung stellen wir terme der Form $\bS \cdot \bJ$ bzw $\bL \cdot \bJ$  dar, zB.
+Wie bei der Spin-Bahn-Kopplung stellen wir Terme der Form $\bS \cdot \bJ$ bzw. $\bL \cdot \bJ$  dar, z.B.
 \begin{equation}
     \bL \cdot \bJ = \frac{\hbar^2}{2}
     \left[
   J (J+1) + L(L+1 - S(S+1))
-    \right]
+    \right]  \quad .
 \end{equation}
-Wenn wir diesen Term un den äzivalenten fpür  $\bS \cdot \bJ$  oben einsetzen, dann erhalten wir (mit $g_S = 2$)
+Wenn wir diesen Term und den äquivalenten für  $\bS \cdot \bJ$  oben einsetzen, dann erhalten wir (mit $g_s = 2$)
 \begin{align}
     (\bmu_J)_J = & - \mu_B \frac{3 J (J+1)+ S(S+1) - L(L+1)}{2 \sqrt{J (J+1)}} \\
     = & - g_J \frac{\mu_B}{\hbar} \, |\bj|
 \end{align}
 mit dem Landé-g-Faktor $g_J$ 
 \begin{equation}
-    g_J = 1 + \frac{J (J+1)+ S(S+1) - L(L+1)}{2 J (J+1)} 
+    g_J = 1 + \frac{J (J+1)+ S(S+1) - L(L+1)}{2 J (J+1)}   \quad .
 \end{equation}
+Dieser etwas merkwürdige Landé g-Faktor $g_J$ erspart uns also von nun an die Mittelung über das präzedierende magnetische Moment $\bmu_J$. Je nach relativer Länge von $\bS$, $\bL$ und $\bJ$ ist also der Zusammenhang zwischen Drehimpuls $\bJ$ und magnetischem Moment $\bmu_J$ unterschiedlich und wird durch diesen g-Faktor beschrieben. Er enthält natürlich auch die Sonderfälle, z.B. wenn $S=0$ ist, dann ist $g_J = g_l = 1$.
+
+
+\begin{marginfigure}
+    \caption{ XXX  Fig Analog demtröder 5.24 }
+\end{marginfigure}
+
+
+Nun nehmen wir das äußere Magnetfeld $\bB$ hinzu. Wir nehmen an, dass es schwächer ist als das Magnetfeld des Kerns, das zur Spin-Bahn-Kopplung führt. Die Energie der magnetischen Momente im äußeren Feld $\bB$ ist daher die niedrigste in der Energiehierarchie. Daher koppeln zunächst alle Spins zu $\bS$ und alle Bahndrehimpulse zu $\bL$. Dann richten sich die Spins im Magnetfeld des Kerns aus und die Situation wird durch einen Gesamtdrehimpuls $\bJ$ beschrieben. Das mit $\bJ$ verbundene magnetische Moment orientiert sich schließlich im äußeren Magnetfeld $\bB$. Dadurch spalten sich die Zustände  auf
+\begin{equation}
+    \Delta E = - \mu_J \cdot \bB =-  (\bmu_J)_z  \, \, B =  \mu_B \, m_J \, g_J \, B  \quad .
+\end{equation}
+Jeder Zustand spaltet sich also in $2J+1$ äquidistante Zeeman-Niveaus auf. Da der Landé g-Faktor $g_J$ von den Quantenzahlen $S$, $L$ und $J$ abhängt, variiert er zwischen den Zuständen. Verschiedene Zustände spalten also unterschiedlich stark auf. Das ist der entscheidende Unterschied zum normalen Zeeman-Effekt. Die Folge ist, dass nicht mehr alle Übergänge mit gleichem $\Delta m_J$ bei gleicher Energie liegen. Sehr oft gibt es mehr als 3 Zeeman-Linien. 
+
+\section{Beispiel: Natrium}
+
+Abbildung \ref{fig:8_natrium_Bfeld} zeigt die Zeeman-Aufspaltungen der beiden Natrium-D-Linien. Der gemeinsame Grundzustand $^2S_{1/2}$ hat $g_J = 2$ und spaltet in zwei Linien auf, die bei $\pm m_J g_J = \pm 1$ mal $\mu_B B$ liegen. Die D1-Linie kommt von $^2P_{1/2}$ mit $g_J = 2/3$. Auch dieser Zustand spaltet in zwei Zustände, aber $m_J  g_J$ ist jetzt $\pm 1/3$, viel kleiner. Insgesamt gibt es 4 Linien, weil alle Kombinationen erlaubt sind.
+
+
+Die D2-Linie stammt aus dem Zustand $^2P_{3/2}$ mit $g_J = 4/3$. Der Zustand spaltet in 4 Niveaus auf, die voneinander $4/3$ mal $\mu_B B$ entfernt sind. Die $\Delta m_J$ Auswahlregel verbietet den beiden extremen Zuständen $m_J = \pm 3/2$ einen Übergang zum 'gegenüberliegenden' $m_J = \mp 1/2$ des Grundzustandes, so dass es insgesamt nur $2 \times 3 = 6$ Linien gibt.
+
+
+\begin{figure}
+    \inputtikz{\currfiledir natrium_Bfeld}
+    \caption{Anomaler Zeemaneffekt der beiden Natrium-D-Linien. Der Abstand der Ausgangszustände ist nicht maßstabsgerecht. Ebenso ändert sich die Skalierung der beiden skizzierten Spektren.}
+    \label{fig:8_natrium_Bfeld}
+\end{figure}
+
+
+\section{Paschen-Back-Effekt}
+
+So wie die JJ-Kopplung das Gegenteil der LS-Kopplung ist, ist der Baschen-Back-Effekt das Gegenteil des Zeeman-Effekts. Es geht immer um die Hierarchie der Energien. Bei der LS-Kopplung ist der Spin-Bahn-Beitrag am kleinsten, bei der JJ-Kopplung am größten. Für den Zeeman-Effekt haben wir angenommen, dass die Energie des mit dem Gesamtdrehimpuls verbundenen magnetischen Momentes im äußeren Magnetfeld kleiner ist als alle anderen Energien, so dass die Spin-Bahn-Kopplung unberührt bleibt. Bei wirklich sehr hohen Magnetfeldern ist aber bereits die Energie eines einzelnen Elektronenspins\sidenote{bzw. des zugehörigen magnetischen Momentes} und eines einzelnen Bahndrehimpulses im äußeren Magnetfeld höher als alle anderen Energien. Dann ist $ \bmu_s \cdot \bB$ bzw. $ \bmu_l \cdot \bB$ der dominierende Beitrag. Die Einzelspins präzedieren im Magnetfeld, die Kopplung spielt keine Rolle. Die Zustände sind also bei 
+\begin{equation}
+    \Delta E = \left( g_l m_l + g_s m_s \right) \, \mu_B \, B 
+\end{equation}
+mit $g_l = 1$ und $g_s \approx 2$. Hier sind also $m_s$ und $m_l$ 'gute' Quantenzahlen und $J$, $m_J$ spielen keine Rolle mehr, weil die Kopplungsenergie zu klein ist.
+
+% da sollte doch ein B drin sein, oder nicht ...
+% aus engl. Wikipedia
+%
+% Weil es die relativistischen Korrekturen aber immer noch gibt, verbleibt ein Teil der 'alten' Feinstrukturaufspaltung, so dass man insgesamt findet
+% \begin{equation}
+%      E = E_{n} + \frac{m_e c^2 \alpha^4}{2 n^3} 
+%      \left\{ \frac{3}{4n} - \left[ \frac{l(l+1) - m_l m_s}{l(l+1/2)(l+1) } \right] \right\}
+% \end{equation}
+
+
+% \section{Spin-Resonanz}
+
+% Harris 8.1.5 und 11.4
+
+\newpage
 
 \section{Zusammenfassung}
 

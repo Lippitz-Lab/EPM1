@@ -1,0 +1,73 @@
+
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+
+
+\begin{tikzpicture}[font=\scriptsize]
+  
+
+\tikzmath{\cde = 3; \cdb = 0.4; \cdw = 1.5; }
+
+% ground state
+\draw[dashed] (0,0) -- ++ (\cdw ,0) -- ++ ( 0.5, {1*\cdb} ) -- ++ (\cdw , 0);
+\draw[dashed] (0,0) -- ++ (\cdw ,0) --  ++ ( 0.5, {0*\cdb} ) -- ++ (\cdw , 0);
+\draw[dashed] (0,0) -- ++  (\cdw ,0) -- ++ ( 0.5, {-1*\cdb} ) -- ++ (\cdw , 0);
+
+\draw[thick] (0,0) node[left] {$^1P_1$} -- ++ (\cdw ,0);
+\draw[thick] ( {\cdw  + 0.5}, {1*\cdb} )  -- ++ (\cdw ,0)node[anchor=east, xshift=6mm] {+1};
+\draw[thick] (  {\cdw  + 0.5}, {0*\cdb} )  -- ++ (\cdw ,0) node[anchor=east, xshift=6mm] {0};
+\draw[thick] (  {\cdw  + 0.5}, {-1*\cdb} )  -- ++ (\cdw ,0) node[anchor=east, xshift=6mm] {-1};
+
+% excited state
+\draw[dashed] (0,\cde) -- ++ (\cdw,0) -- ++ ( 0.5, {2*\cdb} ) -- ++ (\cdw, 0);
+\draw[dashed] (0,\cde) -- ++ (\cdw,0) -- ++ ( 0.5, {1*\cdb} ) -- ++ (\cdw, 0);
+\draw[dashed] (0,\cde) -- ++ (\cdw,0) -- ++ ( 0.5, {0*\cdb} ) -- ++ (\cdw, 0);
+\draw[dashed] (0,\cde) -- ++ (\cdw,0) -- ++ ( 0.5, {-1*\cdb} ) -- ++ (\cdw, 0);
+\draw[dashed] (0,\cde) -- ++ (\cdw,0) -- ++ ( 0.5, {-2*\cdb} ) -- ++ (\cdw, 0);
+
+\draw[thick] (0, \cde) node[left] {$^1D_2$} -- ++ (\cdw,0);
+\draw[thick] ( {\cdw  + 0.5}, {\cde + 2*\cdb} )  -- ++ (\cdw,0)node[anchor=east, xshift=6mm] {+2};
+\draw[thick] (  {\cdw  + 0.5}, {\cde + 1*\cdb} )  -- ++ (\cdw,0)node[anchor=east, xshift=6mm] {+1};
+\draw[thick] ( {\cdw  + 0.5}, {\cde + 0*\cdb} )  -- ++ (\cdw,0)node[anchor=east, xshift=6mm] {0};
+\draw[thick] ( {\cdw  + 0.5}, {\cde - 1*\cdb} )  -- ++ (\cdw,0)node[anchor=east, xshift=6mm] {-1};
+\draw[thick] (  {\cdw  + 0.5}, {\cde - 2*\cdb} )  -- ++ (\cdw,0)node[anchor=east, xshift=6mm] {-2};
+
+\node at (0.75, 4.15) {$B = 0$};
+\node at (2.75, 4.15) {$B > 0$};
+\node[anchor=east] at (4.1, 4.15) {$m_J$};
+
+\draw[gray] (0.75,0) -- node[above, rotate=90]{\scriptsize 643.8 nm} ++ (0, \cde);
+
+
+% delta ml = -1
+\draw[gray] (2.33, {1*\cdb}) -- ++ (0, {\cde + -1*\cdb});
+\draw[gray] (2.4, {0*\cdb}) -- ++ (0, {\cde + -1*\cdb});
+\draw[gray] (2.47, {-1*\cdb}) -- ++ (0, {\cde + -1*\cdb});
+
+% delta ml = 0
+\draw[gray] (2.73, {1*\cdb}) -- ++ (0, {\cde + 0*\cdb});
+\draw[gray] (2.8, {0*\cdb}) -- ++ (0, {\cde + 0*\cdb});
+\draw[gray] (2.87, {-1*\cdb}) -- ++ (0, {\cde + 0*\cdb});
+
+% delta ml = +1
+\draw[gray] (3.13, {1*\cdb}) -- ++ (0, {\cde + 1*\cdb});
+\draw[gray] (3.2, {0*\cdb}) -- ++ (0, {\cde + 1*\cdb});
+\draw[gray] (3.27, {-1*\cdb}) -- ++ (0, {\cde + 1*\cdb});
+
+\node at (1.7, -0.8) {\scriptsize $\Delta m_j = $};
+\node at (2.4, -0.8) {\scriptsize $-1$};
+\node at (2.8, -0.8) {\scriptsize $0$};
+\node at (3.2, -0.8) {\scriptsize $+1$};
+
+
+\draw[->] (1.8,-1.5) -- ++ (1.9,0) node[below] {\scriptsize $\omega$};
+\draw[thick] (2.4, -1.5) node [below] {$\sigma$} -- ++ (0, 0.5); 
+\draw[thick] (2.8 ,-1.5) node [below] {$\pi$} -- ++ (0, 0.5); 
+\draw[thick] (3.2, -1.5) node [below] {$\sigma$} -- ++ (0, 0.5); 
+
+\end{tikzpicture}
+
+%\end{document}

@@ -1,0 +1,129 @@
+
+% \documentclass{standalone}
+% \input{../tikz_header}
+
+% \begin{document}
+
+
+
+\begin{tikzpicture}[font=\scriptsize]
+  
+
+\tikzmath{\nae = 2.8; \nab = 0.55; \naw1 = 1; \naw2 = 1.2; }
+
+% 2 P 3/2
+\begin{scope}[xshift=55mm]
+
+
+    % ground state
+    \draw[dashed] (0,0) -- ++ (\naw1 ,0) -- ++ ( 0.5, {1*\nab} ) -- ++ (\naw2 , 0);
+    \draw[dashed] (0,0) -- ++  (\naw1 ,0) -- ++ ( 0.5, {-1*\nab} ) -- ++ (\naw2 , 0);
+    
+    \draw[thick] (0,0)  -- node[above] {$^2S_{1/2}$} node[below] {$g_J = 2$} ++ (\naw1 ,0);
+    \draw[thick] ( {\naw1  + 0.5}, {1*\nab} )  -- ++ (\naw2 ,0) node[anchor=east, xshift=6mm] {$+\frac{1}{2}$} 
+                                                                node[anchor=east, xshift=16mm] {$+1$};
+    
+    \draw[thick] (  {\naw1  + 0.5}, {-1*\nab} )  -- ++ (\naw2 ,0) node[anchor=east, xshift=6mm] {$-\frac{1}{2}$} 
+                                                                node[anchor=east, xshift=16mm] {$-1$};
+    
+    % excited state
+    \draw[dashed] (0,\nae) -- ++ (\naw1,0) -- ++ ( 0.5, {2*\nab} ) -- ++ (\naw2, 0);
+    \draw[dashed] (0,\nae) -- ++ (\naw1,0) -- ++ ( 0.5, {2/3*\nab} ) -- ++ (\naw2, 0);
+    \draw[dashed] (0,\nae) -- ++ (\naw1,0) -- ++ ( 0.5, {-2/3*\nab} ) -- ++ (\naw2, 0);
+    \draw[dashed] (0,\nae) -- ++ (\naw1,0) -- ++ ( 0.5, {-2*\nab} ) -- ++ (\naw2, 0);
+    
+    \draw[thick] (0, \nae) -- node[above] {$^2P_{3/2}$}  node[below] {$g_J = \frac{4}{3}$}  ++ (\naw1,0);
+    \draw[thick] (  {\naw1  + 0.5}, {\nae + 2*\nab} )  -- ++ (\naw2,0)
+        node[anchor=east, xshift=6mm] {$+\frac{3}{2}$}
+        node[anchor=east, xshift=16mm] {$+2$};                                                           
+                                                                                  
+    \draw[thick] (  {\naw1  + 0.5}, {\nae + 2/3*\nab} )  -- ++ (\naw2,0)
+        node[anchor=east, xshift=6mm] {$+\frac{1}{2}$}
+        node[anchor=east, xshift=16mm] {$+\frac{2}{3}$};
+    
+    \draw[thick] ( {\naw1  + 0.5}, {\nae - 2/3*\nab} )  -- ++ (\naw2,0)
+        node[anchor=east, xshift=6mm] {$-\frac{1}{2}$}
+        node[anchor=east, xshift=16mm] {$-\frac{2}{3}$};
+    
+    \draw[thick] ( {\naw1  + 0.5}, {\nae - 2*\nab} )  -- ++ (\naw2,0)
+        node[anchor=east, xshift=6mm] {$-\frac{3}{2}$}
+        node[anchor=east, xshift=16mm] {$-2$};
+
+    \node at (0.5, 4.4) {$B = 0$};
+    \node at (2.1, 4.4) {$B > 0$};
+    \node[anchor=east] at (3.3, 4.4) {$m_J$};
+    \node[anchor=east] at (4.3, 4.4) {$m_J g_J$};
+    
+    
+    
+    \draw[gray] (1.7, {1*\nab}) -- ++ (0, {\nae + 1 *\nab});
+    \draw[gray] (1.8, {1*\nab}) -- ++ (0, {\nae - 0.33*\nab});
+    \draw[gray] (1.9, {1*\nab}) -- ++ (0, {\nae - 1.66*\nab});
+    
+    \draw[gray] (2.2, {-1*\nab}) -- ++ (0, {\nae + 1.66 *\nab});
+    \draw[gray] (2.3, {-1*\nab}) -- ++ (0, {\nae + 0.33*\nab});
+    \draw[gray] (2.4, {-1*\nab}) -- ++ (0, {\nae - 1 *\nab});
+    
+     \draw[->] (1.5,-1.5) -- ++ (1.5,0) node[below] {\scriptsize $\omega$};
+     \draw[thick] (1.7, -1.5) node [below] {$\sigma$} -- ++ (0, 0.5); 
+     \draw[thick] (1.9, -1.5) node [below] {$\sigma$} -- ++ (0, 0.5); 
+     \draw[thick] (2.1, -1.5) node [below] {$\pi$} -- ++ (0, 0.5); 
+     \draw[thick] (2.3, -1.5) node [below] {$\pi$} -- ++ (0, 0.5); 
+     \draw[thick] (2.5, -1.5) node [below] {$\sigma$} -- ++ (0, 0.5); 
+     \draw[thick] (2.7, -1.5) node [below] {$\sigma$} -- ++ (0, 0.5); 
+    
+    \end{scope}
+
+    %---------------
+    % 2 P1/2
+\begin{scope}
+
+
+% ground state
+\draw[dashed] (0,0) -- ++ (\naw1 ,0) -- ++ ( 0.5, {1*\nab} ) -- ++ (\naw2 , 0);
+\draw[dashed] (0,0) -- ++  (\naw1 ,0) -- ++ ( 0.5, {-1*\nab} ) -- ++ (\naw2 , 0);
+
+\draw[thick] (0,0)  -- node[above] {$^2S_{1/2}$} node[below] {$g_J = 2$} ++ (\naw1 ,0);
+\draw[thick] ( {\naw1  + 0.5}, {1*\nab} )  -- ++ (\naw2 ,0) node[anchor=east, xshift=6mm] {$+\frac{1}{2}$} 
+                                                            node[anchor=east, xshift=16mm] {$+1$};
+
+\draw[thick] (  {\naw1  + 0.5}, {-1*\nab} )  -- ++ (\naw2 ,0) node[anchor=east, xshift=6mm] {$-\frac{1}{2}$} 
+                                                            node[anchor=east, xshift=16mm] {$-1$};
+
+% excited state
+\draw[dashed] (0,\nae) -- ++ (\naw1,0) -- ++ ( 0.5, {0.33*\nab} ) -- ++ (\naw2, 0);
+\draw[dashed] (0,\nae) -- ++ (\naw1,0) -- ++ ( 0.5, {-0.33*\nab} ) -- ++ (\naw2, 0);
+
+\draw[thick] (0, \nae) -- node[above] {$^2P_{1/2}$}  node[below] {$g_J = \frac{2}{3}$}  ++ (\naw1,0);
+\draw[thick] (  {\naw1  + 0.5}, {\nae + 0.33*\nab} )  -- ++ (\naw2,0)node[anchor=east, xshift=6mm] {$+\frac{1}{2}$}
+                                                                    node[anchor=east, xshift=16mm] {$+\frac{1}{3}$};
+
+\draw[thick] ( {\naw1  + 0.5}, {\nae - 0.33*\nab} )  -- ++ (\naw2,0)node[anchor=east, xshift=6mm] {$-\frac{1}{2}$}
+                                                                node[anchor=east, xshift=16mm] {$-\frac{1}{3}$};
+
+
+    \node at (0.5, 4.0) {$B = 0$};
+    \node at (2.1, 4.) {$B > 0$};
+    \node[anchor=east] at (3.3, 4.0) {$m_J$};
+    \node[anchor=east] at (4.3, 4.0) {$m_J g_J$};
+
+\draw[gray] (1.7, {1*\nab}) -- ++ (0, {\nae + -1.33*\nab});
+
+\draw[gray] (1.9, {1*\nab}) -- ++ (0, {\nae + -0.66*\nab});
+
+\draw[gray] (2.3, {-1*\nab}) -- ++ (0, {\nae + 0.66*\nab});
+
+\draw[gray] (2.5, {-1*\nab}) -- ++ (0, {\nae + 1.33*\nab});
+
+
+ \draw[->] (1.5,-1.5) -- ++ (1.5,0) node[below] {\scriptsize $\omega$};
+ \draw[thick] (1.7, -1.5) node [below] {$\sigma$} -- ++ (0, 0.5); 
+ \draw[thick] (1.9, -1.5) node [below] {$\pi$} -- ++ (0, 0.5); 
+ \draw[thick] (2.3, -1.5) node [below] {$\pi$} -- ++ (0, 0.5); 
+ \draw[thick] (2.5, -1.5) node [below] {$\sigma$} -- ++ (0, 0.5); 
+
+\end{scope}
+
+\end{tikzpicture}
+
+%\end{document}
