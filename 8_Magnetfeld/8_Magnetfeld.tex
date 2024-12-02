@@ -36,7 +36,7 @@ wobei in den Zwischenschritten die Richtung des Vektors weggelassen wurde. Ein k
 \end{equation}
 Dabei haben wir schon mal den Landé-g-Faktor eingeführt, der hier für den Bahndrehimpuls natürlich $g=1$ ist, und das \emph{Bohr'sche Magenton} 
 \begin{equation}
-\mu_B = \frac{e \hbar}{2 m_e} = 9.27 \cdot 10^{-24} \text{ J/T}    
+\mu_B = \frac{e \hbar}{2 m_e} = 9.27 \cdot 10^{-24} \text{ J/T}     \quad .
 \end{equation}
 
 
@@ -47,7 +47,7 @@ In einem äußeren Magnetfeld $\bB$ führt ein Drehimpuls eine Präzessionsbeweg
 \end{equation}
 Die Frequenz der Kreisbewegung nennt man \emph{Lamor-Frequenz}\sidenote{nach Joseph Larmor, irischer Physiker und Mathematiker, 1857--1942}
 \begin{equation}
-    \omega_\text{Lamor} = \gamma | \bB |
+    \omega_\text{Lamor} = \gamma | \bB |  \quad .
 \end{equation}
 
 
@@ -94,13 +94,13 @@ Die Energie eines magnetischen Moments $\bmu$ im Magnetfeld $\bB$ ist $E = - \bm
 
 Wir beginnen mit dem 'normalen' Zeeman-Effekt. Aus heutiger Sicht ist das eher ein Spezialfall. Historisch gesehen war er aber derjenige, den man gut verstehen konnte. Hier spielt der Spin der Elektronen keine Rolle. Dies ist immer dann der Fall, wenn der atomare Zustand die Quantenzahl $S=0$ hat. Wie wir wissen, kommt das manchmal vor, aber es ist nicht der Normalfall.
 
-Sei also $S=0$. Damit ist das magentische Moment nur noch durch $L$ gegeben und $\mu = - \bL \mu_B / \hbar$ bzw. $\mu_z = - \mu_B  m_L$. Die Energieänderung $\Delta E$ ist
+Sei also $S=0$. Damit ist das magentische Moment nur noch durch $L$ gegeben und $\bmu = - \bL \mu_B / \hbar$ bzw. $\mu_z = - \mu_B  m_L$. Die Energieänderung $\Delta E$ ist
 \begin{equation}
-    \Delta E = - \mu \cdot \bB =- \mu_z B =  \mu_B \, m_L \, B  \quad .
+    \Delta E = - \bmu \cdot \bB =- \mu_z B =  \mu_B \, m_L \, B  \quad .
 \end{equation}
 Jeder Zustand spaltet also in $2L + 1$ Niveaus auf, die voneinander dem Abstand $\mu_B B$ haben.
 
-Hier kommt die Auswahlregel $\Delta m_J = 0, \pm1$ aus dem letzten Kapitel zum Tragen. Es gibt zwei Möglichkeiten: Alle anderen Quantenzahlen können gleich bleiben und es gibt nur einen Übergang $\Delta m_J = \pm1$ zum nächsten benachbarten Zeeman-Niveau. Dazu benötigt man eine elektromagnetische Welle mit der Frequenz $\bar \omega = \mu_B B$. Bei einem Feld von $B=1$~mT entspricht dies einer Frequenz von etwa 10~MHz. Die zweite Möglichkeit ist, dass sich auch andere Quantenzahlen ändern. Dies sind dann optische Übergänge, die spektral um eben diese ca. 10~MHz aufspalten. Die Anzahl der Linien ergibt sich aus den möglichen Werten von $m_J$ in den beiden beteiligten Zuständen und den Auswahlregeln.
+Hier kommt die Auswahlregel $\Delta m_J = 0, \pm1$ aus dem letzten Kapitel zum Tragen. Es gibt zwei Möglichkeiten: Alle anderen Quantenzahlen können gleich bleiben und es gibt nur einen Übergang $\Delta m_J = \pm1$ zum nächsten benachbarten Zeeman-Niveau. Dazu benötigt man eine elektromagnetische Welle mit der Frequenz $\hbar \omega = \mu_B B$. Bei einem Feld von $B=1$~mT entspricht dies einer Frequenz von etwa 10~MHz. Dies ist die Grundlage aller Spinresonanztechniken, wie der Kernspinresonanz (NMR) und verwandter bildgebender Verfahren (MRI). Die zweite Möglichkeit ist, dass sich auch andere Quantenzahlen ändern. Dies sind dann optische Übergänge, die spektral um eben diese ca. 10~MHz aufspalten. Die Anzahl der Linien ergibt sich aus den möglichen Werten von $m_J$ in den beiden beteiligten Zuständen und den Auswahlregeln.
 
 
 In beiden Fällen spielt auch der Zusammenhang zwischen $\Delta m_J = 0, \pm1$ und der Polarisation des Photons eine Rolle, wie wir im letzten Kapitel gesehen haben. Die Übergänge zeigen in der Emission bzw. erfordern in der Absorption eine entsprechende zirkulare oder lineare Polarisation.
@@ -122,7 +122,7 @@ Cadmium hat die Elektronenkonfiguration [Kr]4d$^{10}$ 5s$^2$. Dies ist ein $^1S_
 
 Nun kommen wir zum 'anomalen' Zeeman-Effekt. Bevor der Elektronenspin entdeckt und verstanden wurde, waren die Spektren vieler Atome im Magnetfeld unverständlich. Die Anzahl der Linien war nicht gleich drei, wie man es beim normalen Zeeman-Effekt erwarten würde. Deshalb nannte man das damals 'anomal'. Aus heutiger Sicht ist das nicht mehr ungewöhnlich, sondern nur noch eine kleine Rechenhürde.
 
-Wenn also $S \neq 0$ ist, dann ist die Beziehung zwischen Drehimpuls und magnetischem Moment relevant.
+Wenn also $S \neq 0$ ist, dann ist die Beziehung zwischen Drehimpuls und magnetischem Moment relevant:
 \begin{equation}
     \bmu_L = - g_l \frac{\mu_B}{\hbar} \, \bL \quad \text{und} \quad  \bmu_S = - g_s \frac{\mu_B}{\hbar} \, \bS
 \end{equation}
@@ -133,6 +133,11 @@ mit $g_l = 1$ und $g_s \approx 2$. Das gesamte Magnetische Moment ist die Summe
 Wenn $g_s = g_l$ wäre, dann wäre $\bmu_J$ proportional zu $\bJ$ und insbesondere genau entgegengesetzt zu $\bJ$. Dies ist nicht der Fall, und dies ist der Grund für die folgende Rechnung.
 
 Nehmen wir zunächst an, dass es kein äußeres Magnetfeld $\bB$ gibt. Dann sind die Längen $S$, $L$ und $J$ zeitlich konstant und die z-Komponente  $m_J$, nicht aber $m_S$ und $m_L$. Das bedeutet, dass die Spitze von $\bS$ eine Kreisbahn in einer Ebene senkrecht zu $\bJ$ beschreibt. Da das magnetische Moment die oben genannte Summe aus $\bS$ und $\bL$ enthält, beschreibt die Spitze von $\bmu_J$ ebenfalls eine Kreisbahn um die durch $\bJ$ definierte Achse.
+
+\begin{marginfigure}
+    \includegraphics[width=\textwidth]{\currfiledir png/mu_average}
+\caption{Der Vektor $\bmu_j$ präzediert um $\bJ$, weil $m_s$ und $m_J$ keine guten Quantenzahlen mehr sind und $g_l \neq g_s$. }
+\end{marginfigure}
 
 Relevant ist dann nur der Mittelwert von  $\bmu_J $ projiziert auf die durch $\bJ$ definierte Achse.  Diese Länge nennen wir $(\bmu_J)_J$ und berechnen sie wie folgt
 \begin{equation}
@@ -161,15 +166,12 @@ mit dem Landé-g-Faktor $g_J$
 Dieser etwas merkwürdige Landé g-Faktor $g_J$ erspart uns also von nun an die Mittelung über das präzedierende magnetische Moment $\bmu_J$. Je nach relativer Länge von $\bS$, $\bL$ und $\bJ$ ist also der Zusammenhang zwischen Drehimpuls $\bJ$ und magnetischem Moment $\bmu_J$ unterschiedlich und wird durch diesen g-Faktor beschrieben. Er enthält natürlich auch die Sonderfälle, z.B. wenn $S=0$ ist, dann ist $g_J = g_l = 1$.
 
 
-\begin{marginfigure}
-        \includegraphics[width=\textwidth]{\currfiledir png/mu_average}
-    \caption{Der Vektor $\bmu_j$ präzediert um $\bJ$, weil $m_s$ und $m_J$ keine guten Quantenzahlen mehr sind und $g_l \neq g_s$. }
-\end{marginfigure}
+
 
 
 Nun nehmen wir das äußere Magnetfeld $\bB$ hinzu. Wir nehmen an, dass es schwächer ist als das Magnetfeld des Kerns, das zur Spin-Bahn-Kopplung führt. Die Energie der magnetischen Momente im äußeren Feld $\bB$ ist daher die niedrigste in der Energiehierarchie. Daher koppeln zunächst alle Spins zu $\bS$ und alle Bahndrehimpulse zu $\bL$. Dann richten sich die Spins im Magnetfeld des Kerns aus und die Situation wird durch einen Gesamtdrehimpuls $\bJ$ beschrieben. Das mit $\bJ$ verbundene magnetische Moment orientiert sich schließlich im äußeren Magnetfeld $\bB$. Dadurch spalten sich die Zustände  auf
 \begin{equation}
-    \Delta E = - \mu_J \cdot \bB =-  (\bmu_J)_z  \, \, B =  \mu_B \, m_J \, g_J \, B  \quad .
+    \Delta E = - \bmu_J \cdot \bB =-  (\bmu_J)_z  \, \, B =  \mu_B \, m_J \, g_J \, B  \quad .
 \end{equation}
 Jeder Zustand spaltet sich also in $2J+1$ äquidistante Zeeman-Niveaus auf. Da der Landé g-Faktor $g_J$ von den Quantenzahlen $S$, $L$ und $J$ abhängt, variiert er zwischen den Zuständen. Verschiedene Zustände spalten also unterschiedlich stark auf. Das ist der entscheidende Unterschied zum normalen Zeeman-Effekt. Die Folge ist, dass nicht mehr alle Übergänge mit gleichem $\Delta m_J$ bei gleicher Energie liegen. Sehr oft gibt es mehr als 3 Zeeman-Linien. 
 
