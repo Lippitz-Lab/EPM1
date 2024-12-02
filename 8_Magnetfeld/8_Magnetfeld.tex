@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{29. November 2024}
+\renewcommand{\lastmod}{2. Dezember 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Atome im Magnetfeld}
@@ -9,6 +9,12 @@
 
 
 \section{Überblick}
+
+In diesem letzten Kapitel zur Atomphysik werden wir den Einfluss des Magnetfeldes auf die Spektren der Atome diskutieren. Zuerst werde ich jedoch das \emph{Einstein-de Haas-Experiment} nachreichen, das bereits bei der Einführung des Spins erwähnt wurde. Dieses Experiment zeigt, dass der Spin der Elektronen tatsächlich mit einem Drehimpuls verbunden ist. Beim Umpolen eines Magnetfeldes wirkt auf einen magnetisierbaren Zylinder ein Drehmoment. Die Größe dieses Drehmoments zeigt, dass der Elektronenspin pro Einheit des Drehimpulses doppelt so viel magnetisches Moment erzeugt wie ein Bahndrehimpuls.
+
+Der zentrale Effekt dieses Kapitels ist jedoch der \emph{Zeeman-Effekt}: Die Spektrallinien atomarer Übergänge spalten auf, wenn ein Atom in ein Magnetfeld gebracht wird. Die magnetischen Momente, die mit dem Spin und dem Bahndrehimpuls verknüpft sind, liefern einen Energiebeitrag, der von der Orientierung der Momente im Magnetfeld abhängt. Historisch gesehen konnte man vor der Entdeckung des Elektronenspins nur bestimmte Spektren verstehen. Dies wurde als 'normaler' Zeeman-Effekt bezeichnet. Er liefert immer drei Linien. Der 'anomale' Zeeman-Effekt liefert ein komplizierteres Spektrum, da die relative Orientierung von Spin und Bahndrehimpuls einen zusätzlichen Freiheitsgrad liefert. Diese führt auch zum \emph{Landé g-Faktor}, der eine Art effektives magnetisches Moment beschreibt.
+
+Dieses Kapitel folgt \cite{Harris_moderne_Physik} mit großen Anteilen von \cite{Demtröder_ep3}.
 
 
 
@@ -51,7 +57,8 @@ Die Frequenz der Kreisbewegung nennt man \emph{Lamor-Frequenz}\sidenote{nach Jos
 Bei der Einführung des Elektronenspins habe ich bisher nur behauptet, dass dieser auch mit einem Drehimpuls verbunden ist. Das Einstein-de Haas-Experiment beweist, dass der Drehimpuls des Elektronenspins tatsächlich existiert.
 
 \begin{marginfigure}
-    \caption{XXX Sketch E-dH}
+    \includegraphics[width=\textwidth]{\currfiledir png/einstein-de-haas.png}
+    \caption{Einstein-de Haas-Experiment}
 \end{marginfigure}
 
 Ein Eisenzylinder bekannter Größe und Masse ($m$, $R$, $V$) ist an einem Torsionspendel der Federkonstante $k$ aufgehängt. Der Zylinder hängt in einer Spule, mit der ein äußeres Magnetfeld (anti)parallel zum Zylinder erzeugt werden kann. Zunächst wird die statische Sättigungsmagnetisierung $M_+$ und $M_-$ für beide Feldrichtungen gemessen. In der dynamischen Messung wird das Drehmoment aus der Umkehrung der Drehimpulse gemessen. Der Zylinder dreht sich und ein Lichtzeiger ermöglicht die Bestimmung der maximalen Auslenkung $\phi$. In der Praxis ist der Effekt so klein, dass $\phi$ nicht direkt gemessen werden kann, sondern eine getriebene Oszillation auf der Resonanz des Pendels verwendet wird. Dies wird hier vernachlässigt. 
@@ -155,7 +162,8 @@ Dieser etwas merkwürdige Landé g-Faktor $g_J$ erspart uns also von nun an die 
 
 
 \begin{marginfigure}
-    \caption{ XXX  Fig Analog demtröder 5.24 }
+        \includegraphics[width=\textwidth]{\currfiledir png/mu_average}
+    \caption{Der Vektor $\bmu_j$ präzediert um $\bJ$, weil $m_s$ und $m_J$ keine guten Quantenzahlen mehr sind und $g_l \neq g_s$. }
 \end{marginfigure}
 
 
@@ -202,7 +210,7 @@ mit $g_l = 1$ und $g_s \approx 2$. Hier sind also $m_s$ und $m_l$ 'gute' Quanten
 
 % Harris 8.1.5 und 11.4
 
-\newpage
+%\newpage
 
 \section{Zusammenfassung}
 
