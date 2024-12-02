@@ -1,0 +1,30 @@
+
+\documentclass{standalone}
+\input{../tikz_header}
+
+\begin{document}
+
+
+
+\begin{tikzpicture}[font=\scriptsize]
+  
+    \coordinate (S) at (3,0.7);
+  \coordinate (L) at (-1.6,-3.7);
+  \coordinate (J) at ($(S) + (L)$);
+  \coordinate (muS) at ($(0,0) - (S) - (S)$);
+  \coordinate (muJ) at ($(0,0) - (J)$);
+
+  %\coordinate (muS) at (S_x, S_y);
+
+     \draw[->] (0,0) -- node[right] {j} (J) ;
+     \draw[->] (0,0) -- node[right] {l} (L) ;
+     \draw[->] (L) -- node[right] {s} ++ (S);
+
+      \draw[->, dashed, rotate=90] (L) -- node[right] {$\mu_s$} ++ (muS);
+    %  \draw[->, dashed] (0,0) -- node[right] {$\mu_l$} ++ (\vecmul);
+
+    %  \draw[gray] (0,0) -- node[right] {j} (-1 * \vecj) ;
+
+\end{tikzpicture}
+
+\end{document}
