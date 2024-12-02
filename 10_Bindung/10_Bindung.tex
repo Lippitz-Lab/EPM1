@@ -1,29 +1,758 @@
-\renewcommand{\lastmod}{10. September 2024}
+\renewcommand{\lastmod}{10. September 2024} 
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Chemische Bindung}
 
 
 
-\goal{By the end of this chapter, you should be able to draw, calculate and align a ray's path through an optical system.}
 
 
 
-\section{Overview}
+\begin{itemize}
+\item Sie können die Valenzbindungstheorie benutzen, um die Form von Molekülen vorherzusagen und zu erklären. Ein Beispiel ist das hier abgebildete Pentacen-Molekül.
 
-s.a. Demtröder 3, Kap. 9
+\item Sie können die Grundzüge verschiedener Methoden erklären, mit denen Eigenschaften von Molekülen bestimmt werden können.
+
+\item Sie können die Begriffe Orbital, $\sigma$- oder $\pi$-Bindung und Hybridisierung erklären und korrekt verwenden.
+
+\end{itemize}
+
+
+\begin{marginfigure}
+\includegraphics[width=\textwidth]{\currfiledir Pentacene_on_Ni(111)_STM.jpg}
+\caption{Pentacen-Moleküle durch ein Raster-Tunnel-Mikroskop abgebildet.  Bildgröße $5 \times 5$~nm.
+\href{https://commons.wikimedia.org/wiki/File:Pentacene_on_Ni(111)_STM.jpg}{L.~E.~Dinca et al.}  / \href{https://creativecommons.org/licenses/by/4.0}{CC BY}
+}
+\end{marginfigure}
+
+
+\section{Überblick}
+
+
+Die Valenzbindungstheorie (engl. valence bond theory) ist die historisch erste quantenmechanische Theorie zur Molekülbindung. Sie wurde 1927 von
+Walter Heitler und Fritz London entwickelt. Kurz darauf entstand die komplementäre Molekülorbitaltheorie, die wir im nächsten Kapitel besprechen werden. Beide Theorien versuchen durch verschiedene Annahmen das quantenmechanische Problem zu lösen, welche Grundzustands-Energie und räumliche Anordnung die vielen Atomkerne und noch viel mehr Elektronen in einem Molekül annehmen.
+
+Die Valenzbindungstheorie (VB) macht die Annahme, dass ein Elektron zunächst einmal zu einem einzigen Atomkern gehört und somit durch ein Atomorbital beschrieben wird. Eine Bindung zwischen Atomen entsteht durch das Paaren von Elektronen. Dies wird im Lewis-Schema dargestellt. In diesem Themenbereich sind oft Bücher aus der Chemie hilfreich, beispielsweise das Kapitel zur Molekülstruktur in \cite{Atkins}.
+Die Molekülorbitaltheorie (MO) hingegen bildet die Gesamtwellenfunktion aufbauend auf der Annahme, dass jedes Elektron über das gesamte Molekül verteilt ist, also durch Molekülorbitale beschrieben wird. Die Valenzbindungstheorie ist einfacher, insbesondere von Hand, ohne Computer, und führt Begriffe ein, die auch darüber hinaus verwendet werden. Die Molekülorbitaltheorie ist insbesondere durch die Verwendung von Computern weiter entwickelt und 'moderner'.
 
 
 
-10.1 Ionische Bindung [3] 1	
+\section{Moleküle 'sehen'}
 
-10.2 Kovalente Bindung [5] 2	
+\paragraph{Röntgenstreuung} Wenn sich viele identische Moleküle zu einem Kristall anordnen lassen (was nicht trivial ist), dann kann man kurzwellige elektromagnetische Strahlung an diesem  Kristall-Gitter beugen. Aus dem Beugungsbild erhält man durch Fourier-Transformation und ein paar Annahmen die Elektronendichte-Verteilung im Kristall. Es sind die Elektronen, die mit EM-Strahlung wechselwirken. Die Elektronendichte-Verteilung wird oft in Form von 'Höhenlinien' dargestellt. Damit ist klar, dass es nicht eine exakte 'Größe' eines Moleküls gibt.
 
-10.3 Metallische Bindung 3	
+\begin{marginfigure}
+\includegraphics[width=\textwidth]{\currfiledir scattering.png}
+\caption{Beugung von Röntgenstrahlen liefert die Fourier-Transformierte der Elektronenverteilung.
+}
+\end{marginfigure}
 
-10.4 Van der Waals-Bindung [2] 4	
 
-10.5 Wasserstoff-Brücken-Bindung 5	
+\paragraph{Raster-Tunnel-Mikroskopie} (engl. scanning tunneling microscope, STM) Direkter, ohne Fourier-Transformation, kann man einzelne Moleküle auf einer leitenden Oberfläche in einem sehr guten Vakuum abbilden, in dem man eine sehr scharfe Metallspitze nahe an die Oberfläche bringt. Bei einem Abstand im Bereich weniger Angstrom fließt ein Tunnelstrom, wenn eine Spannung zwischen Spitze und Oberfläche angelegt wird. Eine Elektronik hält den Tunnelstrom durch Regelung des Abstands konstant währen die Spitze über die Oberfläche gerastert wird. Man erhält ein Höhen-Bild konstanten Tunnelstroms. Da Strom nur fließen kann, wenn sich die Wellenfunktion der Elektronen in der Spitze und in der Oberfläche wenigstens etwas überlappen, kann man so die Elektronen-Wellenfunktion von Molekülen auf der Oberfläche abbilden. Die beobachtete Form hängt auch von der gewählten Spannung ab.
+
+\begin{marginfigure}
+\includegraphics[width=\textwidth]{\currfiledir stm.png}
+\caption{Prinzip STM}
+\end{marginfigure}
+
+
+\paragraph{Raster-Kraft-Mikroskopie} (engl. atomic force microscope, AFM) Alternativ zum Tunnelstrom kann man die Kraft zwischen einer Spitze und der Probe bestimmen und Oberflächen konstanter Kraft abbilden. Wie wir in späteren Kapiteln sehen werden, gibt es einen anziehenden Abstands-Bereich aufgrund der van-der-Waals Wechselwirkung, und einen abstoßenden Bereich aufgrund des Pauli-Verbots. Als Sonde wird eine sehr scharfe Spitze aus beispielsweise Silizium verwendet, die an einer schwingenden Blattfeder montiert ist. Die Auslenkung dieses Arms wird gemessen und spiegelt die Wechselwirkung mit der Oberfläche wider.
+
+
+\begin{marginfigure}
+\includegraphics[width=\textwidth]{\currfiledir afm.png}
+\caption{Prinzip AFM}
+\end{marginfigure}
+
+ 
+\begin{questions} 
+\item Wie groß ist ein Molekül?
+\item Welche physikalische Eigenschaft eine Moleküls wird bei Röntgenstreuung, STM und AFM abgebildet?
+\end{questions}
+ 
+ 
+\section{Vorbereitung}
+
+
+\subsection{Wellenfunktionen des Wasserstoff-Atoms}
+
+Wir benötigen an verschiedenen Stellen eine anschauliche Vorstellung der Wellenfunktionen eiens Elektrons im Wassertsoff-Atom, die von  der Quantenmechanik geliefetr werden. Welche Bedeutung haben die Quantenzahlen? Wei kann man eine Wellenfunktion grafisch darstellen? Was ist es eigentlich, was man da darstellt? Rekapitulieren Sie diese Kapitel der Atomphysik und Quantenmechanik noch einmal.
+
+
+
+Das Pluto-Skript hydrogen\_wave\_functions\pluto{hydrogen_wave_functions} ermöglicht es Ihnen, mit verschiedenen Varianten der grafischen Darstellung zu experimentieren.
+
+
+\subsection{Orbital oder Wellenfunktion?}
+
+Wir besprechen hier Systeme, die  aus vielen Elektronen bestehen. Die Quantenmechanik und Atomphysik konzentrierte sich jedoch auf das Wasserstoff-Atom mit nur einem Elektron. Wir müssen daher vorsichtig mit der Nomenklatur sein. Die (Gesamt-)Wellenfunktion eines Systems aus $n$ Elektronen ist im allgemeinen Fall $\Psi(\mathbf{r}_1, \mathbf{r}_2, \dots)$, wobei die $\mathbf{r}_i$ die Position des Elektrons $i$ bezeichnen. In dieser Allgemeinheit hängt alles miteinander zusammen und ist viel zu komplex. Wir machen daher immer die Annahme, dass sich die Gesamt-Wellenfunktion als Produkt von Orbitalen $\phi_i$ schreiben lässt
+\begin{equation}
+\Psi(\mathbf{r}_1, \mathbf{r}_2, \dots) = \phi_1(\mathbf{r}_1) \, \phi_2(\mathbf{r}_2)  \dots
+\end{equation}
+Die Orbitale hängen also nur von der Position 'ihres' Elektrons ab, nicht von all den anderen Elektronen. Im Fall des Wasserstoff-Atoms mit nur einem Elektron gehen die beiden Begriffe ineinander über.
+Diese Aufteilung funktioniert immer, wenn die einzelnen Elektronen nicht miteinander wechselwirken, aber genau das ist der Fall. Diese Näherung versucht also, durch geschickte Wahl der $\phi_i$ diese Wechselwirkung vorweg zu nehmen. Es geht also darum, 'gute' $\phi_i$ zu finden.
+
+\subsection{Born-Oppenheimer Näherung}
+
+Atomkerne sind viel schwerer als Elektronen. In der Born-Oppenheimer Näherung betrachten wir die Kerne als stillstehend. Die Elektronen bewegen sich im stationären elektrischen Feld der Kerne. Diese Näherung wird quasi immer gemacht, so dass eigentlich nur erwähnt wird, wenn sie \emph{nicht} eingesetzt wird. Formal bedeutet dies, dass die Wellenfunktion des Moleküls geschrieben werden kann als Produkt der Wellenfunktion aller Elektronen und der Wellenfunktion aller Kerne, also
+\begin{equation}
+\Psi_{\text{Molekül}}(\mathbf{r}_1, \mathbf{r}_2, \dots, \mathbf{R}_1, \mathbf{R}_2, \dots)
+  \approx
+  \Psi_{\text{Elektronen}}(\mathbf{r}_1, \mathbf{r}_2, \dots )
+\Psi_{\text{Kerne}}( \mathbf{R}_1, \mathbf{R}_2, \dots)
+\end{equation}
+wobei $\mathbf{r}_i$ Elektronenkoordinaten sind und $\mathbf{R}_i$ Kernkoordinaten.
+
+
+%\begin{marginfigure}
+%\includegraphics[width=0.8\textwidth]{\currfiledir potential.png}
+%\caption{Die Energie-Eigenwert der Elektronen liefert das Bindungspotential.
+%}
+%\end{marginfigure}
+
+
+Wir lösen also die Schrödingergleichung für freie Elektronen-Koordinaten, aber die Kern-Koordinaten werden als fix angenommen. Das \emph{Bindungspotential} stellt die Gesamtenergie des Systems dar, wenn für jeden Punkt der Kurve ein anderer aber jeweils fester Kern--Kern--Abstand angenommen wird. Eine Bindung kommt dann zustande, wenn das Bindungspotential ein Minimum hat. Der Kern--Kern--Abstand ist dann der Bindungsabstand.
+
+\begin{questions} 
+\item Was ist im Bindungspotential gebunden?
+\end{questions}
+
+\section{Das Wasserstoff-Molekül: $\sigma$-Bindung}
+
+
+Wir betrachten zwei Wasserstoff-Atome $A,B$ mit insgesamt zwei Elektronen $1,2$. Der Hamilton-Operator für ein einzelnes Atom $\hat{H}_A$ ist\sidenote{$r_{ij} = |\mathbf{r}_i - \mathbf{r}_j|$}
+\begin{equation}
+  \hat{H}_A = - \frac{\hbar^2}{2 m_1} \nabla_1^2 - \frac{e^2}{4 \pi \epsilon_0} \frac{1}{r_{A1}}
+\end{equation}
+Die Wellenfunktion $\phi_A(\mathbf{r_1})$ löst damit die Schrödinger-Gleichung. Zwei sehr weit voneinander entfernte Wasserstoff-Atome haben die Gesamt-Wellenfunktion
+\begin{equation}
+ \Psi = \phi_A(\mathbf{r}_1) \, \phi_B(\mathbf{r}_2)
+\end{equation}
+%
+\begin{marginfigure}
+\includegraphics[width=\textwidth]{\currfiledir coords.png}
+\caption{Skizze Koordinaten Atom und Molekül}
+\end{marginfigure}
+%
+Wenn die beiden Atome nahe beieinander sind, kann man nicht mehr sagen, ob Elektron $1$ bei Kern $A$ oder Kern $B$ ist. In dieser Situation ist daher die Gesamt-Wellenfunktion 
+\begin{equation}
+ \Psi = \phi_A(\mathbf{r}_2) \, \phi_B(\mathbf{r}_1)
+\end{equation}
+genauso gut möglich. In der Quantenmechanik löst man dies auf durch die Superpostion der beiden Möglichkeiten. Die Gesamt-Wellenfunktion  ist daher 
+\begin{equation}
+ \Psi_{\pm} = \phi_A(\mathbf{r}_1) \, \phi_B(\mathbf{r}_2) \, \pm \, \phi_A(\mathbf{r}_2) \, \phi_B(\mathbf{r}_1) \label{eq:VB_psi_pm}
+\end{equation}
+Der Hamilton-Operator beinhaltet die beiden einzelnen Wasserstoff-Hamilton-Operatoren und insgesamt 4 Coulomb-Terme, die jeweils kreuzweise Ladungen aus den beiden Wasserstoff-Atomen verbinden
+\begin{equation}
+  \hat{H}_{ges} =  \hat{H}_A + \hat{H}_B  + \frac{e^2}{4 \pi \epsilon_0} \left( \frac{1}{r_{12}} + \frac{1}{r_{AB}} 
+  - \frac{1}{r_{A2}}  - \frac{1}{r_{B1}} 
+  \right) \quad. \label{eq:VB_Hges}
+\end{equation}
+%Um das Bindungspomtentail zu bestimmen kann der Term Term mit $r_{AB}$ auch zunächst weggelassen werden kann, weil die Kern-Positionen in der Born-Oppenheimer-Näherung ja als konstant angenommen werden.
+
+Die Wellenfunktion Gl. \ref{eq:VB_psi_pm}  löst die Schrödinger-Gleichung mit dem Hamilton-Operator Gl. \ref{eq:VB_Hges} allerdings nicht. Man kann diese Wellenfunktion aber als Ausgangspunkt für das Variationsprinzip nehmen, das wir im nächsten Kapitel am Beispiel von \ch{H2+} besprechen werden. Es zeigt sich\footcite[Kapitel 4.4.2]{Haken_wolf_II}, dass die symmetrische Superposition die niedrigere Gesamtenergie liefert. Die beiden Terme der Wellenfunktion interferieren konstruktiv und sorgen dafür, dass im Raum zwischen den beiden Kernen eine höhere Aufenthaltswahrscheinlichkeit der Elektronen zu finden ist. Diese kompensiert die Coulomb-Abstoßung der Kerne.
+
+In der Valenzbindungstheorie entstehen Bindungen zwischen Atomen durch das 
+Paaren von zwei Elektronen. Zwei Kerne teilen sich also zwei Elektronen, die nicht mehr einem einzelnen Kern zugeordnet sind.
+
+Der Spin der beteiligten Elektronen muss anti-symmetrisch gegen Vertauschung sein, da die Ortswellenfunktion ja symmetrisch ist, und das Pauli-Prinzip eine insgesamt anti-symmetrische Wellenfunktion  verlangt.
+
+Die Ortswellenfunktion des Orbitals $\Psi_{+}$ ist wechselt nicht das Vorzeichen bei Rotation um die Kern--Kern--Achse. Dies ist analog zum s-Orbital im Wasserstoff-Atom bei Rotation um die (willkürlich gewählte oder durch das Magnetfeld gegebene) z-Achse.  Diese Bindung wird daher als \emph{$\sigma$-Bindung} bezeichnet. In beiden Fällen besitzt das Elektron keinen Drehimpuls.
+
+
+\begin{marginfigure}
+\inputtikz{\currfiledir gerade_ungerade}
+\caption{Molekülorbitale, die hier aus atomaren 2s oder 2p-Orbitalen aufgebaut sind. Die Farbe kodiert das Vorzeichen der Wellenfunktion. Die Symmetrie $g$ oder $u$ ergibt sich aus der Punktspiegelung an der Mitte des Moleküls, hier durch den kleinen Punkt markiert. \label{fig:VB_AO_zu_MO}}
+\end{marginfigure}
+
+
+\begin{questions} 
+\item Was bedeutet 'symmetrisch' für das Vorzeichen in Gl. \ref{eq:VB_psi_pm}? WIe sieht die dazu passende Spin-Wellenfunktion aus?
+\end{questions}
+
+
+\section{Die $\pi$-Bindung}
+
+Die Art der Bindung hängt von der Orientierung der beteiligten Orbitale zueinander ab. Als Beispiel betrachte wir das Molekül \ch{N2}. Die Elektronenkonfiguration von Stickstoff ist [He]2s$^2$2p$_x^1$2p$_y^1$2p$_z^1$. Wir nehmen die z-Achse als Verbindungsachse der Kerne. Hier zeigen zwei p$_z$-Orbitale aufeinander. Eine $\sigma$-Bindung entsteht durch Paarung der beiden einzelnen Elektronen in den  p$_z$-Orbitalen, da die resultierende Wellenfunktion wieder rotationssymmetrisch um die Verbindungsachse sein wird. Sie hat die gleiche symmetrische Form wie oben.
+
+Aus den p$_x$ und p$_y$-Orbitalen erhält man je eine $\pi$-Bindung: Die hantelförmigen p-Orbitale liegen parallel zueinander und senkrecht zur Bindungsachse. Dabei überlappen im Gegensatz zur $\sigma$-Bindung der p$_z$-Orbitalen beide Teile der Hanteln. Das Elektron in diesem bindenden Orbital hat einen Dreh\-impuls von $1 \hbar$ entlang der Kern--Kern--Achse, daher wird dies $\pi$-Bindung genannt.
+
+%
+\begin{marginfigure}
+\includegraphics[width=\textwidth]{\currfiledir p-zu-sigma.png}
+\caption{Atomare p-Orbitale können zu $\sigma$- und $\pi$-Bindungen kombinieren. }
+\end{marginfigure}
+%
+
+Insgesamt ist \ch{N2} also aus einer $\sigma$-Bindung und zwei $\pi$-Bindungen aufgebaut.
+
+
+\begin{questions} 
+\item Decken sie die MO-Spalte in Abbildung  \ref{fig:VB_AO_zu_MO} ab und vergewissern Sie sich, dass Sie die Art der Bindung und die Bezeichnung der Orbitale angeben können.
+
+\item Schauen Sie ggf. noch einmal in der Atomphysik nach, was eigentlich [He]2s$^2$2p$_x^1$2p$_y^1$2p$_z^1$ bedeutet und wo man diese Information findet.
+\end{questions}
+
+
+
+
+%\textit{Lesen Sie Kapitel 9.7.1 Das \ch{H2O}-Molekül in \cite{Demtröder_ep3}. Wie kann man den Bindungswinkel von \ch{H2O} verstehen? In erster Näherung ergibt sich 90 Grad, in zweiter Näherung ein Wert, der näher am experimentell gefundenen liegt. \newline Schrieben und skizzieren Sie hier Ihre Erkenntnisse. }
+
+
+
+\begin{questions} 
+\item Wie kommt es zur Form der Moleküle?
+\end{questions}
+
+
+\section{Hybridisierung von Kohlenstoff-Orbitalen}
+
+Insbesondere in der organischen Chemie der Kohlenwasserstoffe spielt die Hybridisierung der Kohlenstoff-Orbitale eine wichtige Rolle. Im Kohlenstoff-Atom besteht nur ein geringer Energieunterschied zwischen der energetisch niedrigsten Elektronenkonfiguration
+[He]2s$^2$2p$_x^1$2p$_y^1$2p$_z^0$ und der nächst höheren [He]2s$^1$2p$_x^1$2p$_y^1$2p$_z^1$. Dies bedeutet, dass der Energieunterschied zwischen dem 2s und dem 2p-Orbital in Kohlenstoff sehr gering ist, und insbesondere 
+%
+\begin{marginfigure}
+\includegraphics[width=0.9\textwidth]{\currfiledir hybrid.png}
+\caption{Elektronische Niveaus bei der Hybridisierung von Kohlenstoff. }
+\end{marginfigure}
+%
+ist der Energiegewinn durch die Bindung sehr oft größer als dieser Unterschied. Es ist daher oft energetisch günstiger, die Bindung ausgehend von einer Linearkombination von 2s und 2p-Orbitalen zu betrachten. Dies nennt man Hybridisierung der Orbitale. Wenn ein s-Orbital und drei p-Orbitale beteiligt sind, dann wird dies als sp$^3$-Hybridisierung bezeichnet. Ohne Hybridisierung könnte Kohlenstoff nur zwei Bindungen eingehen (mit den p$_x$ und p$_y$-Orbitalen), nach sp$^3$-Hybridisierung vier, so dass die Gesamtenergie stärker abgesenkt werden kann.\sidenote{Auch ist die Idee eines s- oder p-Orbitals ein Ein-Elektron-Konzept, das in Mehrelektronen-Atomen durch die anderen Elektronen gestört wird.}
+
+Die neuen Hybrid-Orbitale $h_{1 .. 4}$ sind so gewählt, dass $\braket{h_i | h_j} = \delta_{ij}$, also
+\begin{eqnarray}
+ h_1 = s + p_x + p_y + p_z \\
+ h_2 = s + p_x - p_y - p_z \\
+ h_3 = s - p_x + p_y - p_z \\
+ h_4 = s - p_x - p_y + p_z 
+\end{eqnarray}
+Diese Orbitale entstehen also durch Interferenz der ursprünglichen Orbitale und haben eine Ladungsverteilung, deren Keulen einen Tetraeder aufspannen. Der Bindungswinkel ist $\arccos (-\frac{1}{3}) = 109.5^\circ$. Methan (\ch{CH4}) ist daher tetraederförmig.
+%
+\begin{marginfigure}
+\includegraphics[width=\textwidth]{\currfiledir ch4.png}
+\caption{sp$^3$-Hybridisierung in \ch{CH4}. }
+\end{marginfigure}
+%
+
+
+Analog gibt es auch die sp$^2$ und die sp-Hybridisierung.  Die sp$^2$-Hybridisierung findet man beispielsweise in Ethen (\ch{C2H4}). Die drei  sp$^2$-Orbitale jedes Kohlenstoff-Atoms sind an der $\sigma$-Bindung der beiden Wasserstoff-Atome beteiligt und $\sigma$-Bindung zwischen den beiden Kohlenstoff-Atomen. Die zweite C--C Bindung ist eine 'gewöhnliche' $\pi$-Bindung zwischen den verbleibenden, nicht hybridisierten p-Orbitalen, die senkrecht auf die durch die sp$^2$-Orbitale gebildete Ebene stehen. Dadurch ergeben sich die Winkel in der HCH bzw. HCC-Bindung zu circa 120$^\circ$.
+%
+\begin{marginfigure}
+\includegraphics[width=\textwidth]{\currfiledir c2h4.png}
+\caption{sp$^2$-Hybridisierung in C$_2$H$_4$. }
+\end{marginfigure}
+%
+
+Ein Beispiel für die sp-Hybridisierung ist Ethin (\ch{C2H2}, \ch{HC+CH} ).
+
+\begin{questions} 
+\item Wie entscheidet sich, ob die 'normalen' oder die 'hybriden' Orbitale zum Einsatz kommen?
+\item Was ist bei der  Hybridisierung  so besonders an Kohlenstoff?
+\end{questions}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+\section{Das Variationsprinzip}
+
+ 
+Die Schrödinger-Gleichung
+\begin{equation}
+ \hat{H} \ket{\Phi} = E_0 \, \ket{\Phi} 
+\end{equation}
+ist eine Differentialgleichung und nicht immer einfach zu lösen. Hier hilft das Variationsprinzip. Für eine beliebige Wellenfunktion  $\ket{\Psi}$ gilt
+\begin{equation}
+ E = \frac{\braket{\Psi | H | \Psi}} {\braket{\Psi | \Psi}} \ge E_0 \quad .
+ \label{eq:MO_variation}
+\end{equation}
+Die Mathematik sagt, dass $E$ minimal wird, wenn  $\ket{\Psi}$ die Schrödinger-Gleichung löst. Aber auch wenn $\ket{\Psi}$ keine Lösung der Schrödinger-Gleichung  ist, kann man Gl.~\ref{eq:MO_variation} einfach ausrechnen. Wir probieren  also verschiedene Test-Funktionen durch und versuchen, die Energie nach Gl.~\ref{eq:MO_variation} zu minimieren. Dadurch nähern wir uns der echten Eigenfunktion immer mehr an, die Lösung der Schrödinger-Gleichung ist. Leider wissen wir nicht, ob wir  nicht durch noch bessere Test-Funktionen noch kleinere Werte von $E$ erreichen würde.
+
+Sei die Testfunktion
+\begin{equation}
+ \ket{\Psi} = c_1 \ket{\phi_1} + c_2 \ket{\phi_2} \label{eq:MO_psi}
+\end{equation}
+mit normierten  $\ket{\phi_i}$ und reell-wertigen Koeffizienten $c_i$. Damit erhält man
+\begin{eqnarray}
+\braket{\Psi | \Psi}  &= & c_1^2 + c_2^2  + 2 c_1 c_2 \underbrace{\braket{\phi_1 | \phi_2}}_{= S}\\
+\braket{\Psi |  H | \Psi} &=& c_1^2 \underbrace{\braket{\phi_1 |  H | \phi_1 }}_{= H_{11}} +
+										c_2^2 \underbrace{\braket{\phi_2 |  H | \phi_2 }}_{= H_{22}} +
+								2 c_1 c_2 \underbrace{\braket{\phi_1 |  H | \phi_2 }}_{= H_{12}}  \quad .
+\end{eqnarray}
+Dabei bezeichnet $S$ das Überlapp-Integral der beiden Wellenfunktionen, und $H_{ij}$ die Matrix-Elemente des Hamilton-Operators. Die Diagonalelemente $H_{11}$ und $H_{22}$ geben die Coulomb-Energie an, die Außerdiagnoalelemente $H_{12} = H_{21}$ die Austausch-Energie\sidenote{mehr zu den Namen im nächsten Abschnitt}. Mit diesen Abkürzungen kann man die Eigen-Energie schreiben als
+\begin{equation}
+  E = \frac{c_1^2 H_{11} + c_2^2 H_{22} + 2 c_1 c_2 H_{12}}{c_1^2 + c_2^2 + 2 c_1 c_2 S}  \quad . \label{eq:MO_e_variation}
+\end{equation}
+Für eine minimale Eigenen-Energie $E$ müssen die partiellen Ableitungen nach $c_i$ beide Null sein. Nach ein paar Umformungen findet man zwei Lösungen $E_\pm$ für die minimale Energie $E$ als
+\begin{equation}
+ \begin{vmatrix}
+   H_{11} - E & H_{12} - E \, S \\  H_{12} - E \, S & H_{22} - E \\
+ \end{vmatrix}
+= 0
+\quad
+\text{oder} \quad
+E_\pm = \frac{H_{11} \pm H_{12}}{1 \pm S} \quad ,
+\end{equation}
+wobei wir im letzten Schritt angenommen haben, dass $H_{11} = H_{22}$. In diesem Fall sind die Koeffizienten $c_i$
+\begin{equation}
+c_1 = \pm c_2 = \frac{1}{\sqrt{2 (1 \pm S)}} \quad ,
+\end{equation}
+weil  ja ${\braket{\Psi | \Psi}}  = c_1^2 + c_2^2 + 2 c_1 c_2 S = 1$ sein soll.
+
+\begin{questions} 
+\item Vollziehen Sie Gl. \ref{eq:MO_psi} bis \ref{eq:MO_e_variation} nach.
+\end{questions}
+
+\section{Das Wasserstoff-Molekül-Ion H$_2^+$}
+
+Als Beispiel für das Variationsprinzip in der Molekülorbitaltheorie betrachten wir das Wasserstoff-Molekül-Ion\sidenote{Dies wäre auch exakt möglich, mittels elliptischer Koordinaten, siehe z.B. Demtröder, Molekülphysik Kap. 2.4.1} H$_2^+$. Es gibt also nur ein Elektron, was das Problem der Elektron-Elektron-Wechselwirkung umgeht.
+
+Wir benutzen wie immer die Born-Oppenheimer-Näherung. Die Kerne bewegen sich also nicht und tragen somit auch nicht zur kinetischen Energie bei. Der Abstand des einzigen Elektrons zu den beiden Kernen sei $r_1$ und $r_2$. Der Hamilton-Operator des Gesamtsystems ist
+\begin{equation}
+\hat{H} =  - \frac{\hbar^2}{2 m} \nabla^2 - \frac{e^2}{4 \pi \epsilon_0} \frac{1}{r_{1}} - \frac{e^2}{4 \pi \epsilon_0} \frac{1}{r_{2}}
+= \hat{H}_1  - \frac{e^2}{4 \pi \epsilon_0} \frac{1}{r_{2}} \quad ,
+\end{equation} 
+wobei $\hat{H}_1 $ der Hamilton-Operator des Wasserstoff-\emph{Atoms} ist. Die Coulomb-Energie der beiden Kerne untereinander hängt nur vom Kern--Kern--Anstand ab und ist somit eine Konstante, die später zur Gesamtenergie addiert werden wird.
+
+Wir suchen Molekül-Orbitale $\ket{\Psi}$, die mit $\hat{H}$ die Schrödinger-Gleichung lösen, und kennen bereits die Lösungen für $\hat{H}_1$:
+\begin{equation}
+\hat{H} \ket{\Psi} = E \ket{\Psi} \quad \text{und} \quad 
+\hat{H}_1 \ket{\phi} = E_1 \ket{\phi}  \quad .
+\end{equation}
+Da die beiden Kerne identisch sind, gibt es solche Lösungen $\ket{\phi_2}$ in der gleichen Form aber zentriert um eine andere Kernposition auch für den zweiten Kern. Linearkombinationen von diesen  $\ket{\phi_{1,2}}$ nehmen wir jetzt als Testfunktion $\ket{\Psi}$. Dies nennt man \emph{linear combination of atomic orbitals} (LCAO).
+
+Wir folgen dem oben dargestellten Variationsprinzip und müssen nur die drei Integrale $S$, $ H_{11}$ und $H_{12}$ diskutieren.
+
+\paragraph{Überlappintegral $S$} 
+\begin{marginfigure}
+\inputtikz{\currfiledir integrals_s}
+\caption{Skizze   Überlappintegral $S$. }
+\end{marginfigure}
+%
+Das Integral $S$ beschreibt den räumlichen Überlapp der beiden Atom-Wellenfunktionen, wenn die einen um Kern 1, die andere um Kern 2 zentriert ist:
+\begin{equation}
+ S = \braket{\phi_1 | \phi_2} = \int \phi_1^\star( \mathbf{r} )  \, \phi_2( \mathbf{r})   \, d\mathbf{r} \quad .
+\end{equation}
+Dabei bezeichnet $\mathbf{r}$ die Position des Elektrons. Die Wellenfunktion $\phi_i$ ist um den Kern an Position $\mathbf{r}_{i}$ zentriert.\sidenote{Wasserstoff-Wellenfunktionen sind reell-wertig.} Da die $\ket{\phi}$ normiert sind, liegt der Wert von $S$ zwischen $0$ und $1$.
+
+
+
+
+
+\paragraph{Coulomb-Wechselwirkung $H_{11}$}  
+\begin{marginfigure}
+\inputtikz{\currfiledir integrals_c}
+\caption{Skizze Coulomb-Integral $C$ }
+\end{marginfigure}
+%
+Dieser Term beschreibt die Coulomb-Energie des Elektrons in der atomaren Wellenfunktion $\phi_1$, aber in Gegenwart beider Kerne:
+\begin{eqnarray}
+H_{11} &= &  \braket{\phi_1 | \hat{H} | \phi_1} = \braket{\phi_1 | \hat{H}_1 | \phi_1}  - \braket{\phi_1 |  \frac{e^2}{4 \pi \epsilon_0} \frac{1}{r_{2}} | \phi_1}  \\
+ & = & E_1 - \frac{e^2}{4 \pi \epsilon_0} \int \frac{|\phi_1(\mathbf{r})|^2 }{|\mathbf{r} - \mathbf{r}_2  |} \, d\mathbf{r} = E_1 + C \quad .
+\end{eqnarray} 
+Das Ergebnis ist die Eigen-Energie des Elektrons im Wasserstoff-\emph{Atom}, korrigiert im ein Überlappintegral der Ladungsdichte ${|\phi_1(\mathbf{r})|^2 }$ um den einen Kern im Coulomb-Potential des anderen Kerns. Der Korrekturterm $C$ ist negativ.
+
+
+
+
+\paragraph{Austausch-Wechselwirkung $H_{12}$} 
+\begin{marginfigure}
+\inputtikz{\currfiledir integrals_a}
+\caption{Skizze Austausch-Integral $A$.}
+\end{marginfigure}
+%
+Die Austausch-Wechselwirkung ist ein rein quantenmechanischer Effekt.
+\begin{eqnarray}
+H_{12} &= &  \braket{\phi_1 | \hat{H} | \phi_2} = \braket{\phi_1 | \hat{H}_1 | \phi_2}  - \braket{\phi_1 |  \frac{e^2}{4 \pi \epsilon_0} \frac{1}{r_{2}} | \phi_2}  \\
+ & = & E_1 \, S - \frac{e^2}{4 \pi \epsilon_0} \int \frac{ \phi_1^\star(\mathbf{r}) \, \phi_2(\mathbf{r})  }{|\mathbf{r} - \mathbf{r}_2  |} \, d\mathbf{r} = E_1 \, S + A \quad .
+\end{eqnarray}
+Die Austausch-Dichte $\phi_1^\star(\mathbf{r}) \, \phi_2(\mathbf{r})$ ist ähnlich einer Ladungsdichte $|\phi(\mathbf{r})|^2$, nur dass zwei verschiedenen Wellenfunktionen eingehen. Das Elektron wechselt sozusagen zwischen der Zugehörigkeit zu Kern 1 und 2. Der Korrekturterm $A$ ist ebenfalls negativ.
+
+
+
+Mit diesen Integralen wird die Gesamtenergie
+\begin{equation}
+E_\pm = \frac{H_{11} \pm H_{12}}{1 \pm S} = E_1 + \frac{C \pm A}{1 \pm S} \quad .
+\end{equation}
+Die zugehörigen Molekül-Orbitale sind die symmetrische und die anti-symmetrische Kombination der Atom-Orbitale
+\begin{equation}
+\ket{\Psi_\pm }= \frac{1}{\sqrt{2 (1 \pm  S)}} \, \left( \ket{\phi_1} \pm \ket{\phi_2} \right) \quad .
+\end{equation}
+
+Zur Berechnung der Bindungsenergie nehmen wir jetzt die nur vom Kern--Kern--Abstand $R$ abhängende Coulomb-Energie der Kerne wieder hinzu. 
+%
+\begin{eqnarray}
+ E_\text{Bindung} &=&  E_\text{Molekül} -  E_\text{Atom} \\
+  &=&   E_1 + \frac{C \pm A}{1 \pm S} + \frac{e^2}{4 \pi \epsilon_0} \frac{1}{R} - E_1 \\
+   &=&\frac{C \pm A}{1 \pm S} + \frac{e^2}{4 \pi \epsilon_0} \frac{1}{R}  = \frac{C' \pm A'}{1 \pm S}  \quad , \label{eq:MO_E_bindung_h2p}
+\end{eqnarray}
+mit der Definition  von $C'$ und $A'$ wie in Abbildung \ref{fig:MO_H2_integrale_r}.
+Numerische Rechnungen zeigen, dass das Überlapp-Integral $S$ keinen entscheidenden Einfluss auf das Ergebnis hat, wir es hier also nicht weiter betrachten müssen.\sidenote{Für H$_2^+$ lassen sich relativ einfache geschlossene Formen für die Integrale angeben, siehe \cite{McQuarrie2008} }
+
+Das Coulomb-Integral $C$ ist für einen  großen Kern--Kern--Abstand $R$ quasi die Energie einer Punkt-Ladung im Potential des anderen Kerns, da die Ausdehnung der Wellenfunktion $\phi_1$ vernachlässigt werden kann. Da $C$ negativ ist, geht $C'$ gegen Null. Für kleine Kern--Kern--Abstände $R$ bleibt $C$ negativ und endlich, da die potentielle Energie eines Elektrons im Wasserstoff-Atom endlich ist. Der zweite Summand von  $C'$ strebt aber mit $1/R$ gegen positiv unendlich. Die Summe der ersten beiden Terme ist also entweder Null oder positiv, so dass kein lokales Minimum zustande kommt.
+
+
+
+\begin{marginfigure}
+\inputtikz{\currfiledir integrale_von_r}
+
+\caption{Abhängigkeit der Integrale vom Kern--Kern--Abstand $R$. Dargestellt ist 
+$C' = C  + \frac{e^2}{4 \pi \epsilon_0} \frac{1 }{R}$ bzw. $A' = A   + \frac{e^2}{4 \pi \epsilon_0} \frac{ S }{R}$. \label{fig:MO_H2_integrale_r}
+ }
+\end{marginfigure}
+
+
+
+Den entschiedenen Beitrag liefert das Austausch-Integral $A$. Für große $R$ ist das Austausch-Integral und auch $A'$ wieder Null. Für kleine Abstände $R$ ist das Austausch-Integral sehr ähnlich dem Coulomb-Integral und endlich negativ. Dazwischen ist es in einem gewissen Bereich von $R$ negativ genug, dass bei positivem Vorzeichen in Gl. \ref{eq:MO_E_bindung_h2p} die Bindungsenergie negativ wird, eine Bindung also zustande kommt.
+
+Damit ist also $\Psi_+$ das bindende Orbital. Da es aus Wasserstoff-1s-Orbitalen zusammengesetzt ist, ist es ein $\sigma$-Orbital. $\Psi_-$ ist ein anti-bindendes $\sigma^\star$-Orbital. Die Skizze zeigt die Gesamt-Energie als Funktion des Kern--Kern--Abstands $R$. Dies wird als \emph{Bindungspotential} bezeichnet. Für das bindende Orbital sind sehr kleine $R$ durch das Pauli-Verbot ausgeschlossen.
+Der Bindungsabstand $R_0$ ist der Abstand minimaler Energie. Das Potential kann in seiner Umgebung durch eine harmonisches Parabel-Potential genähert werden. Die Energie $E(R_0)$ bestimmt die Stärke de Bindung, also wieviel Energie aufgebracht werden muss, um die beiden Atome zu trennen. Der zweite Block der Vorlesung zur Spektroskopie von Molekülen beschäftigt sich eigentlich nur mit Methoden, wie die verschiedenen Parameter dieses Bindungspotentials experimentell bestimmt werden können.
+
+
+
+\begin{marginfigure}
+\inputtikz{\currfiledir potentiale}
+
+\caption{Skizze des Bindungspotentials $E_{\text{Bindung}, \pm}$ vom Kern--Kern--Abstand $R$. Das bindende Potential $E_+$ zeigt ein Minimum bei $R_0$, das anti-bindende Potential $E_-$ hat nur ein Minimum im Unendlichen.}
+\end{marginfigure}
+
+
+
+
+\begin{questions} 
+\item Die drei Integrale $S$, $C$ und $A$ sind von zentraler Bedeutung. Sie sollten sie sowohl als Gleichung als auch als Skizze darstellen können.
+
+\item Warum sagt man 'Die Austausch-Wechselwirkung ist ein rein quantenmechanischer Effekt' ?
+\end{questions}
+
+
+
+\section{Das Austausch-Integral für verschiedene Atom-Orbitale}
+
+Wir haben bisher nicht diskutiert, welche Form die Atom-Orbitale $\ket{\phi}$ denn eigentlich haben.
+Im Wasserstoff-Molekül-Ion \ch{H2+}  werden es sicherlich s-Orbitale sein (was auch bei der Diskussion der Beiträge angenommen wurde). Bei anderen Orbitalen kann es zum Verschwinden des Austausch-Integrals $A$ kommen, und somit keine Bindung geben.
+
+\begin{marginfigure}
+\inputtikz{\currfiledir orbitale_s_p}
+
+\caption{Je nach Art und Orientierung der beteiligten Orbitale kann das Austausch-Integral $A$ auch verschwinden. Die Farben kodieren das Vorzeichen der Wellenfunktion. }
+\end{marginfigure}
+
+
+
+Ein Beispiel ist das Austausch-Integrals zwischen  einem s-Orbital und einem p$_x$-Orbital, wenn $z$ die Kern--Kern--Achse ist.  Die beiden Keulen des  p$_x$-Orbitals tragen mit unterschiedlichem Vorzeichen zum Austausch-Integral bei und kompensieren sich so. In diesem Fall wäre $A$ Null. Wenn hingehen ein p$_z$-Orbital mit einem s-Orbital überlappt, dann verschwindet das  Austausch-Integral $A$ nicht.
+
+
+\section{Anschauliche Argumente für eine chemische Bindung}
+
+Kann man anschaulich verstehen, warum das Wasserstoff-Molekül-Ion \ch{H2+}existiert, also energetisch günstiger ist als ein Wasserstoff-Atom und ein freies Proton? Aus meiner Sicht gibt es zwei bis drei Wege.
+
+\paragraph{Elektronen-Dichte-Verteilung} Im symmetrischen Molekülorbital $\Psi_+ \propto \phi_1 + \phi_2$ ergibt sich ein deutlich von Null verschiedener Wert der Elektronendichte $|\Psi_+|^2$ in der Mitte zwischen den beiden Kernen. Diese negative Ladungsdichte schirmt den positiven Kern vom anderen positiven Kern ab. Die Coulomb-Abstoßung der Kerne ist also geringer, als wenn das Elektron in einem s-Orbital um einen Kern alleine  wäre. Im $\Psi_-$-Orbital ist dies nicht mehr der Fall. Hier ist die Elektronen-Dichte zwischen den Kernen geringer, in der Mitte der Strecke sogar exakt Null.
+%
+\begin{marginfigure}[-50mm]
+\inputtikz{\currfiledir wf_bonding}
+\caption{ Wellenfunktion (dünne Linie) und Ladungsdichte (dicke Linie) der bindenden Wellenfunktion $\Psi_+$ und der  anti-bindenden Wellenfunktion $\Psi_-$.}
+\end{marginfigure}
+
+
+
+\paragraph{Teilchen im Kasten}  Man kann das Molekül-Orbital $\Psi_+$ als Kasten für das Elektron sehen, auch wenn die Wände nicht senkrecht und unendlich hoch sind. Die Energie des niedrigsten Zustands in einem eindimensionalen  Kasten-Potential ist proportional zu $1/L$, mit der Kastenlänge $L$. Das Molekül bildet einen größeren Kasten als das Atom, darum sinkt die Energie für das Elektron und es kommt zur Bindung.
+%
+\begin{marginfigure}
+\includegraphics[width=\textwidth]{\currfiledir topf.png}
+\caption{Teilchen im Kasten}
+\end{marginfigure}
+
+\paragraph{Quantenmechanische Interferenz} Die Ladungsdichte in einem Molekül-Orbital ist $| \phi_1 + \phi_2 |^2$, wenn das Orbital aus den beiden Atom-Orbitalen $\phi_1$ und $\phi_2$ aufgebaut ist. Die Ladungsdichte ist damit \emph{nicht} die Summe der Ladungsdichten der beiden Atom-Orbitale, also nicht $| \phi_1 |^2 +| \phi_2 |^2$. Quantenmechanische Wellenfunktionen interferieren, werden also addiert bevor das Betrags-Quadrat gebildet wird. Dies ermöglicht Auslöschung (im Fall von $\Psi_-$) und konstruktive Interferenz (im Fall von $\Psi_+$), wodurch obiges Elektronendichte-Argument zum Tragen kommt und  die chemische Bindung ermöglicht wird.
+
+
+\section{Vergleich unserer Rechnung mit der Wirklichkeit}
+
+Unsere Rechnung ergibt ein qualitativ korrektes Bindungspotential für das  Wasserstoff-Molekül-Ion  \ch{H2+}. Quantitativ stimmt sie aber nicht. Experimentell ist der Bindungsabstand $R_0 = 106$~pm, die Rechnung liefert $132$~pm. Experimentell ist die Bindungsenergie $2.5$~eV die Rechnung liefert $1.7$~eV.
+
+Auch erfüllt unser Modell den Virialsatz nicht. Für ein Coulomb-Potential müsste der Mittelwert der potentiellen Energie $\braket{\hat{U}}$ genau $-2$ mal dem Mittelwert der kinetischen  Energie $\braket{\hat{T}}$ sein. In unserem Modell ist der Faktor\footcite{McQuarrie2008} aber nur ca. $-1.6$.
+
+Die Ursache für beides ist, dass unsere Testfunktion $c_1 \ket{\phi_1} + c_2 \ket{\phi_2}$ zwar 
+Gl.  \ref{eq:MO_variation} minimiert, aber die Schrödinger-Gleichung nicht löst. 
+ Die Testfunktion ist zu einfach und muss weitere Terme enthalten, die dann zu einer noch kleineren Energie in Gl.  \ref{eq:MO_variation} führen und dann auch den Virialsatz erfüllen.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Bezeichnung von Molekülzuständen}
+
+
+
+
+
+
+Bevor wir beginnen, weitere Elektronen in die Molekülorbitale einzufüllen, müssen wir kurz die Nomenklatur der Zustände diskutieren. Diese ist analog zu Mehrelektronen-Atomen. Ausführlich dargestellt ist sie beispielsweise in \cite{Demtröder_molekuelphysik} oder \cite{Demtröder_AMP}.
+
+
+
+In der Atomphysik gibt es für jedes Elektron die Quantenzahlen $n$, $l$, $m_l$, $s$, $m_s$, $j$, $m_j$, die (bis auf $n$) die Länge und die Orientierung eines Drehimpuls-artigen Vektors anzeigen. Die Größe des Bahndrehimpulses, also die 
+Quantenzahl $l$ wird als s,p,d,f, ... angegeben. In Mehrelektronen-Atomen bildet man vektorielle Summen über die einzelnen Vektoren der Elektronen. Je nach Kopplungsschema addiert\sidenote{Zur Addition von Drehimpulses siehe Anhang \ref{chap:anhang_drehimpuls}}
+man zunächst alle Bahndrehimpulse $\vec{l}$ und Spins $\vec{s}$, oder alle Gesamtdrehimpulse $\vec{j}$. Das Ergebnis wird dann wieder als Längen- und Orientierungsquantenzahl angegeben, also $L$, $M_L$, $S$, $M_S$, $J$ und $M_J$.
+
+
+Der wichtigste Unterschied in Molekülen ist, dass die Vorzugsrichtung oder z-Achse durch die Kern--Kern--Achse immer gegeben ist. Da Drehimpulserhaltung Rotationssymmetrie voraussetzt, ist in Molekülen nur noch die Drehimpuls-Komponenten entlang der Kern--Kern--Achse eine gute Quantenzahl. $m_l$ übernimmt also die Rolle von $l$ in der Atomphysik. Manchmal werden noch $n$ und  $l$  angegeben, was dann  aber nur noch aussagt, in welchen Quantenzahlen $n$, $l$ das Elektron landen würde, wenn das Molekül zu einzelnen Atomen auseinandergezogen würde. Manchmal sind stattdessen auch die Orbitale eines Typs nach aufsteigender Energie durchnummeriert.
+
+Weiterhin hängt die Gesamtenergie nicht vom Vorzeichen von $m_l$ ab, so dass $\lambda = | m_l | $ eingeführt wird. Analog zu $l$ in der Atomphysik wird der Wert von $\lambda$ als $\sigma, \pi, \delta, \phi, \dots$ dargestellt, wie wir es bei der Klassifizierung der Bindungen schon gesehen hatten.\sidenote{Anti-bindenden Orbitale werden dabei mit einem hochgestellten Stern gekennzeichnet, beispielsweise $\pi^\star$.} Man beachte jedoch, dass somit alle Zustände außer $\lambda = 0$ zweifach entartet sind, da ja $m_l = \pm \lambda$.
+
+
+Analog zum Mehrelektronen-Atom können im Molekül auch Gesamt-Quantenzahlen definiert werden. Wie im Atom auch sind die Projektionen auf die Achse einfach per Addition zu gewinnen:
+\begin{equation}
+M_S = \sum m_s{_i} \quad \text{und} \quad M_L  = \sum m_{l_i}
+\end{equation}
+Wie beim einzelnen Elektron ist auch wieder $\Lambda = | M_L|$ die interessantere Größe, die ebenfalls wieder als $\Sigma, \Pi, \Delta, \Phi, \dots$ dargestellt wird. Wenn die Länge des Gesamt-Spin-Vektors $|\vec{S}| = \hbar \sqrt{S (S+1)}$ ist, dann muss  $M_S$ ist zwischen $-S$ und $S$ liegen, kann also  $2S + 1$  verschiedene Werte annehmen.\sidenote{Daher Triplett für $S=1$ und Singulett für $S=0$.} Dies wird als Multiplizität bezeichnet. Für den Gesamt-Drehimpuls $\vec{J}$ ist analog auch nur der Betrag der Projektions-Komponenten interessant, die $\Omega$ genannt wird
+\begin{equation}
+ \Omega = | M_J | = | \Lambda + M_S|
+\end{equation}
+Dies alles wird zum spektroskopischen Termsymbol zusammengefasst:
+\begin{equation}
+ ^{2 S + 1}\Lambda_\Omega
+\end{equation}
+
+
+%https://chemistry.stackexchange.com/questions/67031/determination-of-reflections-in-sigma-molecular-term-symbols
+
+
+In den Termsymbolen wird häufig auch noch die Symmetrie der Wellenfunktion angegeben. Ein $g$ bzw. $u$ als Index bezeichnet eine Wellenfunktion, die gerade bzw. ungerade bei Inversion, also Punktspiegelung ist. Bei $\Sigma$-Zuständen wird zusätzlich noch die Symmetrie bei Spiegelung an einer Ebene angegeben, die die Kern--Kern--Achse enthält. Dies stellt man als hochgestelltes $+$ oder $-$ dar.
+Alles zusammen
+\begin{equation}
+ ^{2 S + 1}\Lambda_{\Omega, (g,u)}^\pm
+\end{equation}
+
+So wie es hier dargestellt ist, gilt dies für di-atomare Moleküle. Bei größeren Molekülen wird auf die Symmetrie-Gruppe zurückgegriffen\sidenote{Etwas mehr dazu zu Beginn der Festkörperphysik, ansonsten Kristallographie.} Häufig wird dann nur noch die Multiplizität des Zustands als Singulett (S) oder Triplett (T) angegeben und die Zustände in energetisch aufsteigender Reihenfolge nummeriert.
+
+\begin{questions} 
+\item Gehen Sie noch einmal zurück zu Abbildung \ref{fig:VB_AO_zu_MO} ab und vergewissern Sie sich, dass Sie die Art der Bindung und die Bezeichnung der Molekül-Orbitale angeben können.
+\end{questions}
+
+
+\section{Beispiel: Sauerstoff}
+
+Als Beispiel betrachten wir das Sauerstoff-Molekül \ch{O2}. Atomarer Sauerstoff hat die Elektronenkonfiguration [He]2s$^2$2p$_x^2$2p$_y^1$2p$_z^1$. Die beiden ungepaarten p-Elektronen tragen zur Bindung bei. Im Molekül entstehen volle Orbitale, sowie zwei Elektronen in einem $2\pi_g^\star$-Orbital.\sidenote{wird im nächsten Abschnitt erklärt} Nur diese beiden Elektronen müssen wir betrachten, da volle Schalen bzw. volle Orbitale in Summe nicht beitragen. Die Orientierung der  Bahndrehimpulse ist  $\lambda = 1$ bzw. $m_l = \pm 1$, so dass die Orientierung des Gesamt-Bahndrehimpulses $M_L = 0$ oder $\pm 2$ sein kann ($\Sigma$ oder $\Delta$). Analog für den Spin $m_s = \pm 1/2$ und $M_S = 0 $ oder $\pm 1$. Dies ergibt zunächst  vier  Kombinationen. Es können die beiden Elektronen aber nicht sowohl im $m_l$ als auch in $m_s$ übereinstimmen. Dies schließt den Zustand $M_L = \pm 2$; $M_s = \pm 1$ aus.
+\begin{equation}
+ ^1\Sigma \quad ^3\Sigma \quad ^1\Delta \qquad \text{Pauli-verboten:} \quad ^3\Delta  
+\end{equation}
+Die Symmetrie ist bei allen drei Zuständen gerade, da alle aus  Elektronen in einem geraden $2\pi_g$-Orbital aufgebaut sind. Die Symmetrie der $\Sigma$-Zustände kann man sich aus den jeweiligen Spin-Funktionen herleiten: ein Triplett-Zustand ist symmetrisch im Spin, und muss daher anti-symmetrisch im Raum sein, also $^3\Sigma^-$ und andersrum.\sidenote{Man kann auch über die Symmetrie der einzelnen Orbitale gehen:  $2\pi_{g,x}$ anders als  $2\pi_{g,y}$, siehe z.B. \cite{McQuarrie2008} oder \cite{Atkins}.} Zusammen also
+\begin{equation}
+ ^1\Sigma_g^+ \quad ^3\Sigma_g^- \quad ^1\Delta _g
+\end{equation}
+Genau wie in der Atomphysik kann man mit den Hund'schen Regel den energetisch niedrigsten Zustand finden. Maximales $S$ gewinnt, also ist $^3\Sigma_g^- $ der Grundzustand. Es ist selten, dass der Grundzustand ein Triplett-Zustand ist. Quasi immer ist der Singulett-Zustand energetisch niedriger. Dies hängt davon ab, in welchem Orbital die letzten, energetisch höchsten Elektronen laden, die eingefüllt werden, wie wir im nächsten Abschnitt sehen.
+
+\begin{questions} 
+\item Warum ist der Zustand $^3\Delta $ Pauli-verboten?
+\end{questions}
+
+
+
+
+\section{Mehr als ein Elektron: Hund--Mulliken--Bloch-Methode }
+
+Um Moleküle mit mehr als einem Elektron zu beschreiben verfahren wir genauso wie in der Atomphysik bei dem Übergang von Wasserstoff-Atom zu Mehr-Elektronen-Atomen: wir ignorieren die Wechselwirkung der Elektronen untereinander und füllen nach und nach Elektronen in Ein-Elektronen-Molekül-Orbitale und multiplizieren mit einer passenden Spin-Wellenfunktion. Diese Idee ist mit den Namen Hund, Mulliken und Bloch verknüpft.
+
+Zunächst formen wir Molekül-Orbitale als Linearkombination vom Atom-Orbitalen, benutzen also LCAO. Beides sind Ein-Elektronen-Orbitale, also Raum-Anteile der Wellenfunktion. Wenn in den zu bindenden Atomen viele Elektronen vorhanden sind, dann tragen auch viele Orbitale bei.  Allerdings sind nicht alle Orbitale kombinierbar, sondern nur solche, die in der Gruppentheorie die gleiche Symmetrie aufweisen. Dies verallgemeinert die  Diskussion in letzten Kapitel zum verschwindenden Austausch-Integral. Vereinfachend kann man auch sagen, dass nur Orbitale ähnlicher Energie kombiniert werden, also 1s mit 1s, 2s mit 2s usw. 
+
+%\tikzexternaldisable
+\begin{marginfigure}
+\centering
+
+ \begin{modiagram}[labels, names, AO-width=6pt, distance=3cm]
+% labels-fs=\footnotesize] 
+ 
+\atom[Atom 1]{left}{2s= -10mm, 2p = 20mm ,
+        label = {
+      2sleft  = s,
+      2pxleft = p$_x$,
+      2pyleft = p$_y$,
+      2pzleft = p$_z$
+}
+}
+
+ \atom[Atom 2]{right}{2s= -10mm, 2p  =  20mm,
+        label = {
+      2sright  = s,
+      2pxright = p$_x$,
+      2pyright = p$_y$,
+      2pzright = p$_z$
+}
+ }
+\molecule[Molekül]{
+ 2sMO = , 2pMO  = ,
+       label = {
+      1sigma  = s$\sigma_g$,
+      1sigma* = s$\sigma_u^\star$,
+      2sigma  = s$\sigma_g$,
+      2sigma* = s$\sigma_u^\star$,
+      2psigma  = p$\sigma_g$,
+      2psigma* = p$\sigma_u^\star$,
+      2piy = \hspace*{5mm} p$\pi_u$,
+      2piz = \ ,
+      2piy* = \hspace*{5mm} p$\pi_g^\star$,
+      2piz* = \
+}
+    }
+    
+\end{modiagram}
+\caption{Nur Atom-Orbitale ähnlicher Energie und Symmetrie bilden in Linearkombination die Molekülorbitale. }
+\end{marginfigure}
+%\tikzexternalenable
+
+
+
+Wie in der Valenzbindungstheorie gesehen, liefern Kombinationen von s-Orbitalen eine $\sigma$-Bindung. Dementsprechend entsteht also ein $\sigma$-Orbital. Bei den p-Orbitalen hängt es von der relativen Orientierung ab: p$_z$-Orbitale erzeugen eine molekulare $\sigma$-Orbital, atomare p$_{x,y}$-Orbitale ein molekulares  $\pi$-Orbital. 
+
+
+Die Gesamt-Wellenfunktion ist also aufgebaut aus einzelnen Molekül-Orbitalen $\Psi_i$, die wiederum Linearkombination von passenden Atom-Orbitalen $\phi_j$ sind:
+\begin{eqnarray}
+ \Psi_i(\mathbf{r}_i) & \propto &  \sum_j c_j \phi_j(\mathbf{r}_i) \\
+  \Psi_\text{ges}(\mathbf{r}_1, ..., \text{spin}_1, ...)  & \propto & \prod_i \Psi_i(\mathbf{r}_i) \, \times \, \text{Spinfunktion}
+\end{eqnarray}
+wobei $\mathbf{r}_i$ die Raum-Koordinaten des $i$-ten Elektrons ist, und die $\phi_j$ um die Position des jeweiligen Kerns zentriert sind. Die Spinfunktion muss so gewählt werden, dass $ \Psi_\text{ges}$ das Pauli-Prinzip erfüllt, also insgesamt antisymmetrisch ist. Die Slater-Determinante hilft, dies für große Systeme aufzuschreiben.
+
+Bei nur zwei Elektronen kann man die Spin-Funktion von Hand konstruieren. Jeder Elektronenspin kann entweder up $\uparrow$ oder down $\downarrow$ sein. Bei mehr Elektronen gibt der n-te Pfeil den Spin des n-ten Elektrons an.  Die möglichen Spin-Wellenfunktion sind also 
+\begin{eqnarray}
+\text{anti-symmetrisch} &  & \frac{1}{\sqrt{2}} \left( \ket{\uparrow \downarrow} - \ket{\downarrow \uparrow} \right) \\
+\text{symmetrisch} &  &\ket{\uparrow \uparrow}  \\
+& &\frac{1}{\sqrt{2}} \left( \ket{\uparrow \downarrow} + \ket{\downarrow \uparrow} \right) \\
+& &\ket{\downarrow \downarrow}  
+\end{eqnarray}
+Eine symmetrische Raum-Wellenfunktion muss mit einer anti-symmetrisch Spin-Wellenfunktion verknüpft sein, für die es nur eine Möglichkeit gibt, also ein Singulett. Eine anti-symmetrische Raum-Wellenfunktion (zum Beispiel im anti-bindenden $\sigma^\star$-Orbital in \ch{H2}) ist mit einer symmetrischen Spin-Wellenfunktion verknüpft, die ein Triplett-Zustand ist.
+
+Bei mehreren Elektronen pro Molekül können auch mehrere Bindungen gleichzeitig existieren. Die effektive Anzahl der Bindungen wird \textit{Bindungsordnung} $b$ genannt. Jedes Elektronenpaar in einem bindenden Orbital trägt $+1$ bei, jedes Elektronenpaar in einem anti-bindenden Orbital $-1$, oder
+\begin{equation}
+  b = \frac{1}{2} \left( n - n^\star \right)
+\end{equation}
+mit $n$ ($n^\star$) der Anzahl der Elektronen\sidenote{nicht Paare !} in bindenden (anti-bindenden) Orbitalen. Je größer die Bindungsordnung, desto stärker ist die Bindung und desto kürzer ist der Bindungsabstand.
+
+In der optischen Molekül-Spektroskopie werden Übergänge zwischen verschiedenen Molekülorbitalen relevant werden. In diesem Zusammenhang bezeichnet man das niedrigste noch unbesetzte Orbital als LUMO (lowest unoccupied molecular orbital), das höchste besetzte als HOMO (highest occupied molecular orbital).
+
+\begin{questions} 
+\item Vergewissern Sie sich, dass Sie die vier Spin-Eigenfunktionen von zwei Spin-1/2-Systemen kennen und auch deren Symmetrie.
+
+\end{questions}
+
+
+\section{Noch einmal Sauerstoff}
+
+Betrachten wir noch einmal als Beispiel das Sauerstoff-Molekül \ch{O2}.
+Atomarer Sauerstoff hat die Elektronenkonfiguration [He]2s$^2$2p$_x^2$2p$_y^1$2p$_z^1$. Die atomaren 1s und 2s-Schalen sind komplett gefüllt. Damit sind auch bei den  molekularen 1s$\sigma$ und 2s$\sigma$-Orbitalen sowohl das bindende als auch das anti-bindende Orbital gefüllt. Die Bindungsordung ist Null und diese Elektronen tragen nicht zur Bindung bei. Es verbleiben 
+insgesamt 4 2p-Elektronen pro Atom, 8 pro Molekül. Entsprechend der in Abbildung
+\ref{fig:MO_orbitaleX2} angegeben Anordnung der Orbitale ist das 2p$\sigma_g$ und das 2p$\pi_u$-Orbital mit 2 bzw. 4 Elektronen vollständig gefüllt.\sidenote{Die $\pi$-Orbitale nehmen 2 Elektronen jeden Spins auf, da bei gegebenem $\lambda$ zwei Werte von $m_l = \pm \lambda$ möglich sind (für $\lambda > 0$). } Das 2p$\pi_g^\star$-Orbital ist mit 2 Elektronen halb gefüllt. Damit sind 6 Elektronen bindend, 2 anti-bindend, also Bindungsordnung $b=2$. Das Sauerstoff-Molekül \ch{O2} ist in einer Doppelbindung gebunden, die sich aus einer $\sigma$ und einer $\pi$-Bindung zusammensetzt. Wie schon im letzten Abschnitt behandelt, sind für das spektroskopische Termsymbol nur die beiden Elektronen im 2p$\pi_g^\star$-Orbital relevant. Für alle anderen Elektronen findet sich immer eines, das genau den entgegengesetzten Spin und Bahndrehimpuls hat.
+
+%\tikzexternaldisable
+
+\begin{figure}
+\centering
+
+ \begin{modiagram}[labels, names, AO-width=12pt]
+% labels-fs=\footnotesize] 
+ 
+\atom[\ch{O_a}]{left}{1s, 2s, 2p = {;pair,up,up}}
+
+ \atom[\ch{O_b}]{right}{1s, 2s, 2p = {;pair,up,up} }
+\molecule[\ch{O2}]{
+1sMO, 2sMO, 2pMO = {;pair,pair,pair,up,up},
+      label = {
+      1sigma  = 1s$\sigma_g$,
+      1sigma* = 1s$\sigma_u^\star$,
+      2sigma  = 2s$\sigma_g$,
+      2sigma* = 2s$\sigma_u^\star$,
+      2psigma  = 2p$\sigma_g$,
+      2psigma* = 2p$\sigma_u^\star$,
+      2piy = \hspace*{5mm} 2p$\pi_u$,
+      2piz = \ ,
+      2piy* = \hspace*{5mm} 2p$\pi_g^\star$,
+      2piz* = \
+}
+    }
+    
+\end{modiagram}
+\caption{Orbitaldiagramm von Sauerstoff. Die Molekülorbitale sind aus   den Atomorbitalen aufgebaut.
+ Die relative Lage der Orbitale 2p$\sigma_g$ und 2p$\pi_u$ hängt von der Kernladungszahl ab. Die hier gezeigte Lage gilt für \ch{O2} und \ch{F2}. \ch{N2} und leichtere Moleküle besitzen die getauschte Anordnung. \label{fig:MO_orbitaleX2}
+
+}
+\end{figure}
+%\tikzexternalenable
+
+\begin{questions} 
+\item Warum sind die beiden zuletzt eingefüllten Elektronen 'ungepaart', also in zwei verschiedenen Orbitalen? Worin unterscheiden sich diese beiden Orbitale?
+
+\end{questions}
+
+
+
+\newpage
+\section{Mehr als zwei Atom-Kerne: Hückel-Näherung}
+
+Die Molekülorbitaltheorie ist auch auf größere Moleküle anwendbar, verlangt dann aber  numerischen Lösungen. Für konjugierte Moleküle liefert die Hückel-Näherung aber gute Ergebnisse. In konjugierten Molekülen wird das mechanische Gerüst durch $\sigma$-Bindungen zwischen den Kohlenstoff-Atomen gebildet. Eine Kette von Kohlenstoff-Atomen ist darüber hinaus durch alternierende $\sigma$ und $\pi$-Bindungen verbunden. Die an diesen Bindungen beteiligten Elektronen sind dann über die ganze Kette delokalisiert. Die Hückel-Näherung erlaubt es, diese ausgedehnten  $\pi$-Orbitale  zu berechnen.
+
+Wir betrachten also nur eine Teilmenge aller Atom-Orbitale, nur die $\pi$-Orbitale, die auch an der $\pi$-Bindung teilnehmen. Wir nehmen an, dass
+\begin{itemize} \setlength{\itemsep}{0pt}
+\item die Atom-Orbitale nur mit sich selbst überlappen, also $S_{ij} = \delta_{ij}$
+\item alle Atome identisch sind, also $H_{ii} = \alpha$
+\item Austausch nur zwischen benachbarten Orbitalen stattfinden, also  $H_{ij} = \beta < 0 $ falls Atome $i$ und $j$ benachbart, sonst $0$ 
+\end{itemize}
+
+Analog zu Gleichung \ref{eq:MO_e_variation} im letzten Kapitel berechnen wir die Eigen-Energie nach dem Variationsprinzip
+\begin{equation}
+ E = \frac{  \sum_{i,j} c_i \, c_j \, H_{i,j} }{ \sum_{i,j} c_i \, c_j \, S_{i,j} }
+\end{equation}
+Die minimale Eigen-Energie $E$ ergibt sich, wenn alle partiellen Ableitungen nach den $c_i$ Null sind, oder wenn
+\begin{equation}
+ \left| \mathbf{H} - E \, \mathbf{S}\right| = 0
+\end{equation}
+Da wir $S_{ij} = \delta_{ij}$ angenommen haben, vereinfacht sich dies zu 
+\begin{equation}
+ \left| \mathbf{H} - E \, \mathds{1} \right| = 0
+\end{equation}
+Wir müssen also die Eigenwerte und Eigenvektoren von $H_{i,j}$ bestimmen. Die Eigenwerte geben die Energie des Zustands an, die Eigenvektoren die dazugehörige  Linearkombination der atomare Orbitale.
+
+
+Als Beispiel betrachten wir Benzol (\ch{C6H6}). Die 6 Kohlenstoff-Atome sind sp$^2$ hybridisiert. $\sigma$-Bindungen verbinden die Kohlenstoff-Atome untereinander und mit den Wasserstoff-Atomen. Je ein nicht hybridisiertes p-Orbital steht senkrecht auf dem Ring. Diese Orbitale werden in der Hückel-Näherung betrachtet. Die Hamilton-Matrix $H_{ij}$ hat dann die Form (Nullen weggelassen)
+\begin{equation}
+\mathbf{H} = 
+ \begin{pmatrix}
+  \alpha  & \beta &  &  &  & \beta \\
+  \beta & \alpha  & \beta & & & \\
+  & \beta & \alpha  & \beta & & \\
+ &  & \beta & \alpha & \beta & \\
+&  &  & \beta & \alpha & \beta \\
+\beta & &  &  & \beta & \alpha 
+ \end{pmatrix} 
+\end{equation}
+Die $\beta$ in den Ecken schließen den Ring.
+Wenn wir $E = \alpha + x \beta$ ansetzen, dann vereinfacht sich die Eigenwert-Gleichung zu 
+\begin{equation}
+x^6 - 6 x^4 + 9x^2 - 4 = 0 \quad \text{oder} \quad x = \pm 1, \pm 1, \pm 2
+\end{equation}
+Wie man das numerisch macht sehen Sie im  
+Pluto-Skript\pluto{hueckel}.
+
+
+
+
+
+\begin{marginfigure}[20mm]
+\inputtikz{\currfiledir benzol}
+\caption{Molekülorbitale von Benzol in der Hückel-Näherung. Die Farben kodieren das Vorzeichen der Wellenfunktion. Die Anordnung entspricht der Eigen-Energie.\label{fig:MO_benzol}}
+\end{marginfigure}
+
+Da wir insgesamt 6 Elektronen in diese Orbitale einfüllen müssen, und jedes Orbital mit 2 Elektron (spin up und down) besetzen können, sind das Orbitale mit $E=\alpha + 2 \beta$ und die beiden Orbitale mit $E = \alpha + \beta$ besetzt\sidenote{$\beta < 0$}. Auch diese Orbitale tragen also zur Bindung bei, da sie die Gesamtenergie insgesamt um $8\beta$ reduzieren. Wenn man die Eigenfunktionen betrachtet\footcite{Atkins}, sieht man, dass  das Orbital mit $E=\alpha \pm 2 \beta$  über den ganzen Ring delokalisiert ist, die beiden mit $E = \alpha \pm \beta$  über zwei  Atome.
+
+
+Die Hückel-Näherung in der Molekülphysik entspricht der \emph{tight binding} Methode zur Berechnung der Bandstruktur von Elektronen  in der Festkörperphysik. In der Festkörperphysik macht man den Übergang von hier $N=6$ Atomen hin zu $N= 6 \cdot 10^{23}$ Atomen, wodurch dann  $6 \cdot 10^{23}$ eng benachbarte Zustände für Elektronen entstehen, die alle durch Wellenfunktionen ähnlich zu Abbildung \ref{fig:MO_benzol} beschrieben sind.
+
+%https://en.wikipedia.org/wiki/H%C3%BCckel_method#Delocalization_energy,_%CF%80-bond_orders,_and_%CF%80-electron_populations
+
+\begin{questions} 
+\item Vergleichen Sie die Elektronen-Eigenfunktionen von Benzol in der Hückel-Näherung mit denen eines (ggf. ringförmigen) Kastens.
+\end{questions}
+
+
 
 
 
