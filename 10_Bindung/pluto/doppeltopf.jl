@@ -132,8 +132,9 @@ begin
 		Plot(    {         thick, blue},
 	       Table(["x" => x |> ustrip, "y" =>  Vx1 |> ustrip])
 	    ),
-		 ["\\draw[dotted] (0.8, $( Es4[id]  |> ustrip) ) -- ++ (1,0);" for id in 2:3],
 		 ["\\draw[gray] (-1.1, $( Es1[id]  |> ustrip) ) -- ++ (2.2,0);" for id in 1:4],
+	 	"\\coordinate (A) at (0.8, $( Es4[2]  |> ustrip) ); ",
+	 	"\\coordinate (C) at (0.8, $( Es4[3]  |> ustrip) ); ",
 
 	
 
@@ -147,13 +148,21 @@ begin
 	    ),
 # ["\\draw[<-] (0.9, $( Es4[id]  |> ustrip) ) -- ++ (1,0);" for id in 2:3],
 		 ["\\draw[gray] (-1.1, $( Es3[id]  |> ustrip) ) -- ++ (2.2,0);" for id in 1:4],
+		 	"\\coordinate (B) at (-1.1, $( Es4[2]  |> ustrip) ); ",
+		 	"\\coordinate (D) at (-1.1, $( Es4[3]  |> ustrip) ); ",
+
 
 		
 		)
-			
+
+
+	@pgf tp = TikzPicture()
+	push!(tp, gp)
+	push!(tp, "\\draw[dashed, gray] (A) -- (B);")
+	push!(tp, "\\draw[dashed, gray] (C) -- (D);")
 	
-	 pgfsave("../doppeltopf.tikz.tex",gp; include_preamble= false)
-	gp
+	 pgfsave("../doppeltopf.tikz.tex",tp; include_preamble= false)
+	tp
 	
 end
 
