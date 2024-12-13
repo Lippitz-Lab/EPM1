@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{2. Dezember 2024}
+\renewcommand{\lastmod}{3. Dezember 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Atome im Magnetfeld}
@@ -34,16 +34,16 @@ wobei in den Zwischenschritten die Richtung des Vektors weggelassen wurde. Ein k
 \begin{equation}
     \gamma  = \frac{|\bmu|}{|\bl|} = g \, \frac{e}{2m} = g \frac{\mu_B}{\hbar} \quad .
 \end{equation}
-Dabei haben wir schon mal den Landé-g-Faktor eingeführt, der hier für den Bahndrehimpuls natürlich $g=1$ ist, und das \emph{Bohr'sche Magenton} 
+Dabei haben wir schon mal den Landé-g-Faktor eingeführt, der hier für den Bahndrehimpuls natürlich $g=1$ ist, und das \emph{Bohr'sche Magneton} 
 \begin{equation}
 \mu_B = \frac{e \hbar}{2 m_e} = 9.27 \cdot 10^{-24} \text{ J/T}     \quad .
 \end{equation}
 
 
 
-In einem äußeren Magnetfeld $\bB$ führt ein Drehimpuls eine Präzessionsbewegung aus. Es wirkt ein Drehimpuls $\btau = \bmu \times \bB$, der immer senkrecht zum Dipolmoment $\bmu$ und damit auch senkrecht zum Drehimpuls $\bl$ steht. Das ist genau wie bei einem Kreisel im Gravitationsfeld der Erde. Die Spitze des Drehimpulsvektors beschreibt also eine Kreisbahn senkrecht zu $\bB$:
+In einem äußeren Magnetfeld $\bB$ führt ein Drehimpuls eine Präzessionsbewegung aus. Es wirkt ein Drehmoment $\btau = \bmu \times \bB$, der immer senkrecht zum Dipolmoment $\bmu$ und damit auch senkrecht zum Drehimpuls $\bl$ steht. Das ist genau wie bei einem Kreisel im Gravitationsfeld der Erde. Die Spitze des Drehimpulsvektors beschreibt also eine Kreisbahn senkrecht zu $\bB$:
 \begin{equation}
-    \frac{d \bl}{dt} = - \frac{e}{2m} \, \bL \times \bB  \quad .
+    \frac{d \bl}{dt} = - \frac{e}{2m} \, \bl \times \bB  \quad .
 \end{equation}
 Die Frequenz der Kreisbewegung nennt man \emph{Lamor-Frequenz}\sidenote{nach Joseph Larmor, irischer Physiker und Mathematiker, 1857--1942}
 \begin{equation}
@@ -63,7 +63,7 @@ Bei der Einführung des Elektronenspins habe ich bisher nur behauptet, dass dies
 
 Ein Eisenzylinder bekannter Größe und Masse ($m$, $R$, $V$) ist an einem Torsionspendel der Federkonstante $k$ aufgehängt. Der Zylinder hängt in einer Spule, mit der ein äußeres Magnetfeld (anti)parallel zum Zylinder erzeugt werden kann. Zunächst wird die statische Sättigungsmagnetisierung $M_+$ und $M_-$ für beide Feldrichtungen gemessen. In der dynamischen Messung wird das Drehmoment aus der Umkehrung der Drehimpulse gemessen. Der Zylinder dreht sich und ein Lichtzeiger ermöglicht die Bestimmung der maximalen Auslenkung $\phi$. In der Praxis ist der Effekt so klein, dass $\phi$ nicht direkt gemessen werden kann, sondern eine getriebene Oszillation auf der Resonanz des Pendels verwendet wird. Dies wird hier vernachlässigt. 
 
-Durch die Umkehrung des Magenfeldes ändert sich die z-Komponente des Drehimpulses von $l_z$ zu $-l_z$. Die Änderung des Zylinder-Drehimpulses ist also 
+Durch die Umkehrung des Magnetfeldes ändert sich die z-Komponente des Drehimpulses von $l_z$ zu $-l_z$. Die Änderung des Zylinder-Drehimpulses ist also 
 \begin{equation}
     \Delta L = 2 N l_z
 \end{equation}
@@ -94,7 +94,7 @@ Die Energie eines magnetischen Moments $\bmu$ im Magnetfeld $\bB$ ist $E = - \bm
 
 Wir beginnen mit dem 'normalen' Zeeman-Effekt. Aus heutiger Sicht ist das eher ein Spezialfall. Historisch gesehen war er aber derjenige, den man gut verstehen konnte. Hier spielt der Spin der Elektronen keine Rolle. Dies ist immer dann der Fall, wenn der atomare Zustand die Quantenzahl $S=0$ hat. Wie wir wissen, kommt das manchmal vor, aber es ist nicht der Normalfall.
 
-Sei also $S=0$. Damit ist das magentische Moment nur noch durch $L$ gegeben und $\bmu = - \bL \mu_B / \hbar$ bzw. $\mu_z = - \mu_B  m_L$. Die Energieänderung $\Delta E$ ist
+Sei also $S=0$. Damit ist das magnetische Moment nur noch durch $L$ gegeben und $\bmu = - \bL \mu_B / \hbar$ bzw. $\mu_z = - \mu_B  m_L$. Die Energieänderung $\Delta E$ ist
 \begin{equation}
     \Delta E = - \bmu \cdot \bB =- \mu_z B =  \mu_B \, m_L \, B  \quad .
 \end{equation}
@@ -151,7 +151,7 @@ Wie bei der Spin-Bahn-Kopplung stellen wir Terme der Form $\bS \cdot \bJ$ bzw. $
 \begin{equation}
     \bL \cdot \bJ = \frac{\hbar^2}{2}
     \left[
-  J (J+1) + L(L+1 - S(S+1))
+  J (J+1) + L(L+1) - S(S+1)
     \right]  \quad .
 \end{equation}
 Wenn wir diesen Term und den äquivalenten für  $\bS \cdot \bJ$  oben einsetzen, dann erhalten wir (mit $g_s = 2$)

@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{10. Dezember 2024} 
+\renewcommand{\lastmod}{13. Dezember 2024} 
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Chemische Bindung in Molekülen}
@@ -19,7 +19,6 @@
 
 
 
-
 \section{Überblick}
 
 In diesem Kapitel diskutieren wir, wie es dazu kommt, dass sich Atome zu Molekülen verbinden. Dieser Effekt kann auf verschiedene Arten erklärt werden. Ein einfaches Modell sind zwei benachbarte Potentialtöpfe. In diesem Modell sind bereits viele Aspekte enthalten, die wir auch in Molekülen wiederfinden. Anschließend werden die in der Chemie gebräuchlichen Begriffe der $\sigma$- und $\pi$-Bindung eingeführt.
@@ -28,7 +27,7 @@ Wir diskutieren die Quantenmechanik der Bindung am Beispiel des \ch{H2^+}-Molek�
 
 \section{Modell: zwei Potentialtöpfe}
 \begin{figure}
- \inputtikz{\currfiledir doppeltopf}
+  \inputtikz{\currfiledir doppeltopf}
   \caption{Zwei Potentialtöpfe und die Wellenfunktionen mit den niedrigsten vier Energien. Links: kleiner Abstand, ein Molekül bildet sich. rechts: großer Abstand, die Atome bleiben ungekoppelt.}
 \end{figure}
 
@@ -178,7 +177,7 @@ Wir lösen also die Schrödingergleichung für freie Elektronen-Koordinaten, abe
 
 \subsection{Schrödinger-Gleichung und Variationsprinzip}
 
-Wir benutzen wie immer die Born-Oppenheimer-Näherung. Die Kerne bewegen sich also nicht und tragen somit auch nicht zur kinetischen Energie bei. Der Abstand des einzigen Elektrons zu den beiden Kernen sei $r_1$ und $r_2$. Der Hamilton-Operator des Gesamtsystems ist
+Wir benutzen also die Born-Oppenheimer-Näherung. Die Kerne bewegen sich nicht und tragen somit auch nicht zur kinetischen Energie bei. Der Abstand des einzigen Elektrons zu den beiden Kernen sei $r_1$ und $r_2$. Der Hamilton-Operator des Gesamtsystems ist
 \begin{equation}
 \hat{H} =  - \frac{\hbar^2}{2 m} \nabla^2 - \frac{e^2}{4 \pi \epsilon_0} \frac{1}{r_{1}} - \frac{e^2}{4 \pi \epsilon_0} \frac{1}{r_{2}}
 = \hat{H}_1  - \frac{e^2}{4 \pi \epsilon_0} \frac{1}{r_{2}} \quad ,
@@ -302,7 +301,7 @@ Zur Berechnung der Bindungsenergie nehmen wir jetzt die nur vom Kern--Kern--Abst
    &=&\frac{C \pm A}{1 \pm S} + \frac{e^2}{4 \pi \epsilon_0} \frac{1}{R}  = \frac{C' \pm A'}{1 \pm S}  \quad , \label{eq:10_E_bindung_h2p}
 \end{eqnarray}
 mit der Definition  von $C'$ und $A'$ wie in Abbildung \ref{fig:10_H2_integrale_r}.
-Numerische Rechnungen zeigen, dass das Überlapp-Integral $S$ keinen entscheidenden Einfluss auf das Ergebnis hat, wir es hier also nicht weiter betrachten müssen.\sidenote{Für H$_2^+$ lassen sich relativ einfache geschlossene Formen für die Integrale angeben, siehe \cite{McQuarrie2008} }
+Numerische Rechnungen zeigen, dass das Überlapp-Integral $S$ keinen entscheidenden Einfluss auf das Ergebnis hat, wir es hier also nicht weiter betrachten müssen.\sidenote{Für H$_2^+$ lassen sich relativ einfache geschlossene Formen für die Integrale angeben, siehe \cite{McQuarrie2008} }.
 
 Das Coulomb-Integral $C$ ist für einen  großen Kern--Kern--Abstand $R$ quasi die Energie einer Punkt-Ladung im Potential des anderen Kerns, da die Ausdehnung der Wellenfunktion $\phi_1$ vernachlässigt werden kann. Da $C$ negativ ist, geht $C'$ gegen Null. Für kleine Kern--Kern--Abstände $R$ bleibt $C$ negativ und endlich, da die potentielle Energie eines Elektrons im Wasserstoff-Atom endlich ist. Der zweite Summand von  $C'$ strebt aber mit $1/R$ gegen positiv unendlich. Die Summe der ersten beiden Terme ist also entweder Null oder positiv, so dass kein lokales Minimum zustande kommt.
 
@@ -321,7 +320,7 @@ $C' = C  + \frac{e^2}{4 \pi \epsilon_0} \frac{1 }{R}$ bzw. $A' = A   + \frac{e^2
 Den entschiedenen Beitrag liefert das Austausch-Integral $A$. Für große $R$ ist das Austausch-Integral und auch $A'$ wieder Null. Für kleine Abstände $R$ ist das Austausch-Integral sehr ähnlich dem Coulomb-Integral und endlich negativ. Dazwischen ist es in einem gewissen Bereich von $R$ negativ genug, dass bei positivem Vorzeichen in Gl. \ref{eq:10_E_bindung_h2p} die Bindungsenergie negativ wird, eine Bindung also zustande kommt.
 
 Damit ist also $\Psi_+$ das bindende Orbital. Da es aus Wasserstoff-1s-Orbitalen zusammengesetzt ist, ist es ein $\sigma$-Orbital. $\Psi_-$ ist ein anti-bindendes $\sigma^\star$-Orbital. Die Skizze zeigt die Gesamt-Energie als Funktion des Kern--Kern--Abstands $R$. Dies wird als \emph{Bindungspotential} bezeichnet. Für das bindende Orbital sind sehr kleine $R$ durch das Pauli-Verbot ausgeschlossen.
-Der Bindungsabstand $R_0$ ist der Abstand minimaler Energie. Das Potential kann in seiner Umgebung durch eine harmonisches Parabel-Potential genähert werden. Die Energie $E(R_0)$ bestimmt die Stärke de Bindung, also wieviel Energie aufgebracht werden muss, um die beiden Atome zu trennen. Der zweite Block der Vorlesung zur Spektroskopie von Molekülen beschäftigt sich eigentlich nur mit Methoden, wie die verschiedenen Parameter dieses Bindungspotentials experimentell bestimmt werden können.
+Der Bindungsabstand $R_0$ ist der Abstand minimaler Energie. Das Potential kann in seiner Umgebung durch eine harmonisches Parabel-Potential genähert werden. Die Energie $E(R_0)$ bestimmt die Stärke de Bindung, also wieviel Energie aufgebracht werden muss, um die beiden Atome zu trennen. Die nächsten beiden Kapitel zur Spektroskopie von Molekülen beschäftigt sich eigentlich nur mit Methoden, wie die verschiedenen Parameter dieses Bindungspotentials experimentell bestimmt werden können.
 
 
 
@@ -360,7 +359,7 @@ Ein Beispiel ist das Austausch-Integrals zwischen  einem s-Orbital und einem p$_
 
 \section{Anschauliche Argumente für eine chemische Bindung}
 
-Kann man anschaulich verstehen, warum das Wasserstoff-Molekül-Ion \ch{H2+}existiert, also energetisch günstiger ist als ein Wasserstoff-Atom und ein freies Proton? Aus meiner Sicht gibt es zwei bis drei Wege.
+Kann man anschaulich verstehen, warum das Wasserstoff-Molekül-Ion \ch{H2+} existiert, also energetisch günstiger ist als ein Wasserstoff-Atom und ein freies Proton? Aus meiner Sicht gibt es zwei bis drei Wege.
 
 \paragraph{Teilchen im Kasten}  Man kann das Molekül-Orbital $\Psi_+$ als Kasten für das Elektron sehen, auch wenn die Wände nicht senkrecht und unendlich hoch sind. Die Energie des niedrigsten Zustands in einem eindimensionalen  Kasten-Potential ist proportional zu $1/L$, mit der Kastenlänge $L$. Das Molekül bildet einen größeren Kasten als das Atom, darum sinkt die Energie für das Elektron und es kommt zur Bindung. Das zeigt schon die Abbildung ganz am Anfang des Kapitels.
 
