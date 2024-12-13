@@ -1,24 +1,14 @@
-\renewcommand{\lastmod}{10. September 2024}
+\renewcommand{\lastmod}{13. Dezember 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Rotation und Schwingung in Molekülen}
 
 
 
+\section{Überblick}
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\section{Ziele}
-
-\begin{itemize}
-\item Sie können die Phänomene erklären und durch einfache Modelle beschreiben, die in den  dielektrischen Eigenschaften von Molekülen zu finden sind, beispielsweise diese dielektrische Funktion von Wasser (siehe auch Pluto-Skript\pluto{water}).
-
-
-\end{itemize}
+\section{I Beispiel: Wasserdampf}
 
 \begin{figure}
 \inputtikz{\currfiledir fig_water}
@@ -31,9 +21,8 @@
 % http://hdl.handle.net/10355/11599 
 \end{figure}
 
-\section{Wie misst man das ?}
 
-Das oben gezeigte Spektrum überdeckt mehr als 6 Größenordnungen im Frequenzbereich und ist mit einem einzigen Gerät nicht  messbar. Die niedrigsten Frequenzen liegen im Bereich von Mikrowellen, benutzt also Techniken aus dem Radio- und Radar-Bereich. Der mittlere Frequenzbereich ist infrarotes Licht, der hohe sichtbares bis ultraviolettes Licht. Wir werden die verschiedenen spektroskopischen Methoden in den folgenden Kapiteln besprechen.
+Das in Abbildung \ref{fig:diel_water}  gezeigte Spektrum von Wasserdampf überdeckt mehr als 6 Größenordnungen im Frequenzbereich und ist mit einem einzigen Gerät nicht  messbar. Die niedrigsten Frequenzen liegen im Bereich von Mikrowellen, benutzt also Techniken aus dem Radio- und Radar-Bereich. Der mittlere Frequenzbereich ist infrarotes Licht, der hohe sichtbares bis ultraviolettes Licht. Wir werden die verschiedenen spektroskopischen Methoden in diesem und dem nächsten  Kapitel besprechen.
 
 
 Die Wellenzahl $\bar{\nu} = 1 / \lambda =\nu / c =  E / (h c)$ (eigentlich immer angegeben in der Einheit 1/cm) ist eine Maß für die  \emph{Frequenz} oder \emph{Energie}. Dieses Maß in der Spektroskopie sehr weit verbreitet ist, weil es proportional zur Energie ist (und damit das Reziproke der Wellenlänge umgeht), aber gleichzeitig nahe an der praktischen, intuitiven Größe 'Wellenlänge'.
@@ -44,25 +33,38 @@ Die Wellenzahl $\bar{\nu} = 1 / \lambda =\nu / c =  E / (h c)$ (eigentlich immer
 % \item Wo in  Abbildung  \ref{fig:diel_water} ist der sichtbare Spektralbereich, wo die Frequenz von Radio Mainwelle?
 % \end{questions}
 
+Wie kommt es aber nun zu diesem Spektrum? Wenn wir ein Stück dielektrische Materie in einen Plattenkondensator halten, dann bewegt das elektrische Feld $\mathbf{E}$ des Kondensators die Ladungsträger der Ladung $q$ in der Materie um  die Distanz $\Delta  \mathbf{x}$ von der neutralisierenden Gegenladung $-q$ weg. Dadurch entsteht dadurch ein Dipolmoment $\mathbf{p} = q \Delta \mathbf{x}$. Oft werden Dipolmomente in der Einheit Debye angegeben ($1 D = 3{,}33564 \cdot 10^{-30}$ C  m). Ein Elektron im Abstand von 1~\AA\ von einem Proton produziert ein Dipolmoment von etwa 4.8~D. Bei $N$ Molekülen (Ladungsträgerpaaren) pro Volumen ergibt sich eine makroskopische Polarisation $\mathbf{P}$ zu
+\begin{equation}
+\mathbf{P} = N \, q \, \Delta \mathbf{x} = f(\mathbf{E}) \quad .
+\end{equation}
+Der Zusammenhang zwischen angelegtem externen Feld $\mathbf{E}$ und resultierende 
+Polarisation $\mathbf{P}$ hängt ganz entscheidend vom mikroskopischen Aufbau der Materie ab. Alle Methoden der Spektroskopie vermessen diesen Zusammenhang. Oft wird er als 
+\begin{equation}
+ \mathbf{P} =  (\epsilon - 1) \, \epsilon_0 \, \mathbf{E} = \epsilon_0 \,\chi \, \mathbf{E} 
+ \label{eq:diel_p_lin}
+\end{equation}
+geschrieben, mit der relativen Permittivität\sidenote{Vorsicht, hier gibt es verschiedene Schreibweisen. Ich benutze die Form $D = \epsilon \epsilon_0 E$, mit einheiten-freiem $\epsilon$. Manchmal findet man $\epsilon_0 \epsilon_r$, manchmal auch nur $\epsilon$.} $\epsilon$ bzw. der elektrischen Suszeptibilität $\chi$. 
 
-\section{Frequenzabhängigkeit der dielektrische 'Konstanten' }
- 
-Bisher haben wir nur statische elektrische Felder betrachtet. Nun wollen wir auch Licht, also elektromagnetische Felder bei  höheren, optischen Frequenzen  betrachten. Die dielektrische 'Konstante' $\epsilon$ ist dann nicht mehr konstant, sondern eine dielektrische Funktion der Frequenz, also $\epsilon(\nu)$. Welche Frequenzen sind 'hoch'? Bei welchen Frequenzen erwarten wir, dass Verschiebungs- und Orientierungspolarisation nicht mehr mit kommen?
 
-\paragraph{Orientierungspolarisation} Die Orientierung des Moleküls im Feld ist eine Drehbewegung. Diese Bewegungen werden bei der Rotationsspektroskopie im nächsten Kapitel detaillierter behandelt werden. Hier greifen wir vor. Der Drehimpuls $L$ ist in der Quantenmechanik quantisiert. Sei
+Die Aussage von Abbildung \ref{fig:diel_water} ist, dass die  dielektrische 'Konstante' $\epsilon$   nicht  konstant ist, sondern eine dielektrische Funktion der Frequenz, also $\epsilon(\nu)$. Verschiedene Prozesse tragen zur Frequenzabhängigkeit bei:
+
+
+
+
+\paragraph{Orientierungspolarisation} Die Orientierung des Moleküls im Feld ist eine Drehbewegung. Diese Bewegungen werden bei der \emph{Rotationsspektroskopie} unten detaillierter behandelt werden. Hier greifen wir vor. Der Drehimpuls $L$ ist in der Quantenmechanik quantisiert. Sei
 \begin{equation}
 1 \hbar = L = J \, \omega = m_\text{red} \, R^2 \, \omega
 \end{equation}
-mit dem Trägheitsmomnet $J$, der Kreisfrequenz $\omega$ und der reduzierten Masse 
+mit dem Trägheitsmoment $J$, der Kreisfrequenz $\omega$ und der reduzierten Masse 
  $m_\text{red}$ sowie dem Bindungsabstand $R$ in einem angenommenen zwei-atomigen Molekül. Für das Molekül HCl gilt $R = 1.28$~\AA\ und $m_\text{red} \approx m_H = 1$~u. Damit ergibt sich eine Frequenz $\nu = 628$ GHz, also im Mikrowellen-Bereich. Oft wird dies auch geschrieben als Wellenzahl $\bar{\nu} = 1 /\lambda \approx 10$~cm$^{-1}$.
  
-\paragraph{Verschiebung der Kerne} Bei der Verschiebungspolarisation können sich zunächst einmal die Kerne bzw. Ionen gegeneinander bewegen. Dies ist Thema der Schwingungsspektroskopie, und wieder greifen wir vor. Zwei Atome seien im Gleichgewicht  im Bindungs-Abstand $R_0$. Wir nehmen an, die Rückstellkraft in diesem Gleichgewicht sein allein die Coulomb-Kraft des einen Kerns auf den anderen, also 
+\paragraph{Verschiebung der Kerne} Bei der Verschiebungspolarisation können sich zunächst einmal die Kerne bzw. Ionen gegeneinander bewegen. Dies ist Thema der \emph{Schwingungsspektroskopie}, und wieder greifen wir vor. Zwei Atome seien im Gleichgewicht  im Bindungs-Abstand $R_0$. Wir nehmen an, die Rückstellkraft in diesem Gleichgewicht sein allein die Coulomb-Kraft des einen Kerns auf den anderen, also 
 \begin{equation}
 F = \frac{1}{4 \pi \epsilon_0} \, \frac{e^2}{R^2} \quad .
 \end{equation}
 Die Federkonstante $k$ ist dann die Ableitung dieser Kraft nach $R$. Für das Molekül HCl mit einem Gleichgewichts-Abstand $R_0 = 1.2$~\AA\ ergibt sich $k = 220$~N/m. Die Eigenfrequenz der Schwingung  ist $\nu = (1/2\pi) \, \sqrt{k/m_\text{red}} = 58$~THz mit der reduzierten Masse von oben. Dies entspricht einer Wellenlänge von $\lambda = 5.12$~\textmu m, also im Infraroten, und einer Wellenzahl $\bar{\nu} = 2000$~cm$^{-1}$.
 
-\paragraph{Verschiebung der Elektronenwolke} Wenn es zu einer Resonanz in der Verschiebung der Elektronenwolke kommt, dann entspricht dies einer elektronischen Anregung, also einem quantenmechanischen Übergang zwischen zwei Elektronen-Orbitalen. Auch dies wird uns in einem der folgenden Kapitel beschäftigen. Wir schätzen hier die Übergangsenergie analog zu atomaren Übergängen ab
+\paragraph{Verschiebung der Elektronenwolke} Wenn es zu einer Resonanz in der Verschiebung der Elektronenwolke kommt, dann entspricht dies einer \emph{elektronischen Anregung}, also einem quantenmechanischen Übergang zwischen zwei Elektronen-Orbitalen. Auch dies wird uns  im nächsten Kapitel beschäftigen. Wir schätzen hier die Übergangsenergie analog zu atomaren Übergängen ab
 \begin{equation}
   h \nu = hc \, R_H \, \left( \frac{1}{n^2} - \frac{1}{m^2} \right) \quad .
 \end{equation}
@@ -127,48 +129,18 @@ Wenn in einem Medium mehrere Resonanzen vorhanden sind, so addieren sich die Sus
 Für Fensterglas liegt die elektronische Resonanz im Ultravioletten. Sichtbares Licht ist also im Frequenzbereich etwas unterhalb dieser Resonanz. Die sogenannte 'normale' Dispersion des Brechungsindex (ansteigend mit fallender Wellenlänge / steigender Frequenz) rührt gerade von dem Anstieg der dielektrischen Funktion zur elektronischen Resonanz hin her.
 
 
-% \begin{questions} 
-% \item Stellen Sie analog zu Abbildung \ref{fig:diel_lorentz} die Frequenzabhängigkeit der Komponenten des Brechungsindexes, also  von $n$ und $k$ dar.
-
-% \item Nähern sie den Real- und Imaginär-Teil von $\epsilon$ in der Nähe der Resonanz bei  $\omega_0$ als Funktion von $\Delta \omega = \omega - \omega_0$. Im Fall des Realteils ist nur der Bereich $| \Delta \omega | \gg \gamma/m$ interessant.
-% \end{questions}
-
-% \section{Die Kramers-Kronig-Relationen}
-
-% Wir haben bisher den Zusammenhang zwischen dem angelegten externen Feld $E(t)$ und der entstehenden Polarisation $P(t)$ eigentlich nur für 'monochromatische' Felder der Art $\exp(i \omega t)$ diskutiert, also für eine genau bestimmte Frequenz $\omega$:
-% \begin{equation}
-% P(t) = \chi(\omega) \epsilon_0 E(t) \quad \text{für} \quad E(t) = E_0 e^{i \omega t} \quad .
-% \end{equation}
-% Daraus ergab sich dann die Frequenzabhängigkeit von $\chi(\omega)$ Wir können dies verallgemeinern für einen beliebigen zeitlichen Verlauf des Feldes  $E(t)$. Die Suszeptibilität ist nämlich die  \emph{Impulsantwort} des Materials, sozusagen das Gedächtnis:
-% \begin{equation}
-% P(t) = \epsilon_0 \int_{-\infty}^{+\infty} \chi( \Delta t = t - t') \, E(t') \, dt' \quad \text{für} \quad E(t) = \text{beliebig} \quad .
-% \end{equation}
-% Die Polarisation $P$ jetzt, also zum Zeitpunkt $t$ hängt vom elektrischen Feld zu allen anderen Zeiten $t'$ ab. Wie stark die Felder eingehen, hängt nur vom zeitlichen Abstand $\Delta t$ ab. Die Kausalität verlangt, dass die Polarisation 'jetzt' nicht von Feldamplituden in der Zukunft abhängen darf. $\chi( \Delta t = t - t' < 0) $ muss daher Null sein. Damit ist die Suszeptibilität $\chi( \Delta t ) $ zwar komplexwertig, aber über die eine Hälfte des Zeitstrahls bekannt und zu Null festgelegt. Dies hat Konsequenzen für die Fouriertransformation, also für $\chi(\omega)$.
-
-% Diese Konsequenzen lassen sich mit Hilfe der Funktionentheorie herleiten\sidenote{siehe auch Anhang A von \cite{Yariv1989}} und sind die Kramers-Kronig-Relationen. Es besteht folgender Zusammenhang zwischen Real- ($\chi'$) und Imaginärteil  ($\chi''$) der Suszeptibilität, wenn dieser der Kausalität gehorcht:
-% \begin{align}
-%  \chi'(\nu) = & \frac{2}{\pi} \, CH \int_0^\infty \frac{s  \, \chi''(s)}{s^2 - \nu^2} \, ds \\
-%  \chi''(\nu) = & \frac{2}{\pi}\,  CH \int_0^\infty \frac{\nu \, \chi'(s)}{\nu^2 - s^2} \, ds  \quad .
-%  \label{eq:diel_KK}
-% \end{align}
-% $CH$ kennzeichnet dabei das Cauchy'sche Hauptwertintegral. Ähnliche Beziehung existieren auch für $\chi(\omega)$ und $\epsilon(\omega)$ sowie für alle anderen Größen, die der Kausalität unterliegen.
-
-% Es reicht also im Prinzip aus, den Realteil der Suszeptibilität $\chi(\omega)$ zu messen, um daraus den Imaginärteil und somit die komplette komplexwertige Funktion zu bestimmen. Leider laufen die Integrale in Gl~\ref{eq:diel_KK} aber über den ganzen Frequenzbereich von Null bis Unendlich, der experimentell natürlich nicht zugänglich ist. Man kann die Kramers-Kronig-Relationen trotzdem sinnvoll benutzen, indem man über den Verlauf außerhalb des gemessenen Intervalls passende Annahmen macht.
-
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\section{Rotation von Molekülen}
+\section{II Rotation von Molekülen}
 
 
 
 
 \begin{figure}
 \inputtikz{\currfiledir fig_hcl}
-\caption{Mikrowellen-Transmissionspektrum durch  HCl Gas  (\cite{Li_2011_hcl} via \href{https://hitran.org}{hitran.org}).
+\caption{Mikrowellen-Transmissionspektrum durch  \ch{HCl}-Gas  (\cite{Li_2011_hcl} via \href{https://hitran.org}{hitran.org}).
 \label{fig:rot_hcl}}
 \end{figure}
 
@@ -220,16 +192,16 @@ mit der Drehimpuls-Quantenzahl $J = 0, 1, \dots$. Die Rotationsenergie ist damit
 Dies sind die Energien der \emph{Zustände} des Systems, noch nicht die Lage der Peaks im Spektrum. Bei der Absorption eines Mikrowellen- oder THz-Photons ändert sich der Zustand. Wir suchen also die Energien der \emph{Übergänge} zwischen Zuständen, um die Lage der Peaks im Absorptionsspektrum zu beschreien.
 
 
-\begin{questions} 
-\item Um welche Achse dreht man die Hantel in diesem Modell?
-\end{questions}
+% \begin{questions} 
+% \item Um welche Achse dreht man die Hantel in diesem Modell?
+% \end{questions}
 
 
 \section{Auswahlregeln bei Rotationsübergängen}
 
 Zwischen welchen Zuständen können unter welchen Umständen Übergänge durch Absorption (oder Emission) eines Photons stattfinden? Dies beschreiben  die Auswahlregeln.
 
-Zunächst muss die Rotationsbewegung überhaupt an das elektromagnetische Feld koppeln. Dies verlangt  ein statisches, permanentes Dipolmoment des Moleküls. Klassisch hätte man so einen oszillierenden Dipol, und diese Bedingung bleibt auch in der Quantenmechanik erhalten. Damit sind homonukleare Moleküle (z.B. \ch{H2}), symmetrische lineare Moleküle (z.B. \ch{CO2}) und hoch-symmetrische Moleküle (z.B. \ch{CCl4}) ausgeschlossen. Dieser Ausschluss kann, wie wir im folgenden Kapitel sehen werden, durch eine Schwingung des Moleküls wieder aufgehoben werden.
+Zunächst muss die Rotationsbewegung überhaupt an das elektromagnetische Feld koppeln. Dies verlangt  ein statisches, permanentes Dipolmoment des Moleküls. Klassisch hätte man so einen oszillierenden Dipol, und diese Bedingung bleibt auch in der Quantenmechanik erhalten. Damit sind homonukleare Moleküle (z.B. \ch{H2}), symmetrische lineare Moleküle (z.B. \ch{CO2}) und hoch-symmetrische Moleküle (z.B. \ch{CCl4}) ausgeschlossen. Dieser Ausschluss kann, wie wir unten (XX?) sehen werden, durch eine Schwingung des Moleküls wieder aufgehoben werden.
 
 Wenn optische Rotationsübergänge im Prinzip möglich sind, dann muss noch die Drehimpuls-Erhaltung erfüllt sein. Die Summe des Drehimpulses von Molekül und Photon muss erhalten bleiben. Der Drehimpuls des Photons ist $1 \hbar$. Bei der Absorption eines Photons muss sich also $J$ erhöhen, bei der Emission erniedrigen.\sidenote{Glücklicherweise passt das mit der Änderung der Energie zusammen.} Damit ergibt sich als Auswahlregel
 \begin{equation}
@@ -286,12 +258,12 @@ Die Besetzung beeinflusst wesentlich die Amplitude der Linien. Um sie wirklich z
 
 
 
-\section{Vibrationsspektren von Molekülen }
+\section{III Vibration von Molekülen }
 
 
 \begin{figure}
 \inputtikz{\currfiledir fig_hcn-single}
-\caption{Infrarot-Absorptionsspektrum von HCN Gas  (\cite{Maki_1995_HCN} via \href{https://hitran.org}{hitran.org}).
+\caption{Infrarot-Absorptionsspektrum von \ch{HCN}-Gas  (\cite{Maki_1995_HCN} via \href{https://hitran.org}{hitran.org}).
 \label{fig:vib_hcn}}
 \end{figure}
 
@@ -299,86 +271,25 @@ Die Besetzung beeinflusst wesentlich die Amplitude der Linien. Um sie wirklich z
 %https://webbook.nist.gov/cgi/cbook.cgi?ID=C74884&Type=IR-SPEC&Index=1#IR-SPEC
 
 
-Das Bindungspotential eines Moleküls kann in der Nähe des Minimums, also um den Gleichgewichts-Bindungsabstand $R_0$ herum, harmonisch genähert werden.
-Wie wir in Kapitel \ref{chap:4_diel} schon abgeschätzt hatten, hat die Federkonstante dieses harmonischen Potentials einen Wert von etwa $k \approx 200$~N/m. Damit ergibt sich eine Eigenfrequenz des harmonischen Oszillators von $\omega = \sqrt{k / m}$, die einer optischen Wellenlänge von etwa $\lambda \approx 5$~\textmu m oder einer Wellenzahl $\bar{\nu} \approx 2000$~cm$^{-1}$ entspricht. 
 
 Absorptionsspektren in diesen (Nah-)Infraroten Wellenlängenbereich misst man beispielsweise durch Fourier-Transformations-Infrarot-Spektroskopie (FTIR). Als Lichtquelle wird oft ein breitbandiger Infrarotstrahler benutzt, der aus einem Silizium-Carbid-Stab (Globar) besteht, durch den ein Strom fließt und so heizt. Das durch die Probe transmittierte Licht wird durch ein Michelson-Interferometer geleitet und mit einem infrarot-  also Wärme-empfindlichen Detektor (Bolometer) gemessen. Dieser Detektor selbst kann nur die Gesamt-Intensität messen. Das Michelson-Interferometer wirkt aber als spektraler Filter mit einer sinusförmigen Transmission. Die Periode der spektralen Modulation wird über den Armlängen-Unterschied eingestellt und kontinuierlich variiert. Aus der Fourier-Transformation der gemessenen Intensität als Funktion des Armlängen-Unterschieds erhält man das Spektrum des Infrarot-Lichts, also Intensität als Funktion der Wellenlänge.
 
 
-% \begin{questions} 
-% \item Bei welcher Wellenzahl $\bar{\nu}$ liegt das Maximum des Sonnenspektrums?
-% \end{questions}
-
-\section{Born-Oppenheimer-Näherung}
-
-In der Schwingungsspektroskopie beobachtet man, dass sich im Molekül der Kern--Kern--Abstand  periodisch ändert, aber nicht durch irgendeine Art zeitaufgelöste Messung, sondern durch den Einfluss dieser Bewegung auf das Absorptionsspektrum. Das ist aber zunächst durch die Elektronen bestimmt, nicht die Kerne. Wir müssen in diesem Kapitel also sehr genau die Kerne und die Elektronen einerseits separieren und andererseits in ihrer Wechselwirkung betrachten. Dazu starten wir noch einmal mit der Born-Oppenheimer-Näherung, nun etwas formalisierter.
-
-Das Molekül habe $N$ Elektronen der Masse $m$ am Ort $\mathbf{r}_i$ und $K$ Kerne des Masse $M_k$ am Ort $\mathbf{R}_k$. Die Vektoren $\mathbf{r}$ und $\mathbf{R}$ (\emph{ohne} Index) fassen \emph{alle} Koordinaten aller Elektronen bzw. Kerne zusammen, haben also eine sehr hohe Dimension, vereinfachen aber die Schreibweise. Die Schrödinger-Gleichung ist dann
-\begin{equation}
- \hat{H} \, \Psi (\mathbf{r}, \mathbf{R}) = E \, \Psi (\mathbf{r}, \mathbf{R}) \quad \text{mit} \quad
-  \hat{H} =  \hat{T}_e + \hat{T}_k + V (\mathbf{r}, \mathbf{R})  \quad .
-  \label{eq:vib_SG_allg}
-\end{equation}
-Die Operatoren $\hat{T}_{e,k}$ liefern die kinetische Energie und  $ V (\mathbf{r}, \mathbf{R}) $ \emph{alle} Coulomb-Potentiale, der Elektronen und Kerne untereinander und miteinander.
-
-Falls die Kerne ruhen, also $\mathbf{R} = const.$, dann ist $\hat{T}_k = 0$. Wir betrachten jetzt die Bewegung der Kerne als Störung auf den Fall der ruhenden Kerne, also
-\begin{equation}
- \hat{H} = \hat{H}_0 + \hat{H}' = \left( \hat{T}_e + V \right) +  \hat{T}_k \quad .
-\end{equation}
-Im ungestörten Fall lösen wir die Schrödinger-Gleichung
-\begin{equation}
-\hat{H}_0 \, \Phi_n^{el}  (\mathbf{r}, \mathbf{R})  = E_n^{(0)}  (\mathbf{R})  \, \Phi_n^{el}  (\mathbf{r}, \mathbf{R})   \quad .  \label{eq:vib_SG_elec}
-\end{equation}
-In dieser Schreibweise ist $\mathbf{R}$ nur ein Parameter, der die stillstehende Kern-Positionen beschreibt. Weder differenzieren noch integrieren wir nach  $\mathbf{R}$. Die Lösungen der Schrödinger-Gleichung werden durch Quantenzahlen beschrieben, die hier alle in $n$ zusammengefasst sind. Die Eigenfunktionen $\Phi_n^{el}  (\mathbf{r}, \mathbf{R}) $ bilden ein vollständiges Orthonormalsystem, also können wir die eigentlich gesuchten $\Psi (\mathbf{r}, \mathbf{R})$ nach diesen entwickeln
-\begin{equation}
-\Psi (\mathbf{r}, \mathbf{R}) = \sum_m \chi_m (\mathbf{R}) \,\Phi_m^{el}  (\mathbf{r}, \mathbf{R})  \quad .
-\end{equation}
-Die Koeffizienten $\chi_m (\mathbf{R}) $ sind die Kernwellenfunktionen. Zunächst setzen wir aber diesen Ansatz in die vollständige Schrödinger-Gleichung   \ref{eq:vib_SG_allg} ein und erhalten nach kurzer Rechnung\sidenote{siehe beispielsweise Kap. 2.1.2 in  \cite{Demtröder_molekuelphysik}}
-\begin{equation}
-\hat{H}' \, \chi_n (\mathbf{R}) + \sum_m \, c_{n m} \, \chi_m (\mathbf{R}) = \left( E - E_n^{(0)}(\mathbf{R})  \right) \chi_n (\mathbf{R})   \quad . \label{eq:vib_SG_kern}
-\end{equation}
-Die Kopplung der Kern-Wellenfunktionen $\chi_i (\mathbf{R}) $ ($i = m,n$) untereinander wird durch die Koeffizienten $c_{nm}$ beschrieben. Diese hängen von den Elektronenwellenfunktionen $\Phi_i^{el}  (\mathbf{r}, \mathbf{R}) $   ab. Die genaue Form von $c_{nm}$  wird hier nicht benötigt. Die beiden Gleichungen   \ref{eq:vib_SG_elec} und   \ref{eq:vib_SG_kern} bilden also ein gekoppeltes Gleichungssystem.
-
-Die Born-Oppenheimer-Näherung entkoppelt dieses Gleichungssystem, in sie die Annahme macht
-\begin{equation}
-c_{n m } = 0 \quad .
-\end{equation}
-Damit bleibt Gleichung \ref{eq:vib_SG_elec} unverändert und Gl. \ref{eq:vib_SG_kern} vereinfacht sich:
-\begin{align}
-\left( \hat{T}_e + V (\mathbf{r}, \mathbf{R}) \right) \, \Phi_n^{el}  (\mathbf{r}, \mathbf{R})  = &  \, E_n^{(0)}  (\mathbf{R})  \, \Phi_n^{el}  (\mathbf{r}, \mathbf{R})    \label{eq:vib_BO_el}\\
-\left( \hat{T}_k + E_n^{(0)}(\mathbf{R})  \right) \, \chi_n (\mathbf{R}) =  &   \, E  \, \chi_n (\mathbf{R})  \quad .  \label{eq:vib_BO_kern}
-\end{align}
-Dabei ist in Gl. \ref{eq:vib_BO_el} die Kern-Position $\mathbf{R}$ nur als Parameter zu verstehen, in Gl. \ref{eq:vib_BO_kern} aber als Variable. Der Energie-Eigenwert der elektronischen Gleichung \ref{eq:vib_BO_el}  bildet das Potential für die Kernbewegung in Gleichung  \ref{eq:vib_BO_kern}, da er ja von der Position der Kerne abhängt. Die Elektronen wiederum bewegen sich in ihrem eigenen Coulomb-Potential und in dem der stillstehenden Kerne, beides in 
-$V (\mathbf{r}, \mathbf{R}) $ zusammengefasst.
-
-
-\section{Kernwellenfunktionen für zweiatomige Moleküle}
-
-Wenn das Molekül nur aus zwei Atomen besteht, dann vereinfacht sich die Schrödinger-Gleichung für die Kernwellenfunktionen in der Born-Oppenheimer-Näherung beträchtlich. Wir starten von Gleichung \ref{eq:vib_BO_kern} und gehen in das Schwerpunktsystem der beiden Kerne. In die kinetische Energie $\hat{T}_k$ geht dann nur noch die reduzierte Masse und die Relativbewegung der Kerne ein, also ist $\mathbf{R}$ nur noch ein gewöhnlicher dreidimensionaler Vektor. Im Potential $ E_n^{(0)}(\mathbf{R})  $, das durch die Elektronen gebildet wird, geht sogar nur noch der Abstand der Kerne, also $R = |\mathbf{R}| $ ein, da die Orientierung der Kern--Kern--Achse für die Elektronen unwichtig ist. 
-
-Alles zusammen ist dies also die Bewegung eines einzelnen Teilchens in einem sphärischen Potential, und damit formal äquivalent zum Wasserstoff-Atom, wenn auch mit einer anderen Potentialform. Analog zum Wasserstoff-Atom schreiben wir die Wellenfunktion $\chi$ als
-\begin{equation}
- \chi (R, \theta, \phi) = \frac{U(R)}{R} \, Y_{l m} (\theta, \phi) \quad .
-\end{equation}
-Die Kugelflächenfunktionen $ Y_{l m} (\theta, \phi)$ geben die Winkelverteilung der Kernwellenfunktion an, die aus der im letzten Kapitel behandelten Rotation des Moleküls stammt. Wenn man dies alles in die Schrödinger-Gleichung für die Kernwellenfunktion einsetzt, vereinfacht sich diese zu
-\begin{equation}
- \frac{d^2}{d R^2} U(R) + \frac{2 \mu }{\hbar^2} \left( E - E_n^{(0)}(R) - \frac{\hbar^2 J (J+1)}{2 \mu R^2} \right) U(R) = 0 \quad .
- \label{eq:vib_zweiatom_U}
-\end{equation}
-Der letzte Term in der Klammer ist die Rotationsenergie der Kerne bei  Drehimpuls-Quantenzahl $J$ und reduzierter Masse $\mu$. Die Form des Bindungspotentials $E_n^{(0)}(R)$ bestimmt also $U(R)$ und damit die Kernwellenfunktion $\chi$.
-
 
 \section{Harmonische Näherung des Bindungspotentials}
 
-In der Nähe des Minimums, rund um den Gleichgewichtsabstand $R_0$ lässt sich das Bindungspotential sicherlich als harmonisches Potential nähern. Wir machen also die Annahme\sidenote{immer noch im zweiatomigen Molekül}
+\begin{marginfigure}
+\inputtikz{\currfiledir vib_state_wf}
+\caption{Die Eigenfunktionen des quantenmechanischen harmonischen Oszillators für $\nu = 0 \dots 5$ (dünne Linie) und die Aufenthaltswahrscheinlichkeit (gefüllte Kurven). Die Position in y-Richtung entspricht der Eigen-Energie des Zustands auf der Skala des parabelförmigen Bindungspotentials im Hintergrund.
+\label{fig:vib_1d_WF}}
+\end{marginfigure}
+
+In der Nähe des Minimums, rund um den Gleichgewichtsabstand $R_0$ lässt sich das Bindungspotential sicherlich als harmonisches Potential im Kern-Kern-Abstand $R$ nähern. Wir machen also die Annahme für das Bindungspotential $U(R)$
 \begin{equation}
-E_n^{(0)}(R)  = \frac{1}{2} \, k \, (R - R_0 )^2 = \frac{1}{2} \, k \, r^2 
+U(R)  = \frac{1}{2} \, k \, (R - R_0 )^2 = \frac{1}{2} \, k \, r^2 
 \end{equation}
-mit der Federkonstanten $k = \mu \, \omega_0^2$ und der Auslenkung $r$ aus dem Gleichgewicht. Weiterhin nehmen wir zunächst einmal an, dass das Molekül nicht rotiert, also $J=0$.  Damit wird Gl.\ref{eq:vib_zweiatom_U} zu
-\begin{equation}
- \frac{d^2}{d \xi^2} U(\xi) + \left( \frac{2 E }{\hbar \omega_0}  - \xi^2  \right) U(\xi) = 0 \quad \text{mit} \quad \xi =  r \, \sqrt{\frac{\mu \omega_0}{\hbar}  } \quad .
-\end{equation}
-Diese Differentialgleichung wird gelöst durch die Schwingungs-Wellenfunktion des eindimensionalen harmonischen Oszillators
+mit der Federkonstanten $k = \mu \, \omega_0^2$ und der Auslenkung $r$ aus dem Gleichgewicht. Die Wellenfunktionen und Energie-Eigenwerte in solch einem Potential hatten wir uns schon im den einführenden Kapiteln zur Quantenmechanik angeschaut.
+Die Schwingungs-Wellenfunktion des eindimensionalen harmonischen Oszillators sind
 \begin{equation}
 \Psi_\text{vib} =  U(\xi) = \left(\frac{\mu \omega_0}{\pi \hbar} \right)^{\frac{1}{4}} \,
  H_\nu(\xi) \, e^{- \xi^2 /2}
@@ -388,36 +299,23 @@ Die Energie-Eigenwerte sind
 \begin{equation}
 E_\nu = \hbar \omega_0 \left(\nu + \frac{1}{2} \right) \quad \text{mit} \quad \nu = 0, 1, 2 \dots
 \end{equation}
-und $\omega_0 = \sqrt{k / \mu}$. Die Aufenthaltswahrscheinlichkeit der Wellenfunktionen $\Psi_\text{vib}(r)$ fällt exponentiell wie $e^{-r^2}$ ab, falls $r \gg \sqrt{\hbar / \mu \omega_0}$. Die Hermite'schen Polynome $H_\nu(\xi)$ haben $\nu$ Nullstellen. Dem Korrespondenzprinzip gehorchend ist die 
-Aufenthaltswahrscheinlichkeit an den Umkehrpunkten des Oszillators besonders hoch, da dort klassisch ja die Geschwindigkeit Null ist.
+und $\omega_0 = \sqrt{k / \mu}$.
 
-
-\begin{marginfigure}
-\inputtikz{\currfiledir vib_state_wf}
-\caption{Die Eigenfunktionen des quantenmechanischen harmonischen Oszillators für $\nu = 0 \dots 5$ (dünne Linie) und die Aufenthaltswahrscheinlichkeit (gefüllte Kurven). Die Position in y-Richtung entspricht der Eigen-Energie des Zustands auf der Skala des parabelförmigen Bindungspotentials im Hintergrund.
-\label{fig:vib_1d_WF}}
-\end{marginfigure}
 
 
 \section{Auswahlregeln für reine Schwingungsübergänge}
 
 Lässt sich die Schwingung eines Moleküls (eigentlich der Kerne entlang der Bindungsachse) durch die Absorption eines Photons anregen? Oder andersherum: hinterlassen die Schwingungs-Energie-Eigenwerte $E_\nu$ von oben einen beobachtbaren Effekt? Hier wollen wir uns darauf beschränken, \emph{nur} die Schwingung anzuregen. Weiter unten werden wir Kombinationen mit anderen Anregungen (Rotation, elektronisch) diskutieren.
 
-Um diese Fragen zu beantworten, hilft Fermis Goldene Regel zur Übergangsrate $\Gamma_{i \rightarrow f}$ vom Zustand $\ket{i}$ in den Zustand $\ket{f}$:
-\begin{equation}
-\Gamma_{i \rightarrow f} = \frac{2 \pi}{\hbar} \, |\braket{f | \hat{H}' | i} |^2 \, \rho(E_\textit{final}) \quad ,
-\end{equation}
-wobei $\hat{H}'$ den Stör-Operator beschreibt, der erst den Übergang verursacht, und $ \rho(E_\textit{final})$ die Dichte der Zustände, die erreicht werden können. Für optische Übergänge ist der Stör-Operator der Dipol-Operator, also
-\begin{equation}
-\hat{H}' = \hat{\mu} \cdot \mathbf{E} \quad ,
-\end{equation}
-wobei hier $\mathbf{E}$ das elektromagnetische Feld am Ort des Moleküls beschreibt. Das Übergangsdipolmoment $\mathbf{D}_{fi}$ ist dann 
+Um diese Fragen zu beantworten, brauchen wir wie im Kapitel zur Wechselwirkung mit Licht das  Übergangsdipolmoment $\mathbf{D}_{fi}$ 
 \begin{equation}
  \mathbf{D}_{fi} = \braket{f | \hat{\mu} | i} 
 \end{equation}
-und die Auswahlregeln beantworten die Frage, unter welchen Umständen dieser Term nicht Null ist und somit $\Gamma_{i \rightarrow f} $ nicht Null ist. Die absolute Größe interessiert uns hier also nicht so sehr.
+und dem Dipol-Operator $\hat{\mu}= e \hat{br}$. Die Auswahlregeln beantworten die Frage, unter welchen Umständen dieser Term nicht Null ist. Die absolute Größe interessiert uns hier also nicht so sehr.
 
-In der vollständigsten Form bestehen die Wellenfunktionen aus dem elektronischen Anteil $ \Phi_n^{el}  (\mathbf{r}, \mathbf{R})  $, dem Kern-Rotations-Anteil $ Y_{l m} (\theta, \phi)$ und dem radialen Kern-Anteil  $\Psi_\text{vib}$. Da wir nur an reinen Schwingungs-Anregungen interessiert sind, reicht es hier aus, diesen letzten Anteil zu betrachten. Genauso besteht der Dipol-Operator eigentlich aus der Summe über alle Ladungen mal deren Ortsvektor. Auch dies vereinfacht sich zu dem Radialanteil der Kernladungen $d_k(R)$. Weiterhin nähern wir den Operator in einer Taylor-Reihe um $R \approx R_0$ und behalten nur das erste Glied. Die vollständige Rechnung findet sich in Kapitel 4.2 von \cite{Demtröder_molekuelphysik}. Dabei verschwindet auch das nullte Glied der Taylor-Reihe, das das statische Dipolmoment beschreibt. Man findet schließlich, dass das Übergangsmatrixelement gegeben ist durch
+
+Dazu brauchen wir eigentlich  die Kern-Wellenfunktionen, die also die Aufenthaltswahrscheinlichkeit der beiden Kerne beschrieben. Das beinhaltet alle Bewegung der Kerne, Ritation und Schwingung. Für die Schwingung alleine reicht der Radialanteil, genau das $\Psi_\text{vib}$, was wir oben beim Parabeipotential gefunden hatten.
+ Genauso besteht der Dipol-Operator eigentlich aus der Summe über alle Ladungen mal deren Ortsvektor. Auch dies vereinfacht sich zu dem Radialanteil der Kernladungen $d_k(R)$. Weiterhin nähern wir den Operator in einer Taylor-Reihe um $R \approx R_0$ und behalten nur das erste Glied. Die vollständige Rechnung findet sich in Kapitel 4.2 von \cite{Demtröder_molekuelphysik}. Dabei verschwindet auch das nullte Glied der Taylor-Reihe, das das statische Dipolmoment beschreibt. Man findet schließlich, dass das Übergangsmatrixelement gegeben ist durch
 \begin{equation}
 D_{fi}^\text{vib} \propto  \left. \frac{\partial d_k}{\partial R} \right|_{R_0} \,  \int (\Psi_\text{vib}^\star (R) )_f \, R  \, \, (\Psi_\text{vib} (R) )_i \, dR \quad .
 \end{equation}
@@ -430,7 +328,7 @@ Reine Schwingungsübergänge sind also nur zwischen benachbarten Zuständen mög
  \bar{\nu}_\text{vib} = \frac{\hbar \omega_0}{h c} = \frac{\sqrt{k / \mu} }{2 \pi  c} \quad .
 \end{equation}
 
-Das am Anfang des Kapitels gezeigte Spektrum ist deutlich komplexer. Unsere Annahme, dass sich allein die Schwingungs-Quantenzahl $\nu$ ändert, ist also (zu) weitreichend. Es wird sich zeigen, dass der scharfe Peak bei $\bar{\nu} = 715$~cm$^{-1}$ ein reiner Schwingungsübergang ist.
+Das oben gezeigte Spektrum ist deutlich komplexer. Unsere Annahme, dass sich allein die Schwingungs-Quantenzahl $\nu$ ändert, ist also (zu) weitreichend. Es wird sich zeigen, dass der scharfe Peak bei $\bar{\nu} = 715$~cm$^{-1}$ ein reiner Schwingungsübergang ist.
 
 \section{Anharmonisches Bindungspotential}
 
@@ -466,7 +364,7 @@ Das anharmonische Bindungspotential erklärt auch die Expansion von Festkörpern
 
 \section{Rotation und Schwingung gleichzeitig}
 
-Nun soll auch die Rotation des Moleküls erlaubt sein. Zunächst gehen wir davon aus, dass diese beiden Bewegungen sich nicht gegenseitig beeinflussen, also nicht gekoppelt sind. Die Energie-Eigenwerte sind dann gerade die Summe der Zustandsenergien aus Rotation und Schwingung\sidenote{Wir nehmen hier einen harmonischen Oszillator und einen starren Rotator an!}
+Nun soll auch die Rotation des Moleküls erlaubt sein. Zunächst gehen wir davon aus, dass diese beiden Bewegungen sich nicht gegenseitig beeinflussen, also nicht gekoppelt sind. Die Energie-Eigenwerte sind dann gerade die Summe der Zustandsenergien aus Rotation und Schwingung%\sidenote{Wir nehmen hier einen harmonischen Oszillator und einen starren Rotator an!}
 \begin{equation}
 E (\nu, J) = E_\text{vib}(\nu) + E_\text{rot}(J) = \hbar \omega_0 \left(\nu + \frac{1}{2} \right) + h c \, B J \left( J+1 \right) \label{eq:vib_rot_simple}
 \end{equation}
@@ -480,9 +378,9 @@ aber nicht alle Kombinationen sind möglich oder interessant.
 
 \paragraph{Nichts passiert} Der Fall $\Delta \nu = \Delta J = 0$ ist langweilig.
 
-\paragraph{Reine Rotationsübergänge} Falls $\Delta \nu = 0$ ändert sich nur der Rotationszustand. Dies ist die Situation, die wir im letzten Kapitel besprochen haben, und führt zu Linien  in einem anderen Spektralbereich, bei etwa $\bar{\nu} \approx 100$~cm$^{-1}$.
+\paragraph{Reine Rotationsübergänge} Falls $\Delta \nu = 0$ ändert sich nur der Rotationszustand. Dies ist die Situation, die wir im am Anfang des Kapitel besprochen haben, und führt zu Linien  in einem anderen Spektralbereich, bei etwa $\bar{\nu} \approx 100$~cm$^{-1}$.
 
-\paragraph{Reine Schwingungsübergänge} Am Anfang dieses Kapitel haben wir den  harmonischen Oszillator betrachtet unter der Annahme $J=0$. Dies schließt $\Delta J = 0$ mit ein. Bei einem von Null verschiedenen $J$ muss sich dieses aber bei einem Schwingungsübergang ändern, zumindest für eine zweiatomiges Molekül. Eine höhere Schwingungsanregung ändert den mittleren Kern--Kern--Abstand und somit das Trägheitsmoment. Die Drehimpulserhaltung verlangt dann, dass sich die Rotationsquantenzahl $J$ ändert. $\Delta J = 0$ ist also verboten für einfache, zu symmetrische Moleküle, andernfalls erlaubt. Wenn diese Übergänge erlaubt sind, dann führen sie zu einer einzigen Linie im Spektrum bei $ \bar{\nu}_0 = (\hbar \omega_0)/(h c) $, analog dem reinen Schwingungsspektrum. Diese wird 'Q-Zweig' genannt. 
+\paragraph{Reine Schwingungsübergänge} Oben haben wir den  harmonischen Oszillator betrachtet unter der Annahme $J=0$. Dies schließt $\Delta J = 0$ mit ein. Bei einem von Null verschiedenen $J$ muss sich dieses aber bei einem Schwingungsübergang ändern, zumindest für eine zweiatomiges Molekül. Eine höhere Schwingungsanregung ändert den mittleren Kern--Kern--Abstand und somit das Trägheitsmoment. Die Drehimpulserhaltung verlangt dann, dass sich die Rotationsquantenzahl $J$ ändert. $\Delta J = 0$ ist also verboten für einfache, zu symmetrische Moleküle, andernfalls erlaubt. Wenn diese Übergänge erlaubt sind, dann führen sie zu einer einzigen Linie im Spektrum bei $ \bar{\nu}_0 = (\hbar \omega_0)/(h c) $, analog dem reinen Schwingungsspektrum. Diese wird 'Q-Zweig' genannt. 
 
 \paragraph{P-Zweig} Falls $\Delta J = -1$ ist, und $\Delta \nu = +1$ (in Absorption eines IR Photons) oder $-1$ (in Emission eines IR Photons), dann führen diese Übergänge zum sogenannten P-Zweig. Die Linienpositionen sind
 \begin{equation}
@@ -496,7 +394,7 @@ Wir erhalten also eine äquidistante Schar von Linien, völlig analog dem reinen
 \end{equation}
 also in der gleichen Orientierung wie das THz-Spektrum und bei $\bar{\nu}_0 $ beginnend.
 
-Mit diesen Überlegungen können wir das am Anfang des Kapitels gezeigte Spektrum zumindest qualitativ erklären.
+Mit diesen Überlegungen können wir das in Abbildung \ref{fig:vib_hcn} gezeigte Spektrum zumindest qualitativ erklären.
 
 
 \begin{marginfigure}
@@ -519,54 +417,11 @@ Die Anzahl der Schwingungsmoden lässt sich aus der Summe der Freiheitsgrade ber
 \item Schwingung: der ganze Rest, also $3N-5$ für ein lineares Molekül bzw. $3N-6$ für alle anderen Moleküle. 
 \end{itemize}
 
-Ein zweiatomiges Molekül wie beispielsweise \ch{H2} muss linear sein, hat also nur einen Schwingungs-Freiheitsgrad. Ein dreiatomiges Molekül kann linear sein, wie \ch{CO2} und hat dann 4  Schwingungs-Freiheitsgrade, oder es ist nicht gerade, wie \ch{H2O}, und hat dann nur 3  Schwingungs-Freiheitsgrade. Naphthalin beispielsweise besteht aus $N=18$ Atomen und hat damit  48 Schwingungs-Freiheitsgrade. Das Konzept der Normalmoden aus der Mechanik erlaubt hier den Überblick zu behalten.
-
-
-\section{Normalmoden}
-
-Wie handhabt man ein System aus $N$ Massen, die alle durch mehr oder weniger harmonische Potentiale miteinander verbunden sind? Dies ist ein Problem der klassischen Mechanik und führt zu den Normalmoden.\sidenote{siehe beispielsweise Kapitel 6.3 in \cite{Demtröder_molekuelphysik}}
-
-Wir benutzen Masse-gewichtete generalisierte Koordinaten $q_i = \sqrt{m_i}  \Delta \tilde{q}_i$, wobei der Index $i$ über alle Atome und alle Raumrichtungen läuft, also von $1$ bis $3N$. $m_i$ ist die Masse des zugehörigen Atoms und 
-$\Delta \tilde{q}_i$ die Auslenkung aus der Gleichgewichtsposition. Damit wird  die kinetische Energie $T$ 
-\begin{equation}
-T = \frac{1}{2} \sum_{i=1}^{3N} \dot{q}_i^2 \quad .
-\end{equation}
-Für das Potential setzen wir eine Taylor-Reihe nach $q_i$ an. Wir legen den Nullpunkt der Energieskala auf das Minimum des Potentials. Damit verschwinden die ersten beiden Terme der Taylor-Reihe und wir behalten nur den nächsten
-\begin{equation}
-V \approx \frac{1}{2} \sum_{i,k = 1}^{3N} \frac{\partial V}{\partial q_i \partial q_k} \, q_i \, q_k = 
- \frac{1}{2} \sum_{i,k = 1}^{3N} b_{ik} \, q_i \, q_k  \quad .
-\end{equation}
-Damit können wir die Lagrange--Funktion $L = T - V$ bilden und erhalten in diesem Formalismus die Bewegungsgleichungen
-\begin{equation}
- \ddot{q}_i + \sum_{k = 1}^{3N} b_{ik} \, q_k = 0 \quad \text{für} \quad i = 1 \dots 3N
-\end{equation}
-oder als Matrix mit $\tilde{\mathbf{B}} = (b_{ik})$ und $\mathbf{q} = (q_i)$
-\begin{equation}
-\ddot{\mathbf{q}} + \tilde{\mathbf{B}}  \cdot  \mathbf{q} = 0 \quad .
-\end{equation}
-Dies ist ein System aus $3N$ gekoppelten Differentialgleichungen. Um sie zu entkoppeln diagonalisieren wir 
-$\tilde{\mathbf{B}} $, suchen also $3N$ Eigenvektoren   $\mathbf{q}_n^0$ und (potenziell entartete) Eigenwerte $\lambda_n$ sodass
-\begin{equation}
- \tilde{\mathbf{B}} \cdot \mathbf{q}_n^0 = \lambda_n \mathbf{q}_n^0 \quad \text{und damit} \quad
- \mathbf{q}_n(t) =  \mathbf{q}_n^0 \, e^{i \, t \, \sqrt{\lambda_n}} \quad .
-\end{equation}
-Die Eigenvektoren   $\mathbf{q}_n^0$ nennt man Normalmoden. Sie beschreiben also die gleichzeitige Bewegung aller Kerne in alle Raumrichtungen bei der Normal\-mode $n$ mit der Frequenz\sidenote{Manche $\lambda_n$ müssen Null sein, da es ja nur $3N - 5$ (oder 6) Normalmoden geben kann.} $\omega_n = \sqrt{\lambda_n}$. Da die $b_{ik}$ reellwertig sind, schwingen in der Normalmode alle Atome in Phase, machen also gleichzeitig den Nulldurchgang, und natürlich mit der gleichen Frequenz. In der Basis der Normalmoden vereinfacht sich das Potential: es hat nur noch quadratische Formen der Art $\frac{1}{2} k q_i^2$ aber keine bi-linearen der Art $\frac{1}{2} k q_i q_k$, sonst wäre $\tilde{\mathbf{B}} $ ja nicht dialogisiert.
-
-Die Normalmoden $\mathbf{q}_n^0$ sind komplexe Muster der Bewegung aller Atome. Man stellt diese grafisch dar, kann sie aber nicht als Achse in einem Diagramm verwenden. Dazu reduziert man weiter auf die Normalkoordinate
-\begin{equation}
-Q_n(t) = | \mathbf{q}_n (t) |
-\end{equation}
-also die Masse-gewichtete Auslenkung aller Atome. Dieses $Q$ übernimmt in mehratomigen Molekülen die Rolle von $R$ im zweiatomigen Molekül. Die Energie einer Elementar-Anregung ist weiterhin 
-\begin{equation}
-E = \hbar \omega_n = \hbar	\sqrt{\lambda_n} \quad .
-\end{equation}
-Höhere Anregungen haben dann entsprechende Vielfache dieser Energie, und entsprechende Vielfache der Auslenkung 
- $\mathbf{q}_n^0$.
-
+Ein zweiatomiges Molekül wie beispielsweise \ch{H2} muss linear sein, hat also nur einen Schwingungs-Freiheitsgrad. Ein dreiatomiges Molekül kann linear sein, wie \ch{CO2} und hat dann 4  Schwingungs-Freiheitsgrade, oder es ist nicht gerade, wie \ch{H2O}, und hat dann nur 3  Schwingungs-Freiheitsgrade. Naphthalin beispielsweise besteht aus $N=18$ Atomen und hat damit  48 Schwingungs-Freiheitsgrade. Das Konzept der Normalmoden\sidenote{siehe beispielsweise Kapitel 6.3 in \cite{Demtröder_molekuelphysik}} aus der Mechanik erlaubt hier den Überblick zu behalten.
 
 \section{Beispiele}
 
-Wie kommt man an die Normalmoden? Das Aufstellen und Diagonalisieren der Matrix  $\tilde{\mathbf{B}} $ ist sicherlich unpraktikabel. Einen systematischen Weg bietet die Betrachtung der Symmetrie der Moleküle, die sich in der Symmetrie der Normalmoden widerspiegeln muss. Dies geschieht im Rahmen der Gruppentheorie, die hier allerdings zu weit gehen würde.\sidenote{Mehr dazu in der Vorlesung zur Kristallografie, oder qualitativ in \cite{Atkins}.} Hier raten wir einfach. Dabei hilft es, vorher auszurechnen, wie viele Moden man finden muss, also wie viele Schwingungsfreiheitsgrade es gibt. Auch sollte sich dabei der Schwerpunkt nicht bewegen, oder das ganze Molekül sich drehen, weil das ja separat behandelt wird.
+Wie kommt man an die Normalmoden? Einen systematischen Weg bietet die Betrachtung der Symmetrie der Moleküle, die sich in der Symmetrie der Normalmoden widerspiegeln muss. Dies geschieht im Rahmen der Gruppentheorie, die hier allerdings zu weit gehen würde.\sidenote{Mehr dazu in der Vorlesung zur Kristallografie, oder qualitativ in \cite{Atkins}.} Hier raten wir einfach. Dabei hilft es, vorher auszurechnen, wie viele Moden man finden muss, also wie viele Schwingungsfreiheitsgrade es gibt. Auch sollte sich dabei der Schwerpunkt nicht bewegen, oder das ganze Molekül sich drehen, weil das ja separat behandelt wird.
 
 \paragraph{Kohlendioxid} 
 Ein lineares Molekül mit $f=9 - 5 = 4$ Schwingungsfreiheitsgraden
@@ -692,7 +547,7 @@ Ein lineares Molekül mit $f=9 - 5 = 4$ Schwingungsfreiheitsgraden
 \begin{marginfigure}
 \inputtikz{\currfiledir fig_hcn_modes}
 \end{marginfigure}
-Ein lineares Molekül mit $f=9 - 5 = 4$ Schwingungsfreiheitsgraden, analog zu Kohlendioxid oben. Das Spektrum am Anfang des Kapitels zeigt die Biegeschwingung bei $\bar{\nu} = 712$~cm$^{-1}$.  Abbildung \ref{fig:vib_hcn_all} gibt einen Überblick über einen größeren Spektralbereich. Man sieht zusätzlich den 
+Ein lineares Molekül mit $f=9 - 5 = 4$ Schwingungsfreiheitsgraden, analog zu Kohlendioxid oben. Das Spektrum in Abb. \ref{fig:vib_hcn} weiter oben zeigt die Biegeschwingung bei $\bar{\nu} = 712$~cm$^{-1}$.  Abbildung \ref{fig:vib_hcn_all} gibt einen Überblick über einen größeren Spektralbereich. Man sieht zusätzlich den 
 ersten Oberton der Biegeschwingung bei ungefähr der doppelten Frequenz  $\bar{\nu} = 1415$~cm$^{-1}$
 . Die Mode bei  $\bar{\nu} = 3312$~cm$^{-1}$ ist die  asymmetrische Streckschwingung. Die symmetrische Streckschwingung  bei $\bar{\nu} = 2114$~cm$^{-1}$.
  Im Gegensatz zu \ch{CO2} bewegt sich in dieser Mode das Kohlenstoffatom ebenfalls, da die Massen von H und N verschieden sind, und sich ansonsten der  Schwerpunkt bewegen würde. Dies macht diese Mode sehr schwach IR-aktiv.  Nur für den Grundton der Biegeschwingung und die  symmetrische Streckschwingung ist der Q-Zweig erlaubt.
@@ -704,20 +559,6 @@ ersten Oberton der Biegeschwingung bei ungefähr der doppelten Frequenz  $\bar{\
 \end{figure}
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Anhang: Demonstrationsexperiment zur anomalen Dispersion}
-
-Man kann die Lorentz-förmige Resonanz in einem Demonstrationsexperiment zeigen. Der Imaginärteil des dielektrischen Funktion Abb.~\ref{fig:diel_lorentz} bestimmt dier Absorption und somit die Linienform im Absorptionsspektrum von Atome oder Molekülen. Der Realteil bestimmt die Dispersion, also den Brechungsindex eines Mediums. Eine einfache Methode den Brechungsindex zu bestimmen ist ein Prisma aus dem zu untersuchenden Material. In einem Prisma ist die Ablenkung des Lichtstrahls proportional zum Unterschied des Brechungsindex innen vergleichen mit außen (eigentlich immer Luft $\approx$ Vakuum). Es muss aber auch die elektronische Resonanz in Abb.~\ref{fig:diel_multiple_lorentz} aus dem Ultravioletten ins Sichtbare verschoben werden. Im Experiment benutzt man dazu ein Prisma aus Natrium-Dampf. Die starke Absorption der Natrium-D-Linien bei etwa 589~nm Wellenlänge bewirkt einen gut sichtbaren Effekt. 
-
-
-\begin{marginfigure}
-\includegraphics[width=\textwidth]{\currfiledir dispersion.png}
-\caption{Anormale Dispersion in Natrium-Dampf. }
-\end{marginfigure}
-
-
-In einem evakuierter Röhre wird Natrium-Dampf durch starkes Erhitzen von festem Natrium erzeugt.  Dabei wird die Röhre von unten geheizt und von oben gekühlt, so dass die Dampf-Dichte nach oben hin abnimmt. Dies entspricht einem Prisma, dessen Spitze nach oben zeigt. Auch dort nimmt die effektive Glas-Dicke, bei Mittelung über den ganzen Strahlweg, nach oben hin ab. Danach wird der Lichtstrahl noch durch ein Glas-Prisma mit vertikaler Achse geleitet, um  eine horizontale Wellenlängen-Achse zu erzeugen. Im Ergebnis sieht man ein Spektrum wie in nebenstehender Abbildung. Die horizontale Achse ist proportional zur Wellenlänge, die vertikale Achse zur Abweichung des Brechungsindexes von Eins. An der Absorptionslinie selbst ist das Spektrum unterbrochen, weil dort der Natrium-Dampf das Licht vollständig absorbiert. Man erkennt, dass höherenergetisch der Resonanz der Brechungsindex unter Eins fällt.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

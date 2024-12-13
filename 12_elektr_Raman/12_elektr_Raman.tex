@@ -250,15 +250,7 @@ Große Moleküle mit vielen Kernen und Elektronen besitzen komplexe Spektren in 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\section{Ziele}
-
-\begin{itemize}
-\item Sie können die Raman-Streuung im Dipol-Modell und als inelastische Streuung an einem virtuellen Zustand erklären.
-
-\item Sie können das Raman-Spektrum einfacher Moleküle wie das untenstehende erklären und daraus Eigenschaften der Rotation und Vibration sowie des Kernspins berechnen.
-
-\end{itemize}
+\section{Raman-Streuung}
 
 \begin{figure}
 \inputtikz{\currfiledir fig_n2_raman}
@@ -266,7 +258,7 @@ Große Moleküle mit vielen Kernen und Elektronen besitzen komplexe Spektren in 
 \end{figure}
 
 
-\section{Wie misst man das?}
+
 
 Moleküle ohne permanentes Dipolmoment (also beispielsweise homonukleare Moleküle) zeigen im THz-Absorptionsspektrum kein Rotationsspektrum. Moleküle ohne  Variation des Dipol-Moments mit der Normal-Koordinate zeigen kein Vibrationsspektrum im Infraroten. Solche
 Moleküle sind trotzdem spektroskopierbar, nämlich über den Raman-Effekt.
@@ -280,7 +272,7 @@ Der Raman-Effekt\sidenote{nach Chandrasekhara Venkata Raman, 1888--1970} ist die
 Die hier als Stokes- bzw. Anti-Stokes-Linie bezeichneten 'Linien' besitzen eine deutliche Struktur, sehr analog zu den Rotations-Vibrations-Spektren und beinhalten die gleiche Information über das Molekül.
 
 
-\section{Klassische Erklärung des Schwingungs-Raman-Effekts}
+\section{Klassische Erklärung des Raman-Effekts}
 
 Wir beginnen mit einer klassischen, makroskopischen Erklärung des Raman-Effekts. Das Molekül habe kein permanentes Dipolmoment, sei aber polarisierbar mit der Polarisierbarkeit $\alpha$. Zunächst vernachlässigen wir auch Rotation und Vibration des Moleküls. Dann ist das induzierte Dipolmoment
 \begin{equation}
@@ -379,128 +371,6 @@ Die quantenmechanischen Rechnungen ergeben die selben Auswahlregeln wie für die
 \end{equation}
 
 
-
-\section{Der Rotations-Raman-Effekt}
-
-Ähnlich zu molekularen Schwingungen findet sich auch die Rotation der Moleküle im Raman-Spektrum. Wir beginnen wieder mit dem klassischen Modell. Elektromagnetisches Feld $E(t)$ und induziertes Dipolmoment $p_\text{ind}(t)$ sind wie oben
-\begin{equation}
-p_\text{ind}(t) = \alpha(t) E(t) = \alpha(t) E_0 \cos \omega_0 t \quad . \label{eq:raman_pind_rot}
-\end{equation}
-In die Zeitabhängigkeit der Polarisierbarkeit $\alpha(t)$ bauen wir jetzt die Rotation ein. Dazu nehmen wir an, dass die Polarisierbarkeit anisotrop ist, sich also für zwei senkrecht aufeinander stehende Richtungen unterscheidet: $\alpha_\parallel \neq \alpha_\perp$. Bei einem sich mit der Kreisfrequenz $\omega_R$ drehenden Molekül ist die Polarisierbarkeit also
-\begin{equation}
-\alpha(t) = \alpha_0 + \Delta \alpha \cos ( 2 \omega_R t) \quad \text{mit} \quad \Delta \alpha = \alpha_\parallel - \alpha_\perp \quad .
-\end{equation}
-Der Faktor $2$ kommt daher, dass die Polarisierbarkeit des Moleküls bereits nach $180^\circ$ wieder in sich übergeht. Dies setzen wir wieder in Gl. \ref{eq:raman_pind_rot} ein und multiplizieren aus. Wir bekommen analog zu oben
-\begin{align}
-p_\text{ind}(t) = & \underbrace{  \alpha_0 E_0 \cos(\omega_0 t) }_\text{Rayleigh} \\
-& +   \frac{ \Delta \alpha \,  E_0 }{2} 
-\Bigl\{ 
-\underbrace{ \cos \left( [\omega_0 -2 \omega_R] t \right)}_\text{Stokes}  +  \underbrace{\cos \left( [\omega_0 + 2 \omega_R] t \right)  
-}_\text{Anti-Stokes} 
-\Bigr\}  \quad .
-\nonumber
-\end{align}
-Die Linien sind also bei der doppelten Rotationsfrequenz ober- oder unterhalb der Rayleigh-Linie. Quantenmechanische Rechnungen ergeben als Auswahlregeln entweder
-\begin{equation}
-\Delta J = 0 \quad \text{und falls} \quad  \Delta \alpha \neq 0 \quad  \text{dann auch} \quad \Delta J = \pm 2 \quad .
-\end{equation}
-Die Position der Linien in einem Rotations-Raman-Spektrum sind also
-\begin{equation}
- \bar{\nu} =  \bar{\nu}_\text{laser} \pm B \left[ (J+2) (J+3) - J(J+1) \right] = 
- \bar{\nu}_\text{laser} \pm B \left[ 4J + 6 \right] \quad ,
-\end{equation}
-wobei das $+$ die Anti-Stokes-Banden und das $-$ die Stokes-Banden liefert. Der Abstand der äquidistanten Linien ist damit nicht mehr $2B$ wie im Fall des THz-Absorptions-Spektrums, sondern $4B$. Da $B$ klein gegenüber $\bar{\nu}_\text{laser} $ ist, ist ein reines Rotations-Raman-Spektrum messtechnisch aufwändig. Eine sehr schwache Linie muss in kleinem spektralen Abstand zur starken Rayleigh-Linie detektiert werden. Dies erfordert einen hochauflösenden und stark unterdrückenden Monochromator, quasi immer durch die Hintereinanderschaltung von zwei oder drei Monochromatoren zu einem Doppel- bzw. Trippel-Monochromator realisiert.
-
-\begin{marginfigure}
-\inputtikz{\currfiledir rot_vib_raman}
-\caption{Rotations-Vibrations-Spektrum in Raman-Streuung. Alle gezeichneten Linien und Übergänge sind Stokes-Übergänge.  \label{fig:raman_rotvib}}
-\end{marginfigure}
-
-
-
-
- \section{Rotations-Vibrations-Raman-Effekt}
-
-Analog zum Rotations-Vibrations-Spektrum in Absorption lässt sich die kombinierte Anregung eines Rotations- und Schwingungsniveaus auch im Raman-Effekt beobachten. Abbildung \ref{fig:raman_rotvib} skizziert die beteiligten Zustände für die Stokes-Bande, also die Linien die niederenergetisch von der Rayleigh-Linie liegen. Die Linienpositionen sind 
-
-\begin{equation}
- \bar{\nu} =  \bar{\nu}_\text{laser} \pm \bar{\nu}_\text{vib} \pm B \left[ 4J + 6 \right]  \quad .
-\end{equation}
-Das erste $\pm$ unterscheidet zwischen Stokes ($-$) und Anti-Stokes ($+$). Das zweite $\pm$ ist gerade andersrum als das Vorzeichen von $\Delta J$. Man beachte, dass die Sequenz von äquidistanten Rotations-Linien wieder mit dem Abstand $6B$ von der reinen Vibrationslinie  $\Delta J = 0$ beginnt. Ähnlich zum Absorptionsspektrum werden die Linien mit $\Delta J =-2$ als O-Zweig, die mit 
-$\Delta J =+2$ als S-Zweig bezeichnet.
-
-\begin{margintable}
-\begin{tabular}{rccccc}
-$\Delta J$ & -2 & -1 & 0 & 1 & 2 \\
-Zweig & O & P & Q & R & S
-\end{tabular}
-\caption{Nomenklatur der Zweige bei Rotationsspektren. $\Delta J = \pm 1$ im Absorptionsspektrum, $\Delta J = \pm 2$ im Raman-Spektrum sichtbar.}
-\end{margintable}
-
-
-
-\section{Einfluss der Kernspins}
-
-Man beobachtet, dass das Rotations-Raman-Spektrum von zweiatomigen Molekülen aus zwei identischen Atomen eine charakteristische Intensitätsmodulation der Linien zeigt. Die Abbildung am Anfang des Kapitels ist ein Beispiel. Die Ursache dafür ist der Kernspin. Das Interessante an diesem Effekt ist, dass hier die \emph{Statistik} des Kernspins eine Rolle spielt: Für Triplett-Zustände gibt es beispielsweise drei mal mehr Möglichkeiten als für Singulett-Zustände. Dies führt am Schluss zu der beobachteten Intensitätsmodulation, nicht der potentiell ebenso mögliche magnetische Einfluss des Kernspins, der die Hyperfeinaufspaltung in Atomspektren bewirkt.
-
-\begin{margintable}
-
-\begin{tabular}{cc}
-Molekül & $J_\text{ungerade}$  : $J_\text{gerade}$  \\ \hline
-\ch{^1H2} & 3:1 \\
-\ch{^2H2} & 1:2 \\
-\ch{^{14}N2} & 1:2 \\
-\ch{^{16}O2} & 1:0 
-\end{tabular}
-\caption{Beispiele für beobachtete Amplitudenverhältnisse.}
-\end{margintable}
-
-Wir müssen hierzu Überlegungen zur Symmetrie der Wellenfunktion des Moleküls anstellen. Diese sind in \cite{Haken_wolf_II}, Kapitel 12.4, in \cite{Demtröder_molekuelphysik}, Kapitel 4.5.3 dargestellt. Mir gefällt allerdings am Besten die Herangehensweise von \cite{HertelSchulz-2}, Kapitel 15.7.6, der ich hier folge.
-
-
-Atomkerne sind entweder Fermionen, haben also einen halbzahligen Spin, oder sie sind Bosonen, haben also einen ganzzahligen Spin. Für Fermionen muss die Gesamt-Wellenfunktion anti-symmetrisch unter Vertauschung sein, für Bosonen symmetrisch. Die Frage ist also, wie sich die einzelnen Komponenten der Wellenfunktion ändern, wenn wir die beiden Atomkerne im Molekül vertauschen. Um das zu entscheiden, vertauschen wir nicht die Atomkerne, sondern tauschen den ganzen Rest, was am Ende das gleiche bewirkt.
-
-\begin{itemize}\setlength{\itemsep}{0pt}
-\item Zunächst drehen wir das ganze Molekül um 180$^\circ$ um eine Achse senkrecht auf die Kern--Kern--Achse. Dies tangiert die Elektronen nicht, aber die Rotation der Kerne um ebenfalls diese Achse bringt einen Faktor $(-1)^J$, wobei $J$ die übliche Rotations-Quantenzahl ist.
-
-\item Dann machen wir eine Punkt-Spiegelung nur der Elektronen am Mittelpunkt des Moleküls. Das bewirkt einen Faktor $-1$ auf die Gesamt-Wellenfunktion, wenn der Gesamt-Zustand aller Elektronen ungerade ist, also ein $u$ im tiefgestellten Index hat.
-
-\item Danach Spiegeln wir das Elektronensystem an einer Ebene, die die Kern--Kern--Achse beinhaltet. Das Ergebnis dieser Operation ist im hochgestellten Index $\pm$ im elektronischen Gesamt-Zustand angegeben.
-
-\item Schließlich müssen wir noch die beiden Kernspins vertauschen. Die Symmetrie dieser Operation hängt von genauen Spinzustand ab und unterscheidet sich beispielsweise zwischen Singulett und Triplett.
-\end{itemize}
-
-\begin{marginfigure}[-50mm]
-\inputtikz{\currfiledir swap_nucleus}
-\caption{Eine Folge von Symmetrie-Operationen bewirken das Tauschen der Kerne, nach \cite{HertelSchulz-2}. Die Ellipse symbolisiert die Elektronen-Wellenfunktion, deren Orientierung durch den dickeren Teil angezeigt wird.}
-\end{marginfigure}
-
- 
- 
-Nach dieser Operationen haben wir effektiv die beiden Kerne vertauscht. Die Symmetrie ergibt sich damit aus dem Produkt der einzelnen aufgeführten Faktoren. Für Kerne mit ganzzahligem Spin, also Bosonen, muss die Gesamt-Wellenfunktion symmetrisch sein, also ein $+1$ am Ende der Rechnung herauskommen. In vielen Fällen sind dabei alle Parameter fest, bis auf die Rotations-Quantenzahl $J$ und der Spin-Zustand der Kerne. Beide bedingen sich dadurch gegenseitig. Wenn jeder einzelne Kern die Kernspin-Quantenzahl $I_1$ hat, dann kann die Gesamt-Kernspin-Quantenzahl $I$ zwischen $0$ und $2 I_1$ liegen. Für jedes $I$ gibt es $2 I +1$ Realisierungen mit unterschiedlichem $M_I$. Insgesamt gibt dies $(2 I_1 + 1)^2$ Möglichkeiten. Von diesen sind $(2 I_1 +1)( I_1 +1)$ symmetrisch und $(2 I_1 +1) I_1$ antisymmetrisch. Das Verhältnis der statistischen Gewichte $g$ beträgt also
-\begin{equation}
- \frac{g_\text{symmetrisch}}{g_\text{anti-symmetrisch}} = \frac{I_1 + 1}{I_1} \quad .
-\end{equation}
-Dadurch ist die  'Geradheit' von $J$ mit einem unterschiedlichen statistischen Gewicht verknüpft.
-
-
-
-
-\paragraph{Beispiel \ch{^1H2}} Jeder Kern hat $I = 1/2$, ist also ein Fermion und die Gesamt-Wellenfunktion muss anti-symmetrisch unter Vertauschen der beiden Kerne sein. 
-Der elelktronische Grundzustand ist $^1\Sigma_g^+$, die beiden elektronischen Symmetrie-Operationen ändern also das Vorzeichen nicht.
-Die Kernspin-Wellenfunktion kann sein
-\begin{itemize}
-\item \emph{anti-symmetrisch}, also $I = 0$. Damit die Symmetrie insgesamt anti-symmetrisch bleibt, muss der Rotationsanteil symmetrisch sein, also $J = \text{gerade}$. Dies nennt man \emph{para-Wasserstoff} und hat das statische Gewicht 1.
-
-\item \emph{symmetrisch}, also $I = 1$. Damit die Symmetrie insgesamt anti-symmetrisch wird, muss der Rotationsanteil anti-symmetrisch sein, also $J = \text{ungerade}$. Dies nennt man \emph{ortho-Wasserstoff} und hat das statische Gewicht 3.
-\end{itemize}
-%
-Da die Auswahlregeln $\Delta J = 2$ bei Raman-Übergängen verlangen, sind Übergänge ohne Änderung des Spins in einem Sub-System möglich. Es gibt im Wasserstoff-Molekül \ch{^1H2} also zwei Sätze von Linien, gerade und ungerade $J$, wobei die ungeraden um den Faktor 3 intensiver sind.
-
-
-
-
-\paragraph{Beispiel \ch{^{16}O2}} Jeder Kern hat $I_1 = 0$, ist also ein Boson und die Gesamt-Wellenfunktion muss symmetrisch unter Vertauschen der beiden Kerne sein.  Der elektronische Grundzustand ist $^3\Sigma_g^-$, die Spieglung an der Ebene tauscht also das Vorzeichen. Der Gesamt-Kernspin kann nur ein symmetrischer Zustand mit $I = 0$ sein. Damit die Gesamt-Wellenfunktion symmetrisch bleibt, muss die Rotations-Wellenfunktion anti-symmetrisch sein, also $J = \text{ungerade}$. In Sauerstoff-Molekül  \ch{^{16}O2} fehlen also die Rotationslinien mit geradem $J$ vollständig. Wenn man den Kernspin nicht berücksichtigen würde, dann würde man eine doppelt so große Rotationskonstante $B$ annehmen.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
