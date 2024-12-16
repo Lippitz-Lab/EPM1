@@ -35,14 +35,14 @@
 %\nextgroupplot[ylabel = {Extinktion}, xmin=620,
 % xmax = 820, xtick = {712}, xticklabel = {712}, ytick pos = left, ytick = {0}]
 %
-% \addplot[no markers] table [x index=0, y index=1] {\currfiledir hcn.dat};
+% \addplot[no markers] table [x index=0, y index=1] {\currfiledir data/hcn.dat};
 
 
 
 \nextgroupplot[
 ylabel = {Extinktion},ytick pos = left, ytick = {0}, 
  xmin=1320, xmax = 1520, xtick = {1415}, xticklabel = {1415}]
- \addplot[no markers] table [x index=2, y index=3] {\currfiledir hcn.dat};
+ \addplot[no markers] table [x index=2, y index=3] {\currfiledir data/hcn.dat};
 
 	\draw [|-|] (axis cs:1365,3) -- node[above] {100 cm$^{-1}$} (axis cs: 1465,3);
 	
@@ -51,7 +51,7 @@ ylabel = {Extinktion},ytick pos = left, ytick = {0},
 \nextgroupplot[ytick = \empty, yticklabel = \empty,
  xmax = 2200, xtick = {2114}, xticklabel = {2114}]
 
- \addplot[no markers] table [x index=6, y index=7] {\currfiledir hcn.dat};
+ \addplot[no markers] table [x index=6, y index=7] {\currfiledir data/hcn.dat};
 
 \node[anchor = north west] at (2000,5) {x 400};
   
@@ -61,7 +61,7 @@ ylabel = {Extinktion},ytick pos = left, ytick = {0},
  %  height=2*\ploth + \vsep,
  %  yshift=\ploth+\vsep
   ]
- \addplot[no markers] table [x index=4, y index=5] {\currfiledir hcn.dat};
+ \addplot[no markers] table [x index=4, y index=5] {\currfiledir data/hcn.dat};
 
 
 \nextgroupplot[group/empty plot]
@@ -71,7 +71,7 @@ ylabel = {Extinktion},ytick pos = left, ytick = {0},
    ymax = 0.4, ytick = {0}
    ]
 
- \addplot[no markers] table [x index=0, y index=1] {\currfiledir hcn-lowres.dat};
+ \addplot[no markers] table [x index=0, y index=1] {\currfiledir data/hcn-lowres.dat};
 
 
 \nextgroupplot[group/empty plot]
