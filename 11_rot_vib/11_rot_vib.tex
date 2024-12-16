@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{13. Dezember 2024}
+\renewcommand{\lastmod}{16. Dezember 2024}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Rotation und Schwingung in Molekülen}
@@ -8,7 +8,14 @@
 \section{Überblick}
 
 
-\section{I Beispiel: Wasserdampf}
+In diesem Kapitel behandeln wir die Spektroskopie von Molekülen mit dem Ziel, die Eigenschaften des Bindungspotentials zu bestimmen. Wir beginnen mit einem allgemeinen, spektral sehr breiten Überblick über die spektroskopischen Eigenschaften von Molekülen, die in ihren dielektrischen Eigenschaften zum Ausdruck kommen. Die dielektrische 'Konstante' kann als eine Summe von Lorentz-Oszillatoren dargestellt werden.  Jeder Oszillator, jede Resonanz entspricht einem Freiheitsgrad des Moleküls. In diesem Kapitel werden Rotationen und Schwingungen behandelt, im nächsten Kapitel die elektronische Anregung. Elektronische Anregung ist die Anregung, die wir schon bei den Atomen besprochen haben. Nur Moleküle, die aus mehr als einem Atom bestehen, können gegeneinander schwingen oder sich drehen.
+
+Der zweite Abschnitt dieses Kapitels befasst sich daher mit den Rotationen der Moleküle und wie sie sich im Spektrum widerspiegeln. Wir werden sehen, dass Rotationen im Modell des starren Rotators zu einer Reihe von äquidistanten Linien mit einer charakteristischen Amplitudenverteilung führen.
+
+Ein schwingendes Molekül zeigt zunächst nur eine Linie im Spektrum. In Kombination mit der Rotation entstehen jedoch weitere Linien, wenn sich bei einem optischen Übergang die Rotationsquantenzahl und die Schwingungsquantenzahl gleichzeitig ändern. Schließlich versuchen wir, die Vielzahl möglicher Schwingungen in mehratomigen Molekülen zu beschreiben.
+
+
+\section{I Beispiel: Wasser}
 
 \begin{figure}
 \inputtikz{\currfiledir fig_water}
@@ -22,7 +29,7 @@
 \end{figure}
 
 
-Das in Abbildung \ref{fig:diel_water}  gezeigte Spektrum von Wasserdampf überdeckt mehr als 6 Größenordnungen im Frequenzbereich und ist mit einem einzigen Gerät nicht  messbar. Die niedrigsten Frequenzen liegen im Bereich von Mikrowellen, benutzt also Techniken aus dem Radio- und Radar-Bereich. Der mittlere Frequenzbereich ist infrarotes Licht, der hohe sichtbares bis ultraviolettes Licht. Wir werden die verschiedenen spektroskopischen Methoden in diesem und dem nächsten  Kapitel besprechen.
+Das in Abbildung \ref{fig:diel_water}  gezeigte Spektrum von flüssigem Wasser überdeckt mehr als 6 Größenordnungen im Frequenzbereich und ist mit einem einzigen Gerät nicht  messbar. Die niedrigsten Frequenzen liegen im Bereich von Mikrowellen, benutzt also Techniken aus dem Radio- und Radar-Bereich. Der mittlere Frequenzbereich ist infrarotes Licht, der hohe sichtbares bis ultraviolettes Licht. Wir werden die verschiedenen spektroskopischen Methoden in diesem und dem nächsten  Kapitel besprechen.
 
 
 Die Wellenzahl $\bar{\nu} = 1 / \lambda =\nu / c =  E / (h c)$ (eigentlich immer angegeben in der Einheit 1/cm) ist eine Maß für die  \emph{Frequenz} oder \emph{Energie}. Dieses Maß in der Spektroskopie sehr weit verbreitet ist, weil es proportional zur Energie ist (und damit das Reziproke der Wellenlänge umgeht), aber gleichzeitig nahe an der praktischen, intuitiven Größe 'Wellenlänge'.
@@ -201,7 +208,7 @@ Dies sind die Energien der \emph{Zustände} des Systems, noch nicht die Lage der
 
 Zwischen welchen Zuständen können unter welchen Umständen Übergänge durch Absorption (oder Emission) eines Photons stattfinden? Dies beschreiben  die Auswahlregeln.
 
-Zunächst muss die Rotationsbewegung überhaupt an das elektromagnetische Feld koppeln. Dies verlangt  ein statisches, permanentes Dipolmoment des Moleküls. Klassisch hätte man so einen oszillierenden Dipol, und diese Bedingung bleibt auch in der Quantenmechanik erhalten. Damit sind homonukleare Moleküle (z.B. \ch{H2}), symmetrische lineare Moleküle (z.B. \ch{CO2}) und hoch-symmetrische Moleküle (z.B. \ch{CCl4}) ausgeschlossen. Dieser Ausschluss kann, wie wir unten (XX?) sehen werden, durch eine Schwingung des Moleküls wieder aufgehoben werden.
+Zunächst muss die Rotationsbewegung überhaupt an das elektromagnetische Feld koppeln. Dies verlangt  ein statisches, permanentes Dipolmoment des Moleküls. Klassisch hätte man so einen oszillierenden Dipol, und diese Bedingung bleibt auch in der Quantenmechanik erhalten. Damit sind homonukleare Moleküle (z.B. \ch{H2}), symmetrische lineare Moleküle (z.B. \ch{CO2}) und hoch-symmetrische Moleküle (z.B. \ch{CCl4}) ausgeschlossen. Dieser Ausschluss kann, wie wir unten sehen werden, durch eine Schwingung des Moleküls wieder aufgehoben werden.
 
 Wenn optische Rotationsübergänge im Prinzip möglich sind, dann muss noch die Drehimpuls-Erhaltung erfüllt sein. Die Summe des Drehimpulses von Molekül und Photon muss erhalten bleiben. Der Drehimpuls des Photons ist $1 \hbar$. Bei der Absorption eines Photons muss sich also $J$ erhöhen, bei der Emission erniedrigen.\sidenote{Glücklicherweise passt das mit der Änderung der Energie zusammen.} Damit ergibt sich als Auswahlregel
 \begin{equation}
@@ -314,12 +321,12 @@ Um diese Fragen zu beantworten, brauchen wir wie im Kapitel zur Wechselwirkung m
 und dem Dipol-Operator $\hat{\mu}= e \hat{br}$. Die Auswahlregeln beantworten die Frage, unter welchen Umständen dieser Term nicht Null ist. Die absolute Größe interessiert uns hier also nicht so sehr.
 
 
-Dazu brauchen wir eigentlich  die Kern-Wellenfunktionen, die also die Aufenthaltswahrscheinlichkeit der beiden Kerne beschrieben. Das beinhaltet alle Bewegung der Kerne, Ritation und Schwingung. Für die Schwingung alleine reicht der Radialanteil, genau das $\Psi_\text{vib}$, was wir oben beim Parabeipotential gefunden hatten.
+Dazu brauchen wir eigentlich  die Kern-Wellenfunktionen, die also die Aufenthaltswahrscheinlichkeit der beiden Kerne beschrieben. Das beinhaltet alle Bewegung der Kerne, Rotation und Schwingung. Für die Schwingung alleine reicht der Radialanteil, genau das $\Psi_\text{vib}$, was wir oben beim Parabeipotential gefunden hatten.
  Genauso besteht der Dipol-Operator eigentlich aus der Summe über alle Ladungen mal deren Ortsvektor. Auch dies vereinfacht sich zu dem Radialanteil der Kernladungen $d_k(R)$. Weiterhin nähern wir den Operator in einer Taylor-Reihe um $R \approx R_0$ und behalten nur das erste Glied. Die vollständige Rechnung findet sich in Kapitel 4.2 von \cite{Demtröder_molekuelphysik}. Dabei verschwindet auch das nullte Glied der Taylor-Reihe, das das statische Dipolmoment beschreibt. Man findet schließlich, dass das Übergangsmatrixelement gegeben ist durch
 \begin{equation}
 D_{fi}^\text{vib} \propto  \left. \frac{\partial d_k}{\partial R} \right|_{R_0} \,  \int (\Psi_\text{vib}^\star (R) )_f \, R  \, \, (\Psi_\text{vib} (R) )_i \, dR \quad .
 \end{equation}
-Reine Schwingungsübergang sind also nur dann erlaubt, wenn sich das permanente Dipolmoment mit dem Kern-Kern-Abstand ändert. Solche Moleküle werden infrarotaktiv genannt. Dann  darf auch das Integral nicht verschwinden. Aufgrund einer Eigenschaft der Hermite'schen Polynome ist das nur dann der Fall, wenn sich die Quantenzahl $\nu$ zwischen den beiden Zuständen nur um eins unterscheidet, also 
+Reine Schwingungsübergang sind also nur dann erlaubt, wenn sich das permanente Dipolmoment mit dem Kern-Kern-Abstand ändert. Solche Moleküle werden \emph{infrarotaktiv} genannt. Dann  darf auch das Integral nicht verschwinden. Aufgrund einer Eigenschaft der Hermite'schen Polynome ist das nur dann der Fall, wenn sich die Quantenzahl $\nu$ zwischen den beiden Zuständen nur um eins unterscheidet, also 
 \begin{equation}
  \Delta \nu = \pm 1 \quad .
 \end{equation}
@@ -336,16 +343,7 @@ Die harmonische Parabel ist nur eine erste Näherung für das Bindungspotential.
 \begin{equation}
  V(R) = D_e \left( 1 - e^{-a (R - R_0)} \right)^2 \approx D_e \, a^2 (R - R_0)^2 + \cdots \quad .
 \end{equation}
-Dabei ist $D_e$ die Dissoziationsenergie des Moleküls, also die Tiefe des Minimums unter der Energie bei $R \rightarrow \infty$. In der harmonischen Näherung des Morse-Potentials entspricht $k = 2 D_e a^2$ der Federkonstanten bzw. $\omega_0 = a \sqrt{2 D_e / \mu}$ der Eigenfrequenz. Als Energie-Eigenwerte erhält man
-\begin{align}
- E_\nu =&  \hbar \omega_0 \left( \nu  + \frac{1}{2} \right)
- - \frac{\hbar^2 \omega_0^2}{4 D_e} \left( \nu  + \frac{1}{2} \right)^2 \\
- = &
- \hbar \omega_0 \left( \nu  + \frac{1}{2} \right)
- - \chi_e \, \hbar \omega_0  \left( \nu  + \frac{1}{2} \right)^2
-\end{align}
-mit der Anharmonizitätskonstanten $\chi_e =\hbar \omega_0 / 4 D_e$.
-Die Zustände sind also nicht mehr äquidistant. Die Abstände zwischen benachbarten Zuständen nehmen mit steigender Quantenzahl $\nu$ ab. Die Auswahlregeln werden auch aufgeweicht, und Übergänge mit 
+Dabei ist $D_e$ die Dissoziationsenergie des Moleküls, also die Tiefe des Minimums unter der Energie bei $R \rightarrow \infty$. In der harmonischen Näherung des Morse-Potentials entspricht $k = 2 D_e a^2$ der Federkonstanten bzw. $\omega_0 = a \sqrt{2 D_e / \mu}$ der Eigenfrequenz. In diesem anharmonischen Potential  sind die Energien nicht mehr äquidistant. Die Abstände zwischen benachbarten Zuständen nehmen mit steigender Quantenzahl $\nu$ ab. Die Auswahlregeln werden auch aufgeweicht, und Übergänge mit 
 \begin{equation}
 \Delta \nu = \pm 1, \pm 2 , \pm 3, \dots
 \end{equation}
@@ -364,7 +362,7 @@ Das anharmonische Bindungspotential erklärt auch die Expansion von Festkörpern
 
 \section{Rotation und Schwingung gleichzeitig}
 
-Nun soll auch die Rotation des Moleküls erlaubt sein. Zunächst gehen wir davon aus, dass diese beiden Bewegungen sich nicht gegenseitig beeinflussen, also nicht gekoppelt sind. Die Energie-Eigenwerte sind dann gerade die Summe der Zustandsenergien aus Rotation und Schwingung%\sidenote{Wir nehmen hier einen harmonischen Oszillator und einen starren Rotator an!}
+Nun soll auch die Rotation des Moleküls erlaubt sein. Wir gehen hier davon aus, dass diese beiden Bewegungen sich nicht gegenseitig beeinflussen, also nicht gekoppelt sind. Die Energie-Eigenwerte sind dann gerade die Summe der Zustandsenergien aus Rotation und Schwingung%\sidenote{Wir nehmen hier einen harmonischen Oszillator und einen starren Rotator an!}
 \begin{equation}
 E (\nu, J) = E_\text{vib}(\nu) + E_\text{rot}(J) = \hbar \omega_0 \left(\nu + \frac{1}{2} \right) + h c \, B J \left( J+1 \right) \label{eq:vib_rot_simple}
 \end{equation}
@@ -543,20 +541,20 @@ Ein lineares Molekül mit $f=9 - 5 = 4$ Schwingungsfreiheitsgraden
   
 \end{description}
 
-\paragraph{Cyanwasserstoff (Blausäure, HCN)}  
-\begin{marginfigure}
-\inputtikz{\currfiledir fig_hcn_modes}
-\end{marginfigure}
-Ein lineares Molekül mit $f=9 - 5 = 4$ Schwingungsfreiheitsgraden, analog zu Kohlendioxid oben. Das Spektrum in Abb. \ref{fig:vib_hcn} weiter oben zeigt die Biegeschwingung bei $\bar{\nu} = 712$~cm$^{-1}$.  Abbildung \ref{fig:vib_hcn_all} gibt einen Überblick über einen größeren Spektralbereich. Man sieht zusätzlich den 
-ersten Oberton der Biegeschwingung bei ungefähr der doppelten Frequenz  $\bar{\nu} = 1415$~cm$^{-1}$
-. Die Mode bei  $\bar{\nu} = 3312$~cm$^{-1}$ ist die  asymmetrische Streckschwingung. Die symmetrische Streckschwingung  bei $\bar{\nu} = 2114$~cm$^{-1}$.
- Im Gegensatz zu \ch{CO2} bewegt sich in dieser Mode das Kohlenstoffatom ebenfalls, da die Massen von H und N verschieden sind, und sich ansonsten der  Schwerpunkt bewegen würde. Dies macht diese Mode sehr schwach IR-aktiv.  Nur für den Grundton der Biegeschwingung und die  symmetrische Streckschwingung ist der Q-Zweig erlaubt.
-
 \begin{figure}
 \inputtikz{\currfiledir fig_hcn-lowres}
 \caption{Infrarot-Absorptionsspektrum von HCN Gas  (\cite{Maki_1995_HCN} via \href{https://hitran.org}{hitran.org}). Im unteren Spektrum ist ein größerer Ausschnitt bei geringer Auflösung gezeigt. Hier sind von den Rotationsbanden nur die Einhüllenden zu erkennen.
 \label{fig:vib_hcn_all}}
 \end{figure}
+
+
+\paragraph{Cyanwasserstoff (Blausäure, HCN)}  
+\begin{marginfigure}
+\inputtikz{\currfiledir fig_hcn_modes}
+\end{marginfigure}
+Ein lineares Molekül mit $f=9 - 5 = 4$ Schwingungsfreiheitsgraden, analog zu Kohlendioxid oben. Das Spektrum in Abb. \ref{fig:vib_hcn} weiter oben zeigt die Biegeschwingung bei $\bar{\nu} = 712$~cm$^{-1}$.  Abbildung \ref{fig:vib_hcn_all} gibt einen Überblick über einen größeren Spektralbereich. Man sieht zusätzlich den 
+ersten Oberton der Biegeschwingung bei ungefähr der doppelten Frequenz  $\bar{\nu} = 1415$~cm$^{-1}$. Die Mode bei  $\bar{\nu} = 3312$~cm$^{-1}$ ist die  asymmetrische Streckschwingung. Die symmetrische Streckschwingung  bei $\bar{\nu} = 2114$~cm$^{-1}$.
+ Im Gegensatz zu \ch{CO2} bewegt sich in dieser Mode das Kohlenstoffatom ebenfalls, da die Massen von H und N verschieden sind, und sich ansonsten der  Schwerpunkt bewegen würde. Dies macht diese Mode sehr schwach IR-aktiv.  Nur für den Grundton der Biegeschwingung und die  symmetrische Streckschwingung ist der Q-Zweig erlaubt.
 
 
 
