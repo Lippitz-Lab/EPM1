@@ -1,0 +1,307 @@
+\renewcommand{\lastmod}{9. Januar 2025}
+\renewcommand{\chapterauthors}{Markus Lippitz}
+
+\chapter{Elektronische Anregungen  und Raman-Effekt}
+
+
+\section{Überblick}
+
+Von den im letzten Kapitel diskutierten Formen der Anregung von Molekülen haben wir bis hier die Rotationsanregung mit der Quantenzahl $J$ und die Schwingungsanregung mit der Quantenzahl $\nu$ diskutiert. Nun kommt die  elektronische Anregung hinzu. Es kann sich nun also auch die Wellenfunktion der Elektronen ändern. Die Gesamtenergie ist die Summe über die Energie in der Rotation, der Vibration und der im elektronischen System. Bei optischen Übergängen, also der Absorption und Emission von Licht, ändern sich damit potentiell diverse Quantenzahlen. Allerdings sind die drei Beiträge energetisch sehr unterschiedlich. Wenn der elektronische Anteil erfasst werden soll, dann können die anderen beiden nicht und nicht vollständig aufgelöst werden.\sidenote{Die relative Auflösung eines Spektrometers liegt im Bereich von etwa $10^{-4}$.} Insbesondere die Rotationsstruktur erscheint zu 'Banden' zusammengefasst. Diese Form der elektronischen Anregung führt zu Absorptionsspektren im sichtbaren Spektralbereich und zu Fluoreszenzemissionen auch im sichtbaren Bereich.
+
+Abschließend diskutieren wir den Raman-Effekt. Er beschreibt die inelastische Streuung von Licht an Molekülen. Dadurch können Schwingungsübergänge angeregt werden, die für die direkte Infrarotabsorption verboten sind. Manchmal ist es auch technisch einfacher, kleine Änderungen der Wellenlänge eines sichtbaren Laserstrahls zu messen, als die Absorption im Infraroten.
+
+
+\section{Fluoreszenz}
+
+\begin{figure}
+\inputtikz{\currfiledir fig_bodipy}
+  \caption{Absorptions- und Fluoreszenz-Spektrum des Farbstoffs BODIPY  (\href{https://www.thermofisher.com/de/de/home/life-science/cell-analysis/labeling-chemistry/fluorescence-spectraviewer.html?SID=srch-svtool&UID=10001moh}{thermofischer.com}).}
+\end{figure}
+
+
+Es ist hilfreich, sich zu überlegen, wie das Lichtspektrum wirklich gemessen wird. Ein Lichtstrahl wird gebeugt, typischerweise an einem Gitter. Als Funktion des Dispersionswinkels misst man die Lichtintensität, indem man Photonen in Elektronen umwandelt, entweder in einer CCD-Kamera oder einer Photodiode. Die Signalamplitude ist also proportional zur Photonenrate, nicht zur Leistung oder zur Energie pro Photon.
+
+Die Auflösung eines Gitterspektrometers wird durch die Breite der CCD-Pixel, die Größe der Diode oder des Eingangsspalts, durch die Größe eines monochromatischen Fokus oder einer Kombination aus allen bestimmt. In allen Fällen ist sie jedoch über das Spektrum konstant, wenn es in der Wellenlänge gemessen wird. Die natürliche Einheit eines Gitterspektrometers ist die Wellenlänge, nicht die Frequenz. Die reziproke Beziehung zwischen Wellenlänge und Frequenz führt zu 
+\begin{equation}
+ \Delta \nu = \nu_2 - \nu_2 = \frac{c}{\lambda_2} - \frac{c}{\lambda_1}  = c \frac{\lambda_1 - \lambda_2}{\lambda_1 \lambda_2} \approx \frac{c}{\lambda^2} \, \Delta \lambda \quad .
+\end{equation}
+Im Frequenzbereich ist die spektrale Auflösung also nicht konstant, sondern proportional zu $\nu^2$. Bei der Konvertierung eines Datensatzes vom Wellenlängenbereich in den Frequenzbereich werden also nicht nur die $x$-Werte, sondern auch die $y$-Werte konvertiert. Das Integral oder die Gesamtzahl der Photonen muss gleich bleiben:
+\begin{equation}
+ \left( \lambda \, ; \, F(\lambda) \right) \, \rightarrow  \left( \nu = \frac{c}{ \lambda} \, ; \,  F(\nu) = \frac{\lambda^2}{ c } \, F(\lambda) \right)  \quad .
+\end{equation}
+Dieses Problem tritt nur bei Lichtspektren auf. Absorptionsspektren sind das Verhältnis zweier Lichtspektren, des Signal- und des Referenzstrahls. In diesem Fall heben sich die Vorfaktoren auf und es müssen nur die $x$-Werte umgerechnet werden. Die spektral integrierte Absorption hat im Gegensatz zum spektral integrierten Photonenfluss keine Bedeutung.
+
+
+
+\section{Vibronische Kopplung}
+
+In Kapitel über die Molekülbindungen hatten wir die Born-Oppenheimer-Näherung eingeführt. Sie ermöglicht, die Elektronen- und die Kern-Wellen\-funk\-tionen zu separieren, da die Kernbewegung 'langsam' verglichen mit der Elektronen-Bewegung ist. Die Kerne bewegen sich also in einem gemittelten Potential der sich bewegenden Elektronen. Die Eigen-Energie des elektronischen Systems hängt von der Position der Kerne als Parameter ab.
+
+Die Absorption eines Photons ändert \emph{instantan} die Wellenfunktion der Elektronen. Damit sehen die Kerne eine plötzliche Änderung des Potentials, in dem sie sich bewegen. Dies führt dann (bis auf sehr seltene Ausnahmen) zu einer Änderung der Bewegung der Kerne selbst, also eine Änderung der Rotations- und insbesondere der Schwingungs-Wellenfunktion bzw. deren Quantenzahlen. Dies nennt man vibronische Kopplung, also eine Kopplung zwischen der Vibration und den Elektronen.
+
+Je nach Ausgangs- und Ziel-Wellenfunktion der Elektronen ändert sich der Gleichgewichtsabstand $R_0$ des Bindungspotentials,  die Energie $E(R_0)$ an diesem 
+Abstand sowie die Form des Bindungspotentials $E(R- R_0)$. Typischerweise  sind angeregte Elektronenzustände weniger stark bindend, also $R_0$ ist größer, und weicher, also $E(R- R_0)$ ist breiter. Es gibt aber auch Ausnahmen von dieser Regel.
+Und natürlich ist $E(R_0)$ höher, sonst wäre es ja keine Anregung.
+
+\section{Franck-Condon-Prinzip}
+
+
+Auch für die elektronische Anregung gibt es Auswahlregeln, die wieder durch das Übergangs-Matrixelement bestimmt werden. Man sieht wieder das einfallende elektromagnetische  Feld als Störterm und benutzt Fermis Goldene Regel. Gesucht ist dann das Übergangs-Matrixelement $D$
+\begin{equation}
+ D = \braket{\Psi_\text{final} | \hat{\mu} | \Psi_\text{initial} }
+\end{equation}
+zwischen den beiden Zuständen $\Psi_{f,i}$ und mit dem Dipol-Operator $ \hat{\mu}$. Die Born-Oppenheimer-Näherung erlaubt es nun, die Wellenfunktionen von Elektronen $ \phi(\mathbf{r}, \mathbf{R})$ und Kern $ \chi(\mathbf{R}) $ zu separieren:
+\begin{equation}
+ \Psi = \chi(\mathbf{R}) \, \phi(\mathbf{r}, \mathbf{R}) \quad , \label{eq:elec_wf_FC}
+\end{equation}
+wobei die Kern- ($\mathbf{R}$) und Elektronen-Koordinaten ($\mathbf{r}$) jeweils die Koordinate von \emph{allen} Elektronen und Kernen beinhalten und die Kern-Koordinaten $\mathbf{R}$ in der elektronischen Wellenfunktion nur fixer Parameter sind. Damit ist das Übergangs-Matrixelement $D$
+\begin{equation}
+ D =  \iint  \chi_f(\mathbf{R}) \, \phi_f(\mathbf{r} , \mathbf{R}) \; \hat{\mu}
+ \,  \chi_i(\mathbf{R}) \, \phi_i(\mathbf{r}, \mathbf{R}) \, d \mathbf{r} \, d \mathbf{R}  \quad .
+\end{equation}
+
+
+Wir teilen den Dipol-Operator $\hat{\mu}$ jetzt auf in einen Teil, der nur auf die Position der negativen Ladungen, also der Elektronen wirkt, und einen Teil, der nur auf die Position der positiven Ladungen, also der Kerne wirkt
+\begin{equation}
+\hat{\mu} = \hat{\mu}_e + \hat{\mu}_k = q_e \mathbf{r} + q_k \mathbf{R} \quad .
+\end{equation}
+Damit erhalten wir
+\begin{align}
+D = & \braket{ \chi_f, \phi_f  |  \hat{\mu}_e |  \chi_i \phi_i} 
++ \braket{ \chi_f, \phi_f  |  \hat{\mu}_k |  \chi_i \phi_i}  \\
+= & \braket{\chi_f | \chi_i} \,  \braket{ \phi_f  |  \hat{\mu}_e |   \phi_i} 
++ \braket{\phi_f | \phi_i} \,
+\braket{ \chi_f |  \hat{\mu}_k |  \chi_i }   \quad .
+\end{align} 
+Im zweiten Schritt haben wir angenommen,  dass die Elektronen-Wellenfunktion $ \phi(\mathbf{r}, \mathbf{R})$  nur schwach von $\mathbf{R}$ abhängt. Die  Elektronen-Wellenfunktionen $\phi_i$ sind orthogonal zueinander. Der zweite Summand verschwindet also. Der Vorfaktor vor dem ersten ist nicht Null, weil die Kern-Wellenfunktionen zu verschiedenen Gleichgewichtsabständen gehören. Diesen Faktor 
+\begin{equation}
+ F =  \braket{\chi_f | \chi_i} =
+ \int  \chi_f(\mathbf{R})  \,  \chi_i(\mathbf{R}) \, d \mathbf{R} 
+\end{equation}
+nennt man \emph{Franck-Condon-Faktor}. Er beschreibt den räumlichen Überlapp der Schwingungs-Wellenfunktion von Ausgangs- und Zielzustand. Da die Übergangsrate proportional zu $|D|^2$ ist, bestimmt sein Betrags-Quadrat die Intensität des Übergangs. 
+
+
+
+Es macht intuitiv Sinn, dass ein solcher Faktor existieren muss. Bei einer elektronischen Anregung ändert sich die Elektronenwellenfunktion instantan. Die Position von  Teilchen mit Masse kann sich aber nicht instantan ändern.  Damit ein Übergang stattfinden kann, muss es also möglich sein, dass die Kerne auch im angeregten Zustand an diesem Ort sind. Das Franck-Condon-Integral berechnet gerade diese Möglichkeit.\sidenote{Dass sich die Position der Elektronen nicht ändert, wird analog durch $ \braket{ \phi_f  |  \hat{\mu}_e |   \phi_i} \neq 0 $ gefordert.}
+
+Schematisch ist das in der Skizze gezeigt. Der Ausgangszustand für die Absorption eines Photons ist der elektronische Grundzustand und auch der Schwingungs-Grundzustand $\nu = 0$. Typische Schwingungs-Frequenzen sind so, dass $\hbar \omega_\text{vib} \gg k_b T$, also schon $\nu =1$ nicht thermisch angeregt werden kann. Das Bindungspotential im angeregten Zustand ist entlang der Kern-Kern-Koordinate $R$ nach außen verschoben (weniger stark bindend). Seine Form ist näherungsweise gleich zum Grundzustand. 
+
+\begin{marginfigure}
+   \inputtikz{\currfiledir FC_vib_state_wf}
+\caption{Die Absorption eines Photons führt zur Anregung der Kern--Kern--Schwingung, wenn die Potentiale gegeneinander verschoben sind.}
+\end{marginfigure}
+
+Wir hatten die Schwingungs-Wellenfunktionen $\chi_f(\mathbf{R})$ bereits im letzten Kapitel  besprochen. Für harmonische Potentiale sind es Hermite'schen Polynomen. Im elektronischen Grundzustand ist der Kern-Kern-Abstand $R$ also stark um $R_0$ lokalisiert. Direkt nach der elektronischen Anregung kann sich $R$ aber nicht geändert haben. Optische Übergänge sind \emph{senkrecht} in dieser Skizze. Wir suchen also eine Schwingungs-Wellenfunktion bzw. deren Quantenzahl $\nu$ im angeregten elektronischen Zustand, die möglichst viel Aufenthaltswahrscheinlichkeit bei $R_0$ hat (aber auch die Geschwindigkeit der Kerne muss übereinstimmen). Im Beispiel ist dies $\nu = 1$. Den Grad der Übereinstimmung gibt der Franck-Condon-Faktor an.
+
+Es gibt damit also keine scharfen Auswahlregeln, nur mehr oder weniger starke Übergänge bei gegebenen $\nu_\text{final}  = \Delta \nu$. Falls sich der Bindungsabstand überhaupt nicht ändert unter der elektronischen Anregung, dann ist der Übergang
+\begin{equation}
+ \nu = 0 \rightarrow \nu = 0
+\end{equation}
+der stärkste. Diesen Übergang nennt man 'zero phonon line' (ZPL), weil keinerlei Schwingungsquanten involviert sind\sidenote{Das Konzept der Phononen wird in der Festkörperphysik eingeführt}. Je größer der Unterschied in $R_0$, desto weiter verschiebt sich die stärkste Linie zu höheren $\nu$. 
+
+
+
+\section{Spin-Auswahlregeln }
+
+Der elektronische Teil der Wellenfunktion in Gl. \ref{eq:elec_wf_FC} kann wie immer noch weiter unterteilt werden in seinen räumlichen Anteil $\phi^\text{Raum}$ und in den Spin-Anteil  $\phi^\text{Spin}$. Der Dipol-Operator $\hat{\mu}$ interagiert nicht mit dem Spin-Anteil. Somit lässt sich das Übergangs-Matrix-Element schreiben als
+\begin{equation}
+ D =   \braket{\chi_f | \chi_i} \,    \braket{\phi^\text{Spin}_f | \phi^\text{Spin}_i}  \,
+  \braket{\phi^\text{Raum}_f | \hat{\mu} | \phi^\text{Raum}_i}  \quad .
+\end{equation}
+Da die Spin-Wellenfunktionen orthogonal aufeinander sind, dürfen sich bei einem optischen Übergang die Spin-Quantenzahlen nicht ändern, also
+\begin{equation}
+ \Delta S = 0 \quad .
+\end{equation}
+Übergänge finden nur innerhalb eines 'Systems' statt, also nur zwischen  Singulett-Zuständen und nur zwischen   Triplett-Zuständen.
+Störungen wie beispielsweise die Spin-Bahn-Kopplung können diese Regel aufweichen. Man spricht dann von 'intersystem crossing'.
+Allgemein bezeichnet man die Zustände  mit S für Singulett und T für Triplett und nummeriert sie mit der Energie aufsteigend durch. Der Grundzustand ist typischerweise ein Singulett, also S0. Fluoreszenz ist der Übergang S1 nach S0. Der Übergang T1 nach S0 ist Spin-verboten. Dies bedeutet aber nur, dass die Übergangsrate von etwa 1/ns auf 1/\textmu s bis 1/s abfällt. Solche Strahlung nennt man Phosphoreszenz. Lumineszenz ist der Oberbegriff für beides. 
+
+Unter Umständen überlappen hoch angeregte Schwingungsniveaus eines elektronisch niedrigen Zustands mit niedrigen Schwingungsniveaus eines höher angeregten Zustands gleicher Multiplizität\sidenote{gleicher Spin-Quantenzahlen}. In solchen Fällen kann der höhere elektronische Zustand in den niedrigeren übergehen. Diesen Prozess nennt man 'internal conversion'.
+
+
+\section{Fluoreszenz}
+
+Fluoreszenz bezeichnet den Prozess, in dem ein Photon von einem Molekül emittiert wird. Dabei geht das Molekül von einem angeregten elektronischen Zustand in einen niedrigeren Zustand über. Der Prozess wird durch die selben Franck-Condon-Faktoren bestimmt und auch hier sind die Übergänge 'senkrecht', also bei unverändertem Kern-Kern-Abstand $R$.
+
+Allerdings ist die Kopplung der Elektronen an das Lichtfeld ein schwacher Prozess. Dies hat bei der Absorption keinen besonderen Einfluss. Wenn kein Photon absorbiert wird, dann passiert eben nichts und das Molekül verbliebt weiter im Grundzustand mit $\nu = 0$. Vor der Emission ist das Molekül allerdings potentiell in einem Zustand mit $\nu > 0$. In einem solchen Fall kann das Molekül Energie abgeben und in den Schwingungs-Grundzustand des elektronisch angeregten Zustand relaxieren. Die Energie geht in diesen Fällen entweder an die Umgebung oder an andere Schwingungsmoden des Moleküls. In jedem Fall sind diese strahlungslosen Übergänge hin zu $\nu = 0$ etwa um den Faktor 1000 schneller als die Emission eines Photons\sidenote{1 Prozess pro 1 ps vergleichen mit 1 Prozess pro 1 ns}. Fluoreszenz-Emission geschieht daher immer aus dem Zustand $\nu = 0$. Dies ist die Regel von Kasha.
+
+\section{Spiegelregel}
+
+In Kombination mit den zwischen Absorption und Emission identischen Franck-Condon-Faktoren führt  Kashas Regel dazu, dass das Fluoreszenz-Spektrum wie das an der zero-phonon line gespiegelte Absorptionsspektrum aussieht\footcite[Kapitel 1.3.2 und 1.3.3]{Lakowicz2010}. Wenn eine Schwingung mit der Frequenz $\omega$ das Spektrum dominiert, dann liegen die Peaks im Spektrum bei
+\begin{align}
+  E_{abs, n} = & E_{00} + n \, \hbar \omega \\
+  E_{fl, n} = & E'_{00} - n \, \hbar \omega \quad .
+\end{align}
+Die Energie der zero phonon line $E_{00}$ ist zunächst einmal in Absorption und Emission identisch.  Hinzu kommt aber ggf. noch die Stokes-Verschiebung, wenn sich beispielsweise Lösemittel-Moleküle in der Umgebung des fluoreszierenden Moleküls umorientieren, je nach dem in welchem elektronischen Zustand das emittierende Molekül ist.
+
+
+
+Nicht nur die spektralen Positionen, sondern auch die Amplitude der Peaks im Absorptionsspektrum $A(\omega)$ und Fluoreszenzspektrum $F(\omega)$ stehen in Beziehung zueinander. Der Grund dafür ist, dass die Einstein-Koeffizienten $A_{12}$ und $B_{21}$ miteinander verwandt sind, oder dass es nur ein Übergangs-Dipolmoment $\mu$ gibt, das sowohl die Absorption als auch die Emission bestimmt. Man muss allerdings die Beziehung zwischen dem Übergangsdipolmoment $\mu$ und den Spektren beachteten \footcite[Kapitel 5.2]{Parson}
+\begin{eqnarray}
+   A(\omega  )  & \propto & \omega_{g,m \rightarrow e,n}  \,  \left| \braket{\chi_n |  \chi_m} \right|^2 
+\,  \left| \braket{\phi^\text{Raum}_e | \hat{\mu} | \phi^\text{Raum}_g} \right|^2 \\
+   F(\omega ) & \propto & \omega_{e,n \rightarrow g,m}^3 \,  \left| \braket{\chi_m |  \chi_n} \right|^2 
+\,  \left|\braket{\phi^\text{Raum}_g | \hat{\mu} | \phi^\text{Raum}_e} \right|^2 \quad .
+\end{eqnarray}
+Eigentlich ist das spektrale Integral über eine Linie in $A(\omega  )$ bzw. $F(\omega)$ mit einem Übergang und damit einem Franck-Condon-Faktor verbunden. Das Integral hat man unter der Annahme einer Linienform aufgelöst. Dabei verbleibt ein Faktor $\omega$ auf der rechten Seite von beiden Gleichungen. Das Fluoreszenzspektrum erhält einen zusätzlichen Faktor von $\omega^2$ aufgrund der optischen Modendichte im dreidimensionalen Raum, wie es im Schwarzkörperspektrum und in der  Beziehung zwischen den Einstein-Koeffizienten $A_{12}$ und $B_{12}$ auftritt.
+Alles zusammengenommen sollte man daher $A / \omega$ und $F / \omega^3$ vergleichen.
+
+
+\section{Stokes-Verschiebung}
+
+Vergleicht man Absorptions- und Emissionsspektren wie oben beschrieben, so stellt man fest, dass die Übergangsenergien 0--0 nicht vollständig übereinstimmen. Dies ist die Stokes-Verschiebung. Ihre Amplitude hängt vom Molekül und der Umgebung des Moleküls ab. Wenn ein Molekül in einen elektronisch angeregten Zustand überführt wird, ändert sich die räumliche Verteilung der Elektronendichte. Dies beeinflusst die Umgebung, z. B. die Lösungsmittelmoleküle, in Position und Orientierung. Unmittelbar nach der Anregung befinden sich die Lösungsmittelmoleküle noch in der Position, die im Grundzustand des Farbstoffmoleküls die geringste Energie liefert. Im angeregten Zustand verschieben sie sich und richten sich neu aus, um die Gesamtenergie zu verringern. Die Fluoreszenzemission findet also in einer anderen elektrischen Umgebung statt als die Absorption, was zu einer Verschiebung der Übergangsenergie, der Stokes-Verschiebung, führt.
+
+Allgemeiner  wird nicht nur der Unterschied zwischen den 0--0-Übergängen, sondern auch der Unterschied zwischen den Spitzen der Absorptions- und Emissionsspektren als Stokes-Verschiebung bezeichnet. Dazu gehört dann auch die Schwingungsrelaxation des Farbstoffmoleküls selbst.
+
+
+
+\section{Elektronische Spektren großer Moleküle}
+
+Große Moleküle mit vielen Kernen und Elektronen besitzen komplexe Spektren in den optischen Übergängen, insbesondere bei hochauflösender Spektroskopie in der Gasphase\sidenote{In diesem Fall kann man die Doppler-Verbreitungen nicht vernachlässigen bzw. muss ihren Einfluss eliminieren.}. Man kann die beobachteten Spektren aber grob nach der Art, dem Ursprung der angeregten Elektronen klassifizieren.
+
+\paragraph{Bindende Elektronen} Wenn Elektronen angeregt werde, die besonders relevant für eine Bindung sind, dann führt dies oft zur Dissoziation, also dem Aufbrechen des Moleküls. Das Bindungspotential im elektronisch angeregten Zustand ist dann entweder selbst nicht mehr bindend, oder hat beispielsweise über die Schwingungszustände großen Überlapp mit einem anderen nicht-bindenden Potential. Dissoziation geschieht also nicht durch den direkten Übergang gebunden--frei, sondern über einen Zwischenschritt.
+
+\paragraph{Chromophore Gruppen} Ein Chromophor ist ein Farb-Träger. Manche Elektronen-Orbitale zeigen charakteristische Eigenschaften unabhängig davon, wie diese in ein großes Molekül eingebaut sind. Wenn diese Orbitale dann zu Fluoreszenz-Emission führen, dann nennt man sie chromophore Gruppen. Ein Beispiel sind einzelne Atome von Übergangsmetallen (\ch{Fe}, \ch{Ti}, \ch{Co}). Diese zeigen nahezu atomare Spektren, auch wenn sie in größere Moleküle eingebaut sind. Ein anderes Beispiel ist die \ch{C=O} Doppelbindung oder die \ch{C=C} Doppelbindung. Diese haben ein charakteristisches Absorptionsspektrum bei einer Wellenlänge von 290 nm bzw. 180 nm, unabhängig vom Rest des Moleküls.
+
+\paragraph{Delokalisierte Elektronen} Manchmal ist ein Elektronen-Orbital nicht eine Linearkombination von nur zwei Atom-Orbitalen, sondern es sind mehr Atome an dem Orbital beteiligt. Ein Elektron in einem solchen Orbital ist also nicht mehr an einem Ort, sondern über einen größeren Bereich delokalisiert. Wir hatten das im Zusammenhang mit der Hückel-Methode besprochen. In Benzol beispielsweise wird die $\sigma$-Bindung aus den sp$^2$-Hybrid-Orbitalen aufgebaut. Die verbleibenden 6 Elektronen in den atomaren p$_z$-Orbitalen bilden ein delokalisiertes $\pi$-Elektronen-System, oft durch einen Kreis in der Mitte des 6-Rings dargestellt. Ein anderes Beispiel sind konjugierte Polymere, also alternierende Einfach- und Doppel-Bindungen in einer Kette von Kohlenstoffatomen. In solchen Fällen ist jedes beteiligte Elektron überall. Elektronen in einem solchen räumlich großen Orbital kann man ähnlich zu einem Teilchen im Kasten beschreiben. Das Orbital bildet das Kasten-Potential. Die Kettenlänge bestimmt die Kastenbreite und, da $E \propto 1 /L$, die Lage der Energieniveaus. Lange Moleküle absorbieren und emittieren röter.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Raman-Streuung}
+
+\begin{figure}
+\inputtikz{\currfiledir fig_n2_raman}
+\caption{Raman-Spektrum von \ch{N2} in der Atmosphäre gemessen mit einem Laser der Wellenlänge 354.8~nm. Im Q-Zweig überlappen viele Linien, die hier nur als graue Fläche dargestellt sind. Daten aus \cite{Liu14_OE_N2}. }
+\end{figure}
+
+
+
+
+Moleküle ohne permanentes Dipolmoment (also beispielsweise homonukleare Moleküle) zeigen im THz-Absorptionsspektrum kein Rotationsspektrum. Moleküle ohne  Variation des Dipol-Moments mit der Normal-Koordinate zeigen kein Vibrationsspektrum im Infraroten. Solche
+Moleküle sind trotzdem spektroskopierbar, nämlich über den Raman-Effekt.
+
+Der Raman-Effekt\sidenote{nach Chandrasekhara Venkata Raman, 1888--1970} ist die \emph{inelastische} Streuung von Licht an Materie, bei der sich also die Frequenz des Lichts ändert. Dies ist im Gegensatz zur Rayleigh-Streuung, die die \emph{elastische} Streuung von Licht beschreibt. Nur wenige Photonen werden inelastisch gestreut. Der Effekt ist daher mit dem Auge nicht wahrzunehmen und man benötigt eine spektral schmale und intensive Lichtquelle, also einen Laser. Diesen scheint man auf bzw. durch die Probe.\sidenote{Wir diskutiere hier Raman-Spektroskopie an Gasen. Raman-Streuung an festen Proben wird aber ebenfalls sehr oft zur Charakterisierung von Materialien eingesetzt.} Im Gegensatz zu den Spektroskopie-Methoden, die wir bisher betrachtete haben, wird hier das Licht \emph{senkrecht zur Stahlrichtung} detektiert. So misst man nur gestreutes Licht, nicht direkt den Laser. In einem hochauflösenden Spektrometer findet man dann bei drei Frequenzbereichen Photonen
+\begin{itemize} \setlength{\itemsep}{0pt}
+\item bei der Laser-Frequenz $\bar{\nu}_\text{laser}$. Dies ist die elastische Rayleigh-Streuung.
+\item bei $\bar{\nu} < \bar{\nu}_\text{laser}$ inelastisch unter Energieverlust  gestreutes Licht. Dies nennt man Stokes-Linie. Sie ist etwa $10^{5}$ mal schwächer als die Rayleigh-Linie.
+\item bei $\bar{\nu} > \bar{\nu}_\text{laser}$ inelastisch unter Energiegewinn gestreutes Licht. Dies nennt man Anti-Stokes-Linie. Sie ist noch einmal $10$ bis $100$ mal schwächer als die Stokes-Linie.
+\end{itemize}
+Die hier als Stokes- bzw. Anti-Stokes-Linie bezeichneten 'Linien' besitzen eine deutliche Struktur, sehr analog zu den Rotations-Vibrations-Spektren und beinhalten die gleiche Information über das Molekül.
+
+
+\section{Klassische Erklärung des Raman-Effekts}
+
+Wir beginnen mit einer klassischen, makroskopischen Erklärung des Raman-Effekts. Das Molekül habe kein permanentes Dipolmoment, sei aber polarisierbar mit der Polarisierbarkeit $\alpha$. Zunächst vernachlässigen wir auch Rotation und Vibration des Moleküls. Dann ist das induzierte Dipolmoment
+\begin{equation}
+p_\text{ind}(t) = \alpha E(t) = \alpha E_0 \cos \omega_0 t \quad .
+\end{equation}
+Das Dipolmoment oszilliert also mit der Lichtfrequenz $\omega_0$. Laut den Maxwell-Gleichungen strahlen bewegte Ladungen elektromagnetische Felder ab, so auch dieses oszillierende Dipolmoment. Dies ist die Rayleigh-Streuung. Genauere Rechnungen zeigen, dass die Intensität proportional zu $\omega^4$ ist. Der Himmel ist also blau, weil blaues Licht besser Rayleigh-Streuung macht.
+
+Nun erlauben wir die Vibration des Moleküls. Die Polarisierbarkeit hängt dann, bei passenden Molekülen, vom Kern--Kern--Abstand $R$ ab. Dies nähern wie in einer Taylor-Reihe
+\begin{equation}
+\alpha = \alpha(R) = \alpha(R_0) + \left. \frac{\partial \alpha}{\partial R} \right|_{R_0}  \left( R - R_0 \right) + \dots \quad .
+\end{equation}
+Der Kern--Kern--Abstand $R$ ändert sich periodisch mit der Schwingungs-Frequenz $\omega_\text{vib}$ und der Amplitude $q$, also
+\begin{equation}
+\left( R - R_0 \right) = q \, \cos \omega_\text{vib} t \quad .
+\end{equation}
+Nun berechnen wir analog zu oben das induzierte Dipolmoment
+\begin{align}
+p_\text{ind}(t) = & \alpha(t) E(t) \\
+= & \alpha(R_0) E_0 \cos(\omega_0 t) +
+\left. \frac{\partial \alpha}{\partial R} \right|_{R_0}   q \,  E_0 \, \cos (\omega_\text{vib} t)  \cos(\omega_0 t) \\
+= & \underbrace{  \alpha(R_0) E_0 \cos(\omega_0 t) }_\text{Rayleigh} \\
+& + \left. \frac{\partial \alpha}{\partial R} \right|_{R_0}  \frac{ q \,  E_0 }{2} 
+\Bigl\{ 
+\underbrace{ \cos \left( [\omega_0 -\omega_\text{vib}] t \right)}_\text{Stokes}  +  \underbrace{\cos \left( [\omega_0 + \omega_\text{vib}] t \right)  
+}_\text{Anti-Stokes} 
+\Bigr\}  \quad .
+\nonumber
+\end{align}
+Das durch das oszillierende Dipolmoment abgestrahlte elektromagnetische Feld liefert wieder die Rayleigh-, jetzt aber auch die Stoks- und Anti-Stokes-Linie.
+
+Allgemein gilt, auch nach 'moderner' Rechnung, dass Schwingungsmoden dann Raman-aktiv sind, wenn die  Polarisierbarkeit von $R$ abhängt, also 
+\begin{equation}
+\left. \frac{\partial \alpha}{\partial R} \right|_{R_0} \neq 0 \quad .
+\end{equation}
+Dies ist in zweiatomigen Molekülen \emph{immer} der Fall. In mehr-atomigen Molekülen \emph{mit Inversionssymmetrie} sind Raman-Aktivität und IR-Aktivität komplementär. Ein Beispiel dazu ist \ch{CO2}. Die symmetrische Streckschwingung ist nicht Infrarot-aktiv, aber im Raman-Spektrum sichtbar. Die asymmetrische Streckschwingung verhält sich genau umgekehrt.
+
+
+\section{Mikroskopische Überlegungen}
+
+Beim Raman-Prozess wechselwirken zwei Photonen mit dem Molekül, das einfallende und das auslaufende. Die quantenmechanische Beschreibung benötigt deshalb eine Störungstheorie zweiter Ordnung. Dies geht hier zu weit, ist aber beispielsweise in Kapitel 17 von \cite{Haken_wolf_II} dargestellt. Hier betrachten wir nur qualitative Argumente, die zumindest das Amplitudenverhältnis zwischen Stokes und Anti-Stokes-Linie erklären können. Diese sind nach obigen klassischen Überlegungen ja noch gleich stark.
+
+Atome und Moleküle haben in der Quantenmechanik diskrete Energieniveaus. Photonen passender Frequenz können dann absorbiert werden. In der schematischen Darstellung verbindet ein senkrechter Pfeil zwei Niveaus.
+
+\begin{marginfigure}
+\begin{tikzpicture}
+\begin{scope}
+\draw[line width=1pt] (0,0) -- (1,0);
+\draw[line width=1pt] (0,2) -- (1,2);
+\draw[->] (0.5,0) -- (0.5,2);
+\end{scope}
+\begin{scope}[xshift=2cm]
+\draw[line width=1pt] (0,0) -- (1,0);
+\draw[line width=1pt, dashed] (0,2) -- (1,2);
+\draw[->] (0.5,0) -- (0.5,2);
+\end{scope}
+\end{tikzpicture}
+%\caption{Rotations-Vibrations-Übergänge liefert die P, Q, R-Zweige im Spektrum.}
+\end{marginfigure}
+ 
+
+Was passiert mit Photonen unpassender Frequenz? Diese können nicht absorbiert werden, dies würde schließlich die Energieerhaltung verletzten, aber sie werden gestreut. In der schematischen Darstellung zeichnet man dazu einen virtuellen Zustand als strichlierte horizontale Linie an das Ende des 'Photon'-Pfeils. Virtuelle Zustände können nicht bevölkert werden. Es gibt sie ja nicht wirklich. Auf der anderen Seite gibt es die Energie--Zeit--Unschärfe
+\begin{equation}
+\Delta E \cdot \Delta t \ge \hbar \quad .
+\end{equation}
+Wenn die Zeitdauer $\Delta t $ nur klein genug ist, dann muss die Energie-Unschärfe $\Delta E $ sehr groß werden. Für sehr kurze Zeiten kann man sozusagen gar nicht wissen, ob das Photon die passende Energie hat. Das kann man quantenmechanisch korrekt mit der Dichtmatrix formulieren. Für uns reicht hier, dass auch 'unpassende' Photonen mit diskreten Niveaus in Atomen oder Molekülen wechselwirken können, wenn auch nur für sehr kurze Zeit, wenige Femtosekunden für sichtbares Licht.
+
+\begin{marginfigure}
+\inputtikz{\currfiledir lorentz_oszillator}
+\caption{Der dispersive Anteil des Lorentz-Oszillators fällt langsamer ab als der absorptive. }
+\end{marginfigure}
+
+
+Ein zweiter Gesichtspunkt kommt vom Lorentz-Oszillator aus dem letzten Kapitel. Wir können diskrete atomare Übergänge als Lorentz-Oszillator beschreiben. Die Absorptionslinie hat das eben die bekannte Lorentz-Form. Sie fällt sehr schnell ab, wenn $| \omega  - \omega_0 |$ groß wird. Der Oszillator hat aber auch einen dispersiven Anteil, der den Realteil des Brechungsindexes beschreibt. Dieser fällt viel langsamer ab als der absorptive. Fern von der Resonanz ist er also wichtiger. Wir können uns ein Atom / Molekül fern von der Resonanz als ein kleines Volumen mit einem etwas von Vakuum verschiedene Brechungsindex vorstellen, das aber nicht absorbiert. Solch eine Brechungsindex-Variation führt aber zu Streuung von Licht.
+
+\begin{marginfigure}%[-50mm]
+\inputtikz{\currfiledir fig_raman_states}
+\caption{Stokes- und Anti-Stokes-Streuung über einen virtuellen Zustand (strichliert). Die spektrale Position der Rayleigh-Linie entspricht der des einfallenden Lasers.}
+\end{marginfigure}
+ 
+
+Nach diesen Vorüberlegungen können wir das Zustandsdiagramm für den Raman-Effekt zeichnen, wenn das Molekül mehrere äquidistante Schwingungszustände hat, die mit der Quantenzahl $\nu$ durchnummeriert sind. Der Abstand der Schwingungszustände $\hbar \omega_\text{vib}$ ist klein gegen die Energie des Photons $\hbar \omega_0$. Das Photon wird an einem virtuellen Zustand gestreut. Das dabei entstehende zweite Photon wird abgestrahlt und durch den Pfeil nach unten symbolisiert. Dieser Pfeil kann entweder auf den Ausgangszustand $\nu = 0$ zurück gehen. Das ist Rayleigh-Streuung. Oder er endet auf einem höheren Zustand und liefert die Stokes-Linien bei niedrigerer Energie. Die Anti-Stokes-Linien erhält man, wenn man nicht von $\nu = 0$ ausgeht, sondern von einem höheren Zustand, und dann aber bis auf $\nu = 0$ zurück fällt. Damit ist die Energie des auslaufenden Photons größer als die des einfallenden.
+
+
+
+Damit lassen sich verschiedene Aspekte des Raman-Effekts erklären: er ist sehr schwach, weil zwei Photonen quasi gleichzeitig ($\Delta t \approx 1$~fs) wechselwirken müssen. Die Intensität der Linien ist proportional zur Besetzung der Ausgangs-Schwingungszustände, also entsprechend einem Boltzmann-Faktor
+\begin{equation}
+\frac{I_\text{anti-Stokes}}{I_\text{Stokes}} = 
+\frac{N_{\nu = 1}}{N_{\nu = 0}} =
+ e^{- \frac{\hbar \omega_\text{vib}}{k_b T}} \quad .
+\end{equation}
+Bei Vibrationsfrequenzen von etwa $1000$~cm$^{-1}$ und $k_B T \approx 200 $~cm$^{-1}$ bei Raumtemperatur ist das Intensitätsverhältnis also $e^{-5} \approx 1 /150$. Man kann das Verhältnis der Linien also als lokales Thermometer benutzen.
+
+Die quantenmechanischen Rechnungen ergeben die selben Auswahlregeln wie für die Infrarot-Schwingungsspektroskopie, also 
+\begin{equation}
+ \Delta \nu = \pm 1 \quad \text{falls harmonisch, sonst} \quad \pm 1, \pm 2, \dots   \quad .
+\end{equation}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\section{Zusammenfassung}
+
+\textit{Schreiben Sie hier ihre persönliche Zusammenfassung des Kapitels auf. Konzentrieren Sie sich auf die wichtigsten Aspekte.}
+
+\vspace*{10cm}
+
+
+%--------------------
+\printbibliography[segment=\therefsegment,heading=subbibliography]
