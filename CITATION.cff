@@ -1,0 +1,22 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Lecture notes 'Aufbau der Materie I'
+message: >-
+  If you use this text, please cite it using the
+  metadata from this file.
+type: lecture notes
+authors:
+  - given-names: Markus
+    family-names: Lippitz
+    orcid: 'https://orcid.org/0000-0003-1218-6511'
+repository-code: 'https://github.com/Lippitz-Lab/EPM1'
+abstract: >-
+  This is the lecture notes (in German) of my lecture
+  'Aufbau der Materie I', as used in
+  the winter semester 24/25. It is a lecture for students in
+  the third year of the Bachelor's programme. In the
+  selection and weighting of the topics, it is very closely
+  oriented to what is usual in Bayreuth.
+license: CC-BY-SA-4.0
