@@ -1,0 +1,891 @@
+\renewcommand{\lastmod}{10. September 2025}
+\renewcommand{\chapterauthors}{Markus Lippitz}
+
+\chapter{Quantenmechanik}
+
+
+
+
+% 3. Probability and Randomness and Wave particle duality
+% Sim: Quantum Wave Interference
+% • When we ask how students visualize light, ~40% have “Bohmian” view of particle traveling
+% alongside EM wave.
+% • We use sim to demonstrate how the double slit experiment shows that light must be both a
+% wave that goes through both slits and a particle that hits the screen at a single location. This
+% lecture led to an unexpected onslaught of deep, fundamental questions that took up nearly an
+% entire class period. Many students ask whether the particle is actually inside wave with a
+% definition location that we just don’t know. Students get pretty frustrated with this class.
+
+
+% 9. Double slit and Davisson Germer experiment
+% Sims: Quantum Wave Interference, Davisson Germer: Electron Diffraction
+% • Students have a much harder time thinking of electrons as waves than photons, because
+% electrons have mass.
+% • Students often think that the size of the wave packet, rather than the wavelength, should
+% determine the spacing of the interference pattern.
+% • We have noticed that students often miss the point of the Davisson Germer experiment. They
+% remember that electrons were only detected at certain angles, but cannot explain why. They
+% view the electrons as particles that happen to bounce off at certain angles for some reason
+% they can’t understand, rather than recognizing how the observations can be explained by the
+% wave nature of electrons. We have found two things that really help to address this:
+% - Start with a review of the double slit experiment, a context where students understand
+% interference much better, talking about how you would like to do this to test deBroglie’s
+% hypothesis, and then explain why this is really hard to do and then talk about how the
+% Davisson Germer experiment is analogous.
+% - Use the Davisson Germer sim to illustrate how wave interference leads to peaks in
+% intensity at certain angles.
+
+% 10. Wave functions and probability
+% • When we first introduce wave functions with arbitrary functions, students often don’t
+% recognize these as waves because they think “waves” are sine waves.
+% • “Wave number” is usually new and unfamiliar to students, and it’s worth spending 5 minutes
+% to discuss why we define this quantity and how it relates to wavelength.
+
+% 11. Wave packets and uncertainty principle
+% Sims: Quantum Wave Interference, Quantum Tunneling, Fourier: Making Waves
+% • We introduce wave packets early because they are much more intuitive than plane waves and
+% easier to relate to “particles.”
+
+
+
+
+% 12. Wave equations and Differential equations
+% • It is worth emphasizing that the way we solve differential equations in physics, by just
+% “guessing” the solution, is completely different from the way they have been taught to solve
+% differential equations in math classes. Many students make this section way too hard by
+% attempting to use complicated methods they have learned in math classes.
+
+% 13. Schrodinger equation for free particle
+% Sim: Quantum Tunneling
+% • You can use the Quantum Tunneling sim to demonstrate free particles by just setting the
+% potential to “constant.”
+% • Students often have difficulty understanding the meaning of complex wave functions. This
+% can perhaps best be illustrated by the observation that students frequently ask, “What is the
+% physical meaning of the imaginary part of the wave function?” but never ask about the
+% physical meaning of the real part, even though both have the same physical significance
+
+
+% 14. Potential Energy
+% • We have found that without explicit instruction on how to relate potential energy diagrams to
+% physical systems, most students don’t know what a potential energy diagram means or how it
+% relates to anything real. When we do give explicit instruction on this, students start asking a
+% lot of questions, and it becomes clear what a struggle it is for them to make sense of it.
+% • The fact that we often use the symbol V for potential energy and use the words “potential”
+% and “potential energy” interchangeably leads to a lot of students thinking that V is actually
+% the electric potential. It is worth emphasizing repeatedly that this is NOT what it means.
+
+% 15. Infinite and Finite Square Wells
+% Sim: Quantum Bound States
+% • We illustrate a finite square well with the physical example of an electron in a short wire, and
+% illustrate an infinite square well with the same system with a really big work function. We
+% justify why this potential energy represents this system by building it up from a microscopic
+% model of the atoms in the wire. Before we did this, we found that students often mixed up
+% wells and barriers. Afterwards, this happened much less.
+% • The practice of drawing potential energy, total energy, and wave function on the same graph
+% leads students to confuse these quantities. We have several clicker questions to elicit and
+% address this confusion.
+
+% 16. Quantum Tunneling, Alpha decay and other applications of Tunneling
+% Sim: Quantum Tunneling
+% • Language such as “potential well,” “step,” and “barrier” often leads students to interpret
+% potential energy diagrams as physical objects. It is worth pointing out that these words are
+% only analogies, and using examples such as an electron tunneling through an air gap where
+% there is clearly no physical barrier.
+% • There is a lot of research showing that students often believe that energy is lost in tunneling,
+% and we have incorporated a tutorial and homework designed to address this belief. Two main
+% reasons that students think this are that they mix up energy and wave function and interpret
+% the exponential decay of the wave function as energy loss, or that they think of a classical
+% object penetrating a physical barrier, in which case there is always dissipation. To address the
+% first reason, we avoid drawing the wave function and the energy on the same graph, and ask
+% several clicker questions designed to elicit and address this confusion. To address the second
+% reason, we emphasize that there is no dissipation in the Schrodinger equation.
+% • While plane waves are mathematically simple, conceptually it is quite difficult to imagine a
+% wave that extends forever in space and time, especially when it is tunneling. The language we
+% use to describe tunneling is time-dependent. For example, we say that a particle approaches a
+% barrier from the left, and then part of it is transmitted and part of it is reflected. This language
+% is difficult to reconcile with a picture of a particle that simultaneously incident, transmitted,
+% and reflected, for all time. We find that it works much better to start instruction with wave
+% packets, using a qualitative description and the Quantum Tunneling sim, and then show how
+% plane waves make the math easier.
+% • Determining the potential energy function for a physical example such as an STM or α decay
+% actually requires understanding many steps and approximations, and is not trivial for students.
+% If you simply present students with these potential energy functions, they usually don’t know
+% how to relate them to the physical systems they are supposed to represent. We have many
+% clicker questions designed to help students build a model for the potential energy functions
+% for STMs and α decay.
+
+% 17. Reflection and Transmission
+% Sim: Quantum Tunneling
+% • There is a lot of math here and it’s very easy to get lost in the math and forget why you’re
+% doing it. When asking students to work through it in homework, it’s very useful to ask them
+% to stop after each step in the math and explain in words what they just did.
+
+% 18. Superposition, measurement, and expectation values
+% Sim: Quantum Bound States
+% • Modern Physics textbooks typically do not cover superposition and measurement.
+% We do, because it seems to us that if you don’t talk about measurement, you don’t know what
+% you’re actually doing in QM or how it relates to the real world.
+% • We have chosen to cover expectation values in some semesters and not others. It helps to
+% relate it to more familiar examples such as grade distributions and gambling.
+
+
+
+\section{Überblick}
+
+In diesem Kapitel werden wir uns mit den Grundlagen der Quantenmechanik beschäftigen. Die Quantenmechanik ist eine Theorie, die manchmal etwas unanschaulich ist, manchmal eher einem Kochrezept ähnelt, aber erstaunlich gut funktioniert. Die größte ungeklärte Frage ist derzeit wohl, wie sich die Quantenmechanik mit der Allgemeinen Relativitätstheorie vereinbaren lässt. Aber das braucht uns hier nicht zu interessieren. Die Quantenmechanik beschreibt Objekte durch eine \emph{Wellenfunktion},  die mit der \emph{Schrödingergleichung} gefunden werden können.  So werden wir die von Bohr postulierten stationären Zustände finden.
+Wenn Sie schon einmal eine Vorlesung über Quantenmechanik gehört haben, wird Ihnen vieles bekannt vorkommen. Im Rest der Vorlesung werden wir die Quantenmechanik benutzen, um Atome und Moleküle zu beschreiben.
+
+Wir beginnen wieder mit dem Doppelspaltexperiment, da hier die Wellenfunktion der Photonen mit dem bereits bekannten elektrischen Feld verwandt ist. Wir werden sehen, dass wir nur Wahrscheinlichkeitsaussagen machen können. Das ist vergleichbar mit der Messunsicherheit, aber es ist eine fundamentale Eigenschaft der Theorie, die technisch nicht eliminiert werden kann. Sie ist so fundamental, dass mit der Heisenbergschen Unschärferelation sogar ein Zusammenhang zwischen den Unsicherheiten zweier komplementärer Größen besteht. Schließlich beschreiben wir Wellenpakete, die ein Modell für ein Teilchen im Wellenbild sein können.
+
+Wir besprechen die zentralen eindimensionalen Beispiele der Quantenmechanik: Teilchen im Kasten und im Potentialtopf, harmonischer Oszillator und quantenmechanisches Tunneln. Die Vorgehensweise ist eigentlich immer gleich: Wir modellieren das System durch sein Potential $U(x)$ und suchen nach Lösungen der Schrödingergleichung. Wir verzichten hier auf Berechnungen, sondern versuchen zu raten bzw. die Formen plausibel zu machen. Viele Eigenschaften der Wellenfunktion können erkannt werden, ohne die Differentialgleichung wirklich zu lösen.
+
+Als übergreifende Eigenschaft werden wir finden, dass die Wellenfunktion in den klassisch zugänglichen Bereichen des Potentials oszilliert und die Anzahl der Bäche mit der Quantenzahl zunimmt. In den klassisch verbotenen Bereichen fällt die Wellenfunktion exponentiell ab, ist aber nicht notwendigerweise sofort Null. Dies führt dazu, dass ein quantenmechanisches Teilchen durch eine dünne Barriere 'tunneln' kann, also durch die Barriere hindurchgeht und nicht darüber. Das klingt zunächst seltsam, ist aber auch bei Lichtwellen der Fall. Der Grund dafür liegt im \emph{Korrespondenzprinzip}, das die Aussagen der Quantenmechanik über mikroskopische Phänomene mit der makroskopischen Welt verbindet.
+
+Die Gliederung folgt wiederum  Kapitel 39 und 40 von \cite{Knight_physics}. Weiterhin finden sich gute andere Darstellungen in \cite{Haliday_Resnick}, \cite{Demtröder_ep3}, \cite{Haken_wolf_I} und \cite{Harris_moderne_Physik}.
+
+
+
+
+
+\section{Das Doppelspaltexperiment mit Lichtwellen}
+
+Kommen wir noch einmal auf das Doppelspaltexperiment von Young zurück, das Sie bereits in der Optik behandelt haben. Wir beschreiben Licht als Welle und nicht als Teilchen. Eine ebene Welle fällt auf zwei (sehr dünne) Spalten in einem ansonsten undurchlässigen Schirm. Man kann sich vorstellen, dass von jedem Punkt in den Spalten eine Huygenssche Elementarwelle $E_{1,2}$ ausgeht, die man schreiben kann als 
+\begin{equation}
+    E_{i} = a_i \, \sin ( k \, r_i - \omega t) \quad \text{mit} \quad i = 1,2
+\end{equation}
+mit der Amplitude $a$ und dem Abstand $r$ vom Spalt. $k = 2 \pi / \lambda $ ist die Länge des Wellenvektors, auch Wellenzahl genannt.
+Die Kreisfrequenz ist $\omega = c k$.
+
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir doubleslit}
+    \caption{Beugung am Doppelspalt. Die Amplitude $A(x)$ am Schirm bestimmt die Intensität $I$ und die Wahrscheinlichkeit, Photonen am Ort $x$ zu detektieren.}
+    \label{fig:3_Doppelspalt}
+\end{marginfigure}
+
+
+Auf dem Schirm überlagern sich die Wellen. Das Superpositionsprinzip besagt, dass das resultierende elektromagnetische Feld genau die Summe der beiden Felder ist, also $E = E_1 + E_2$. In der Optik haben Sie gesehen, dass sich daraus die folgende Amplitude $A(x)$ am Ort $x$ des Schirms ergibt
+\begin{equation}
+    A(x) = 2 a\cos \left( \frac{\pi d}{\lambda L} \, x \right)
+\end{equation}
+mit dem Abstand $L$ zwischen Spaltebene und Schirm und dem Abstand $d$ zwischen den beiden Spalten.\sidenote{Oben haben wir angenommen, dass die Spalten sehr dünn sind. Daher geht die Spaltweite nicht ein und die Gleichung wird einfacher.} Die Amplitude $A$ ist maximal ($A = 2a$), wenn sich zwei Wellenberge am Schrim treffen, und minimal ($A = -2 a$), wenn sich zwei Täler treffen.  Dazwischen gibt es Nulldurchgänge. 
+
+Im Experiment wird nicht die Amplitude der Wellen beobachtet, sondern ihre Intensität $I \propto A^2$, d.h.
+\begin{equation}
+    I(x) = C \, \cos^2 \left( \frac{\pi d}{\lambda L} \, x \right)
+\end{equation}
+mit einer Proportionalitätskonstanten $C$. Die Nulldurchgänge der Amplitude ergeben somit ein Minimum der Intensität (destruktive Interferenz). Die Maxima der Amplitude ergeben unabhängig vom Vorzeichen ein Maximum der Intensität (konstruktive Interferenz). Nur die Intensität beschreibt also die experimentell beobachtbare Realität.
+
+
+\section{Wahrscheinlichkeit}
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir dart}
+    \caption{Ergebniss der Dart-Würfe}
+    \label{fig:3_dart}
+\end{marginfigure}
+
+
+Bevor wir zur Beschreibung durch Photonen kommen, müssen wir kurz über Wahrscheinlichkeiten sprechen. In einem Gedankenexperiment werfen Sie mit verbundenen Augen Dartpfeile auf eine Wand. Jeder Pfeil trifft die Wand, aber nicht immer an der gleichen Stelle. Nach 100 Würfen ergibt sich ein Muster wie in Abbildung  \ref{fig:3_dart}. Wo wird der nächste Wurf treffen? Das können wir nicht mit Sicherheit sagen. Aber wir können eine Wahrscheinlichkeit angeben. Bisher sind $N_A =45$ von $N = 100$ Würfen im Bereich A gelandet. Ob von den nächsten 100 Würfen wieder genau 45 Würfe hier landen, ist eher unwahrscheinlich. 100 Würfe sind einfach zu wenig. Deshalb definiert man die Wahrscheinlichkeit $P_A$ als Grenzwert für sehr viele Versuche:
+\begin{equation}
+    P_A =  \lim_{N \rightarrow \infty} \frac{N_A}{N} \quad .
+\end{equation}
+Für Abbildung \ref{fig:3_dart} können wir also nur $P_A \approx 0.45$ schreiben. 
+
+
+Die Wahrscheinlichkeiten für sich ausschließende Ergebnisse addieren sich. Die Wahrscheinlichkeit, im Bereich A oder B zu landen, beträgt also
+\begin{equation}
+    P_{A oder B} = \lim_{N \rightarrow \infty} \frac{N_A + N_B}{N} = P_A + P_B
+\end{equation}
+und die Summe aller Wahrscheinlichkeiten ist eins, also 
+\begin{equation}
+    P_A + P_B + P_C = 1 \quad .
+\end{equation}
+
+Der erwartete Wert $N_{erw}$ für die Anzahl der Treffer im Bereich A ergibt sich durch Umformung zu 
+\begin{equation}
+    N_{A, erw} = P_A \, N \quad .
+\end{equation}
+Unsere beste Vorhersage für die Anzahl der Treffer nach 60 Versuchen ist also $0.45 \cdot 60 = 27 $. Die tatsächlich beobachtete Anzahl der Treffer kann davon abweichen. Je mehr Versuche $N$ durchgeführt werden, desto geringer wird die Abweichung sein.
+
+
+
+\section{Interpretation des Interferenzmusters von Photonen }
+
+Im letzten Abschnitt haben wir bereits gesehen, welches Punktmuster Photonen auf einem Schirm hinter einem Doppelspalt hinterlassen (siehe Abb.~\ref{fig:3_Doppelspalt}). Dieses wollen wir nun etwas genauer betrachten. Wie ein Foto in der Zeitung besteht das Bild auf dem Schirm aus vielen Punkten, die mehr oder weniger dicht beieinander liegen. Und wie bei den Dartpfeilen können wir nicht sagen, wo das nächste Photon detektiert wird. Aber es gibt Regionen, in denen dies mehr oder weniger wahrscheinlich ist.
+
+Wir definieren entlang der Ortskoordinaten $x$ einen schmalen Streifen der Breite $\delta x$ und Höhe $H$ und zählen alle Photonen, die in diesen Streifen gefallen sind. Diese Zahl nennen wir hier $N(x, \delta x)$. Sie hängt natürlich von der Position $x$ ab, ob es sich um eine hellere oder dunklere Stelle des Sinterferenzmusters handelt. Wir definieren die Wahrscheinlichkeit $WK$ wieder als Grenzwert für eine Gesamtzahl von Photonen $N$
+\begin{equation}
+    WK(x, \delta x) = \lim_{N \rightarrow \infty} \, \frac{N(x, \delta x)}{N} \quad .
+\end{equation}
+Von einer guten Theorie erwarten wir, dass sie diese Wahrscheinlichkeit $WK(x, \delta x)$ vorhersagt, so dass wir die erwartete Anzahl von Photonen in diesem Intervall berechnen können, d.h. 
+\begin{equation}
+    N(x, \delta x)_{ erw} = WK(x, \delta x) \, N \quad .
+\end{equation}
+Wir werden nicht in der Lage sein, den Auftreffpunkt des nächsten Photons vorherzusagen. Aber wir werden in der Lage sein, die Wahrscheinlichkeit und damit die Anzahl der zu erwartenden Photonen in einem schmalen Streifen zu berechnen.
+
+
+\section{Photonen- und Wellenbild vereinigen}
+
+Wie erhält man die Wahrscheinlichkeit $WK(x, \delta x)$? Hier hilft uns die Energie des Lichts auf dem Schirm. Die Energie, die in dem Streifen mit der Breite $\delta x$ und der Höhe $H$ an der Position $x$ einfällt, sei $E(x, \delta x)$. Für sie gilt 
+\begin{equation}
+    E(x, \delta x) = I(x) \, \delta x \, H
+\end{equation}
+wobei angenommen wird, dass $\delta x$ so klein ist, dass sich die Intensität $I(x)$ über die Breite des Streifens nicht wesentlich ändert. Im Photonenbild trägt jedes Photon die Energie $h \nu$ bei. Die Anzahl der Photonen, die pro Sekunde\sidenote{Die Tilde bezeichnet hier Raten (pro Sekunde) im Gegensatz zu Gesamtzahlen.} auf dem Streifen ankommen, ist also 
+\begin{equation}
+    \tilde{N}(x, \delta x) =\frac{ E(x, \delta x)}{h \nu}
+\end{equation}
+und damit die Wahrscheinlichkeit
+\begin{equation}
+    WK(x, \delta x) =  \frac{\tilde{N}(x, \delta x) }{\tilde{N}} =
+    \frac{ E(x, \delta x}{h \nu \, \tilde{N}} = 
+    \frac{ I(x) H \delta x}{h \nu \, \tilde{N}}     \quad .
+\end{equation}
+Inbesondere ist  $I(x) \propto |A(x)|^2$ und damit
+\begin{equation}
+    WK(x, \delta x)  \propto |A(x)|^2 \delta x \quad .
+\end{equation}
+Die Wahrscheinlichkeit, ein Photon im Intervall $(x, x+\delta x)$ zu treffen, ist also proportional zum Quadrat der Wellenamplitude an diesem Ort. Diese Gleichung verbindet das Wellenbild mit dem Photonenbild. Sie bildet die Grundlage für die Interpretation der Quantenmechanik.
+
+
+
+\subsection{Wahrscheinlichkeitsdichte}
+
+Das Interferenzmuster ändert sich kontinuierlich entlang der Koordinate $x$. Eigentlich möchte man die Ereignisse nicht auf einem Streifen der Breite $\delta x$ zählen, sondern jedem Ort einen Wert zuordnen. Dies ist mit der \emph{Wahrscheinlichkeitsdichte} möglich. Sie ist wie die Massen- oder Ladungsdichte eine Größe, die multipliziert mit einer Länge, einer Fläche oder einem Volumen eine Masse, eine Ladung oder eine Wahrscheinlichkeit ergibt. Um den Unterschied zwischen Länge, Fläche und Volumen deutlich zu machen, schreibt man gerne das Infinitesimale dazu ($dx$, $dA$, $dV$). Damit gilt 
+\begin{equation}
+    WK(x, \delta x)  = \int_{x}^{x + \delta x} P(x') \, dx' \approx  P(x) \delta x 
+\end{equation}
+und somit
+\begin{equation}
+    P(x) dx  = C'  |A(x)|^2 dx
+\end{equation}
+mit einer Proportionalitätskonstanten $C'$.
+Die Wahrscheinlichkeitsdichte $P$ ist im Gegensatz zur Wahrscheinlichkeit $WK(x, \delta x) $ unabhängig von der Streifenbreite. Diese Gleichung gilt für Photonen in jeder Situation, auch unabhängig vom  Doppelspaltexperiment.
+
+
+\section{Die Wellenfunktion}
+
+Im letzten Kapitel haben wir im Davisson-Germer-Experiment gesehen, dass Elektronen auch Welleneigenschaften besitzen. Elektronen verhalten sich also an einem Doppelspalt wie Photonen. Auch hier können wir am Schirm die Anzahl der eintreffenden Elektronen pro Flächenintervall bestimmen. Auch hier können wir eine Wahrscheinlichkeitsdichte $P(x)$ messen, die das Interferenzmuster im Doppelspaltexperiment beschreibt und damit die Wahrscheinlichkeit, ein Elektron in der Nähe des Ortes $x$ zu finden.
+
+Für Photonen haben wir gerade gesehen, dass die Wahrscheinlichkeitsdichte $P(x)$ mit dem Quadrat der Amplitude $A(x)$ der optischen Wellen zusammenhängt. Diese Form der Beschreibung wollen wir auch für Elektronen übernehmen. Wir nehmen also an, dass es auch hier eine \emph{Wellenfunktion} $\Psi(x)$ gibt, die die Wahrscheinlichkeitsdichte analog zur Amplitude $A(x)$ beschreibt, also
+\begin{equation}
+    P(x) dx  = |\Psi(x)|^2 dx \quad .
+\end{equation}
+Im Gegensatz zum optischen Fall haben wir hier die Proportionalitätskonstante auf Eins gesetzt, da wir $\Psi(x)$ neu definieren und nicht auf eine aus der Optik bekannte Größe $A(x)$ zurückgreifen müssen.
+
+Diese Gleichung \emph{definiert} die Wellenfunktionen $\Psi(x)$. Das Experiment bestimmt aber nur $|\Psi(x)|^2$, nicht $\Psi(x)$. Insbesondere können wir nichts über das Vorzeichen von $\Psi(x)$ sagen.\sidenote{Wie wir später sehen werden, kann $\Psi(x)$ auch komplexwertig sein, so dass uns ein unbekannter Faktor $\exp(i\phi)$ bleibt.}
+
+Im Gegensatz zu einer elektromagnetischen Welle schwingt nichts mit der Wellenfunktion $\Psi(x)$.  $\Psi$ verhält sich wie eine Welle, ist aber nicht mit einer Auslenkung von irgendetwas verbunden. Wir können auch nicht $\Psi(x)$ selbst messen, sondern nur $|\Psi(x)|^2$. Es hat sich aber gezeigt, dass man mit der Annahme einer wellenartigen Funktion $\Psi$ den Ausgang von Experimenten sehr gut beschreiben kann. 
+
+Mit der Wellenfunktion haben wir aber erst die Hälfte. Wir brauchen noch Regeln, wie wir die Wellenfunktion in einer gegebenen Situation bestimmen können und wie sich eine gegebene Wellenfunktion mit der Zeit verändert. Dazu dient die Schrödingergleichung, die im nächsten Kapitel behandelt wird.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir wavefunction_demo}
+    \caption{Eine Wellenfunktion $\Psi(x)$ könenn wir nicht direkt messen, sondern nur ihr Betragsquadrat $|\Psi(x)|^2$.}
+\end{marginfigure}
+
+
+
+\subsection{Normierung}
+
+Wie bei den Dartpfeilen muss die Summe aller sich gegenseitig ausschließenden Wahrscheinlichkeiten eins ergeben. Irgendwo muss das Elektron detektiert werden, es kann nicht verschwinden. Für diskrete Bereiche $A$, $B$, $C$ usw. schreibt man dies als
+\begin{equation}
+    \sum_{j = A, B, C, \dots} P_j = 1 \quad .
+\end{equation}
+Mit der Wahrscheinlichkeitsdichte wird die Summe ein Integral, d.h.
+\begin{equation}
+    \int_{-\infty}^{+\infty} P(x) dx = 1 \quad .
+\end{equation}
+Dies hat Konsequenzen für die Wellenfunktion $\Psi(x)$. Da $P(x) = |\Psi(x)|^2$, muss also 
+\begin{equation}
+    \int_{-\infty}^{+\infty} |\Psi(x)|^2 dx = 1 \quad .
+\end{equation}
+Dies wird Normierungsbedingung genannt, oder eine Wellenfunktion ist normiert, wenn sie diese Bedingung erfüllt. Noch einmal: Wir können nur etwas über das Quadrat der Wellenfunktion sagen, aber nichts über die Wellenfunktion selbst, und damit auch nichts über ein Integral der Wellenfunktion selbst.
+
+\begin{questions}
+    \item Welche Einheit hat eine Wellenfunktion $\Psi(x)$ ?
+\end{questions}
+
+
+
+\section{Wellenpakete}
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir wavepaket}
+    \caption{Skizze eines Wellenpakets}
+    \label{fig:3_wellenpaket}
+\end{marginfigure}
+
+Welle und Teilchen sind zwei klassische Konzepte, die sich gegenseitig ausschließen. Keines von beiden kann allein das Doppelspaltexperiment beschreiben und den Welle-Teilchen-Dualismus auflösen. Klassische Wellenpakete zeigen jedoch viele Eigenschaften, die wir auch auf der atomaren Skala finden. Sie können deshalb als Modell dienen.
+
+Betrachten wir ein Wellenpaket, wie es in Abbildung~\ref{fig:3_wellenpaket} skizziert ist. Im Gegensatz zu einer Sinuswelle ist das Wellenpaket räumlich und zeitlich begrenzt. Dadurch ähnelt es einem Teilchen. Gleichzeitig hat ein Wellenpaket aber auch eine Wellenlänge und schwingt wie eine Welle in Raum und Zeit. Aber auch Wellenpakete sind kein ideales Modell. Letztlich beschreibt nur die Quantenmechanik Objekte auf atomarer Skala korrekt.
+
+Überlagern sich zwei Sinuswellen mit den Frequenzen $f_1$ und $f_2$, so entsteht eine Schwebung (engl. beating). Die Amplitude der Gesamtwelle ändert sich periodisch mit der Schwebungsfrequenz
+\begin{equation}
+    f_{beat} = | f_1 - f_2 | = \frac{1}{T_{beat}} \quad . \label{eq:3_tbeat}
+\end{equation}
+Es entsteht also eine Abfolge von Wellenpaketen mit dem Abstand $T_{beat}$. Nennen wir die Differenz der beiden Frequenzen $\Delta f$ und die Länge der Wellenpakete $\Delta t$ (also ihren Abstand $T_{beat}$, also $T_{beat} = \Delta t$), so können wir Gl. \ref{eq:3_tbeat} schreiben als
+\begin{equation}
+    \Delta t \, \Delta f = 1 \quad .
+\end{equation}
+Das ist zunächst trivial, aber es ist ein Vorbote von etwas Größerem. Wenn sich die beiden Frequenzen annähern, werden die Wellenpakete länger.
+
+
+\begin{marginfigure}
+   \inputtikz{\currfiledir wavepaket_synthesis}
+    \caption{Synthese eines Wellenpakets}
+    \label{fig:3_Synthese}
+\end{marginfigure}
+
+
+Um nicht einen Zug von Wellenpaketen, sondern ein einziges Paket zu erhalten, müssen viele Sinuswellen überlagert werden. Zum Zeitpunkt $t=0$ überlagern sich alle konstruktiv (siehe Skizze~\ref{fig:3_Synthese}), zu allen anderen Zeitpunkten jedoch mehr oder weniger destruktiv. Insbesondere gibt es für große Zeiten zu jeder Welle immer eine andere, die diese gerade auslöscht. Der Zusammenhang zwischen den Frequenzkomponenten und dem zeitlichen Verlauf wird durch die Fourier-Transformation hergestellt. Eine Eigenschaft der Fourier-Transformation ist die Pulsdauer-Bandbreiten-Grenze
+\begin{equation}
+    \Delta t \, \Delta f \approx 1 \quad .
+\end{equation}
+Der genaue Wert der Konstanten auf der rechten Seite hängt von der zeitlichen Form des Wellenpakets ab und auch davon, wie genau man die Breiten $\Delta t$ und $\Delta f$ definiert. Auf diese Details soll hier nicht eingegangen werden. Ich verstecke alles in 'ungefähr eins'. Die Bedeutung ist unabhängig von diesen Details: Ein Wellenpaket, das aus der Superposition verschiedener Sinuswellen gebildet wird, kann nicht beliebig kurz sein. Es hat eine minimale Länge $\Delta t$, die sich aus seiner Breite im Frequenzraum $\Delta f$ ergibt. Dies ist eine Eigenschaft der Fourier-Transformation und gilt daher auch in der klassischen Physik.
+
+
+\begin{questions}
+    \item Erzeugen Sie in der Simualtion\phet{Fourier_Making_Waves} Wellenpakete.
+\end{questions}
+
+\subsection{Bandbreite}
+
+Die Pulsdauer-Bandbreitenbegrenzung der Fourier-Transformation hat verschiedene technische Konsequenzen. Immer dann, wenn die Breite im Frequenzbereich begrenzt ist, ist auch die zeitliche Dauer nach unten begrenzt. Ein Beispiel hierfür sind kurze Laserpulse. Um einen Laserpuls der Länge $\Delta t = 100 fs = 100 \cdot 10^{-15}$s zu erzeugen, benötigt man ein Spektrum, das mindestens 
+\begin{equation}
+    \Delta f = \frac{1}{100 fs} = 10 \cdot 10^{12} Hz = 10 THz
+\end{equation}
+breit ist. Bei einer Zentralwellenlänge von 800~nm entspricht dies einer Breite von etwa 20~nm.
+
+
+\subsection{Unschärfe}
+
+Die Breiten $\Delta t$ und $\Delta f$ können auch als \emph{Unschärfe} verstanden werden. Bei einem Wellenpaket der Zeitlänge $\Delta t$ können wir nicht mehr eindeutig sagen, wann es am Detektor eintrifft. Ist die Ankunftszeit der Anfang des Pakets oder das Ende oder das Maximum? Ebenso können wir nicht mehr eindeutig sagen, welche Frequenz und damit welche Wellenlänge es hat, da verschiedene Sinuswellen zum Wellenpaket beitragen. Dies ist eine grundsätzliche Eigenschaft von Wellenpaketen und hat nichts mit experimentellen Unzulänglichkeiten zu tun.
+
+Diese beiden Unschärfen sind miteinander verknüpft. Wenn wir ein Wellenpaket erzeugen wollen, das zeitlich sehr gut definiert ist, also eine kleine zeitliche Unschärfe $\Delta t$ hat, dann verlangt die Pulsdauer-Bandbreiten-Grenze, dass die Frequenzunschärfe $\Delta f$ besonders groß ist. Und umgekehrt: Wenn die Frequenz in einem Wellenpaket sehr genau bekannt sein soll, $\Delta f$ also klein sein soll, dann kann man nur sehr ungenau angeben, wann dieses Wellenpaket eintrifft.
+
+Prinzipiell ist 
+\begin{equation}
+    \Delta t \, \Delta f \approx 1
+\end{equation}
+eine untere Grenze. Aufgrund von Rauschen oder anderen technischen Faktoren kann die zeitliche Dauer oder die Bandbreite noch größer sein. Dieses Produkt aus Pulsdauer und Bandbreite definiert die Grenze des Wissens, das über ein beliebiges Wellenpaket gewonnen werden kann.
+
+
+\section{Die Heisenbergsche Unschärfe-Relation}
+
+Wir wollen nun ein Teilchen durch ein Wellenpaket beschreiben. Das Teilchen mit der Masse $m$ bewegt sich mit der Geschwindigkeit $v_x$ entlang der Achse $x$. Seine de Broglie-Wellenlänge ist $\lambda = h / p_x$ mit $p_x = m v_x$ der x-Komponente des Impulses. Die Dauer des Wellenpakets sei $\Delta t$. Dann ist die räumliche Ausdehnung $\Delta x$.
+\begin{equation}
+    \Delta x = v_x \Delta t = \frac{p_x}{m} \, \Delta t \quad .
+\end{equation}
+
+Die Frequenz $\nu$ der Materiewelle des Teilchens ergibt sich aus dessen de Broglie-Wellenlänge via\sidenote{hier ist Phasen- gleich Gruppengeschwindigkeit}
+\begin{equation}
+    \nu \lambda = v
+\end{equation}
+also 
+\begin{equation}
+    \nu = \frac{v}{\lambda } = \frac{p_x / m}{h / p_x} = \frac{p_x^2}{h m} \quad .
+\end{equation}
+Durch Ableitung finden wir
+\begin{equation}
+    \Delta \nu = \frac{2 p_x}{h m} \, \Delta p_x \quad .
+\end{equation}
+Wenn wir all dies in die Gleichung für Pulsdauer und Bandbreite einsetzen (und die Frequenzen auf der atomaren Skala als $\nu$ schreiben), dann erhalten wir
+\begin{equation}
+    \Delta t \Delta \nu = \frac{m}{p_x} \Delta x \, \, \frac{2 p_x}{h m} \, \Delta p_x = \frac{2}{h} \, \Delta x \, \Delta p_x   \quad .
+\end{equation}
+Die Pulsdauer-Bandbreiten-Grenze ist ja eine untere Grenze. Darum schreibe ich das $\approx$ jetzt als $\ge$ und wir erhalten
+\begin{equation}
+    \Delta x \, \Delta p_x  \ge  \frac{h}{2} \quad .
+\end{equation}
+Dies ist die \emph{Heisenbergsche Unschärferelation}, in dieser Form auch Orts-Impuls-Unschärfe genannt. Wie oben hängt die rechte Seite der Gleichung von der genauen Definition der beiden Breiten $\Delta x$ und $\Delta p_x$ ab. Aber auch hier sind die Details nicht so wichtig, solange ein $h$ auftaucht.
+
+\paragraph*{Was bedeutet das?} Die Heisenbergsche Unschärferelation beschreibt die Grenze unseres Wissens über ein quantenmechanisches Teilchen. Wir können nicht gleichzeitig den Ort und den Impuls (oder die Geschwindigkeit) beliebig genau kennen. Je genauer wir den Ort kennen wollen, desto ungenauer muss unser Wissen über den Impuls sein und umgekehrt.
+
+Messunsicherheiten sind ein Charakteristikum der klassischen Physik. Jede Messung ist mit einer Unsicherheit behaftet. In der klassischen Physik ist dies jedoch ein rein technisches Problem. Mit etwas mehr Aufwand könnte man die Unsicherheit reduzieren. Außerdem sind zwei Messungen, z.B. Ort und Geschwindigkeit, voneinander unabhängig, und wir könnten beide Unsicherheiten getrennt voneinander behandeln.
+
+Die Heisenbergsche Unschärferelation besagt, dass dies in der atomaren Welt nicht der Fall ist. Es handelt sich nicht mehr um ein technisches Problem, sondern um eine grundsätzliche Grenze unseres Wissens. Wie auch immer wir es technisch machen, Ort und Impuls können nicht beliebig genau bestimmt werden. In dieser Hinsicht sind atomare Teilchen Wellenpaketen ähnlich.
+
+\paragraph*{Nebenbemerkung} Wenn Sie eine Vorlesung über Quantenmechanik besucht haben, werden Sie gesehen haben, dass die Heisenbergsche Unschärferelation mit den Operatoren $\hat{A}$, $\hat{B}$ geschrieben wird als\footcite{Nolting-QM} 
+\begin{equation}
+    \Delta A \, \Delta B \ge \frac{1}{2} \left|   \braket{ [\hat{A}, \hat{B}]  } \right|
+\end{equation}
+wobei die eckige Klammer $[ \cdots]$ den Kommutator darstellt\sidenote{$[\hat{A}, \hat{B}] = \hat{A} \hat{B} - \hat{B} \hat{A}$} und die spitze Klammer $\braket{\cdots}$ den Erwartungswert bezeichnet. Auf diese Weise erhält man die oben hergeleitet Orts-Impuls-Unschärfe.
+
+Die Pulsdauer-Bandbreiten-Unschärfe, oder durch Multiplikation mit $h$ die Energie-Zeit-Unschärfe
+\begin{equation}
+    \Delta E \, \Delta t \ge h
+\end{equation}
+ist aber eigentlich keine Heisenbergsche Unschärferelation im engeren Sinne, weil es in der Quantenmechanik keinen Zeitoperator gibt. Sie ist 'nur' eine Eigenschaft der Fourier-Transformation. Diese Unterscheidung wird aber nicht oft geamcht.
+
+
+\begin{questions}
+    \item \emph{Quantenradierer} sind eine Klasse von Doppelspaltexperimenten mit Quanten, bei denen eigentlich der Weg des Photons durch den einen oder anderen Spalt gemessen wird, diese Information dann aber wieder 'ausradiert' wird. Eine (alte) populärwissenschaftliche Darstellung ist \cite{WT_dualismus}, neuere sind \cite{heise_quantenradierer} und \cite{Hossenfelder_quantenradierer}. Ist das jetzt ein Paradoxon, oder nicht?
+\end{questions}
+
+
+
+%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Die Schrödinger-Gleichung}
+
+Die Schrödingergleichung wurde 1925 von Erwin Schrödinger aufgestellt. Sie beschreibt, welche Wellenfunktionen $\Psi$ für ein quantenmechanisches System zulässig sind. Sie ist ähnlich fundamental wie die Newtonschen Gesetze und kann wie diese nicht hergeleitet, sondern nur plausibel gemacht werden.
+
+Für ein Teilchen der Masse $m$, das sich nur in der Raumrichtung $x$ bewegt und dabei die potentielle Energie $U(x)$ besitzt, lautet die Schrödingergleichung
+\begin{equation}
+   - \frac{\hbar^2}{2m} \frac{d^2}{dx^2} \Psi(x) + \left[ U(x) - E \right] \Psi(x) = 0 \quad .
+   \label{eq:4_SG_1d}
+ \end{equation}
+ Es handelt sich also um eine Differentialgleichung zweiter Ordnung, wie man es von einer Wellengleichung erwarten würde.
+
+
+\paragraph*{Nebenbemerkung} In einer allgemeineren Form wird die Schrödingergleichung oft  geschrieben als
+\begin{equation}
+    \hat{H} \, \Psi = E \, \Psi \quad .
+    \label{eq:4_SG_op_1d}
+\end{equation}
+Dabei nennt man $\hat{H}$ den Hamiltonoperator. Ein Operator ist eine Rechenvorschrift, die auf eine Funktion (hier $\Psi$) wirkt und wieder eine Funktion liefert. Im obigen Fall ist der Hamilton-Operator also
+\begin{equation}
+    \hat{H} = - \frac{\hbar}{2m} \frac{d^2}{dx^2} + U(x) \quad .
+\end{equation}
+Es gibt die zweite Ableitung nach dem Ort, aber es fehlt noch, was abgeleitet werden soll; deshalb Operator und nicht einfach Konstante oder Funktion. 
+Eine Gleichung der Form Gl. \ref{eq:4_SG_op_1d} heißt Eigenwertgleichung und $E$ heißt \emph{Eigenwert}, weil der Operator wieder die gleiche Funktion $\Psi(x)$ ergibt, nur multipliziert mit einem skalaren Wert $E$.
+
+\section{Plausibilitätsbetrachtung}
+
+Nach de Broglie hat ein Teilchen mit der Masse $m$ und der Geschwindigkeit $v$ eine de Broglie-Wellenlänge 
+\begin{equation}
+    \lambda = \frac{h}{p} = \frac{h}{ m v} \quad .
+\end{equation}
+Seine Wellenfunktion oszilliert daher mit dieser Wellenlänge, z. B. sinusförmig
+\begin{equation}
+    \Psi(x) = \Psi_0 \, \sin\left( \frac{2 \pi x}{\lambda} \right) \quad .
+    \label{eq:4_sg_plausi_psi}
+\end{equation}
+
+Lassen Sie uns überprüffen, ob dieses $\Psi(x)$ die Schrödingergleichung löst.
+Durch die zweimalige Ableitung nach dem Ort wird aus dem Sinus wieder ein Sinus mit einem Vorfaktor:
+\begin{equation}
+    \frac{d^2}{dx^2} \Psi(x)  = - \left(\frac{2 \pi}{\lambda} \right)^2 \, \Psi(x) \quad .
+\end{equation}
+Eingesetzt in Gl.~\ref{eq:4_SG_1d} ergibt dies
+\begin{equation}
+     \frac{\hbar}{2m}  \left(\frac{2 \pi}{\lambda} \right)^2 \,  \Psi(x) + \left[ U(x) - E \right] \Psi(x) \overset{?}{=} 0 \quad .
+     \label{eq:4_Sg_plausi}
+\end{equation}
+Unser Teilchen ist hier ein freies Teilchen. Es wirken keine äußeren Kräfte. Das Potential ist $U(x) = 0$. Die Energie $E$ steckt vollständig in der kinetischen Energie $K$ , also 
+\begin{equation}
+    E =  K = \frac{1}{2} \, m \,  v^2 =  \frac{1}{2m} \, \left( \frac{h}{\lambda} \right)^2 \quad .
+    \label{eq:4_Ekin_lambda}
+\end{equation}
+Mit $\hbar = h / (2 \pi)$ ist Gl.~\ref{eq:4_Sg_plausi} für alle Werte von $E$ bzw. der de Broglie Wellenlänge $\lambda$ erfüllt.
+
+Hätten wir nicht von vornherein  Gl.~\ref{eq:4_sg_plausi_psi} vermutet, so hätten wir diese Wellenfunktion mit Hilfe der Schrödinger-Gleichung finden können.\sidenote{Häufig löst man eine Differentialgleichung, indem man eine Lösung 'errät' und dann testet.}
+
+Was geschieht, wenn das Teilchen nicht frei ist? Die Kräfte, die dann auf das Teilchen wirken, werden durch das Potential $U(x)$ beschrieben. Die Gesamtenergie $E$ bleibt erhalten, so dass für die kinetische Energie $K(x)$ gilt
+\begin{equation}
+    K(x) = E - U(x) \quad .
+\end{equation}
+Das ist genau der Term in der Klammer der Schrödingergleichung Gl \ref{eq:4_SG_1d}! Über Gl. \ref{eq:4_Ekin_lambda} gibt es einen Zusammenhang zwischen der kinetischen Energie und der Broglie-Wellenlänge. Wenn das Potential räumlich nicht konstant ist, ändert sich die de Broglie-Wellenlänge der Wellenfunktion. Wenn weniger Energie für die kinetische Energie 'übrig' bleibt, wird die Wellenlänge größer bzw. die Geschwindigkeit kleiner. Abbildung  \ref{fig:4_potential_slope_WF} zeigt ein Beispiel.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir potential_slope_WF}
+    \caption{Wenn das Potentail $U(c)$ röumlich variiert, dann ändert sich die Wellenlänge der Wellenfunktion.}
+    \label{fig:4_potential_slope_WF}
+\end{marginfigure}
+
+
+
+
+\section{Modelle in der Quantenmechanik}
+
+Auch in der klassischen Physik haben wir Modelle betrachtet und vereinfachende Annahmen gemacht, z.B. dass keine Reibung wirkt oder dass die Masse in einem Punkt konzentriert ist. Die ganze Kunst der Physik besteht darin, gerade so viele Annahmen zu machen, dass das Wesen der Situation erhalten bleibt und man sie noch einfach beschreiben kann.
+
+In der Quantenmechanik machen wir ähnliche Annahmen. Um die zugrundeliegenden Prinzipien klar zu sehen, müssen wir einige Dinge vernachlässigen. Es gibt zwei wesentliche Unterschiede zwischen klassischen und quantenmechanischen Modellen. Die Schrödinger-Gleichung benutzt das Potential $U$ und nicht die Kraft. Wir modellieren also Potentiale und nicht Kräfte, wie wir es in der klassischen Physik sehr oft getan haben. Und das Ergebnis unseres Modells, die Wellenfunktion $\Psi$, ist selbst nicht direkt beobachtbar. Wir können $\Psi(x)$ nicht messen, und die Wahrscheinlichkeitsdichte $|\Psi(x)|^2$ wird im Labor nur selten gemessen. Wir müssen das Modell benutzen, um Aussagen über beobachtbare Größen wie Ladungen und Ströme, Absorptionslinien und Übergangsraten zu machen.
+
+
+\section{Lösen der Schrödingergleichung}
+
+Wenn wir nun ein Modell aufgestellt haben, d.h. wenn wir uns für einen räumlichen Verlauf des Potentials $U(x)$ entschieden haben, dann müssen wir nur noch die Schrödinger-Gleichung lösen. Das ist die Rechenvorschrift, die zu den von Niels Bohr postulierten stabilen Zuständen führt.
+
+Die Schrödinger-Gleichung ist eine Differentialgleichung zweiter Ordnung. Die Mathematik kennt analytische und numerische Methoden zu ihrer Lösung. Diese sollen hier aber nicht behandelt werden. Wir benutzen den dritten Weg, wie wir ihn oben beschritten haben: Wir 'erraten' eine Lösung, indem wir uns einfach davon überzeugen, dass eine Funktion die Gleichung erfüllt. Das ist möglich, weil andere die ersten beiden Wege gegangen sind und die interessanten Formen des Potentials und damit die möglichen Formen der Lösung begrenzt sind.
+
+An die Wellenfunktion $\Psi(x)$ können einige physikalische Anforderungen gestellt werden. Nicht alle mathematisch möglichen Lösungen der Gleichung sind auch physikalisch relevant. Dies war schon in der klassischen Physik der Fall, als wir z.B. forderten, dass Massen positiv sind, auch wenn eine Gleichung für $m<0$ ebenfalls gelöst wurde. In der Quantenmechanik ergeben sich die Anforderungen an $\Psi$ aus der Interpretation von $|\Psi(x)|^2$ als Wahrscheinlichkeitsdichte: $\Psi$ darf nicht so 'komisch' sein, dass $|\Psi(x)|^2$ keine Wahrscheinlichkeitsdichte mehr sein kann. Daraus folgende diese \emph{Randbedingungen}
+\begin{enumerate} \setlength{\itemsep}{0pt}
+    \item $\Psi(x)$ muss stetig sein
+    \item $\Psi(x)$ muss gleich Null sein an Orten, an denen das Teilchen physikalisch nicht sein kann
+    \item  $\Psi(x)$ strebt gegen Null für $x$ gegen $\pm \infty$
+    \item $\Psi(x)$ muss normiert sein
+\end{enumerate}
+
+
+Eine sehr nützliche Eigenschaft der Schrödingergleichung ist ihre Linearität. Wenn $\Psi_1$ und $\Psi_2$ Lösungen der Schrödingergleichung für die gleiche Energie $E$ sind, dann sind es auch die Linearkombinationen der beiden.
+\begin{equation}
+    \Phi = a_1 \, \Psi_1 + a_2 \, \Psi_2 \quad .
+\end{equation}
+Die Normierungsanforderung legt dann die $a_i$ teilweise  fest.
+
+
+\subsection{Quantisierung} 
+
+Wir haben die Quantisierung der Energie und anderer Größen als zentrales Element der Quantenmechanik angesprochen. In der Schrödingergleichung scheint auf den ersten Blick nichts quantisiert zu sein. Sobald aber das Potential $U(x)$ die Bewegung des Teilchens einschränkt, gibt es nicht mehr für jede Energie $E$ eine Lösung. Für die allermeisten Werte von $E$ ist die Differentialgleichung unlösbar. Es gibt dann nur wenige diskrete Lösungen mit bestimmten, quantisierten Werten $E_n$.
+
+
+\section{Beispiel: Teilchen im Kasten}
+
+Wir hatten das Teilchen im Kasten bereits im Kapitel über die Quantisierung behandelt. Damals war es aber nur eine Hypothese, dass die de Broglie Wellenlänge zu stehenden Wellen im Kasten führen muss. Jetzt können wir es besser. Unsere Herangehensweise ist typisch für solche Aufgaben.
+
+
+\subsection{Potential}
+
+Zuerst müssen wir das Potential $U(x)$ finden, das unsere Situation 'Teilchen im Kasten' beschreibt. Der Kasten hat die Länge $L$ und die Wände sind starr, geben nicht nach und absorbieren keine Energie. Dies sind, wie so oft, vereinfachende Annahmen.
+
+Als Konsequenz dieser Annahmen kann sich das Teilchen im Bereich $0 < x < L$ frei bewegen. An den Enden, d.h. bei $x=0$ und $x=L$, wird das Teilchen unabhängig von seiner Energie reflektiert. Die Bereiche $x<0$ und $x>L$ sind verboten. Das Teilchen kann die Box nicht verlassen. Dieser Zustand wird durch das Potential 
+\begin{equation}
+    U(x) = \left\{ 
+        \begin{matrix}
+            0 & 0 \le x \le L \\
+            \infty & \text{sonst}
+        \end{matrix}
+    \right.
+\end{equation}
+beschrieben. Innerhalb des Kastens hat das Teilchen nur kinetische Energie, das Potential ist Null. Aber egal wie groß die Gesamtenergie des Teilchens ist, sie reicht niemals aus, um die unendlich große potenzielle Energie außerhalb des Kastens aufzubringen. Das Teilchen kann den Kasten nicht verlassen.
+
+
+\subsection{Randbedingungen}
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir kasten_potential}
+    \caption{Potential: Teilchen im Kasten}
+    \label{fig:4_kasten_potential}
+\end{marginfigure}
+
+Wir zeichnen das Potenzial (Abb.  \ref{fig:4_kasten_potential}). Wir schneiden die Potentialstufen, die ins Unendliche gehen würden, ab und ersetzen sie durch einen Pfeil nach oben.
+
+Das Teilchen kann sich physikalisch nicht außerhalb des Kastens befinden. Daher muss die Wellenfunktion dort Null sein, d.h.
+\begin{equation}
+    \Psi(x) = 0 \quad \text{für} \quad x < 0  \quad \text{oder} \quad x > L \quad .
+ \end{equation}
+ Daher ist die Wahrscheinlichkeitsdichte $|\Psi(x)|^2$ in diesen Bereichen gleich Null.
+
+Die Wellenfunktion muss ebenfalls stetig sein. Deshalb muss sie auch an den Rändern des Kastens Null sein, d. h.
+\begin{equation}
+    \Psi(x) = 0 \quad \text{für} \quad x = 0  \quad \text{oder} \quad x = L \quad .
+ \end{equation}
+ Unabhängig von der Form der Wellenfunktion im Kasten muss es an den Wänden einen Knoten geben.
+
+
+
+\subsection{Lösung der Gleichung}
+
+Wir suchen eine Lösung der Schrödingergleichung Gl.~\ref{eq:4_SG_1d} für $U=0$, also nur im Bereich $x0<x<L$. Alles andere haben wir schon. Eine Lösung bedeutet, dass wir sowohl eine Funktion $\Psi(x)$ als auch die zugehörige Energie $E$ finden müssen.
+Wir schreiben die Schrödingergleichung Gl.~\ref{eq:4_SG_1d} mit $\beta^2 = 2 m E / \hbar^2$ als
+\begin{equation}
+    \frac{d^2}{dx^2} \Psi(x) = - \beta^2 \Psi(x)  \quad .
+  \end{equation}
+Diese Differentialgleichung wird durch Sinus und Kosinus gelöst, also ist 
+\begin{equation}
+    \Psi(x) = A \sin \beta x  \, + \, B \cos \beta x
+\end{equation}
+die allgemeine Lösung. 
+
+Die Unbekannten $A$ und $B$ müssen nun so gefunden werden, dass die Randbedingungen erfüllt sind. Für $x=0$ muss $\Psi$ Null sein:
+\begin{equation}
+    \Psi(0) =  A \sin   0  \, + \, B \cos   0 = B \overset{!}{=} 0 \quad \text{also} \quad B = 0 \quad .
+\end{equation}
+Ebenso muss $\Psi$ bei $x=L$ Null sein, also 
+\begin{equation}
+    \Psi(L) = A \sin \beta L \overset{!}{=} 0 \quad \text{also} \quad \beta L = n \, \pi \quad \text{mit} \quad n = 1, 2, 3, \dots \quad .
+\end{equation}
+Der Fall $n=0$ ist physikalisch unsinnig, da hier $\Psi = 0$ für alle $x$, also überhaupt kein Teilchen vorhanden wäre.
+
+Damit haben wir eine unendliche Menge an   Wellenfunktionen gefunden
+\begin{equation}
+    \Psi_n(x) = A \sin \beta_n x = A \sin \left(  \frac{n\pi}{L} x \right) \quad \text{mit} \quad n = 1, 2, 3, \dots \quad .
+\end{equation}
+Die Konstante $A$ werden wir unten aus der Normierung bestimmen.
+
+
+
+\subsection{Energie-Eigenwerte}
+
+Dann interessieren uns die möglichen Werte der Energie $E$, die zu diesen Wellenfunktionen $\Psi_n$ gehören. Mit der Definition von $\beta$ finden wir
+\begin{equation}
+    \beta_n = \frac{\sqrt{ 2 m E_n}}{\hbar} = \frac{n\pi}{L} \quad \text{mit} \quad n = 1, 2, 3, \dots
+\end{equation}
+und so 
+\begin{equation}
+    E_n = \frac{\pi^2 \, \hbar^2}{2 m L^2} \, n^2 \quad \text{mit} \quad n = 1, 2, 3, \dots \quad .
+    \label{eq:4_En_kasten}
+\end{equation}
+Damit haben wir die Quantisierung. Nur diese Energiewerte sind für ein Teilchen im Kasten möglich. Dies ist eine Folge des Kastens, des \textit{confinement}, nicht eine Eigenschaft des Teilchens selbst.  Abb.  \ref{fig:4_kasten_eigenwerte} skizziert diese Leiter der Energie-Eigenwerte. In solchen Skizzen hat nur die vertikale Achse als Energieachse eine Bedeutung. Die horizontale Achse hat keine physikalische Bedeutung und dient nur der graphischen Darstellung.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir kasten_eigenwerte}
+    \caption{Energieeigenwerte des Teilchens im Kasten}
+    \label{fig:4_kasten_eigenwerte}
+\end{marginfigure}
+
+Damit haben wir eine Theorie, mit der wir die Ergebnisse des letzten Kapitels erreichen können, ohne phänomenologische Annahmen machen zu müssen.
+
+
+\subsection{Normierung}
+
+Schließlich muss die Wellenfunktion $\Psi$ noch normiert werden. Das Integral über den Betrag von $\Psi$ muss eins ergeben, da das Teilchen irgendwo sein muss, also
+\begin{equation}
+    \int_{-\infty}^{+\infty} \left| \Psi(x) \right|^2 \,dx = 1 \quad .
+\end{equation}
+Da der Kasten das Teilchen auf den Bereich zwischen $0$ und $L$ beschränkt, genügt es, über dieses Intervall zu integrieren, d.h. 
+\begin{equation}
+    \int_0^{L} \left|  A_n \sin \left(  \frac{n\pi}{L} x \right) \right|^2 \,dx =
+   A_n^2  \int_0^{L} \sin^2 \left(  \frac{n\pi}{L} x \right)  \,dx = 
+   A_n^2  \frac{L}{2} = 1
+\end{equation}
+also
+\begin{equation}
+    A_n = \sqrt{\frac{2}{L}} \quad \text{für alle }n \quad .
+\end{equation}
+Damit haben wir die normierte Wellenfunktion gefunden:
+\begin{equation}
+    \Psi_n(x) = \left\{
+    \begin{matrix}
+        \sqrt{\frac{2}{L}}  \sin \left(  \frac{n\pi}{L} x \right) \quad &\text{für} \quad & 0 \le x \le L \\
+        0  &  \text{für} &  x < 0 \text{ oder } x > L 
+    \end{matrix}
+    \right. \quad .
+    \label{eq:4_psi_kasten}
+\end{equation}
+
+\section{Interpretation}
+
+Wir wissen  für das Teilchen im Kasten, dass die möglichen diskreten Werte der Energie durch Gl.  \ref{eq:4_En_kasten} gegebn sind. Es gibt eine minimale Energie 
+\begin{equation}
+E_1 = \frac{\pi^2 \, \hbar^2}{2 m L^2}
+\end{equation}
+und alle anderen steigen quadratisch in $n$ an. Die Wellenfunktion ist eine stehende Welle, gegeben durch Gl. \ref{eq:4_psi_kasten}. Die Zahl $n$ beschreibt die Anzahl der Bäuche. An den Wänden des Kastens befinden sich immer Knoten.
+Dies sind die stationären Zustände des Systems, wie Niels Bohr sie gefordert hat.
+
+Die Wahrscheinlichkeitsdichte ist gegeben durch
+\begin{equation}
+    P_n(x) = |\Psi_n(x)|^2 = \frac{2}{L} \, \sin^2 \left(  \frac{n\pi}{L} x \right) \quad .
+    \label{eq:4_WK_kasten}
+\end{equation}
+Abbildung  \ref{fig:4_topf_unendlich} zeigt dies für die ersten Werte von $n$. Es gibt also Bereiche entlang des Ortes $x$, in denen die Wahrscheinlichkeit, das Teilchen zu finden, gleich Null ist. Und es gibt $n$ Bereiche, in denen die Wahrscheinlichkeit maximal wird.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir topf_unendlich}
+    \caption{Teilchen im Kasten, 1 nm breit, hier mit Energie-Eigenwerten für ein Elektron.}
+    \label{fig:4_topf_unendlich}
+\end{marginfigure}
+
+Skizzen vom Typ \ref{fig:4_topf_unendlich} werden gerne verwendet, um Wellenfunktionen und Eigenenergien gleichzeitig darzustellen. Dabei ist jedoch Vorsicht geboten. Das Potential $U(x)$ ist leicht verständlich und wird 'wie üblich' gezeichnet. Die Eigenenergie $E_n$ hat keine $x$-Abhängigkeit. Nur die Lage der Linie auf der y-Achse ist von Bedeutung. Die Energie $E_n$ und das Potential $U(x)$ haben jedoch eine gemeinsame Energie-y-Achse. Die Wellenfunktion $\Psi_n(x)$ teilt sich mit dem Potential die x-Achse. Man verschiebt aber gerne den Nullpunkt von $\Psi_n(x)$ so, dass er auf $E_n$ liegt. Und natürlich hat $\Psi_n(x)$ eine andere Einheit als Energie. Es gibt also eine zweite Skala für die y-Achse, aber die zeichnet man eigentlich nie ein.
+
+
+\begin{questions}
+    \item In dieser Simulation\phet{Quantum_Bound_States} können Sie das alles ausprobieren. 
+\end{questions}
+
+\section{Nullpunktenergie}
+
+Eine wichtige und für die Quantenmechanik charakteristische Eigenschaft des Teilchens im Kasten ist die \emph{Nullpunktenergie}. Der Zustand der niedrigsten Energie ist 
+\begin{equation}
+    E_1 = \frac{\pi^2 \, \hbar^2}{2 m L^2} > 0 \quad .
+\end{equation}
+Obwohl das Potential $U(x)$ Null ist, hat das Teilchen selbst im Grundzustand eine Energie, die etwas höher ist als der 'Boden' des Potentialtopfes. Diese Energie muss in der kinetischen Energie enthalten sein, d.h. das Teilchen bewegt sich! In der Quantenmechanik befindet sich ein Teilchen im Kasten nie in Ruhe. Selbst im Grundzustand bewegt es sich mit 
+\begin{equation}
+    \frac{1}{2} m v^2 = \frac{\pi^2 \, \hbar^2}{2 m L^2}  \quad .
+\end{equation}
+
+Nach der Heisenbergschen Unschärferelation muss das so sein. Wir wissen, dass das Teilchen irgendwo im Kasten ist. Daher ist die Ortsunschärfe $\Delta x = L$. Würde sich das Teilchen nicht bewegen, wäre seine Geschwindigkeit gleich Null und damit genau bekannt. Die Geschwindigkeitsunschärfe und damit die Impulsunschärfe wäre also ebenfalls Null, womit die Heiensbergsche Unschärferelation verletzt wäre. 
+Die Impulsunschärfe kann also nicht Null sein. Ein Teilchen, das sich nur in einem begrenzten Raumbereich aufhalten kann, muss in Bewegung sein, muss eine Impulsunschärfe haben.
+
+
+\section{Korrespondenzprinzip}
+Der Welle-Teilchen-Dualismus ist uns an verschiedenen Stellen begegnet. Objekte auf der atomaren Skala können nicht mehr nur als Welle oder nur als Teilchen beschrieben werden, sondern sind beides oder nichts von beidem. Unsere Bilder sind zu schwach, um diese Objekte zu beschreiben. Es hat sich jedoch gezeigt, dass man den Übergang von der mikroskopischen zur makroskopischen Welt nutzen kann, um die Konsistenz der mikroskopischen Beschreibung zu überprüfen. 
+
+Die Idee ist, dass ein mikroskopisches Modell für große Quantenzahlen in ein klassisches makroskopisches Modell übergehen muss. Dies ist das \emph{Korrespondenzprinzip} von Niels Bohr. Versuchen wir es für das Teilchen im Kasten. Die betrachtete Größe ist die Wahrscheinlichkeitsdichte $P(x)$ (Gl. \ref{eq:4_WK_kasten}). Wir stellen uns einen großen makroskopischen Kasten vor, in dem sich ein Teilchen mit der Geschwindigkeit $v(x)$ periodisch hin und her bewegt, weil es am Ende reflektiert wird. Die Periodendauer ist $T$ und die Länge des Kastens wiederum $L$. Die Wahrscheinlichkeit, das Teilchen am Ort $x$ in einem Streifen der Breite $\delta x$ zu finden, hängt von der Zeit $\delta t$ ab, die das Teilchen benötigt, um die Strecke $\delta x = v(x) \delta t$ zu durchlaufen. Wenn wir berücksichtigen, dass das Teilchen den Ort $x$ zweimal pro Umlauf passiert, dann ist die Wahrscheinlichkeit
+\begin{equation}
+    WK(x, \delta x) = \frac{\delta t}{2 T } = \frac{\delta x}{2T v(x)}
+\end{equation} 
+und die Wahrscheinlichkeitsdichte
+\begin{equation}
+    P(x) = \frac{WK(x, \delta x)}{\delta x} = \frac{1}{2 T v(x)} \quad .
+\end{equation}
+Dies gilt für jede Form der Bewegung, also für jedes Geschwindigkeitsprofil $v(x)$.
+
+Für das Teilchen im Kasten ist die Geschwindigkeit konstant, also
+\begin{equation}
+    v(x) = \frac{2L}{T} \quad \text{und} \quad P(x) = \frac{1}{L} \quad .
+\end{equation}
+Im klassischen Fall ist die Wahrscheinlichkeitsdichte über die Position im Kasten konstant. Wie passt das mit dem $\sin^2$ aus Gl.~\ref{eq:4_WK_kasten} zusammen? Mit zunehmender Quantenzahl $n$ wird die Oszillation von $P_n(x)$ immer schneller. Für sehr große $n$ entstehen dann räumlich so dicht beieinander liegende Streifen, dass diese nicht mehr aufgelöst werden können und nur noch ein Mittelwert beobachtet wird. Dieser Mittelwert ist genau $1/L$!
+
+
+\section{Beispiel: Potentialtopf}
+
+Nun machen wir unser Teilchen-im-Kasten-Modell etwas realistischer. Das Potential $U(x)$ soll außerhalb des Kastens nicht mehr unendlich groß sein, sondern einen endlichen Wert $U_0$ annehmen, also
+\begin{equation}
+    U(x) = \left\{ 
+        \begin{matrix}
+            0 & 0 \le x \le L \\
+            U_0 & \text{sonst}
+        \end{matrix}
+    \right. \quad .
+\end{equation}
+Alternativ kann der Energienullpunkt auch auf das Plateau außerhalb des Kastens gelegt werden und der Boden auf $-U_0$. Der Energienullpunkt ist immer verschiebbar.
+
+Im klassischen Fall ist das Teilchen im Kasten gebunden und kann ihn nicht verlassen, solange seine Energie $E < U_0$ ist. Für größere Energien kann das Teilchen dem Kasten entkommen.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir topf_endlich}
+    \caption{Potentialtopf für ein Elektron, 1 nm breit und 3 eV tief. Es gibt nur diese 3 gebundenen Zustände.}
+    \label{fig:4_topf_endlich}
+\end{marginfigure}
+
+In der Quantenmechanik ist die Situation ähnlich.  Die Berechnung ist in den üblichen Lehrbüchern der Quantenmechanik enthalten. Hier diskutieren wir nur die Ergebnisse. Abbildung  \ref{fig:4_topf_endlich} zeigt ein Beispiel für einen Elektron in einem Kasten mit einer Breite von 1~nm und einer Tiefe von 3~eV, wie er für Elektronen in Halbleitern typisch ist.
+\begin{itemize}\setlength{\itemsep}{0pt}
+    \item Die Zustände sind weiterhin quantisiert. Nur bestimmte diskrete Energiewerte können angenommen werden.
+    \item Es gibt nur eine endliche Anzahl von gebundenen Zuständen mit $E < U_0$. Die genaue Anzahl hängt von den Parametern des Topfes ab.
+    \item Die Wellenfunktionen sind ähnlich denen des Teilchens im Kasten. Die Anzahl der Bäuche entspricht der Quantenzahl $n$.
+    \item Der Hauptunterschied besteht darin, dass nun die Wellenfunktionen und damit auch die Wahrscheinlichkeitsdichte in den klassisch verbotenen Bereich hineinreichen. Das Teilchen wird an dieser niedrigen Wand reflektiert, dringt dabei aber teilweise in die Wand ein.
+\end{itemize}
+
+Wenn man die Wellenfunktionen im klassisch verboteten Bereich $x > L$ berechnet, findet man
+\begin{equation}
+\Psi(x) = \Psi_L \, e^{- (x-L)/ \eta} \quad \text{für} \quad x > L
+\end{equation}
+wobei $\Psi_L$ der Wert der Wellenfunktion am Ort $x=L$ ist, der über die Lösung im Bereich $0 \le x \le L$ gefunden werden muss. Die charakteristische  Abfall-Länge $\eta$ ist
+\begin{equation}
+    \eta = \frac{\hbar}{\sqrt{2m ( U_0 - E)}} \quad \text{für} \quad U_0 > E \quad .
+\end{equation}
+Nach dieser Länge $\eta$ ist die Wellenfunktion in der Wand auf $e^{-1} \approx 0.37$ abgefallen. Für makroskopische Teilchen ist die Eindringtiefe oder Abfall-Länge $\eta$ vernachlässigbar, nicht aber für Quantenobjekte. Diese sind etwas 'unscharf' und werden nicht direkt an der Wand reflektiert, sondern etwas später.
+
+Das Teilchen im Potentialtopf ist ein häufig verwendetes Modell. Es beschreibt z.B. sehr gut Neutronen und Protonen in Atomkernen oder Elektronen in gezielt strukturierten Halbleitern, wie sie in Halbleiterlasern verwendet werden.
+
+\section{Wellenfunktionen raten}
+
+Für viele Zwecke ist es ausreichend, die ungefähre Form der Wellenfunktion bei gegebenem Potential zu erraten. Dazu müssen die oben definierten Randbedingungen erfüllt sein. Zwei weitere Punkte kommen hinzu:
+\begin{description}
+    \item[de Broglie Wellenlänge] Die de Broglie Wellenlänge ist proprotional zu $1/p$, bzw. $1/\sqrt{E_{kin}}$. Über 'tiefen' Stellen des Potentials $U$ ist $E_{kin}$ größer und damit die Wellenlänge kürzer.
+    \item[Wahrscheinlichkeitsdichte] Nach dem Korrespondenzprinzip ist die Wahrscheinlichkeitsdichte an Stellen größer, an denen das Teilchen langsamer ist. An 'flachen' Stellen des Potentials ist $E_{kin}$ kleiner und damit die Amplitude der Wellenfunktion größer.
+\end{description}
+
+Man zeichnet also zunächst das Potential $U(x)$ und trägt den Energieeigenwert $E$ ein. Die Wellenfunktion oszilliert im klassisch erlaubten Bereich, d.h. wenn $E > U(x)$. Die Quantenzahl $n$ gibt die Anzahl der Bäuche der Oszillation an. Wellenlänge und Amplitude der Oszillation variieren mit $U(x)$, wie gerade beschrieben. Bei unendlich hohen Potentialwällen ist die Wellenfunktion gleich Null, ansonsten fällt sie exponentiell in den klassisch verbotenen Bereich ab. Die Abklinglänge ist umso größer, je kleiner der Abstand zwischen $E$ und der Ebene $U_0$ des Potentials ist.
+
+
+\section{Beispiel: Harmonischer Oszillator}
+
+Der harmonische Oszillator ist eines der zentralen Modelle der klassischen Physik. Es wirkt eine Rückstellkraft, die proportional zur Auslenkung $x$ ist. Diese wird durch ein parabelförmiges Potential beschrieben:
+\begin{equation}
+    U(x) = \frac{1}{2} k x^2 \quad .
+    \label{eq:4_harm_pot}
+\end{equation}
+Es handelt sich quasi um einen Potentialtopf mit gekrümmtem Boden.
+Ein klassisches Teilchen schwingt mit der Kreisfrequenz $\omega$
+\begin{equation}
+    \omega = \sqrt{\frac{k}{m}} \quad .
+\end{equation}
+
+In der Quantenmechanik lösen wir die Schrödingergleichung Gl. \ref{eq:4_SG_1d} mit dem harmonischen Potential \ref{eq:4_harm_pot}. Die Lösungen sind Hermitesche Funktionen, deren erste 3 lauten
+\begin{align}
+    \Psi_1(x) = & A_1 \, e^{-x^2 / 2 b^2} \\
+    \Psi_2(x) = & A_2 \, \frac{x}{b} \, e^{-x^2 / 2 b^2} \\
+    \Psi_3(x) = & A_3 \, \left(1- \frac{2x^2}{b^2} \right) \, e^{-x^2 / 2 b^2} 
+\end{align}
+mit der Abkürzung 
+\begin{equation}
+    b = \sqrt{\frac{\hbar}{m \omega}} \quad .
+\end{equation}
+Die Länge $b$ ist gerade die maximale Auslenkung eines klassischen Oszillators bei der Energie des Grundzustandes $n=1$. Die Konstanten $A_i$ sind so gewählt, dass die Wellenfunktionen $\Psi_i$ normiert sind. Auch diese Wellenfunktionen zeigen eine Oszillation und auch hier gibt die Quantenzahl $n$ die Anzahl der Bäuche an. Da die Wände des Potentialtopfs nicht unendlich hoch sind, ragen die Wellenfunktionen etwas über die klassischen Umkehrpunkte bei $U(x) = E_n$ hinaus.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir vib_state_wf}
+    \caption{Wellenfunktionen und Wahrscheinlichkeitsdichte im harmonischen Oscillator}
+\end{marginfigure}
+
+Die zugehörigen Eigenenergien $E_i$ sind
+\begin{equation}
+    E_n = \left( n - \frac{1}{2}\right) \, \hbar \omega \quad \text{mit} \quad n = 1, 2, 3, \dots \quad .
+\end{equation}
+Die Zustände im quantenmechanischen harmonischen Oszillator sind also äquidistant im Abstand $\hbar\omega$, im Gegensatz zum Kasten, in dem die Abstände quadratisch zunehmen. Auch hier gibt es wieder eine Nullpunktsenergie $E_1 = \hbar\omega/2$, die mit der Nullpunktbewegung des Oszillators verbunden ist. Ein quantenmechanisches Pendel steht also niemals still.
+
+Auch hier gilt das Korrespondenzprinzip. Für große Quantenzahlen geht die Bewegung des quantenmechanischen harmonischen Oszillators in die klassische Bewegung über. Die Skizze \ref{fig:4_harm_osz_korrepondenz} zeigt die Wahrscheinlichkeitsdichte für den Zustand $n=11$ im Vergleich zum klassischen Fall. Gut zu erkennen ist die erhöhte Aufenthaltswahrscheinlichkeit an den Umkehrpunkten der Bewegung, an denen die Geschwindigkeit gering ist.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir harm_osz_korrepondenz}
+    \caption{Klassische (dick) und quantenmechanische (dünn, $n=11$) Wahrscheinlichkeitsdichte des harmonischen Oszillators.}
+    \label{fig:4_harm_osz_korrepondenz}
+\end{marginfigure}
+
+Dieses Modell des quantenmechanischen harmonischen Oszillators beschreibt z.B. gut die Schwingung von Atomen, die in Molekülen oder Festkörpern gebunden sind.
+
+\section{Beispiel: Tunneln durch eine Barriere}
+
+Als letztes Beispiel betrachten wir eine Barriere wie in Abb.  \ref{fig:4_barrier} skizziert ist. Das Potential $U(x)$ ist überall Null, nur in einem kurzen Bereich nimmt es den Wert $U_0 > 0$ an. Die Übergänge dazwischen sind nicht so wichtig und werden hier als trapezförmig gezeichnet.
+
+Ein klassisches Teilchen mit der Energie $0 < E < U_0$ würde sich über weite Strecken mit konstanter Geschwindigkeit bewegen und dann den Potentialberg hinaufklettern, bis am Ort $x_0$ der Punkt $U(x_0) = E$ erreicht ist. Dann ist alle kinetische Energie in potentielle Energie umgewandelt, das Teilchen kommt zum Stillstand und rollt den Berg wieder hinunter, hat also seine Bewegungsrichtung geändert. Nur wenn ein Teilchen die Energie $E > U_0$ besitzt, kann es die Barriere überwinden.
+
+\begin{marginfigure}
+    \inputtikz{\currfiledir barrier}
+    \caption{Tunneln durch eine Barriere. Dargestellt ist der Realteil der Wellenfunktion $\Psi(x)$. Der grau unterlegte Bereich $U > E$ ist klassisch verboten.}
+    \label{fig:4_barrier}
+\end{marginfigure}
+
+
+Anders verhält es sich in der Quantenmechanik. Wir haben bereits gesehen, dass quantenmechanische Teilchen in den klassisch verbotenen Bereich eintreten können und ihre Wellenfunktion dort exponentiell abfällt. Dies geschieht nun auch an der Barriere für $E < U_0$. Wenn aber die Barriere so dünn ist, dass die Wellenfunktion auch am hinteren Ende noch nicht auf Null gefallen ist, dann tritt das Teilchen dort aus und bewegt sich normal weiter. Man sagt, dass das Teilchen durch die Barriere getunnelt ist. 
+
+Auf beiden Seiten\sidenote{diese Rechnung nimmt senkrechte Wände der Barriere an} der Barriere, in den klassisch zulässigen Bereichen, wird die Wellenfunktion des Teilchens durch Sinus- und Kosinusfunktionen beschrieben, wie wir es ganz am Anfang des Kapitels getan haben. Alternativ kann auch eine komplexwertige Wellenfunktion angenommen werden, z. B. links von der Barriere mit der Breite $w$ bei $0 < x < w$
+\begin{equation}
+    \Psi(x < 0) = \Psi_{+}\,  e^{i \beta x} \, + \, \Psi_{-} \,e^{-i \beta x}
+\end{equation}
+mit den komplexwertigen Konstanten $\Psi_\pm$  und $\beta = \sqrt{2 m E }/ \hbar$ wie oben. Da wir die Wellenfunktion $\Psi$ selbst nicht beobachten können, ist es auch kein Problem, wenn sie komplexwertig ist. Beobachtbar ist das Betragsquadrat $|\Psi|^2$, das auch hier existiert.
+
+Innerhalb der Barriere fällt die Wellenfunkion dann exponentiell ab
+\begin{equation}
+    \Psi(0 \le x \le w) = \Psi_{Kante} \, e^{- x / \eta}
+\end{equation}
+mit einer Abfall-Länge $\eta$ wie oben 
+\begin{equation}
+    \eta = \frac{\hbar}{\sqrt{2m ( U_0 - E)}} \quad \text{für} \quad U_0 > E \quad .
+\end{equation}
+
+Für die gesamte Wellenfunktion werden die drei Teile links, Barriere und rechts so zusammengesetzt, dass die Übergänge stetig sind.  Der Ansatz als Sinuswelle oder Exponentialfunktion ist nicht normierbar, was in diesem Fall toleriert werden muss. Alternativ könnte man mit einem Wellenpaket arbeiten, was aber komplizierter ist.
+
+Wie auch Abbildung \ref{fig:4_barrier} zeigt, ist die Amplitude der Wellenfunktion nach der Barriere kleiner als vorher. Dies kann man als Tunnel-Wahrscheinlichkeit beschreiben, d.h. die Wahrscheinlichkeit, dass ein Teilchen, das links auf die Barriere trifft, rechts wieder herauskommt (andernfalls wird es reflektiert, geht aber nie verloren). Diese Wahrscheinlichkeit beträgt
+\begin{equation}
+    P_{tunnel} = \frac{|\Psi(w)|^2} {|\Psi(0)|^2} = e^{-2 w / \eta} \quad .
+\end{equation}
+Diese Wahrscheinlichkeit $P_{tunnel}$ bzw. die Abklinglänge $\eta$ hängt stark von der Breite und Form der Barriere und der Differenz zwischen der Teilchenenergie $E$ und der Barrierenhöhe $U_0$ ab.
+
+Im \emph{Rastertunnelmikroskop} (engl. scanning tunneling microscope, STM) wird dieser Effekt ausgenutzt. Elektronen tunneln durch einen kleinen ($< 1$~nm) Vakuumspalt zwischen einer Metallspitze und der leitfähigen Probe. Die Stromstärke der tunnelnden Elektronen wird als Funktion der Spitzenposition gemessen und als Bild aufgetragen. Manchmal wird eine Pseudo-3D-Darstellung verwendet, bei der Bereiche mit höheren Strömen als Berge dargestellt werden.
+
+
+
+\begin{questions}
+    \item In dieser Simulation\phet{Quantum_Tunneling_and_Wave_Packets} können Sie das alles ausprobieren. 
+\end{questions}
+
+\subsection{Korrespondenz zur Optik}
+
+Photonen sind Quantenteilchen, die der Quantenmechanik unterliegen. Gleichzeitig wird Licht aber auch durch die Elektrodynamik und die Optik gut beschrieben. Viele Experimente mit Quantenteilchen lassen sich mit Photonen durchführen. Die Ergebnisse müssen aufgrund des Korrespondenzprinzips mit denen der Optik übereinstimmen.
+
+Die Reflexion an einer Barriere eines Quantenteilchens entspricht in der Optik der Totalreflexion am Übergang von einem dichten zu einem dünnen Medium. Auch hier dringt das Lichtfeld etwas in das dünne Medium ein (ein Bruchteil der Wellenlänge), wird aber dennoch vollständig reflektiert.
+
+Man kann jedoch ein zweites, ebenfalls optisch dichtes Medium nahe an das erste heranbringen und nur einen dünnen Bereich des dünnen Mediums stehen lassen. Durch diesen Spalt kann das Photon tunneln. Klassisch wird dies als frustrierte Totalreflexion bezeichnet, die genau denselben Gesetzen folgt. Dieser Effekt wird manchmal in optischen Strahlteilern ausgenutzt.
+
+
+
+
+%\section{Anhang: numerische Rechnung}
+
+\section{Zusammenfassung}
+
+\textit{Schreiben Sie hier ihre persönliche Zusammenfassung des Kapitels auf. Konzentrieren Sie sich auf die wichtigsten Aspekte.}
+
+\vspace*{10cm}
+
+
+
+%--------------------
+\printbibliography[segment=\therefsegment,heading=subbibliography]
