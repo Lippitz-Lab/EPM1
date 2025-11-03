@@ -1,4 +1,4 @@
-\renewcommand{\lastmod}{12. September 2025}
+\renewcommand{\lastmod}{3. November 2025}
 \renewcommand{\chapterauthors}{Markus Lippitz}
 
 \chapter{Quantenmechanik}
@@ -450,7 +450,7 @@ Für ein Teilchen der Masse $m$, das sich nur in der Raumrichtung $x$ bewegt und
 \end{equation}
 Dabei nennt man $\hat{H}$ den Hamiltonoperator. Ein Operator ist eine Rechenvorschrift, die auf eine Funktion (hier $\Psi$) wirkt und wieder eine Funktion liefert. Im obigen Fall ist der Hamilton-Operator also
 \begin{equation}
-    \hat{H} = - \frac{\hbar}{2m} \frac{d^2}{dx^2} + U(x) \quad .
+    \hat{H} = - \frac{\hbar^2}{2m} \frac{d^2}{dx^2} + U(x) \quad .
 \end{equation}
 Es gibt die zweite Ableitung nach dem Ort, aber es fehlt noch, was abgeleitet werden soll; deshalb Operator und nicht einfach Konstante oder Funktion. 
 Eine Gleichung der Form Gl.~\ref{eq:3_SG_op_1d} heißt Eigenwertgleichung und $E$ heißt \emph{Eigenwert}, weil der Operator wieder die gleiche Funktion $\Psi(x)$ ergibt, nur multipliziert mit einem skalaren Wert $E$.
@@ -474,7 +474,7 @@ Durch die zweimalige Ableitung nach dem Ort wird aus dem Sinus wieder ein Sinus 
 \end{equation}
 Eingesetzt in Gl.~\ref{eq:3_SG_1d} ergibt dies
 \begin{equation}
-     \frac{\hbar}{2m}  \left(\frac{2 \pi}{\lambda} \right)^2 \,  \Psi(x) + \left[ U(x) - E \right] \Psi(x) \overset{?}{=} 0 \quad .
+     \frac{\hbar^2}{2m}  \left(\frac{2 \pi}{\lambda} \right)^2 \,  \Psi(x) + \left[ U(x) - E \right] \Psi(x) \overset{?}{=} 0 \quad .
      \label{eq:3_Sg_plausi}
 \end{equation}
 Unser Teilchen ist hier ein freies Teilchen. Es wirken keine äußeren Kräfte. Das Potential ist $U(x) = 0$. Die Energie $E$ steckt vollständig in der kinetischen Energie $K$ , also 
@@ -494,7 +494,7 @@ Das ist genau der Term in der Klammer der Schrödingergleichung Gl.~\ref{eq:3_SG
 
 \begin{marginfigure}
     \inputtikz{\currfiledir potential_slope_WF}
-    \caption{Wenn das Potentail $U(c)$ röumlich variiert, dann ändert sich die Wellenlänge der Wellenfunktion.}
+    \caption{Wenn das Potential $U(c)$ räumlich variiert, dann ändert sich die Wellenlänge der Wellenfunktion.}
     \label{fig:3_potential_slope_WF}
 \end{marginfigure}
 
@@ -705,15 +705,17 @@ Die Impulsunschärfe kann also nicht Null sein. Ein Teilchen, das sich nur in ei
 
 
 \section{Korrespondenzprinzip}
+% XXX im nächsten Durchgang hier weglassen und erst beim Harm. Oszillator diskutieren, dann braucht es das Ball-Beispiel nicht!
+
 Der Welle-Teilchen-Dualismus ist uns an verschiedenen Stellen begegnet. Objekte auf der atomaren Skala können nicht mehr nur als Welle oder nur als Teilchen beschrieben werden, sondern sind beides oder nichts von beidem. Unsere Bilder sind zu schwach, um diese Objekte zu beschreiben. Es hat sich jedoch gezeigt, dass man den Übergang von der mikroskopischen zur makroskopischen Welt nutzen kann, um die Konsistenz der mikroskopischen Beschreibung zu überprüfen. 
 
 Die Idee ist, dass ein mikroskopisches Modell für große Quantenzahlen in ein klassisches makroskopisches Modell übergehen muss. Dies ist das \emph{Korrespondenzprinzip} von Niels Bohr. Versuchen wir es für das Teilchen im Kasten. Die betrachtete Größe ist die Wahrscheinlichkeitsdichte $P(x)$ (Gl.~\ref{eq:3_WK_kasten}). Wir stellen uns einen großen makroskopischen Kasten vor, in dem sich ein Teilchen mit der Geschwindigkeit $v(x)$ periodisch hin und her bewegt, weil es am Ende reflektiert wird. Die Periodendauer ist $T$ und die Länge des Kastens wiederum $L$. Die Wahrscheinlichkeit, das Teilchen am Ort $x$ in einem Streifen der Breite $\delta x$ zu finden, hängt von der Zeit $\delta t$ ab, die das Teilchen benötigt, um die Strecke $\delta x = v(x) \delta t$ zu durchlaufen. Wenn wir berücksichtigen, dass das Teilchen den Ort $x$ zweimal pro Umlauf passiert, dann ist die Wahrscheinlichkeit
 \begin{equation}
-    WK(x, \delta x) = \frac{\delta t}{2 T } = \frac{\delta x}{2T v(x)}
+    WK(x, \delta x) = \frac{2 \delta t}{T } = \frac{2 \delta x}{T v(x)}
 \end{equation} 
 und die Wahrscheinlichkeitsdichte
 \begin{equation}
-    P(x) = \frac{WK(x, \delta x)}{\delta x} = \frac{1}{2 T v(x)} \quad .
+    P(x) = \frac{WK(x, \delta x)}{\delta x} = \frac{2}{T v(x)} \quad .
 \end{equation}
 Dies gilt für jede Form der Bewegung, also für jedes Geschwindigkeitsprofil $v(x)$.
 
@@ -725,6 +727,7 @@ Im klassischen Fall ist die Wahrscheinlichkeitsdichte über die Position im Kast
 
 
 \section{Beispiel: Potentialtopf}
+
 
 Nun machen wir unser Teilchen-im-Kasten-Modell etwas realistischer. Das Potential $U(x)$ soll außerhalb des Kastens nicht mehr unendlich groß sein, sondern einen endlichen Wert $U_0$ annehmen, also
 \begin{equation}
@@ -830,7 +833,7 @@ Ein klassisches Teilchen mit der Energie $0 < E < U_0$ würde sich über weite S
 
 \begin{marginfigure}
     \inputtikz{\currfiledir barrier}
-    \caption{Tunneln durch eine Barriere. Dargestellt ist der Realteil der Wellenfunktion $\Psi(x)$. Der grau unterlegte Bereich $U > E$ ist klassisch verboten.}
+    \caption{Tunneln durch eine Barriere. Dargestellt ist der Realteil (dünn) und der Betrag (dick) der Wellenfunktion $\Psi(x)$. Der grau unterlegte Bereich $U > E$ ist klassisch verboten.}
     \label{fig:3_barrier}
 \end{marginfigure}
 
