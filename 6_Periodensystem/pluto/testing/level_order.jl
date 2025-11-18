@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.3
+# v0.20.20
 
 using Markdown
 using InteractiveUtils
@@ -19,108 +19,93 @@ using PGFPlotsX
 # ╔═╡ 0f1e2428-5a65-4351-9aea-83009a13c4b6
 using Unitful
 
-# ╔═╡ a10b5d27-c82e-43e7-9970-b70ac26591df
-begin
-# XPS data from https://userweb.jlab.org/~gwyn/ebindene.html
-	xps_raw =
-	"1 H     13.6 
-	 2 He    24.6*
-	 3 Li    54.7*
-	 4 Be    111.5*
-	 5 B     188*
-	 6 C     284.2*
-	 7 N     409.9*   37.3*
-	 8 0     543.1*   41.6*
-	 9 F     696.7*
-	10 Ne    870.2*   48.5*    21.7*    21.6*
-	11 Na    1070.8+  63.5+    30.65    30.81
-	12 Mg    1303.0+  88.7     49.78    49.50
-	13 Al    1559.6   117.8*   72.95    72.55
-	14 Si    1839     149.7*  99.82    99.42"
-	xps = replace(xps_raw, '*' => "", '+' => "", '\t' => "")
-	xps_data = CSV.read(IOBuffer(xps), DataFrame; header = [:Z, :ch, :a, :b, :c, :d], delim = ' ', ignorerepeated=true)
-end
-
-# ╔═╡ 267e83da-bdf2-4abd-ac29-086570e53d00
-begin
-	# reconstuct electron levels
-	
-	Eion = [e.ionenergy[1] |> ustrip for e in chem_elements[1:14]]
-	s1 = xps_data.a
-	
-	s2 = xps_data.b;
-	s2[ [5, 6, 9] ] .= [15, 25, 45] # guessed
-	s2[ [3, 4] ] .= Eion[ [3,4] ]
-
-	p2 = xps_data.c
-	p2[ (5:9) ] .= Eion[ (5:9) ]
-
-	s3 = missings(Float64, 14)
-	s3[ (13:14) ] .= [11, 17]  # guessed
-	s3[ (11:12) ] .=  Eion[ [11, 12] ]
-	
-	p3 = missings(Float64, 14)
-	p3[ (13:14) ] .=  Eion[ [13, 14] ]
-
-
-	
-end
-
-# ╔═╡ 5be89f6e-9162-4742-a349-2ed7ba7e3905
--13.6 ./ ([2,3,4]).^2
-
-# ╔═╡ 2ee01c71-a255-4930-b976-4de4f161f347
-begin
-		marker = [:He, :Ne, :Ar, :Kr, :Xe, :Hg]
-		marker_e = [e.ionenergy[1] for e in chem_elements[marker]]
-		marker_Z = [e.protons for e in chem_elements[marker]]
-	
-		scatter(s1 )
-		scatter!(s2 )
-		scatter!(p2)
-		scatter!(s3, yscale=:log10)
-		scatter!(p3, yscale=:log10)
-	scatter!( [1,1,1], 13.6 ./ ([1,2,3]).^2)
-		#scatter!(Eion;  yscale=:log10)
-		#scatter!(guess_x, guess_y; yscale=:log10)
-		#scatter!(marker_Z, marker_e)
-end
-
-# ╔═╡ 312ba9c8-3709-43bd-b071-ff1d98617f58
-[e.el_config for e in chem_elements[ 1:14]]
-
-# ╔═╡ 7c16d007-8227-480b-add0-fec786f5767d
-chem_elements[2].symbol
-
-
 # ╔═╡ 74057057-c549-479d-a7f6-3c2c2ff4adba
 names =  join( [String(e.symbol) for e in chem_elements[ 1:14]], ",")
+
+# ╔═╡ 08f8f037-79c6-4d42-b760-ba7e73554009
+[chem_elements[x].symbol for x in (19:31)]
+
+# ╔═╡ 93439f8a-6072-4085-8bb8-31f71550e513
+[chem_elements[x].el_config for x in (19:31)]
+
+# ╔═╡ 316b1c28-80c8-4663-93ac-839a7528a192
+[chem_elements[x].ionenergy[1] for x in (18:30)]
 
 # ╔═╡ d8f913ce-4997-4a7a-8311-55fec594bb32
 function n_elec(Z)
 	
 	s = replace(chem_elements[Z].el_config, 
-		'¹' => 1, '²' => 2, '³' =>3 , '⁴' => 4, '⁵' => 5, '⁶' => 6)
-	
-	nelec =  [parse(Int64, c) for c in s[ (3:4:end) ] ]
-	
-	ss = s[ (2:4:end) ]
-	ps = replace( ss, "s" =>"1" , "p" =>"2", "d" =>"3")
-	
-	p =  [parse(Int64, c) for c in ps ]
-	n =  [parse(Int64, c) for c in s[ (1:4:end) ] ]
+		'¹' => 1, '²' => 2, '³' =>3 , '⁴' => 4, '⁵' => 5, '⁶' => 6, '⁷' => 7, '⁸' => 8, '⁹' => 9,   '⁰' => 0)
 
-	N= Int64.(zeros(4,3))
-	for id =1 :length(nelec)
-		N[ n[id], p[id]] = nelec[id]
+	levels = split(s, " ")
+
+	N= (zeros(7,5))
+	for lev in levels
+		n = parse(Int64, lev[1])
+
+		if (lev[2] == 's')  p = 1; end
+		if (lev[2] == 'p')  p = 2; end
+		if (lev[2] == 'd')  p = 3; end
+		if (lev[2] == 'f')  p = 4; end
+	
+		nelec = parse(Int64, lev[3:end])
+	
+		N[ n, p] = nelec ./ (2* (2 * (p-1) +1));
 	end
 	
 	return N
 end;
 
 
+# ╔═╡ b534ff63-e788-4269-a519-fa4407890323
+n_elec(11)
+
 # ╔═╡ fb9bf422-73bf-437e-9b84-c4939f37d48d
-n_elec(14)
+mymap(ci) = (ci[1] -1) * 5 + ci[2] -1 
+
+# ╔═╡ ddba25cd-bc9f-4813-88b8-a3079f0eafd0
+neues_elec(Z) = findfirst(x -> x>0, n_elec(Z) .- n_elec(Z-1))
+
+# ╔═╡ c34d6a64-da3a-4b38-8570-3cc465f9617e
+begin
+	NM = 100;
+	N = (zeros(35,NM))
+	for id = 1:NM
+		N[:,id] = reshape(transpose(n_elec(id)),:,1)
+	end
+	heatmap(N)
+end
+
+
+# ╔═╡ e4f2eef2-a37d-4e7a-a195-9d4a5a48b0a9
+heatmap( 0 .< N .< 1)
+
+# ╔═╡ 1ca051bc-3a75-4d15-97cf-e049ce8df38a
+n_elec(15)
+
+# ╔═╡ 1d7ecfaf-1469-442e-842d-53af071f0557
+chem_elements[3:4].ionenergy[1] |> ustrip
+
+# ╔═╡ 725df8fe-4f54-493c-9433-6daf78edefce
+nmax = 30
+
+# ╔═╡ 09f622df-49fe-4300-9fc7-1aaa4941dfbe
+ion = [e.ionenergy[1] |> ustrip for e in chem_elements[ 2:nmax ]]
+
+# ╔═╡ 88cd108c-e5fb-4c4c-9333-b03aabebce0b
+laststate = @. mymap(neues_elec(2:nmax))
+
+# ╔═╡ 6451ea05-33d3-42af-95de-6f2f20bff830
+scatter(laststate, -ion)
+
+# ╔═╡ c6cf9eb4-b639-4161-936e-02e51c148762
+scatter(-ion)
+
+# ╔═╡ 20041d47-cf82-4672-ae3c-8d91b9de2812
+scatter(laststate)
+
+# ╔═╡ 794df75e-04d0-4f6c-89b8-0a2936716100
+scatter(@. mymap(neues_elec(2:107)))
 
 # ╔═╡ 9520a2bb-648f-4dfd-8aa5-383ed9554a24
 function sw(L)
@@ -244,7 +229,7 @@ let
 	
 
 	
-	pgfsave("../PSE_states.tikz.tex",myaxis; include_preamble= false)
+	#pgfsave("../PSE_states.tikz.tex",myaxis; include_preamble= false)
 	myaxis
 
 end
@@ -272,9 +257,9 @@ Unitful = "~1.21.0"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.11.1"
+julia_version = "1.12.1"
 manifest_format = "2.0"
-project_hash = "360311210c68a8ceab78fa452a0e93ee62abf7c1"
+project_hash = "ff339af47a53fa1403ebcfbaf0b16a20055f52cb"
 
 [[deps.ArgCheck]]
 git-tree-sha1 = "a3a402a35a2f7e0b87828ccabbd5ebfbebe356b4"
@@ -365,7 +350,7 @@ weakdeps = ["Dates", "LinearAlgebra"]
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
-version = "1.1.1+0"
+version = "1.3.0+1"
 
 [[deps.ConcurrentUtilities]]
 deps = ["Serialization", "Sockets"]
@@ -628,6 +613,11 @@ git-tree-sha1 = "25ee0be4d43d0269027024d75a24c24d6c6e590c"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
 version = "3.0.4+0"
 
+[[deps.JuliaSyntaxHighlighting]]
+deps = ["StyledStrings"]
+uuid = "ac6e5ff7-fb65-4e79-a425-ec3bc9c03011"
+version = "1.12.0"
+
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "170b660facf5df5de098d866564877e119141cbd"
@@ -679,24 +669,24 @@ uuid = "b27032c2-a3e7-50c8-80cd-2d36dbcbfd21"
 version = "0.6.4"
 
 [[deps.LibCURL_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "MbedTLS_jll", "Zlib_jll", "nghttp2_jll"]
+deps = ["Artifacts", "LibSSH2_jll", "Libdl", "OpenSSL_jll", "Zlib_jll", "nghttp2_jll"]
 uuid = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
-version = "8.6.0+0"
+version = "8.11.1+1"
 
 [[deps.LibGit2]]
-deps = ["Base64", "LibGit2_jll", "NetworkOptions", "Printf", "SHA"]
+deps = ["LibGit2_jll", "NetworkOptions", "Printf", "SHA"]
 uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
 version = "1.11.0"
 
 [[deps.LibGit2_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "MbedTLS_jll"]
+deps = ["Artifacts", "LibSSH2_jll", "Libdl", "OpenSSL_jll"]
 uuid = "e37daf67-58a4-590a-8e99-b0245dd2ffc5"
-version = "1.7.2+0"
+version = "1.9.0+0"
 
 [[deps.LibSSH2_jll]]
-deps = ["Artifacts", "Libdl", "MbedTLS_jll"]
+deps = ["Artifacts", "Libdl", "OpenSSL_jll"]
 uuid = "29816b5a-b9ab-546f-933c-edad1886dfa8"
-version = "1.11.0+1"
+version = "1.11.3+1"
 
 [[deps.Libdl]]
 uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
@@ -753,7 +743,7 @@ version = "2.40.1+0"
 [[deps.LinearAlgebra]]
 deps = ["Libdl", "OpenBLAS_jll", "libblastrampoline_jll"]
 uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-version = "1.11.0"
+version = "1.12.0"
 
 [[deps.LogExpFunctions]]
 deps = ["DocStringExtensions", "IrrationalConstants", "LinearAlgebra"]
@@ -788,7 +778,7 @@ uuid = "1914dd2f-81c6-5fcd-8719-6d5c9610ff09"
 version = "0.5.13"
 
 [[deps.Markdown]]
-deps = ["Base64"]
+deps = ["Base64", "JuliaSyntaxHighlighting", "StyledStrings"]
 uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
 version = "1.11.0"
 
@@ -799,9 +789,10 @@ uuid = "739be429-bea8-5141-9913-cc70e7f3736d"
 version = "1.1.9"
 
 [[deps.MbedTLS_jll]]
-deps = ["Artifacts", "Libdl"]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
+git-tree-sha1 = "0eef589dd1c26a3ac9d753fe1a8bcad63f956fa6"
 uuid = "c8ffd9c3-330d-5841-b78e-0817d7145fa1"
-version = "2.28.6+0"
+version = "2.16.8+1"
 
 [[deps.Measures]]
 git-tree-sha1 = "c13304c81eec1ed3af7fc20e75fb6b26092a1102"
@@ -826,7 +817,7 @@ version = "1.11.0"
 
 [[deps.MozillaCACerts_jll]]
 uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
-version = "2023.12.12"
+version = "2025.5.20"
 
 [[deps.NaNMath]]
 deps = ["OpenLibm_jll"]
@@ -836,7 +827,7 @@ version = "1.0.2"
 
 [[deps.NetworkOptions]]
 uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
-version = "1.2.0"
+version = "1.3.0"
 
 [[deps.Ogg_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -847,12 +838,12 @@ version = "1.3.5+1"
 [[deps.OpenBLAS_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
 uuid = "4536629a-c528-5b80-bd46-f80d51c5b363"
-version = "0.3.27+1"
+version = "0.3.29+0"
 
 [[deps.OpenLibm_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "05823500-19ac-5b8b-9628-191a04bc5112"
-version = "0.8.1+2"
+version = "0.8.7+0"
 
 [[deps.OpenSSL]]
 deps = ["BitFlags", "Dates", "MozillaCACerts_jll", "OpenSSL_jll", "Sockets"]
@@ -861,10 +852,9 @@ uuid = "4d8831e6-92b7-49fb-bdf8-b643e874388c"
 version = "1.4.3"
 
 [[deps.OpenSSL_jll]]
-deps = ["Artifacts", "JLLWrappers", "Libdl"]
-git-tree-sha1 = "7493f61f55a6cce7325f197443aa80d32554ba10"
+deps = ["Artifacts", "Libdl"]
 uuid = "458c3c95-2e84-50aa-8efc-19380b2a3a95"
-version = "3.0.15+1"
+version = "3.5.1+0"
 
 [[deps.Opus_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
@@ -880,7 +870,7 @@ version = "1.6.3"
 [[deps.PCRE2_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "efcefdf7-47ab-520b-bdef-62a2eaa19f15"
-version = "10.42.0+1"
+version = "10.44.0+1"
 
 [[deps.PGFPlotsX]]
 deps = ["ArgCheck", "DataStructures", "Dates", "DefaultApplication", "DocStringExtensions", "MacroTools", "Parameters", "Requires", "Tables"]
@@ -920,7 +910,7 @@ version = "0.43.4+0"
 [[deps.Pkg]]
 deps = ["Artifacts", "Dates", "Downloads", "FileWatching", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "Random", "SHA", "TOML", "Tar", "UUIDs", "p7zip_jll"]
 uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
-version = "1.11.0"
+version = "1.12.0"
 weakdeps = ["REPL"]
 
     [deps.Pkg.extensions]
@@ -1012,7 +1002,7 @@ uuid = "e99dba38-086e-5de3-a5b1-6e4c66e897c3"
 version = "6.7.1+1"
 
 [[deps.REPL]]
-deps = ["InteractiveUtils", "Markdown", "Sockets", "StyledStrings", "Unicode"]
+deps = ["InteractiveUtils", "JuliaSyntaxHighlighting", "Markdown", "Sockets", "StyledStrings", "Unicode"]
 uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 version = "1.11.0"
 
@@ -1094,7 +1084,7 @@ version = "1.2.1"
 [[deps.SparseArrays]]
 deps = ["Libdl", "LinearAlgebra", "Random", "Serialization", "SuiteSparse_jll"]
 uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
-version = "1.11.0"
+version = "1.12.0"
 
 [[deps.StableRNGs]]
 deps = ["Random"]
@@ -1137,7 +1127,7 @@ version = "1.11.0"
 [[deps.SuiteSparse_jll]]
 deps = ["Artifacts", "Libdl", "libblastrampoline_jll"]
 uuid = "bea87d4a-7f5b-5778-9afe-8cc45184846c"
-version = "7.7.0+0"
+version = "7.8.3+2"
 
 [[deps.TOML]]
 deps = ["Dates"]
@@ -1427,7 +1417,7 @@ version = "1.5.0+0"
 [[deps.Zlib_jll]]
 deps = ["Libdl"]
 uuid = "83775a58-1f1d-513f-b197-d71354ab007a"
-version = "1.2.13+1"
+version = "1.3.1+2"
 
 [[deps.Zstd_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
@@ -1468,7 +1458,7 @@ version = "0.15.2+0"
 [[deps.libblastrampoline_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
-version = "5.11.0+0"
+version = "5.15.0+0"
 
 [[deps.libdecor_jll]]
 deps = ["Artifacts", "Dbus_jll", "JLLWrappers", "Libdl", "Libglvnd_jll", "Pango_jll", "Wayland_jll", "xkbcommon_jll"]
@@ -1515,12 +1505,12 @@ version = "1.1.6+0"
 [[deps.nghttp2_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
-version = "1.59.0+0"
+version = "1.64.0+1"
 
 [[deps.p7zip_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
-version = "17.4.0+2"
+version = "17.5.0+2"
 
 [[deps.x264_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
@@ -1545,15 +1535,25 @@ version = "1.4.1+1"
 # ╠═82ee9946-9ded-11ef-148f-8fc8618fada3
 # ╠═64eb4e84-75cb-4696-aa04-7e006d49790f
 # ╠═c7f07bee-1da0-460d-b953-a7791592cbf3
-# ╠═a10b5d27-c82e-43e7-9970-b70ac26591df
-# ╠═267e83da-bdf2-4abd-ac29-086570e53d00
-# ╠═5be89f6e-9162-4742-a349-2ed7ba7e3905
-# ╠═2ee01c71-a255-4930-b976-4de4f161f347
-# ╠═312ba9c8-3709-43bd-b071-ff1d98617f58
-# ╠═7c16d007-8227-480b-add0-fec786f5767d
 # ╠═74057057-c549-479d-a7f6-3c2c2ff4adba
+# ╠═08f8f037-79c6-4d42-b760-ba7e73554009
+# ╠═93439f8a-6072-4085-8bb8-31f71550e513
+# ╠═316b1c28-80c8-4663-93ac-839a7528a192
 # ╠═d8f913ce-4997-4a7a-8311-55fec594bb32
+# ╠═b534ff63-e788-4269-a519-fa4407890323
 # ╠═fb9bf422-73bf-437e-9b84-c4939f37d48d
+# ╠═ddba25cd-bc9f-4813-88b8-a3079f0eafd0
+# ╠═c34d6a64-da3a-4b38-8570-3cc465f9617e
+# ╠═e4f2eef2-a37d-4e7a-a195-9d4a5a48b0a9
+# ╠═1ca051bc-3a75-4d15-97cf-e049ce8df38a
+# ╠═1d7ecfaf-1469-442e-842d-53af071f0557
+# ╠═725df8fe-4f54-493c-9433-6daf78edefce
+# ╠═09f622df-49fe-4300-9fc7-1aaa4941dfbe
+# ╠═88cd108c-e5fb-4c4c-9333-b03aabebce0b
+# ╠═6451ea05-33d3-42af-95de-6f2f20bff830
+# ╠═c6cf9eb4-b639-4161-936e-02e51c148762
+# ╠═20041d47-cf82-4672-ae3c-8d91b9de2812
+# ╠═794df75e-04d0-4f6c-89b8-0a2936716100
 # ╠═81e6532d-8341-4d9a-a917-92edc607de56
 # ╠═9520a2bb-648f-4dfd-8aa5-383ed9554a24
 # ╠═ecc0d4c6-b3af-46a3-822f-bed3430a2106
